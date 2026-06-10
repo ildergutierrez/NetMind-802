@@ -1,0 +1,270 @@
+# ==============================================================================
+# GLOSARIO Y TÉRMINOS TELEMÁTICOS DE REDES (IEEE 802)
+# ==============================================================================
+IEEE 802.3 Ethernet FastEthernet GigabitEthernet TenGigabitEthernet Copper Fiber
+IEEE 802.11 Wi-Fi WLAN SSID BSSID ESSID Access Point WLC Controller Antenna 2.4GHz 5GHz 6GHz Channel Bandwidth RSSI SNR attenuation interference Roaming DFS
+IEEE 802.1Q VLAN Tagging Trunking Native VLAN encapsulation dot1q ISL Access Port Subinterface Inter-VLAN Routing Router-on-a-Stick
+IEEE 802.1D Spanning Tree Protocol STP Root Bridge Priority Bridge ID Path Cost Forward Delay Max Age Hello Time Designated Port Root Port Blocked Port TCN
+IEEE 802.1w Rapid Spanning Tree Protocol RSTP Alternate Port Backup Port Edge Port
+IEEE 802.1s Multiple Spanning Tree Protocol MSTP Instances
+IEEE 802.1X Network Access Control Port-Based Authentication supplicant authenticator Authentication Server RADIUS TACACS+ EAP EAP-PEAP EAP-TLS MAB
+WPA2 WPA3 Personal Enterprise AES TKIP CCMP GCMP SAE 4-Way Handshake PMK PSK Rogue AP Evil Twin Deauthentication packet
+DHCP snooping Binding Database Trusted interface Untrusted interface Option 82 Rogue DHCP
+Dynamic ARP Inspection DAI ARP Spoofing Poisoning Trusted Port rate-limit
+IP Source Guard IPSG IP-MAC binding
+Port-Security mac-address sticky violation shutdown protect restrict aging time secure
+Duplex mismatch half-duplex full-duplex autonegotiation packet loss latency jitter ping traceroute icmp echo request reply
+MTU fragmentation frame packet segment bit TCP UDP IP IPv4 IPv6 Subnet Mask Gateway DNS DHCP ARP MAC OUI Broadcast Multicast Unicast
+
+# ==============================================================================
+# COMANDOS WINDOWS (CMD & POWERSHELL)
+# ==============================================================================
+ipconfig /all
+ipconfig /release
+ipconfig /renew
+ipconfig /displaydns
+ipconfig /flushdns
+arp -a
+arp -d
+route print
+route add 0.0.0.0 mask 0.0.0.0 192.168.1.1
+netstat -ano
+netstat -r
+netsh interface show interface
+netsh interface ip show config
+netsh interface ip set address name="Ethernet" static 192.168.1.10 255.255.255.0 192.168.1.1
+netsh interface ip set dns name="Ethernet" static 8.8.8.8
+netsh wlan show profiles
+netsh wlan show profile name="SSID_NAME" key=clear
+netsh wlan show interfaces
+netsh wlan show drivers
+netsh wlan export profile folder=. key=clear
+test-connection -computername 8.8.8.8 -count 4
+Test-NetConnection -ComputerName 192.168.1.1 -Port 80
+Get-NetIPAddress -InterfaceAlias "Wi-Fi"
+Get-NetIPConfiguration
+Get-NetAdapter | Format-Table Name, Status, LinkSpeed
+Get-Service -Name dot3svc | Start-Service
+Start-Service -Name dot3svc
+Set-Service -Name dot3svc -StartupType Automatic
+Get-NetFirewallProfile -Profile Domain, Public, Private
+
+# ==============================================================================
+# COMANDOS LINUX (BASH)
+# ==============================================================================
+ip addr show
+ip link show
+ip route show
+ip neighbor show
+iwconfig
+iw list
+nmcli device status
+nmcli connection show
+nmcli device wifi list
+nmcli device wifi connect "SSID_NAME" password "PASSWORD"
+wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_cli status
+ss -tulpn
+netstat -tulpn
+iptables -L -n -v
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+ufw status
+ufw allow 22/tcp
+tcpdump -i eth0 -n -c 100
+tcpdump -i wlan0 -vvv -w capture.pcap
+arp-scan --interface=eth0 --localnet
+ping -c 4 8.8.8.8
+traceroute 8.8.8.8
+nslookup google.com
+dig google.com
+dhclient -r
+dhclient eth0
+
+# ==============================================================================
+# COMANDOS CISCO IOS
+# ==============================================================================
+show running-config
+show ip interface brief
+show interfaces status
+show mac address-table
+show mac address-table dynamic
+show vlan brief
+show interfaces trunk
+show spanning-tree
+show spanning-tree vlan 10
+show spanning-tree summary
+show dot1x all summary
+show dot1x interface gigabitEthernet 1/0/1
+show access-lists
+show ip dhcp snooping
+show ip dhcp snooping binding
+show ip arp inspection
+configure terminal
+interface GigabitEthernet1/0/1
+ switchport mode access
+ switchport access vlan 10
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation shutdown
+ ip dhcp snooping limit rate 20
+ ip arp inspection limit rate 20
+ ip verify source
+spanning-tree mode rapid-pvst
+spanning-tree vlan 10 priority 4096
+dot1x system-auth-control
+aaa new-model
+radius-server host 192.168.1.100 key cisco123
+
+# ==============================================================================
+# EJEMPLOS DE DIAGNÓSTICOS EN LENGUAJE NATURAL (ESPAÑOL)
+# ==============================================================================
+El puerto GigabitEthernet1/0/5 se encuentra en estado err-disable por violación de port-security.
+Se detecta una mac-address dinámica no autorizada en el puerto del switch.
+Un bucle o loop en capa 2 está inundando la red con tramas broadcast. STP está desactivado.
+La interfaz Ethernet muestra autonegociación fallida (duplex mismatch), causando alta latencia y descarte de paquetes.
+El suplicante 802.1X de Windows no se autentica con el servidor RADIUS. Código de error de certificado no válido.
+El Access Point reporta alta interferencia en el canal 6 de la banda de 2.4GHz. Se sugiere cambiar a un canal libre o a la banda de 5GHz.
+El cliente inalámbrico experimenta desconexiones frecuentes durante el roaming entre puntos de acceso.
+Falta de configuración de VLAN de voz (Voice VLAN) en la interfaz del teléfono IP.
+El switch de distribución no tiene configurado DHCP Snooping, permitiendo un Rogue DHCP Server en la red.
+Ataque de suplantación de identidad ARP (ARP spoofing) detectado. Se sugiere habilitar Dynamic ARP Inspection (DAI).
+La negociación de velocidad falló en el enlace troncal (trunk) IEEE 802.3ab.
+El enlace troncal no permite el paso de las VLANs de gestión. Verifique la lista de VLANs permitidas.
+VLAN nativa sin coincidir (Native VLAN mismatch) en el enlace troncal. Se generan alertas STP.
+El servicio dot3svc (Configuración automática de redes cableadas) en Windows Server está deshabilitado.
+Asegurar el puerto físico habilitando port-security y limitando el máximo de direcciones MAC a 1.
+Configurar el switch como Root Bridge primario del árbol de expansión Spanning Tree.
+Bloquear el puerto de red no autorizado utilizando comandos administrativos.
+El comando Get-NetAdapter de PowerShell reporta que la interfaz de red está desconectada.
+La interfaz de red de Linux eth0 no recibe IP por DHCP. Ejecute dhclient eth0.
+El archivo wpa_supplicant.conf de Linux tiene credenciales incorrectas para la red WPA3-Enterprise.
+
+El router no propaga rutas OSPF al área backbone
+DIAGNÓSTICO: Fallo en la adyacencia OSPF entre routers. Las rutas no se propagan porque los vecinos OSPF no alcanzan el estado FULL, posiblemente por incompatibilidad de parámetros o falta de conectividad en el área backbone (área 0).
+
+CAUSAS PROBABLES:
+1. Temporizadores Hello/Dead distintos entre routers vecinos
+2. Tipos de área incompatibles (stub vs normal)
+3. MTU diferente en interfaces conectadas
+4. Autenticación OSPF mal configurada o ausente en un lado
+5. Interfaz no declarada bajo el proceso OSPF correcto
+
+SOLUCIÓN - Cisco IOS:
+router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0
+
+interface GigabitEthernet0/0
+ ip ospf hello-interval 10
+ ip ospf dead-interval 40
+ ip mtu 1500
+
+VERIFICACIÓN:
+show ip ospf neighbor
+show ip ospf interface
+show ip route ospf
+debug ip ospf events
+
+Native VLAN mismatch en enlace troncal
+DIAGNÓSTICO: Native VLAN Mismatch en trunk. Ambos extremos del enlace troncal tienen configuradas VLANs nativas distintas, lo que genera bucles, tráfico sin etiquetar en la VLAN incorrecta y alertas CDP/STP.
+
+CAUSAS PROBABLES:
+1. Native VLAN configurada diferente en cada switch del trunk
+2. Configuración manual incorrecta al crear el trunk
+3. VLAN nativa eliminada de la base de datos VLAN en uno de los switches
+
+SOLUCIÓN - Cisco IOS (ambos switches deben coincidir):
+interface GigabitEthernet0/1
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,99
+
+vlan 99
+ name NATIVE
+
+VERIFICACIÓN:
+show interfaces trunk
+show spanning-tree vlan 99
+show cdp neighbors detail
+
+Los clientes no reciben dirección IP del servidor DHCP. El servidor está en otra VLAN.
+DIAGNÓSTICO: El servidor DHCP está en una VLAN/subred distinta a los clientes. Los broadcasts DHCP Discover no cruzan routers sin un agente relay configurado.
+
+CAUSAS PROBABLES:
+1. Falta ip helper-address en la interfaz del router hacia los clientes
+2. DHCP pool mal configurado (rango agotado o red incorrecta)
+3. ip dhcp snooping bloqueando paquetes en puertos no trust
+4. ACL bloqueando UDP puerto 67/68
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/0
+ ip helper-address 10.0.0.1
+
+ip dhcp pool CLIENTES
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8
+ lease 1
+
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+
+VERIFICACIÓN:
+show ip dhcp binding
+show ip dhcp pool
+show ip dhcp conflict
+debug ip dhcp server events
+
+La red tiene tormentas de broadcast y bucles. Los switches están en loop.
+DIAGNÓSTICO: Bucle de capa 2 por fallo o ausencia de Spanning Tree Protocol (STP). Puede deberse a un puerto que debería estar bloqueado pero está en estado forwarding, o a STP deshabilitado accidentalmente.
+
+CAUSAS PROBABLES:
+1. STP deshabilitado en una o más VLANs
+2. Prioridad de puente mal configurada, bridge root incorrecto
+3. PortFast habilitado en puerto de switch (no en acceso)
+4. Cambio de topología constante (TCN flood)
+
+SOLUCIÓN - Cisco IOS:
+spanning-tree mode rapid-pvst
+
+interface GigabitEthernet0/1
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+spanning-tree vlan 10 priority 4096
+
+VERIFICACIÓN:
+show spanning-tree
+show spanning-tree vlan 10 detail
+show spanning-tree blockedports
+debug spanning-tree events
+
+Pérdida de paquetes intermitente en enlace WAN. El ping llega pero con alto RTT y packet loss.
+DIAGNÓSTICO: Pérdida de paquetes en enlace WAN. Puede ser congestión, error de capa física, duplex mismatch o MTU inadecuado causando fragmentación.
+
+CAUSAS PROBABLES:
+1. Duplex/speed mismatch entre router y equipo del ISP
+2. MTU del enlace menor al del paquete (fragmentación o drop)
+3. QoS mal configurado, descartando paquetes en cola
+4. Interferencia o degradación en medio físico (fibra, cobre)
+5. CRC errors en la interfaz
+
+SOLUCIÓN - Cisco IOS:
+interface Serial0/0/0
+ bandwidth 10000
+ ip mtu 1492
+ no shutdown
+
+interface GigabitEthernet0/0
+ duplex full
+ speed 1000
+ no shutdown
+
+ip tcp adjust-mss 1452
+
+VERIFICACIÓN:
+show interfaces GigabitEthernet0/0
+show interfaces Serial0/0/0 counters
+ping 8.8.8.8 repeat 100 size 1500 df-bit
+traceroute 8.8.8.8

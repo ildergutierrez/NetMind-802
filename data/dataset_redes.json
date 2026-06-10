@@ -1,0 +1,90 @@
+[
+  {
+    "id": "caso_001",
+    "titulo": "Puerto en Err-Disabled por Port-Security",
+    "prompt": "El puerto GigabitEthernet1/0/5 del switch Cisco de distribución se apagó repentinamente. En la consola aparece la alerta de seguridad 'port-security violation'. Un usuario intentó conectar una laptop de auditoría directamente en la toma de red. ¿Cómo se diagnostica, cuál es la causa y cómo se soluciona en Cisco IOS?",
+    "target": "DIAGNÓSTICO: Puerto en estado err-disable por violación del protocolo port-security.\nCAUSAS: 1. Se ha conectado un dispositivo con una dirección MAC no registrada en la lista de direcciones MAC autorizadas (sticky/estáticas) del puerto. 2. Se ha superado el número máximo de direcciones MAC permitidas en la interfaz.\nSOLUCIÓN (Cisco IOS):\n```ios\n# Habilitar el puerto de nuevo\nconfigure terminal\ninterface GigabitEthernet1/0/5\n shutdown\n no shutdown\n# (Opcional) Aumentar el límite de MACs autorizadas si es un puerto confiable\n switchport port-security maximum 2\n switchport port-security mac-address sticky\n```"
+  },
+  {
+    "id": "caso_002",
+    "titulo": "Bucle en Capa 2 (STP loop)",
+    "prompt": "El switch central muestra una tormenta de broadcast, la red LAN está colapsada, las luces de actividad de los puertos parpadean frenéticamente y hay una alta pérdida de paquetes. STP está desactivado en varios switches. ¿Qué ocurre, cuáles son las causas y cómo se soluciona en Cisco IOS y Linux?",
+    "target": "DIAGNÓSTICO: Bucle físico o tormenta de broadcast en capa 2.\nCAUSAS: 1. Se conectaron dos puertos de un mismo switch entre sí, o se crearon múltiples enlaces redundantes entre switches sin tener habilitado Spanning Tree Protocol (IEEE 802.1D/1w).\nSOLUCIÓN:\n1. CISCO IOS (Habilitar Rapid-PVST y priorizar Core):\n```ios\nconfigure terminal\nspanning-tree mode rapid-pvst\nspanning-tree vlan 1-4094 priority 4096\n# En puertos de usuario, habilitar BPDU Guard\ninterface range GigabitEthernet1/0/1 - 24\n spanning-tree portfast\n spanning-tree bpduguard enable\n```\n2. LINUX (Verificar bucles en interfaces bridge):\n```bash\n# Mostrar estado de los bridges en Linux\nbrctl show\n# Habilitar STP en el bridge br0\nbrctl stp br0 on\n```"
+  },
+  {
+    "id": "caso_003",
+    "titulo": "Autenticación IEEE 802.1X fallida en Windows",
+    "prompt": "Un equipo cliente con Windows 11 no puede autenticarse en la red cableada corporativa protegida con 802.1X. El switch muestra que la sesión 802.1X está en estado 'Connecting'. ¿Cómo se diagnostica y se soluciona en Windows (PowerShell) y Cisco IOS?",
+    "target": "DIAGNÓSTICO: Fallo en la negociación de autenticación de red IEEE 802.1X en host Windows.\nCAUSAS: 1. El servicio suplicante de Windows 'Configuración automática de redes cableadas' (dot3svc) está detenido o deshabilitado. 2. Parámetros de autenticación de red mal configurados en el adaptador.\nSOLUCIÓN:\n1. WINDOWS POWERSHELL (Iniciar y automatizar el servicio suplicante):\n```powershell\n# Configurar el servicio dot3svc en inicio automático y levantarlo\nSet-Service -Name dot3svc -StartupType Automatic\nStart-Service -Name dot3svc\n# Verificar estado del adaptador de red\nGet-NetAdapter | Format-Table Name, Status, LinkSpeed\n```\n2. CISCO IOS (Auditar puerto y forzar bypass temporal MAB si es necesario):\n```ios\nshow dot1x interface GigabitEthernet1/0/1\n# Habilitar autenticación de bypass por MAC (MAB) si el host no tiene suplicante\ninterface GigabitEthernet1/0/1\n mab\n dot1x timeout tx-period 10\n```"
+  },
+  {
+    "id": "caso_004",
+    "titulo": "Incompatibilidad de VLAN Nativa (Native VLAN Mismatch)",
+    "prompt": "Aparece constantemente el mensaje en consola del switch: '%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on GigabitEthernet1/0/1 (10) with Switch2 GigabitEthernet0/1 (1)'. ¿Qué significa, causas y solución en Cisco IOS?",
+    "target": "DIAGNÓSTICO: Desajuste de VLAN nativa (Native VLAN Mismatch) en enlace troncal (IEEE 802.1Q).\nCAUSAS: 1. El Switch 1 tiene configurada la VLAN 10 como nativa (sin etiquetar) en el puerto trunk, mientras que el Switch 2 tiene configurada la VLAN 1 (por defecto).\nSOLUCIÓN (Cisco IOS - Configurar la misma VLAN nativa en ambos extremos):\n```ios\n# En Switch 1 (GigabitEthernet1/0/1):\nconfigure terminal\ninterface GigabitEthernet1/0/1\n switchport trunk native vlan 10\n\n# En Switch 2 (GigabitEthernet0/1):\nconfigure terminal\ninterface GigabitEthernet0/1\n switchport trunk native vlan 10\n```"
+  },
+  {
+    "id": "caso_005",
+    "titulo": "Servidor DHCP no autorizado (Rogue DHCP Server)",
+    "prompt": "Varios usuarios de la red local están recibiendo direcciones IP en un rango incorrecto (ej. 192.168.100.X en lugar de 10.0.1.X) y no tienen salida a internet. ¿Qué está pasando, cuáles son las causas y cómo se soluciona en Cisco IOS y Linux?",
+    "target": "DIAGNÓSTICO: Servidor DHCP no autorizado (Rogue DHCP Server) activo en la red local.\nCAUSAS: 1. Un usuario conectó un router doméstico a la red LAN con el servidor DHCP activo. 2. Intrusión maliciosa para realizar ataque Man-in-the-Middle.\nSOLUCIÓN:\n1. CISCO IOS (Habilitar DHCP Snooping en el switch):\n```ios\nconfigure terminal\nip dhcp snooping\nip dhcp snooping vlan 10,20\n# Definir el puerto del DHCP real como confiable (Trusted)\ninterface GigabitEthernet1/0/24\n ip dhcp snooping trust\n```\n2. LINUX (Escanear y localizar IP/MAC del DHCP falso en la red):\n```bash\n# Escaneo local para ver quién responde al broadcast ARP\nsudo arp-scan --interface=eth0 --localnet\n# Bloquear tráfico del puerto/IP del DHCP falso vía iptables si está localmente\nsudo iptables -A INPUT -s 192.168.100.1 -j DROP\n```"
+  },
+  {
+    "id": "caso_006",
+    "titulo": "Desajuste de Dúplex (Duplex Mismatch) y pérdida de paquetes",
+    "prompt": "El enlace cableado entre el switch y un servidor Linux experimenta descarte de paquetes constantes, alta latencia y bajo rendimiento. Los logs muestran colisiones en la interfaz. ¿Cuáles son las causas y cómo configurar la velocidad y dúplex en Linux y Windows?",
+    "target": "DIAGNÓSTICO: Desajuste de modo dúplex (Duplex Mismatch) en capa física/enlace (IEEE 802.3).\nCAUSAS: 1. Un extremo está forzado en dúplex completo (Full-Duplex) y el otro está en auto-negociación, cayendo por defecto en Half-Duplex. 2. Mala negociación de velocidad física.\nSOLUCIÓN:\n1. LINUX (Forzar Full-Duplex y velocidad usando ethtool):\n```bash\n# Verificar configuración de la interfaz eth0\nsudo ethtool eth0\n# Forzar autonegociación a ON o configurar estático a 1Gbps Full Duplex\nsudo ethtool -s eth0 speed 1000 duplex full autoneg on\n```\n2. WINDOWS POWERSHELL (Modificar propiedades del adaptador de red):\n```powershell\n# Listar adaptadores de red y su velocidad actual\nGet-NetAdapter | Format-Table Name, InterfaceDescription, LinkSpeed\n# Configurar adaptador de red por nombre a velocidad automática (Auto-Negotiation)\nSet-NetAdapterAdvancedProperty -Name \"Ethernet\" -DisplayName \"Speed & Duplex\" -DisplayValue \"Auto Negotiation\"\n```"
+  },
+  {
+    "id": "caso_007",
+    "titulo": "Interferencia y mala señal en Red Wi-Fi",
+    "prompt": "Los usuarios conectados al SSID 'Corporativo_WiFi' reportan desconexiones continuas, velocidades de descarga sumamente lentas y alta latencia. La señal se degrada a pocos metros del AP. ¿Qué causas físicas y lógicas ocurren y cómo se diagnostica en Windows y Linux?",
+    "target": "DIAGNÓSTICO: Interferencia de canal RF o atenuación en banda de frecuencia IEEE 802.11.\nCAUSAS: 1. Uso de canales solapados en la banda de 2.4GHz (canales diferentes a 1, 6 y 11). 2. Alta densidad de APs transmitiendo en la misma frecuencia. 3. Obstáculos físicos o fuentes electromagnéticas.\nSOLUCIÓN:\n1. WINDOWS CMD (Escanear canales e intensidad de señal de APs vecinos):\n```cmd\n# Mostrar interfaces de red inalámbricas y calidad de señal\nnetsh wlan show interfaces\n# Listar todas las redes inalámbricas y sus canales RF\nnetsh wlan show networks mode=bssid\n```\n2. LINUX BASH (Verificar interferencias y nivel de señal RSSI):\n```bash\n# Listar redes Wi-Fi vecinas y sus canales/intensidades de señal (dBm)\nnmcli device wifi list\n# Monitorear nivel de potencia de la conexión actual\nwatch -n 1 cat /proc/net/wireless\n```"
+  },
+  {
+    "id": "caso_008",
+    "titulo": "Ataque ARP Spoofing detectado en la LAN",
+    "prompt": "Se detecta que el tráfico hacia la puerta de enlace está siendo interceptado. En la tabla ARP de los clientes, la MAC de la IP del router (Gateway) ha cambiado a la MAC de una máquina Linux sospechosa. ¿Qué ocurre, qué causas lo originan y qué comandos se aplican para mitigar?",
+    "target": "DIAGNÓSTICO: Ataque de suplantación de identidad ARP (ARP Spoofing / ARP Poisoning).\nCAUSAS: 1. Un host atacante envía respuestas ARP falsas (gratuitous ARP) a los clientes para asociar la IP del Gateway con su propia dirección MAC física (Capa 2).\nSOLUCIÓN:\n1. CISCO IOS (Habilitar Dynamic ARP Inspection - DAI):\n```ios\nconfigure terminal\nip dhcp snooping\nip arp inspection vlan 10\n# Definir el puerto conectado al Gateway como confiable para ARP\ninterface GigabitEthernet1/0/24\n ip arp inspection trust\n```\n2. LINUX (Verificar tabla ARP y limpiar entradas sospechosas):\n```bash\n# Mostrar tabla ARP de vecinos conocidos\nip neighbor show\n# Borrar la entrada ARP corrupta del gateway para forzar nueva solicitud\nsudo ip neigh del 10.0.1.1 dev eth0\n```\n3. WINDOWS (Ver y limpiar tabla ARP):\n```cmd\n# Mostrar tabla ARP\narp -a\n# Borrar la entrada de la caché ARP (requiere privilegios de administrador)\narp -d *\n```"
+  },
+  {
+    "id": "caso_fb_20260610_165735",
+    "titulo": "OSPF no propaga rutas al área backbone",
+    "prompt": "El router no propaga rutas OSPF al área backbone",
+    "target": "DIAGNÓSTICO: Fallo en la adyacencia OSPF entre routers. Las rutas no se propagan porque los vecinos OSPF no alcanzan el estado FULL, posiblemente por incompatibilidad de parámetros o falta de conectividad en el área backbone (área 0).\r\n\r\nCAUSAS PROBABLES:\r\n1. Temporizadores Hello/Dead distintos entre routers vecinos\r\n2. Tipos de área incompatibles (stub vs normal)\r\n3. MTU diferente en interfaces conectadas\r\n4. Autenticación OSPF mal configurada o ausente en un lado\r\n5. Interfaz no declarada bajo el proceso OSPF correcto\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nrouter ospf 1\r\n network 192.168.1.0 0.0.0.255 area 0\r\n\r\ninterface GigabitEthernet0/0\r\n ip ospf hello-interval 10\r\n ip ospf dead-interval 40\r\n ip mtu 1500\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf neighbor\r\nshow ip ospf interface\r\nshow ip route ospf\r\ndebug ip ospf events",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T16:57:35.267961"
+  },
+  {
+    "id": "caso_fb_20260610_165946",
+    "titulo": "Native VLAN mismatch en enlace troncal",
+    "prompt": "Native VLAN mismatch en enlace troncal",
+    "target": "DIAGNÓSTICO: Native VLAN Mismatch en trunk. Ambos extremos del enlace troncal tienen configuradas VLANs nativas distintas, lo que genera bucles, tráfico sin etiquetar en la VLAN incorrecta y alertas CDP/STP.\r\n\r\nCAUSAS PROBABLES:\r\n1. Native VLAN configurada diferente en cada switch del trunk\r\n2. Configuración manual incorrecta al crear el trunk\r\n3. VLAN nativa eliminada de la base de datos VLAN en uno de los switches\r\n\r\nSOLUCIÓN - Cisco IOS (ambos switches deben coincidir):\r\ninterface GigabitEthernet0/1\r\n switchport mode trunk\r\n switchport trunk native vlan 99\r\n switchport trunk allowed vlan 10,20,30,99\r\n\r\nvlan 99\r\n name NATIVE\r\n\r\nVERIFICACIÓN:\r\nshow interfaces trunk\r\nshow spanning-tree vlan 99\r\nshow cdp neighbors detail",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T16:59:46.965455"
+  },
+  {
+    "id": "caso_fb_20260610_170008",
+    "titulo": "DHCP no asigna IPs a clientes",
+    "prompt": "Los clientes no reciben dirección IP del servidor DHCP. El servidor está en otra VLAN.",
+    "target": "DIAGNÓSTICO: El servidor DHCP está en una VLAN/subred distinta a los clientes. Los broadcasts DHCP Discover no cruzan routers sin un agente relay configurado.\r\n\r\nCAUSAS PROBABLES:\r\n1. Falta ip helper-address en la interfaz del router hacia los clientes\r\n2. DHCP pool mal configurado (rango agotado o red incorrecta)\r\n3. ip dhcp snooping bloqueando paquetes en puertos no trust\r\n4. ACL bloqueando UDP puerto 67/68\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/0\r\n ip helper-address 10.0.0.1\r\n\r\nip dhcp pool CLIENTES\r\n network 192.168.10.0 255.255.255.0\r\n default-router 192.168.10.1\r\n dns-server 8.8.8.8\r\n lease 1\r\n\r\nip dhcp excluded-address 192.168.10.1 192.168.10.10\r\n\r\nVERIFICACIÓN:\r\nshow ip dhcp binding\r\nshow ip dhcp pool\r\nshow ip dhcp conflict\r\ndebug ip dhcp server events",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T17:00:08.972840"
+  },
+  {
+    "id": "caso_fb_20260610_170025",
+    "titulo": "Spanning Tree genera bucle de red",
+    "prompt": "La red tiene tormentas de broadcast y bucles. Los switches están en loop.",
+    "target": "DIAGNÓSTICO: Bucle de capa 2 por fallo o ausencia de Spanning Tree Protocol (STP). Puede deberse a un puerto que debería estar bloqueado pero está en estado forwarding, o a STP deshabilitado accidentalmente.\r\n\r\nCAUSAS PROBABLES:\r\n1. STP deshabilitado en una o más VLANs\r\n2. Prioridad de puente mal configurada, bridge root incorrecto\r\n3. PortFast habilitado en puerto de switch (no en acceso)\r\n4. Cambio de topología constante (TCN flood)\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nspanning-tree mode rapid-pvst\r\n\r\ninterface GigabitEthernet0/1\r\n spanning-tree portfast\r\n spanning-tree bpduguard enable\r\n\r\nspanning-tree vlan 10 priority 4096\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree\r\nshow spanning-tree vlan 10 detail\r\nshow spanning-tree blockedports\r\ndebug spanning-tree events",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T17:00:25.354858"
+  },
+  {
+    "id": "caso_fb_20260610_170105",
+    "titulo": "Pérdida de paquetes en enlace WAN",
+    "prompt": "Pérdida de paquetes intermitente en enlace WAN. El ping llega pero con alto RTT y packet loss.",
+    "target": "DIAGNÓSTICO: Pérdida de paquetes en enlace WAN. Puede ser congestión, error de capa física, duplex mismatch o MTU inadecuado causando fragmentación.\r\n\r\nCAUSAS PROBABLES:\r\n1. Duplex/speed mismatch entre router y equipo del ISP\r\n2. MTU del enlace menor al del paquete (fragmentación o drop)\r\n3. QoS mal configurado, descartando paquetes en cola\r\n4. Interferencia o degradación en medio físico (fibra, cobre)\r\n5. CRC errors en la interfaz\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface Serial0/0/0\r\n bandwidth 10000\r\n ip mtu 1492\r\n no shutdown\r\n\r\ninterface GigabitEthernet0/0\r\n duplex full\r\n speed 1000\r\n no shutdown\r\n\r\nip tcp adjust-mss 1452\r\n\r\nVERIFICACIÓN:\r\nshow interfaces GigabitEthernet0/0\r\nshow interfaces Serial0/0/0 counters\r\nping 8.8.8.8 repeat 100 size 1500 df-bit\r\ntraceroute 8.8.8.8",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T17:01:05.681006"
+  }
+]
