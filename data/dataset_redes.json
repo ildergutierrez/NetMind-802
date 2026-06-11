@@ -86,5 +86,1685 @@
     "target": "DIAGNÓSTICO: Pérdida de paquetes en enlace WAN. Puede ser congestión, error de capa física, duplex mismatch o MTU inadecuado causando fragmentación.\r\n\r\nCAUSAS PROBABLES:\r\n1. Duplex/speed mismatch entre router y equipo del ISP\r\n2. MTU del enlace menor al del paquete (fragmentación o drop)\r\n3. QoS mal configurado, descartando paquetes en cola\r\n4. Interferencia o degradación en medio físico (fibra, cobre)\r\n5. CRC errors en la interfaz\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface Serial0/0/0\r\n bandwidth 10000\r\n ip mtu 1492\r\n no shutdown\r\n\r\ninterface GigabitEthernet0/0\r\n duplex full\r\n speed 1000\r\n no shutdown\r\n\r\nip tcp adjust-mss 1452\r\n\r\nVERIFICACIÓN:\r\nshow interfaces GigabitEthernet0/0\r\nshow interfaces Serial0/0/0 counters\r\nping 8.8.8.8 repeat 100 size 1500 df-bit\r\ntraceroute 8.8.8.8",
     "origen": "feedback_usuario",
     "fecha": "2026-06-10T17:01:05.681006"
+  },
+  {
+    "id": "caso_fb_20260610_215456",
+    "titulo": "monopsony economics labor market",
+    "prompt": "Can you write a short introduction about the relevance of the term \"monopsony\" in economics? Please use examples related to potential monopsonies in the labour market and cite relevant research.",
+    "target": "\"Monopsony\" refers to a market structure where there is only one buyer for a particular good or service. In economics, this term is particularly relevant in the labor market, where a monopsony employer has significant power over the wages and working conditions of their employees. The presence of a monopsony can result in lower wages and reduced employment opportunities for workers, as the employer has little incentive to increase wages or provide better working conditions.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:56.985842"
+  },
+  {
+    "id": "caso_fb_20260610_215457",
+    "titulo": "Recent research has identified potential monopsonies in industries such as retail and fast food",
+    "prompt": "where a few large companies control a significant portion of the market (Bivens & Mishel",
+    "target": "2013). In these industries",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:57.221754"
+  },
+  {
+    "id": "caso_fb_20260610_215457",
+    "titulo": "References: Bivens",
+    "prompt": "J.",
+    "target": "& Mishel",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:57.505718"
+  },
+  {
+    "id": "caso_fb_20260610_215457",
+    "titulo": "Etapas del desarrollo según Piaget",
+    "prompt": "¿Cuáles son las etapas del desarrollo y en qué consisten según Piaget?",
+    "target": "Jean Piaget propuso cuatro etapas del desarrollo cognitivo:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:57.685920"
+  },
+  {
+    "id": "caso_fb_20260610_215457",
+    "titulo": "Contrastive learning machine learning explained",
+    "prompt": "Can you explain contrastive learning in machine learning in simple terms for someone new to the field of ML?",
+    "target": "Contrastive learning trains a model to pull representations of similar data points closer together and push different ones apart. For example, cat images should have similar vector representations, while cat-dog pairs should differ. This is done using derivatives — the model adjusts weights to increase or decrease distances between pairs. After enough training steps, the model learns to reliably distinguish between categories.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:57.916939"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "Astrophotography hobby getting started",
+    "prompt": "I want to start doing astrophotography as a hobby, any suggestions?",
+    "target": "Getting started in astrophotography:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.150858"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "1. Equipment: DSLR or mirrorless camera",
+    "prompt": "sturdy tripod",
+    "target": "fast wide-angle lens (f/2.8+)",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.304711"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "3. Settings: Manual mode",
+    "prompt": "f/2.8 or wider",
+    "target": "ISO 800-1600",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.487501"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "Perceptrón biclásico definición variantes",
+    "prompt": "Método del Perceptrón biclásico: definición y variantes del método. ¿Cómo se aplicaría al caso multiclásico? ¿Se podría utilizar con patrones cuadráticamente separables?",
+    "target": "El Perceptrón biclásico es un algoritmo para clasificar patrones en dos categorías buscando un hiperplano separador.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.628979"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "Variantes: Perceptrón con margen",
+    "prompt": "promedio",
+    "target": "relajado",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.745606"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "Para patrones cuadráticamente separables: NO se puede usar el Perceptrón biclásico",
+    "prompt": "ya que solo separa datos linealmente. Se recomienda SVM",
+    "target": "regresión logística o árboles de decisión.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.848532"
+  },
+  {
+    "id": "caso_fb_20260610_215458",
+    "titulo": "Flask API Python serve string JSON",
+    "prompt": "Can you give me an example of a Python script that opens an API endpoint and serves a string? And how to modify it to serve JSON?",
+    "target": "Serve a string with Flask:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:58.970078"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "SEO search engine optimization webpage",
+    "prompt": "How can I learn to optimize my webpage for search engines?",
+    "target": "Learning SEO involves:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.081208"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "4. Optimize page titles",
+    "prompt": "meta descriptions",
+    "target": "and headers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.167969"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "6. Monitor results with analytics tools like Google Search Console",
+    "prompt": "Moz",
+    "target": "or SEMrush.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.258376"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "Docker Compose mount Docker socket",
+    "prompt": "I am using docker compose and I need to mount the docker socket - how would I do that?",
+    "target": "Add the following volume to your docker-compose.yml:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.303399"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "NodeJS Express TypeError Cannot read properties undefined",
+    "prompt": "I'm creating a NodeJS backend using Express and getting: Uncaught TypeError: Cannot read properties of undefined (reading 'id')",
+    "target": "The error occurs because req.body.id is undefined. Add a check before accessing it:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.407360"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "app.delete('/post'",
+    "prompt": "(req",
+    "target": "res) => {",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.539234"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "Raspberry Pi vs ESP32 SD card",
+    "prompt": "What is the difference between a Raspberry Pi and an ESP32? What is better suited for interfacing with an SD card?",
+    "target": "Raspberry Pi: single-board computer, runs full OS (Linux), large library ecosystem, great for SD cards.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.653119"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "ESP32: microcontroller",
+    "prompt": "used for IoT",
+    "target": "limited memory and processing.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.766664"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "To improve ESP32 memory: optimize code",
+    "prompt": "use external memory",
+    "target": "use dynamic allocation",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.863507"
+  },
+  {
+    "id": "caso_fb_20260610_215459",
+    "titulo": "Mechanical keyboard switches types properties",
+    "prompt": "What types of mechanical keyboard switches are there and what are their properties?",
+    "target": "Main types:",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:54:59.958950"
+  },
+  {
+    "id": "caso_fb_20260610_215500",
+    "titulo": "1. Cherry MX: Red (linear",
+    "prompt": "fast)",
+    "target": "Brown (tactile",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:55:00.086526"
+  },
+  {
+    "id": "caso_fb_20260610_215500",
+    "titulo": "2. Kailh: Chinese alternative",
+    "prompt": "cheaper",
+    "target": "similar variants to Cherry MX.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:55:00.237326"
+  },
+  {
+    "id": "caso_fb_20260610_215500",
+    "titulo": "4. Topre: Electrostatic capacitive",
+    "prompt": "quiet",
+    "target": "tactile bump.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T21:55:00.348576"
+  },
+  {
+    "id": "caso_fb_20260610_220221",
+    "titulo": "Fallo OSPF en área backbone",
+    "prompt": "El router no propaga rutas OSPF al área backbone",
+    "target": "DIAGNÓSTICO: Fallo en adyacencia OSPF entre routers vecinos.\r\n\r\nCAUSAS PROBABLES:\r\n1. El área OSPF del enlace no es el área 0 (backbone).\r\n2. Mismatch en el tipo de red OSPF (broadcast vs point-to-point).\r\n3. Temporizadores Hello/Dead incompatibles entre vecinos.\r\n4. Autenticación OSPF configurada en un lado pero no en el otro.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  router ospf 1\r\n  network 192.168.1.0 0.0.0.255 area 0\r\n  ! Verificar que ambos routers usen area 0 en el enlace\r\n  interface GigabitEthernet0/0\r\n  ip ospf hello-interval 10\r\n  ip ospf dead-interval 40\r\n\r\nVERIFICACIÓN:\r\n  show ip ospf neighbor\r\n  show ip ospf interface\r\n  debug ip ospf adj",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:21.751763"
+  },
+  {
+    "id": "caso_fb_20260610_220221",
+    "titulo": "Clientes no reciben IP del servidor DHCP",
+    "prompt": "Los clientes no reciben IP del DHCP",
+    "target": "DIAGNÓSTICO: El servidor DHCP no responde a las solicitudes DISCOVER de los clientes.\r\n\r\nCAUSAS PROBABLES:\r\n1. El pool DHCP está agotado (no quedan direcciones disponibles).\r\n2. El servicio DHCP está detenido o deshabilitado.\r\n3. Un firewall bloquea los puertos UDP 67/68.\r\n4. El relay DHCP (ip helper-address) no está configurado si el servidor está en otra VLAN.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Configurar relay DHCP en la interfaz del cliente\r\n  interface GigabitEthernet0/1\r\n  ip helper-address 10.0.0.1\r\n  !\r\n  ! En el servidor DHCP\r\n  ip dhcp pool LAN_POOL\r\n  network 192.168.1.0 255.255.255.0\r\n  default-router 192.168.1.1\r\n  dns-server 8.8.8.8\r\n  lease 1\r\n  ip dhcp excluded-address 192.168.1.1 192.168.1.10\r\n\r\nSOLUCIÓN - Windows PowerShell:\r\n  Get-DhcpServerv4Scope\r\n  Get-DhcpServerv4Statistics\r\n  Restart-Service DHCPServer\r\n\r\nVERIFICACIÓN:\r\n  show ip dhcp pool\r\n  show ip dhcp binding\r\n  show ip dhcp conflict",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:21.833751"
+  },
+  {
+    "id": "caso_fb_20260610_220221",
+    "titulo": "Native VLAN mismatch en trunk 802.1Q",
+    "prompt": "Aparece alerta de Native VLAN mismatch en el enlace troncal entre dos switches",
+    "target": "DIAGNÓSTICO: Los dos extremos del enlace trunk 802.1Q tienen configurada distinta Native VLAN, generando tráfico sin etiquetar inconsistente y posible bucle o fallo de conectividad.\r\n\r\nCAUSAS PROBABLES:\r\n1. Native VLAN configurada manualmente diferente en cada switch.\r\n2. Configuración por defecto (VLAN 1) no modificada en uno de los extremos.\r\n3. Error humano al aplicar cambios de VLAN.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! En ambos switches, igualar la native VLAN\r\n  interface GigabitEthernet0/1\r\n  switchport trunk encapsulation dot1q\r\n  switchport mode trunk\r\n  switchport trunk native vlan 99\r\n  !\r\n  ! Crear la VLAN 99 si no existe\r\n  vlan 99\r\n  name NATIVE\r\n\r\nVERIFICACIÓN:\r\n  show interfaces trunk\r\n  show spanning-tree vlan 99\r\n  ! CDP reportará el mismatch si persiste",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:21.901375"
+  },
+  {
+    "id": "caso_fb_20260610_220221",
+    "titulo": "Bucle de red — STP bloqueado",
+    "prompt": "La red sufre tormenta de broadcast y los switches están saturados",
+    "target": "DIAGNÓSTICO: Existe un bucle de capa 2 activo. Spanning Tree Protocol (STP/RSTP) no está convergiendo correctamente o está deshabilitado.\r\n\r\nCAUSAS PROBABLES:\r\n1. STP deshabilitado intencionalmente en algún switch.\r\n2. PortFast activado en un puerto troncal, causando que el puerto no pase por los estados STP.\r\n3. BPDUs bloqueadas por un dispositivo intermedio (hub, switch no gestionado).\r\n4. Topología cambiada sin recalcular el árbol de expansión.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Verificar y habilitar STP\r\n  spanning-tree mode rapid-pvst\r\n  !\r\n  ! Configurar root bridge primario\r\n  spanning-tree vlan 1-4094 priority 4096\r\n  !\r\n  ! Activar BPDU Guard en puertos de acceso\r\n  interface range GigabitEthernet0/1 - 24\r\n  spanning-tree portfast\r\n  spanning-tree bpduguard enable\r\n\r\nVERIFICACIÓN:\r\n  show spanning-tree\r\n  show spanning-tree inconsistentports\r\n  show mac address-table count",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:21.973508"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Interferencia canal Wi-Fi 802.11n",
+    "prompt": "La red inalámbrica 802.11n tiene baja velocidad y alta latencia en 2.4 GHz",
+    "target": "DIAGNÓSTICO: Interferencia de canal en la banda 2.4 GHz causada por solapamiento de canales o dispositivos externos (microondas, teléfonos DECT, otras redes Wi-Fi).\r\n\r\nCAUSAS PROBABLES:\r\n1. Múltiples APs usando el mismo canal o canales solapados (usar solo 1, 6 o 11 en 2.4 GHz).\r\n2. Alta densidad de redes vecinas en el mismo canal.\r\n3. Dispositivos Bluetooth o microondas generando ruido en 2.4 GHz.\r\n4. Canal configurado en 'auto' con selección subóptima.\r\n\r\nSOLUCIÓN:\r\n  ! En el AP/controladora — asignar manualmente canal no solapado\r\n  canal recomendado: 1, 6 o 11 (no usar 3, 4, 7, etc.)\r\n  !\r\n  ! Migrar tráfico sensible a 5 GHz (802.11ac/ax)\r\n  Habilitar band steering para empujar clientes a 5 GHz\r\n  !\r\n  ! Reducir potencia TX si hay APs muy próximos\r\n  tx-power 50%  (evita que el AP 'tape' a los vecinos)\r\n\r\nSOLUCIÓN - Linux (hostapd):\r\n  channel=6\r\n  hw_mode=g\r\n  ieee80211n=1\r\n  ht_capab=[HT40+]\r\n\r\nVERIFICACIÓN:\r\n  Usar WiFi Analyzer para escanear canales vecinos\r\n  iwlist wlan0 scan | grep -E 'Channel|Signal'",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.041819"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Una ACL en el router está bloqueando tráfico que debería estar permitido",
+    "target": "DIAGNÓSTICO: La lista de control de acceso (ACL) tiene reglas incorrectamente ordenadas o con máscara wildcard errónea, bloqueando tráfico legítimo antes de que alcance la regla de permiso.\r\n\r\nCAUSAS PROBABLES:\r\n1. Regla 'deny' más específica colocada después de un 'permit any' — el tráfico ya fue permitido antes.\r\n2. Wildcard mask incorrecta (confusión con subnet mask).\r\n3. ACL aplicada en la interfaz o dirección equivocada (in vs out).\r\n4. ACL implícita 'deny all' al final bloqueando protocolos olvidados.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Revisar el orden de las ACEs\r\n  show ip access-lists\r\n  !\r\n  ! Ejemplo de ACL corregida\r\n  ip access-list extended FILTRO_LAN\r\n  10 permit tcp 192.168.1.0 0.0.0.255 any eq 80\r\n  20 permit tcp 192.168.1.0 0.0.0.255 any eq 443\r\n  30 permit icmp 192.168.1.0 0.0.0.255 any\r\n  40 deny   ip any any log\r\n  !\r\n  interface GigabitEthernet0/0\r\n  ip access-group FILTRO_LAN in\r\n\r\nVERIFICACIÓN:\r\n  show ip access-lists FILTRO_LAN\r\n  ! Revisar contadores de matches por regla\r\n  debug ip packet detail",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.096217"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Enlace troncal no levanta entre switches",
+    "prompt": "El enlace entre dos switches no establece el trunk y queda en modo access",
+    "target": "DIAGNÓSTICO: Negociación DTP (Dynamic Trunking Protocol) fallida o conflicto de modo de puerto entre los dos switches.\r\n\r\nCAUSAS PROBABLES:\r\n1. Un lado en modo 'dynamic auto' y el otro también — ninguno inicia la negociación.\r\n2. Encapsulación 802.1Q no soportada o diferente (ISL vs dot1q).\r\n3. VLANs no existentes en la VLAN database del switch.\r\n4. Diferencia de velocidad o dúplex en el enlace físico.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Forzar el trunk en ambos extremos\r\n  interface GigabitEthernet0/1\r\n  switchport trunk encapsulation dot1q\r\n  switchport mode trunk\r\n  switchport nonegotiate   ! deshabilita DTP\r\n  switchport trunk allowed vlan 10,20,30,99\r\n\r\nVERIFICACIÓN:\r\n  show interfaces GigabitEthernet0/1 trunk\r\n  show dtp interface GigabitEthernet0/1\r\n  show vlan brief",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.176582"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Saturación de ancho de banda en WAN",
+    "prompt": "El enlace WAN está al 100% de uso y hay pérdida de paquetes",
+    "target": "DIAGNÓSTICO: Congestión del enlace WAN por tráfico sin priorización. Todo el tráfico compite por el mismo ancho de banda sin diferenciación de criticidad.\r\n\r\nCAUSAS PROBABLES:\r\n1. Sin QoS configurado — el tráfico de video/backup compite con voz y datos críticos.\r\n2. Un único flujo (backup, transferencia masiva) consume todo el enlace.\r\n3. Crecimiento del tráfico sin actualización del contrato WAN.\r\n4. Microbobbles de buffer en interfaces con mismatched speed.\r\n\r\nSOLUCIÓN - Cisco IOS (QoS MQC):\r\n  ! Definir clases de tráfico\r\n  class-map match-any VOIP\r\n  match dscp ef\r\n  class-map match-any CRITICO\r\n  match dscp af31 af32\r\n  !\r\n  ! Definir política de colas\r\n  policy-map WAN_QOS\r\n  class VOIP\r\n    priority percent 20\r\n  class CRITICO\r\n    bandwidth percent 40\r\n  class class-default\r\n    fair-queue\r\n  !\r\n  interface Serial0/0\r\n  service-policy output WAN_QOS\r\n\r\nVERIFICACIÓN:\r\n  show policy-map interface Serial0/0\r\n  show interfaces Serial0/0 | include rate\r\n  show queue Serial0/0",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.271852"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Fallo de autenticación 802.1X en puerto de acceso",
+    "prompt": "Los dispositivos no se autentican con 802.1X y quedan sin acceso a la red",
+    "target": "DIAGNÓSTICO: Fallo en el proceso de autenticación EAP/802.1X entre el suplicante (cliente), el autenticador (switch) y el servidor RADIUS.\r\n\r\nCAUSAS PROBABLES:\r\n1. Shared secret incorrecto entre switch y servidor RADIUS.\r\n2. Certificado del servidor RADIUS no confiado por el cliente.\r\n3. Método EAP incompatible (PEAP vs EAP-TLS).\r\n4. Puerto del servidor RADIUS bloqueado (UDP 1812/1813).\r\n5. Suplicante 802.1X deshabilitado en el equipo cliente.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  aaa new-model\r\n  aaa authentication dot1x default group radius\r\n  aaa authorization network default group radius\r\n  !\r\n  radius-server host 10.0.0.10 auth-port 1812 acct-port 1813\r\n  radius-server key S3cr3t0\r\n  !\r\n  dot1x system-auth-control\r\n  !\r\n  interface GigabitEthernet0/5\r\n  switchport mode access\r\n  switchport access vlan 10\r\n  dot1x port-control auto\r\n  spanning-tree portfast\r\n\r\nSOLUCIÓN - Windows PowerShell (cliente):\r\n  # Habilitar suplicante 802.1X\r\n  Set-Service dot3svc -StartupType Automatic\r\n  Start-Service dot3svc\r\n\r\nVERIFICACIÓN:\r\n  show dot1x all\r\n  show authentication sessions\r\n  debug dot1x all\r\n  debug radius authentication",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.337191"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Ruta por defecto no se redistribuye en EIGRP",
+    "prompt": "Los routers EIGRP de la red no aprenden la ruta por defecto hacia Internet",
+    "target": "DIAGNÓSTICO: La ruta por defecto (0.0.0.0/0) no se está redistribuyendo dentro del dominio EIGRP desde el router de borde.\r\n\r\nCAUSAS PROBABLES:\r\n1. Falta el comando 'redistribute static' o 'default-information originate' en EIGRP.\r\n2. La ruta estática por defecto no existe en la tabla de enrutamiento del borde.\r\n3. Filtro de ruta (distribute-list) bloqueando la propagación de la default route.\r\n4. Split horizon evitando que la ruta se anuncie de vuelta por la misma interfaz.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! En el router de borde con acceso a Internet\r\n  ip route 0.0.0.0 0.0.0.0 203.0.113.1   ! ruta estática hacia ISP\r\n  !\r\n  router eigrp 100\r\n  redistribute static metric 10000 100 255 1 1500\r\n  ! O alternativamente:\r\n  ! ip default-network 0.0.0.0  (método alternativo)\r\n\r\nVERIFICACIÓN:\r\n  show ip route eigrp\r\n  show ip route 0.0.0.0\r\n  show ip eigrp topology 0.0.0.0/0",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.401442"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Alta latencia en VoIP — jitter excesivo",
+    "prompt": "Las llamadas VoIP presentan cortes, eco y alta latencia",
+    "target": "DIAGNÓSTICO: El tráfico de voz no está siendo priorizado (QoS insuficiente) y comparte cola con tráfico de datos masivo, generando jitter y latencia variables.\r\n\r\nCAUSAS PROBABLES:\r\n1. Sin marcado DSCP EF (46) en los paquetes RTP de voz.\r\n2. Buffers de interfaz configurados con tamaño excesivo (bufferbloat).\r\n3. Codec de voz de alta compresión (G.729) con pérdida de paquetes > 1%.\r\n4. Enlace half-duplex o colisiones en la red LAN.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Marcar tráfico VoIP con DSCP EF\r\n  class-map match-any VOIP_RTP\r\n  match protocol rtp audio\r\n  match dscp ef\r\n  !\r\n  policy-map MARCAR_VOIP\r\n  class VOIP_RTP\r\n    set dscp ef\r\n    priority percent 20\r\n  !\r\n  interface GigabitEthernet0/0\r\n  service-policy output MARCAR_VOIP\r\n  !\r\n  ! Reducir buffer para minimizar bufferbloat\r\n  tx-ring-limit 3\r\n\r\nSOLUCIÓN - Linux (tc/iproute2):\r\n  tc qdisc add dev eth0 root handle 1: htb default 30\r\n  tc class add dev eth0 parent 1: classid 1:1 htb rate 100mbit\r\n  tc class add dev eth0 parent 1:1 classid 1:10 htb rate 20mbit prio 1\r\n  tc filter add dev eth0 protocol ip parent 1:0 prio 1 u32 \\\r\n    match ip dscp 0x2e 0xfc flowid 1:10\r\n\r\nVERIFICACIÓN:\r\n  show policy-map interface\r\n  ping ip 10.0.0.1 repeat 1000 size 160\r\n  ! Jitter < 30ms y pérdida < 1% para VoIP aceptable",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.483200"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Switch no aprende direcciones MAC — tabla desbordada",
+    "prompt": "El switch dejó de aprender nuevas MACs y reenvía tráfico a todos los puertos",
+    "target": "DIAGNÓSTICO: La tabla CAM (Content Addressable Memory) del switch está llena — posiblemente por un ataque MAC flooding o por exceso legítimo de dispositivos.\r\n\r\nCAUSAS PROBABLES:\r\n1. Ataque MAC flooding desde un puerto comprometido (herramienta macof/dsniff).\r\n2. Tabla CAM con capacidad insuficiente para la cantidad de dispositivos.\r\n3. Port security no configurado, permitiendo aprendizaje ilimitado de MACs.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  ! Configurar Port Security para limitar MACs por puerto\r\n  interface GigabitEthernet0/3\r\n  switchport mode access\r\n  switchport port-security\r\n  switchport port-security maximum 2\r\n  switchport port-security violation restrict\r\n  switchport port-security mac-address sticky\r\n  !\r\n  ! Para todos los puertos de acceso\r\n  interface range GigabitEthernet0/1 - 24\r\n  switchport port-security maximum 3\r\n  switchport port-security violation shutdown\r\n\r\nVERIFICACIÓN:\r\n  show mac address-table count\r\n  show port-security\r\n  show port-security address\r\n  ! Si la tabla está al 100%, identificar el puerto origen del flooding",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.568771"
+  },
+  {
+    "id": "caso_fb_20260610_220222",
+    "titulo": "Fallo de convergencia BGP con ISP",
+    "prompt": "La sesión BGP con el proveedor de Internet cae y no reconverce",
+    "target": "DIAGNÓSTICO: La sesión eBGP con el ISP está siendo derribada (idle/active) por problemas de conectividad, autenticación MD5 o discrepancia en parámetros de la sesión.\r\n\r\nCAUSAS PROBABLES:\r\n1. TTL = 1 por defecto en eBGP — si hay más de un salto al peer, la sesión no se establece.\r\n2. Contraseña MD5 incorrecta o ausente en uno de los lados.\r\n3. AS number del peer incorrecto en la configuración.\r\n4. ACL o firewall bloqueando TCP puerto 179.\r\n5. Temporizadores keepalive/hold incompatibles.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\n  router bgp 65001\r\n  neighbor 203.0.113.1 remote-as 65000\r\n  neighbor 203.0.113.1 password C1sc0BGP\r\n  neighbor 203.0.113.1 timers 10 30\r\n  neighbor 203.0.113.1 ebgp-multihop 2   ! si hay más de 1 salto\r\n  neighbor 203.0.113.1 update-source Loopback0\r\n  !\r\n  ! Verificar que TCP 179 no esté bloqueado\r\n  ip access-list extended ALLOW_BGP\r\n  permit tcp host 203.0.113.1 host 203.0.113.2 eq 179\r\n  permit tcp host 203.0.113.1 eq 179 host 203.0.113.2\r\n\r\nVERIFICACIÓN:\r\n  show bgp summary\r\n  show bgp neighbors 203.0.113.1\r\n  debug bgp 203.0.113.1 events\r\n  telnet 203.0.113.1 179",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:02:22.649195"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "Fallo OSPF área backbone",
+    "prompt": "El router no propaga rutas OSPF al área backbone",
+    "target": "DIAGNÓSTICO: Fallo en adyacencia OSPF entre vecinos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.469264"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "DHCP sin IPs a clientes",
+    "prompt": "Los clientes no reciben IP del servidor DHCP",
+    "target": "DIAGNÓSTICO: El servidor DHCP no responde solicitudes DISCOVER",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.564840"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "Native VLAN mismatch trunk 802.1Q",
+    "prompt": "Aparece alerta de Native VLAN mismatch en enlace troncal entre switches",
+    "target": "DIAGNÓSTICO: Distinta Native VLAN configurada en cada extremo del trunk",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.648814"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "Tormenta de broadcast por bucle L2",
+    "prompt": "La red sufre tormenta de broadcast y los switches están saturados",
+    "target": "DIAGNÓSTICO: Bucle de capa 2 activo por STP no convergido o deshabilitado",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.735184"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "Baja velocidad Wi-Fi 802.11n 2.4 GHz",
+    "prompt": "La red inalámbrica 802.11n tiene baja velocidad y alta latencia en 2.4 GHz",
+    "target": "DIAGNÓSTICO: Interferencia de canal en 2.4 GHz por solapamiento o dispositivos externos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.798215"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Una ACL en el router está bloqueando tráfico que debería estar permitido",
+    "target": "DIAGNÓSTICO: Reglas ACL mal ordenadas o wildcard incorrecta bloquean tráfico válido",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.892090"
+  },
+  {
+    "id": "caso_fb_20260610_220748",
+    "titulo": "Trunk no levanta entre switches",
+    "prompt": "El enlace entre dos switches no establece trunk y queda en modo access",
+    "target": "DIAGNÓSTICO: Negociación DTP fallida o conflicto de modo entre los switches",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:48.973411"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "switchport trunk allowed vlan 10",
+    "prompt": "20",
+    "target": "30",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.060801"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Saturación enlace WAN",
+    "prompt": "El enlace WAN está al 100% de uso con pérdida de paquetes",
+    "target": "DIAGNÓSTICO: Congestión WAN por ausencia de QoS y tráfico sin priorización",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.145581"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Fallo autenticación 802.1X",
+    "prompt": "Los dispositivos no se autentican con 802.1X y quedan sin acceso",
+    "target": "DIAGNÓSTICO: Fallo EAP entre suplicante, switch y servidor RADIUS",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.222432"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Ruta por defecto no se redistribuye en EIGRP",
+    "prompt": "Los routers EIGRP no aprenden la ruta por defecto hacia Internet",
+    "target": "DIAGNÓSTICO: La ruta 0.0.0.0/0 no se redistribuye dentro del dominio EIGRP",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.315214"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Jitter excesivo en VoIP",
+    "prompt": "Las llamadas VoIP presentan cortes, eco y alta latencia",
+    "target": "DIAGNÓSTICO: Tráfico de voz no priorizado comparte cola con datos masivos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.405095"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Tabla CAM desbordada — MAC flooding",
+    "prompt": "El switch dejó de aprender MACs y reenvía tráfico a todos los puertos",
+    "target": "DIAGNÓSTICO: Tabla CAM llena por ataque MAC flooding o exceso de dispositivos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.507676"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Sesión BGP cae con ISP",
+    "prompt": "La sesión BGP con el proveedor de Internet cae y no reconverge",
+    "target": "DIAGNÓSTICO: Sesión eBGP derribada por conectividad, autenticación o parámetros incorrectos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.593830"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Fallo DNS — clientes no resuelven nombres",
+    "prompt": "Los clientes no pueden resolver nombres de dominio",
+    "target": "DIAGNÓSTICO: El servidor DNS no responde o los clientes apuntan a un servidor incorrecto",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.676857"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Dúplex mismatch en enlace Ethernet",
+    "prompt": "Un enlace Ethernet muestra muchos errores y baja velocidad entre dos dispositivos",
+    "target": "DIAGNÓSTICO: Mismatch de dúplex o velocidad entre los dos extremos del enlace",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.743450"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "Túnel VPN IPSec no levanta",
+    "prompt": "El túnel VPN IPSec entre dos routers no establece la fase 1 IKE",
+    "target": "DIAGNÓSTICO: Fallo en negociación IKE Fase 1 por parámetros incompatibles o conectividad",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.845514"
+  },
+  {
+    "id": "caso_fb_20260610_220749",
+    "titulo": "2. Propuestas ISAKMP incompatibles (cifrado",
+    "prompt": "hash",
+    "target": "grupo DH)",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:49.933062"
+  },
+  {
+    "id": "caso_fb_20260610_220750",
+    "titulo": "VLAN no aparece en switch",
+    "prompt": "Una VLAN configurada no aparece activa en el switch ni permite tráfico",
+    "target": "DIAGNÓSTICO: VLAN no creada en la base de datos local o suspendida por VTP",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:50.014118"
+  },
+  {
+    "id": "caso_fb_20260610_220750",
+    "titulo": "Pérdida de paquetes ICMP intermitente",
+    "prompt": "Hay pérdida intermitente de paquetes al hacer ping a un servidor",
+    "target": "DIAGNÓSTICO: Pérdida de paquetes por congestión, error físico o filtrado de ICMP",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:50.098979"
+  },
+  {
+    "id": "caso_fb_20260610_220750",
+    "titulo": "3. Error físico en interfaz (CRC",
+    "prompt": "runts",
+    "target": "giants)",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:50.166113"
+  },
+  {
+    "id": "caso_fb_20260610_220750",
+    "titulo": "NAT no traduce tráfico saliente",
+    "prompt": "Los hosts internos no tienen acceso a Internet, NAT no funciona",
+    "target": "DIAGNÓSTICO: NAT mal configurado, interfaz inside/outside incorrecta o ACL de NAT errónea",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:50.280159"
+  },
+  {
+    "id": "caso_fb_20260610_220750",
+    "titulo": "STP root bridge subóptimo",
+    "prompt": "El root bridge de STP está en un switch de acceso en lugar del switch core",
+    "target": "DIAGNÓSTICO: El root bridge fue elegido por MAC address más baja, no por diseño",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:07:50.365126"
+  },
+  {
+    "id": "caso_fb_20260610_221317",
+    "titulo": "Violación de Port Security en switch Cisco",
+    "prompt": "Un usuario reemplaza su computador por uno nuevo. Al conectarlo al puerto FastEthernet0/12 no obtiene conectividad. El LED del puerto permanece en color naranja y en los logs aparece una alerta de seguridad.",
+    "target": "El puerto fue deshabilitado por una violación de Port Security.\r\n\r\nCAUSAS PROBABLES:\r\n\r\nSe cambió la MAC autorizada.\r\nEl límite de MAC permitidas fue excedido.\r\n\r\nSOLUCIÓN – Cisco IOS:\r\n\r\ninterface FastEthernet0/12\r\nshutdown\r\nno shutdown\r\nswitchport port-security mac-address sticky\r\n\r\nVERIFICACIÓN:\r\n\r\nshow port-security interface fa0/12",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:13:17.275602"
+  },
+  {
+    "id": "caso_fb_20260610_221525",
+    "titulo": "Email legítimo verificado",
+    "prompt": "Analiza este email sospechoso: re : 6 . 1100 , disc : uniformitarianism , re : 1086 ; sex / lang dick hudson 's observations on us use of 's on ' but not 'd aughter ' as a vocative are very thought-provoking , but i am not sure that it is fair to attribute this to \" sons \" being \" treated like senior relatives \" . for one thing , we do n't normally use ' brother ' in this way any more than we do 'd aughter ' , and it is hard to imagine a natural class comprising senior relatives and 's on ' but excluding ' brother ' . for ano",
+    "target": "DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:15:25.356658"
+  },
+  {
+    "id": "caso_fb_20260610_221526",
+    "titulo": "Email legítimo verificado",
+    "prompt": "Analiza este email sospechoso: the other side of * galicismos * * galicismo * is a spanish term which names the improper introduction of french words which are spanish sounding and thus very deceptive to the ear . * galicismo * is often considered to be a * barbarismo * . what would be the term which designates the opposite phenomenon , that is unlawful words of spanish origin which may have crept into french ? can someone provide examples ? thank you joseph m kozono < kozonoj @ gunet . georgetown . edu >",
+    "target": "DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:15:26.459303"
+  },
+  {
+    "id": "caso_fb_20260610_221529",
+    "titulo": "Email legítimo verificado",
+    "prompt": "Analiza este email sospechoso: re : equistar deal tickets are you still available to assist robert with entering the new deal tickets for equistar ? after talking with bryan hull and anita luong , kyle and i decided we only need 1 additional sale ticket and 1 additional buyback ticket set up . - - - - - - - - - - - - - - - - - - - - - - forwarded by tina valadez / hou / ect on 04 / 06 / 2000 12 : 56 pm - - - - - - - - - - - - - - - - - - - - - - - - - - - from : robert e lloyd on 04 / 06 / 2000 12 : 40 pm to : tina valadez /",
+    "target": "DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:15:29.019977"
+  },
+  {
+    "id": "caso_fb_20260610_222210",
+    "titulo": "Violación de Port Security en switch Cisco",
+    "prompt": "Un usuario reemplaza su computador por uno nuevo. Al conectarlo al puerto FastEthernet0/12 no obtiene conectividad. El LED del puerto permanece en color naranja. En los registros del switch aparecen mensajes de violación de seguridad y el puerto cambia automáticamente al estado err-disabled.",
+    "target": "DIAGNÓSTICO: El puerto fue deshabilitado por una violación de Port Security.\r\n\r\nCAUSAS PROBABLES:\r\n1. La dirección MAC aprendida previamente ya no coincide con el nuevo dispositivo.\r\n2. El puerto fue configurado para aceptar una única MAC autorizada.\r\n3. Se conectó un switch o dispositivo adicional que generó múltiples direcciones MAC.\r\n4. Existe una configuración sticky MAC obsoleta.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface FastEthernet0/12\r\n shutdown\r\n no shutdown\r\n switchport port-security\r\n switchport port-security maximum 2\r\n switchport port-security violation restrict\r\n switchport port-security mac-address sticky\r\n\r\nVERIFICACIÓN:\r\nshow port-security interface fa0/12\r\nshow interfaces status\r\nshow running-config interface fa0/12\r\n\r\nRESULTADO ESPERADO:\r\nEl puerto vuelve a estado up/up, aprende la nueva MAC autorizada y el usuario recupera la conectividad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:22:10.784033"
+  },
+  {
+    "id": "caso_fb_20260610_222210",
+    "titulo": "Clientes no reciben dirección IP mediante DHCP",
+    "prompt": "Los equipos conectados a la VLAN 20 muestran direcciones APIPA 169.254.x.x. Ningún cliente obtiene configuración automática de red y los usuarios reportan pérdida total de conectividad hacia recursos corporativos.",
+    "target": "DIAGNÓSTICO: Los mensajes DHCP Discover no están llegando al servidor DHCP o el servidor no está respondiendo.\r\n\r\nCAUSAS PROBABLES:\r\n1. El servidor DHCP se encuentra apagado o inaccesible.\r\n2. El pool de direcciones se encuentra agotado.\r\n3. Falta la configuración ip helper-address en la interfaz de la VLAN.\r\n4. Existe una ACL bloqueando tráfico UDP 67 y 68.\r\n5. DHCP Snooping está descartando solicitudes válidas.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface vlan 20\r\n ip helper-address 192.168.1.10\r\n\r\nVERIFICACIÓN:\r\nshow ip interface vlan 20\r\nshow ip dhcp binding\r\nshow ip dhcp pool\r\nping 192.168.1.10\r\n\r\nRESULTADO ESPERADO:\r\nLos clientes reciben automáticamente dirección IP, máscara, gateway y servidores DNS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:22:10.875681"
+  },
+  {
+    "id": "caso_fb_20260610_222210",
+    "titulo": "Ataque DHCP Spoofing en red corporativa",
+    "prompt": "Los usuarios comienzan a recibir direcciones IP de una red desconocida. Algunos equipos pierden acceso a servidores internos y otros utilizan una puerta de enlace diferente a la configurada por la organización.",
+    "target": "DIAGNÓSTICO: Existe un servidor DHCP no autorizado respondiendo más rápido que el servidor legítimo.\r\n\r\nCAUSAS PROBABLES:\r\n1. Un usuario conectó un router doméstico a la red corporativa.\r\n2. Un atacante implementó un servidor DHCP falso.\r\n3. No está habilitado DHCP Snooping.\r\n4. Los puertos de acceso fueron configurados como trusted incorrectamente.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip dhcp snooping\r\nip dhcp snooping vlan 10,20,30\r\ninterface GigabitEthernet0/1\r\n ip dhcp snooping trust\r\n\r\nVERIFICACIÓN:\r\nshow ip dhcp snooping\r\nshow ip dhcp snooping binding\r\nshow running-config | include snooping\r\n\r\nRESULTADO ESPERADO:\r\nÚnicamente el servidor DHCP autorizado entrega configuraciones IP a los clientes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:22:10.972034"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Fallo OSPF en área backbone",
+    "prompt": "El router no propaga rutas OSPF al área backbone",
+    "target": "DIAGNÓSTICO: Fallo en adyacencia OSPF entre routers vecinos.\r\n\r\nCAUSAS PROBABLES:\r\n1. El área OSPF del enlace no es el área 0\r\n2. Temporizadores Hello/Dead incompatibles\r\n3. Autenticación OSPF configurada solo en un lado\r\n4. MTU distinto en cada extremo del enlace\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nrouter ospf 1\r\n network 192.168.1.0 0.0.0.255 area 0\r\ninterface GigabitEthernet0/0\r\n ip ospf hello-interval 10\r\n ip ospf dead-interval 40\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf neighbor\r\nshow ip ospf interface\r\ndebug ip ospf adj",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.172699"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "DHCP sin respuesta a clientes",
+    "prompt": "Los clientes no reciben dirección IP del servidor DHCP",
+    "target": "DIAGNÓSTICO: El servidor DHCP no responde solicitudes DISCOVER de los clientes.\r\n\r\nCAUSAS PROBABLES:\r\n1. Pool DHCP agotado sin direcciones disponibles\r\n2. Falta ip helper-address en el router entre VLANs\r\n3. Servicio DHCP detenido\r\n4. UDP 67/68 bloqueado por ACL o firewall\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/1\r\n ip helper-address 10.0.0.1\r\nip dhcp pool LAN\r\n network 192.168.1.0 255.255.255.0\r\n default-router 192.168.1.1\r\n dns-server 8.8.8.8\r\nip dhcp excluded-address 192.168.1.1 192.168.1.10\r\n\r\nVERIFICACIÓN:\r\nshow ip dhcp pool\r\nshow ip dhcp binding\r\nshow ip dhcp conflict",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.269240"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Native VLAN mismatch trunk 802.1Q",
+    "prompt": "Aparece alerta de Native VLAN mismatch en el enlace troncal entre dos switches",
+    "target": "DIAGNÓSTICO: Los extremos del trunk 802.1Q tienen distinta Native VLAN configurada.\r\n\r\nCAUSAS PROBABLES:\r\n1. Native VLAN diferente en cada switch\r\n2. Un extremo usa VLAN 1 por defecto sin cambiar\r\n3. Error de configuración manual\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/1\r\n switchport trunk encapsulation dot1q\r\n switchport mode trunk\r\n switchport trunk native vlan 99\r\nvlan 99\r\n name NATIVE\r\n\r\nVERIFICACIÓN:\r\nshow interfaces trunk\r\nshow spanning-tree vlan 99",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.357219"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Tormenta de broadcast por bucle L2",
+    "prompt": "La red sufre tormenta de broadcast y los switches están saturados al 100%",
+    "target": "DIAGNÓSTICO: Bucle de capa 2 activo por STP no convergido o deshabilitado.\r\n\r\nCAUSAS PROBABLES:\r\n1. STP deshabilitado en algún switch\r\n2. PortFast activo en puerto troncal\r\n3. BPDUs bloqueadas por switch no gestionado\r\n4. Cambio de topología sin recalcular árbol\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nspanning-tree mode rapid-pvst\r\nspanning-tree vlan 1-4094 priority 4096\r\ninterface range GigabitEthernet0/1 - 24\r\n spanning-tree portfast\r\n spanning-tree bpduguard enable\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree\r\nshow spanning-tree inconsistentports\r\nshow mac address-table count",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.457928"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Baja velocidad Wi-Fi 802.11n en 2.4 GHz",
+    "prompt": "La red inalámbrica 802.11n tiene baja velocidad y alta latencia en banda 2.4 GHz",
+    "target": "DIAGNÓSTICO: Interferencia de canal en 2.4 GHz por solapamiento o dispositivos externos.\r\n\r\nCAUSAS PROBABLES:\r\n1. Múltiples APs usando el mismo canal\r\n2. Alta densidad de redes vecinas en 2.4 GHz\r\n3. Interferencia de Bluetooth o microondas\r\n4. Canal en auto con selección subóptima\r\n\r\nSOLUCIÓN - hostapd.conf:\r\nchannel=6\r\nhw_mode=g\r\nieee80211n=1\r\nht_capab=[HT40+]\r\n\r\nSOLUCIÓN - General:\r\n- Asignar manualmente canal 1, 6 u 11\r\n- Habilitar band steering hacia 5 GHz\r\n- Reducir TX-power si APs muy próximos\r\n\r\nVERIFICACIÓN:\r\niwlist wlan0 scan | grep -E 'Channel|Signal'\r\nUsar WiFi Analyzer para escanear canales vecinos",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.541865"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Una ACL en el router bloquea tráfico HTTP y HTTPS que debería estar permitido",
+    "target": "DIAGNÓSTICO: Reglas ACL mal ordenadas o con wildcard incorrecta bloquean tráfico válido.\r\n\r\nCAUSAS PROBABLES:\r\n1. Regla deny ubicada antes del permit correcto\r\n2. Wildcard mask equivocada (confusión con subnet mask)\r\n3. ACL aplicada en interfaz o dirección incorrecta (in vs out)\r\n4. Deny implícito al final no contemplado\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip access-list extended FILTRO_LAN\r\n 10 permit tcp 192.168.1.0 0.0.0.255 any eq 80\r\n 20 permit tcp 192.168.1.0 0.0.0.255 any eq 443\r\n 30 permit icmp 192.168.1.0 0.0.0.255 any\r\n 40 deny ip any any log\r\ninterface GigabitEthernet0/0\r\n ip access-group FILTRO_LAN in\r\n\r\nVERIFICACIÓN:\r\nshow ip access-lists FILTRO_LAN\r\ndebug ip packet detail",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.650508"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Trunk no levanta entre switches",
+    "prompt": "El enlace entre dos switches no establece trunk y permanece en modo access",
+    "target": "DIAGNÓSTICO: Negociación DTP fallida o conflicto de modo entre los switches.\r\n\r\nCAUSAS PROBABLES:\r\n1. Ambos lados configurados en dynamic auto sin iniciar negociación\r\n2. Encapsulación distinta en cada extremo\r\n3. VLANs no presentes en la VLAN database\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/1\r\n switchport trunk encapsulation dot1q\r\n switchport mode trunk\r\n switchport nonegotiate\r\n switchport trunk allowed vlan 10,20,30,99\r\n\r\nVERIFICACIÓN:\r\nshow interfaces GigabitEthernet0/1 trunk\r\nshow dtp interface GigabitEthernet0/1\r\nshow vlan brief",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.733912"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Saturación de enlace WAN con pérdida de paquetes",
+    "prompt": "El enlace WAN está al 100% de uso y hay pérdida de paquetes severa",
+    "target": "DIAGNÓSTICO: Congestión WAN por ausencia de QoS y tráfico sin priorización.\r\n\r\nCAUSAS PROBABLES:\r\n1. Sin QoS configurado, todo compite por el mismo ancho de banda\r\n2. Backup o transferencia masiva satura el enlace\r\n3. Bufferbloat en interfaces seriales\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nclass-map match-any VOIP\r\n match dscp ef\r\npolicy-map WAN_QOS\r\n class VOIP\r\n  priority percent 20\r\n class class-default\r\n  fair-queue\r\ninterface Serial0/0\r\n service-policy output WAN_QOS\r\n\r\nVERIFICACIÓN:\r\nshow policy-map interface Serial0/0\r\nshow interfaces Serial0/0 | include rate",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.819076"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Fallo autenticación 802.1X en puerto de acceso",
+    "prompt": "Los dispositivos no se autentican con 802.1X y quedan sin acceso a la red",
+    "target": "DIAGNÓSTICO: Fallo EAP entre suplicante, switch y servidor RADIUS.\r\n\r\nCAUSAS PROBABLES:\r\n1. Shared secret incorrecto entre switch y RADIUS\r\n2. Método EAP incompatible (PEAP vs EAP-TLS)\r\n3. UDP 1812/1813 bloqueado por firewall\r\n4. Suplicante 802.1X deshabilitado en el cliente\r\n\r\nSOLUCIÓN - Cisco IOS:\r\naaa new-model\r\naaa authentication dot1x default group radius\r\nradius-server host 10.0.0.10 auth-port 1812\r\nradius-server key S3cr3t0\r\ndot1x system-auth-control\r\ninterface GigabitEthernet0/5\r\n switchport mode access\r\n dot1x port-control auto\r\n\r\nVERIFICACIÓN:\r\nshow dot1x all\r\nshow authentication sessions\r\ndebug dot1x all",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.873018"
+  },
+  {
+    "id": "caso_fb_20260610_222316",
+    "titulo": "Default route no se redistribuye en EIGRP",
+    "prompt": "Los routers del dominio EIGRP no aprenden la ruta por defecto hacia Internet",
+    "target": "DIAGNÓSTICO: La ruta 0.0.0.0/0 no se redistribuye dentro del dominio EIGRP.\r\n\r\nCAUSAS PROBABLES:\r\n1. Falta comando redistribute static en EIGRP\r\n2. Ruta estática por defecto no existe en el router de borde\r\n3. Distribute-list filtrando la default route\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip route 0.0.0.0 0.0.0.0 203.0.113.1\r\nrouter eigrp 100\r\n redistribute static metric 10000 100 255 1 1500\r\n\r\nVERIFICACIÓN:\r\nshow ip route eigrp\r\nshow ip route 0.0.0.0\r\nshow ip eigrp topology 0.0.0.0/0",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:16.985753"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Jitter excesivo en llamadas VoIP",
+    "prompt": "Las llamadas VoIP presentan cortes, eco y alta latencia intermitente",
+    "target": "DIAGNÓSTICO: Tráfico de voz no priorizado comparte cola con datos masivos.\r\n\r\nCAUSAS PROBABLES:\r\n1. Sin marcado DSCP EF en paquetes RTP\r\n2. Bufferbloat en interfaz de salida\r\n3. Pérdida de paquetes superior al 1%\r\n4. Enlace half-duplex o con colisiones\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nclass-map match-any VOIP_RTP\r\n match protocol rtp audio\r\n match dscp ef\r\npolicy-map MARCAR_VOIP\r\n class VOIP_RTP\r\n  set dscp ef\r\n  priority percent 20\r\ninterface GigabitEthernet0/0\r\n service-policy output MARCAR_VOIP\r\n tx-ring-limit 3\r\n\r\nVERIFICACIÓN:\r\nshow policy-map interface\r\nping 10.0.0.1 repeat 1000 size 160",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.077032"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "MAC flooding — tabla CAM desbordada",
+    "prompt": "El switch dejó de aprender nuevas MACs y reenvía tráfico a todos los puertos",
+    "target": "DIAGNÓSTICO: Tabla CAM llena por ataque MAC flooding o exceso de dispositivos.\r\n\r\nCAUSAS PROBABLES:\r\n1. Ataque con herramienta macof/dsniff desde puerto comprometido\r\n2. Port Security no configurado\r\n3. Capacidad CAM insuficiente para la cantidad de dispositivos\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface range GigabitEthernet0/1 - 24\r\n switchport mode access\r\n switchport port-security\r\n switchport port-security maximum 3\r\n switchport port-security violation shutdown\r\n switchport port-security mac-address sticky\r\n\r\nVERIFICACIÓN:\r\nshow mac address-table count\r\nshow port-security\r\nshow port-security address",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.147056"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Sesión BGP cae con ISP",
+    "prompt": "La sesión eBGP con el proveedor de Internet cae y no reconverge",
+    "target": "DIAGNÓSTICO: Sesión eBGP derribada por parámetros incompatibles, autenticación o conectividad.\r\n\r\nCAUSAS PROBABLES:\r\n1. TTL=1 por defecto con más de un salto al peer\r\n2. Contraseña MD5 incorrecta o ausente en un lado\r\n3. TCP 179 bloqueado por firewall o ACL\r\n4. AS number del peer incorrecto\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nrouter bgp 65001\r\n neighbor 203.0.113.1 remote-as 65000\r\n neighbor 203.0.113.1 password C1sc0BGP\r\n neighbor 203.0.113.1 timers 10 30\r\n neighbor 203.0.113.1 ebgp-multihop 2\r\n\r\nVERIFICACIÓN:\r\nshow bgp summary\r\nshow bgp neighbors 203.0.113.1\r\ndebug bgp 203.0.113.1 events",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.239180"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "DNS sin resolución de nombres",
+    "prompt": "Los clientes no pueden resolver nombres de dominio en la red",
+    "target": "DIAGNÓSTICO: El servidor DNS no responde o los clientes apuntan a servidor incorrecto.\r\n\r\nCAUSAS PROBABLES:\r\n1. Servidor DNS primario caído o inaccesible\r\n2. UDP/TCP 53 bloqueado por ACL o firewall\r\n3. Dirección DNS incorrecta en pool DHCP\r\n4. Caché DNS corrompida en clientes\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip dns server\r\nip name-server 8.8.8.8\r\nip dhcp pool LAN\r\n dns-server 192.168.1.1 8.8.8.8\r\n\r\nSOLUCIÓN - Linux:\r\nsystemctl restart systemd-resolved\r\nnslookup google.com 8.8.8.8\r\n\r\nVERIFICACIÓN:\r\nnslookup google.com\r\ndig @192.168.1.1 google.com\r\nshow ip dns view default",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.297777"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Dúplex mismatch en enlace Ethernet",
+    "prompt": "Un enlace Ethernet muestra muchos errores de CRC y baja velocidad efectiva",
+    "target": "DIAGNÓSTICO: Mismatch de dúplex o velocidad entre los dos extremos del enlace.\r\n\r\nCAUSAS PROBABLES:\r\n1. Un extremo en full-duplex y el otro en half-duplex\r\n2. Autonegociación fallida con un lado forzado\r\n3. Cable de mala calidad o con falsos contactos\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/1\r\n duplex full\r\n speed 1000\r\n no shutdown\r\n\r\nSOLUCIÓN - Linux:\r\nethtool -s eth0 speed 1000 duplex full autoneg off\r\n\r\nVERIFICACIÓN:\r\nshow interfaces GigabitEthernet0/1\r\nshow interfaces GigabitEthernet0/1 counters errors\r\nethtool eth0 | grep -i duplex",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.410635"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Túnel VPN IPSec no establece fase 1 IKE",
+    "prompt": "El túnel VPN IPSec entre dos routers no establece la fase 1 IKE y queda en estado MM_NO_STATE",
+    "target": "DIAGNÓSTICO: Fallo en negociación IKE Fase 1 por parámetros incompatibles o conectividad bloqueada.\r\n\r\nCAUSAS PROBABLES:\r\n1. Pre-shared key distinta en cada extremo\r\n2. Propuestas ISAKMP incompatibles (cifrado, hash, grupo DH)\r\n3. UDP 500/4500 bloqueado en firewall\r\n4. IP del peer incorrecta en la crypto map\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ncrypto isakmp policy 10\r\n encr aes 256\r\n hash sha256\r\n authentication pre-share\r\n group 14\r\ncrypto isakmp key M1Clave123 address 203.0.113.5\r\ncrypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac\r\ncrypto map MAPA 10 ipsec-isakmp\r\n set peer 203.0.113.5\r\n set transform-set TS\r\n match address VPN_ACL\r\n\r\nVERIFICACIÓN:\r\nshow crypto isakmp sa\r\nshow crypto ipsec sa\r\ndebug crypto isakmp",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.477009"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "VLAN no activa en switch",
+    "prompt": "Una VLAN configurada no aparece activa en el switch y no permite tráfico",
+    "target": "DIAGNÓSTICO: VLAN no creada en la base de datos local o suspendida por VTP.\r\n\r\nCAUSAS PROBABLES:\r\n1. VLAN no añadida con comando vlan <id>\r\n2. VTP modo cliente sin recibir la VLAN del servidor\r\n3. VLAN en estado suspended\r\n4. Puerto no asignado a la VLAN correcta\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nvlan 20\r\n name VENTAS\r\n state active\r\ninterface GigabitEthernet0/5\r\n switchport mode access\r\n switchport access vlan 20\r\nvtp mode transparent\r\n\r\nVERIFICACIÓN:\r\nshow vlan brief\r\nshow vlan id 20\r\nshow vtp status",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.569721"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "NAT no traduce tráfico saliente",
+    "prompt": "Los hosts internos no tienen acceso a Internet, NAT no funciona correctamente",
+    "target": "DIAGNÓSTICO: NAT mal configurado, interfaces inside/outside incorrectas o ACL de NAT errónea.\r\n\r\nCAUSAS PROBABLES:\r\n1. Interfaces inside/outside no marcadas\r\n2. ACL de NAT no coincide con el rango de la red interna\r\n3. Pool NAT sin direcciones disponibles\r\n4. Ruta por defecto ausente en el router\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/0\r\n ip nat inside\r\ninterface GigabitEthernet0/1\r\n ip nat outside\r\nip access-list standard LAN_NAT\r\n permit 192.168.1.0 0.0.0.255\r\nip nat inside source list LAN_NAT interface GigabitEthernet0/1 overload\r\nip route 0.0.0.0 0.0.0.0 203.0.113.1\r\n\r\nVERIFICACIÓN:\r\nshow ip nat translations\r\nshow ip nat statistics\r\ndebug ip nat",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.631121"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Root bridge STP en switch de acceso",
+    "prompt": "El root bridge de Spanning Tree está en un switch de acceso en lugar del switch core",
+    "target": "DIAGNÓSTICO: Root bridge elegido por MAC address más baja en lugar de por diseño administrativo.\r\n\r\nCAUSAS PROBABLES:\r\n1. Prioridad STP no configurada manualmente en el core\r\n2. Switch antiguo con MAC baja ganó la elección automática\r\n3. Cambio de topología sin reconfiguar prioridades\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nspanning-tree vlan 1-4094 priority 4096\r\nspanning-tree vlan 1-4094 root primary\r\n\r\nSOLUCIÓN - Switch secundario:\r\nspanning-tree vlan 1-4094 priority 8192\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree\r\nshow spanning-tree root\r\nshow spanning-tree vlan 1 detail",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.720765"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Pérdida intermitente de paquetes ICMP",
+    "prompt": "Hay pérdida intermitente de paquetes al hacer ping a un servidor crítico",
+    "target": "DIAGNÓSTICO: Pérdida de paquetes por congestión, error físico o filtrado de ICMP en ruta.\r\n\r\nCAUSAS PROBABLES:\r\n1. ACL filtra ICMP en algún punto del camino\r\n2. QoS descarta paquetes ICMP por baja prioridad\r\n3. Error físico en interfaz (CRC, runts)\r\n4. Routing asimétrico con rutas inestables\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip access-list extended PERMITIR_ICMP\r\n permit icmp any any\r\ninterface GigabitEthernet0/0\r\n ip access-group PERMITIR_ICMP in\r\n\r\nVERIFICACIÓN:\r\nping 10.0.0.1 repeat 500\r\ntraceroute 10.0.0.1\r\nshow interfaces GigabitEthernet0/0 counters",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.786092"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Phishing financiero — suplantación bancaria",
+    "prompt": "Se recibe email solicitando confirmar datos bancarios con urgencia, aparentando ser del banco",
+    "target": "DIAGNÓSTICO: Email de phishing financiero para obtener credenciales o datos bancarios mediante urgencia falsa.\r\n\r\nCAUSAS PROBABLES:\r\n1. Dominio remitente no corresponde al banco legítimo (typosquatting)\r\n2. SPF/DKIM/DMARC fallidos o ausentes\r\n3. URL destino es sitio clon del banco real\r\n4. Ningún banco solicita credenciales por email\r\n\r\nSOLUCIÓN - Postfix:\r\nsmtpd_sender_restrictions = reject_unknown_sender_domain\r\nsmtpd_recipient_restrictions =\r\n reject_rbl_client zen.spamhaus.org\r\n\r\nSOLUCIÓN - Política:\r\n- Implementar DMARC en modo reject\r\n- Capacitar usuarios: bancos no solicitan datos por email\r\n- DNS filtering para bloquear dominios maliciosos\r\n\r\nVERIFICACIÓN:\r\nVerificar cabeceras: Received-SPF, DKIM-Signature\r\nAnalizar URL en https://virustotal.com",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.891410"
+  },
+  {
+    "id": "caso_fb_20260610_222317",
+    "titulo": "Phishing de credenciales — harvesting",
+    "prompt": "Email solicita verificar cuenta con urgencia mediante enlace que redirige a página de login falsa",
+    "target": "DIAGNÓSTICO: Email de credential harvesting con página clon para robar usuario y contraseña.\r\n\r\nCAUSAS PROBABLES:\r\n1. Enlace redirige a sitio clon del legítimo\r\n2. Dominio con variación tipográfica\r\n3. Certificado SSL en dominio fraudulento genera falsa confianza\r\n4. Formulario envía credenciales al servidor del atacante\r\n\r\nSOLUCIÓN - Bind9 RPZ:\r\nzone rpz.local { type master; file rpz.db; };\r\n\r\nSOLUCIÓN - General:\r\n- Implementar MFA en todos los servicios\r\n- Proxy web con reputación de URL\r\n- Filtro DNS para dominios maliciosos\r\n\r\nVERIFICACIÓN:\r\nAnalizar URL en https://virustotal.com\r\nVerificar WHOIS del dominio sospechoso\r\nnslookup dominio-sospechoso.com",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:17.987800"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "Phishing con payload HTML malicioso",
+    "prompt": "Email recibido contiene código HTML con scripts embebidos y formularios ocultos",
+    "target": "DIAGNÓSTICO: Email con código HTML/JavaScript malicioso para explotar el cliente de correo o navegador.\r\n\r\nCAUSAS PROBABLES:\r\n1. Script embebido en el cuerpo del email\r\n2. Iframe apuntando a recurso externo malicioso\r\n3. Formulario oculto exfiltra datos al abrir el mensaje\r\n4. Evento onload ejecuta código sin interacción del usuario\r\n\r\nSOLUCIÓN - Postfix + Amavis:\r\n$banned_filename_re = qr/\\.(html?|js|vbs)/i;\r\n\r\nSOLUCIÓN - Exchange:\r\nSet-TransportRule -BlockHTML $true\r\n\r\nSOLUCIÓN - General:\r\n- Configurar cliente de correo para no renderizar HTML externo\r\n- Sandboxing de contenido HTML\r\n\r\nVERIFICACIÓN:\r\nAnalizar cabeceras MIME\r\nstrings adjunto.html | grep -i script",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.082398"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "Spam masivo — UCE no solicitado",
+    "prompt": "El servidor de correo recibe miles de mensajes no solicitados saturando los recursos",
+    "target": "DIAGNÓSTICO: Campaña de spam masivo (UCE) desde IPs listadas en blacklists.\r\n\r\nCAUSAS PROBABLES:\r\n1. IP remitente en listas negras DNSBL\r\n2. Sin mecanismo de rate limiting en el MTA\r\n3. SPF ausente permite suplantación del dominio\r\n4. Cabecera To con BCC masivo oculto\r\n\r\nSOLUCIÓN - Postfix main.cf:\r\nsmtpd_recipient_restrictions =\r\n reject_rbl_client zen.spamhaus.org\r\n reject_rbl_client bl.spamcop.net\r\n permit_mynetworks\r\n\r\nSOLUCIÓN - SpamAssassin:\r\nrequired_score 5.0\r\nuse_bayes 1\r\n\r\nVERIFICACIÓN:\r\nConsultar IP en https://mxtoolbox.com/blacklists.aspx\r\ntail -f /var/log/mail.log | grep reject",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.175582"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "Estafa 419 — fraude de adelanto de fondos",
+    "prompt": "Email recibido promete millones de dólares en herencia a cambio de adelantar una pequeña suma",
+    "target": "DIAGNÓSTICO: Email de estafa 419 (advance-fee fraud) para extraer dinero mediante promesa falsa.\r\n\r\nCAUSAS PROBABLES:\r\n1. Historia inverosímil de herencia o fondos bloqueados\r\n2. Remitente desde dominio gratuito (gmail, yahoo)\r\n3. Solicita confidencialidad y urgencia artificial\r\n4. SPF/DKIM ausentes o inválidos\r\n\r\nSOLUCIÓN - SpamAssassin:\r\nbody SCAM_419 /confidential|inheritance|million dollars|transfer funds/i\r\nscore SCAM_419 6.0\r\n\r\nSOLUCIÓN - Postfix:\r\nheader_checks = regexp:/etc/postfix/header_checks\r\n\r\nVERIFICACIÓN:\r\nAnalizar cabecera X-Originating-IP\r\nConsultar IP en abuse databases",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.265657"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "Interferencia canal Wi-Fi 802.11ac 5 GHz",
+    "prompt": "La red 802.11ac en 5 GHz muestra desconexiones repentinas y baja cobertura",
+    "target": "DIAGNÓSTICO: Desconexiones por DFS (Dynamic Frequency Selection) o radar detection en 5 GHz.\r\n\r\nCAUSAS PROBABLES:\r\n1. Canal DFS activo detectó radar y cambió de canal automáticamente\r\n2. Potencia TX insuficiente para la distancia requerida\r\n3. Obstáculos físicos que degradan la señal en 5 GHz\r\n4. Driver del AP desactualizado con bug en DFS\r\n\r\nSOLUCIÓN - hostapd.conf:\r\nchannel=36\r\nieee80211ac=1\r\nvht_oper_chwidth=1\r\nvht_oper_centr_freq_seg0_idx=42\r\n\r\nSOLUCIÓN - General:\r\n- Usar canales no-DFS: 36, 40, 44, 48\r\n- Aumentar potencia TX si cobertura es insuficiente\r\n- Actualizar firmware del AP\r\n\r\nVERIFICACIÓN:\r\niw dev wlan0 info\r\ndmesg | grep -i dfs\r\niw wlan0 scan | grep -E 'freq|signal'",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.364842"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "HSRP no realiza failover",
+    "prompt": "El gateway de redundancia HSRP no hace failover cuando el router activo falla",
+    "target": "DIAGNÓSTICO: HSRP no detecta el fallo del router activo a tiempo o la prioridad está mal configurada.\r\n\r\nCAUSAS PROBABLES:\r\n1. Temporizadores Hello/Hold demasiado altos\r\n2. Prioridad igual en ambos routers sin preempt\r\n3. Tracking de interfaz no configurado\r\n4. HSRP hello bloqueado por ACL\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/0\r\n standby 1 ip 192.168.1.254\r\n standby 1 priority 110\r\n standby 1 preempt\r\n standby 1 timers 1 3\r\n standby 1 track GigabitEthernet0/1 20\r\n\r\nVERIFICACIÓN:\r\nshow standby\r\nshow standby brief\r\ndebug standby",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.440698"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "STP port en estado blocking permanente",
+    "prompt": "Un puerto del switch queda permanentemente en estado blocking de STP sin pasar a forwarding",
+    "target": "DIAGNÓSTICO: Puerto bloqueado por STP como mecanismo anti-loop; puede ser BPDU Guard o inconsistencia de puerto.\r\n\r\nCAUSAS PROBABLES:\r\n1. BPDU Guard disparado al recibir BPDU en puerto PortFast\r\n2. Puerto en inconsistencia por root guard\r\n3. Costo de ruta STP subóptimo que mantiene el puerto bloqueado\r\n4. Configuración manual de puerto en blocking\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/3\r\n no spanning-tree bpduguard enable\r\n spanning-tree cost 10\r\n shutdown\r\n no shutdown\r\n\r\nSOLUCIÓN - Si es puerto de acceso legítimo:\r\n spanning-tree portfast\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree interface GigabitEthernet0/3\r\nshow spanning-tree inconsistentports\r\nshow errdisable recovery",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.566898"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "OSPF vecinos atascados en EXSTART",
+    "prompt": "Los vecinos OSPF se quedan en estado EXSTART y no llegan a FULL",
+    "target": "DIAGNÓSTICO: Problema de MTU mismatch entre interfaces OSPF impide intercambio de DBD.\r\n\r\nCAUSAS PROBABLES:\r\n1. MTU distinto en cada extremo del enlace OSPF\r\n2. Fragmentación de paquetes DBD bloqueada\r\n3. Autenticación OSPF tipo 2 con contraseña diferente\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface GigabitEthernet0/0\r\n ip mtu 1500\r\n ip ospf mtu-ignore\r\n\r\nSOLUCIÓN - Si es autenticación:\r\ninterface GigabitEthernet0/0\r\n ip ospf authentication message-digest\r\n ip ospf message-digest-key 1 md5 Clave123\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf neighbor\r\nshow interfaces GigabitEthernet0/0 | include MTU\r\ndebug ip ospf adj",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.691991"
+  },
+  {
+    "id": "caso_fb_20260610_222318",
+    "titulo": "VLAN de voz no prioriza tráfico telefónico",
+    "prompt": "Los teléfonos IP en la VLAN de voz no reciben prioridad y la calidad de llamada es mala",
+    "target": "DIAGNÓSTICO: VLAN de voz configurada pero sin QoS trust en el puerto de acceso del switch.\r\n\r\nCAUSAS PROBABLES:\r\n1. Switch no confía en el marcado CoS/DSCP del teléfono IP\r\n2. VLAN de voz no configurada en el puerto de acceso\r\n3. CDP deshabilitado impide que el teléfono reciba VLAN automáticamente\r\n4. QoS no habilitado globalmente en el switch\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nmls qos\r\ninterface GigabitEthernet0/10\r\n switchport mode access\r\n switchport access vlan 10\r\n switchport voice vlan 100\r\n mls qos trust cos\r\n spanning-tree portfast\r\n\r\nVERIFICACIÓN:\r\nshow interfaces GigabitEthernet0/10 trunk\r\nshow mls qos interface GigabitEthernet0/10\r\nshow cdp neighbors",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:23:18.801215"
+  },
+  {
+    "id": "caso_fb_20260610_222440",
+    "titulo": "Fallo de adyacencia OSPF",
+    "prompt": "Dos routers conectados directamente no forman vecindad OSPF. El comando show ip ospf neighbor no muestra vecinos activos y las rutas no se intercambian entre áreas.",
+    "target": "DIAGNÓSTICO: La adyacencia OSPF no se está estableciendo correctamente.\r\n\r\nCAUSAS PROBABLES:\r\n1. Área OSPF diferente entre routers.\r\n2. Máscaras incompatibles.\r\n3. Temporizadores Hello y Dead distintos.\r\n4. Autenticación OSPF inconsistente.\r\n5. Interfaces en estado passive-interface.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nrouter ospf 1\r\n network 10.0.0.0 0.0.0.255 area 0\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf neighbor\r\nshow ip ospf interface\r\n\r\nRESULTADO ESPERADO:\r\nLos routers establecen vecindad FULL y comienzan a intercambiar rutas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:40.893004"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "Ruta por defecto ausente",
+    "prompt": "Los usuarios pueden acceder a recursos internos pero no pueden navegar por Internet. El gateway responde correctamente.",
+    "target": "DIAGNÓSTICO: No existe una ruta por defecto válida hacia Internet.\r\n\r\nCAUSAS PROBABLES:\r\n1. Default route eliminada.\r\n2. Error de configuración del ISP.\r\n3. Gateway incorrecto.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip route 0.0.0.0 0.0.0.0 200.10.10.1\r\n\r\nVERIFICACIÓN:\r\nshow ip route\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico desconocido se dirige correctamente hacia Internet.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.002184"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "EtherChannel inconsistente",
+    "prompt": "Dos switches conectados mediante EtherChannel muestran interfaces suspendidas y tráfico intermitente.",
+    "target": "DIAGNÓSTICO: Configuración inconsistente en el EtherChannel.\r\n\r\nCAUSAS PROBABLES:\r\n1. Diferentes modos LACP.\r\n2. VLAN permitidas distintas.\r\n3. Velocidad o duplex incompatibles.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface range g0/1-2\r\n channel-group 1 mode active\r\n\r\nVERIFICACIÓN:\r\nshow etherchannel summary\r\n\r\nRESULTADO ESPERADO:\r\nEl Port-Channel aparece operativo y balancea tráfico correctamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.102175"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "Root Guard activado",
+    "prompt": "Después de conectar un switch nuevo, un puerto entra en estado root-inconsistent y deja de transmitir tráfico.",
+    "target": "DIAGNÓSTICO: Root Guard detectó una BPDU superior.\r\n\r\nCAUSAS PROBABLES:\r\n1. Switch no autorizado.\r\n2. Error de diseño STP.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nRevisar prioridades STP y eliminar el dispositivo no autorizado.\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree inconsistentports\r\n\r\nRESULTADO ESPERADO:\r\nLa topología vuelve a ser estable.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.203079"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "Ataque ARP Spoofing",
+    "prompt": "Los usuarios experimentan redirecciones extrañas y pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: Posible ataque Man-In-The-Middle mediante ARP Spoofing.\r\n\r\nCAUSAS PROBABLES:\r\n1. Host comprometido.\r\n2. Dynamic ARP Inspection deshabilitado.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip arp inspection vlan 10\r\n\r\nVERIFICACIÓN:\r\nshow ip arp inspection statistics\r\n\r\nRESULTADO ESPERADO:\r\nSe bloquean respuestas ARP fraudulentas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.305692"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "AAA no autentica usuarios",
+    "prompt": "Los administradores no pueden iniciar sesión mediante credenciales corporativas en los equipos Cisco.",
+    "target": "DIAGNÓSTICO: Fallo en autenticación AAA.\r\n\r\nCAUSAS PROBABLES:\r\n1. Servidor RADIUS inaccesible.\r\n2. Shared secret incorrecta.\r\n3. ACL bloqueando tráfico.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\naaa new-model\r\nradius-server host 192.168.1.5 key ClaveSegura\r\n\r\nVERIFICACIÓN:\r\nshow aaa servers\r\n\r\nRESULTADO ESPERADO:\r\nLos usuarios son autenticados correctamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.389488"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "NAT dinámico no funciona",
+    "prompt": "Los usuarios internos no pueden acceder a Internet aunque existe conectividad hasta el router perimetral.",
+    "target": "DIAGNÓSTICO: NAT no está traduciendo direcciones correctamente.\r\n\r\nCAUSAS PROBABLES:\r\n1. ACL NAT incorrecta.\r\n2. Interfaces mal definidas.\r\n3. Pool NAT agotado.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip nat inside source list 1 interface g0/0 overload\r\n\r\nVERIFICACIÓN:\r\nshow ip nat translations\r\n\r\nRESULTADO ESPERADO:\r\nLas direcciones privadas son traducidas exitosamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.498455"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "DNS corporativo inaccesible",
+    "prompt": "Los usuarios pueden hacer ping por dirección IP pero no por nombres de dominio.",
+    "target": "DIAGNÓSTICO: Problema de resolución DNS.\r\n\r\nCAUSAS PROBABLES:\r\n1. DNS apagado.\r\n2. Dirección DNS incorrecta.\r\n3. Firewall bloqueando puerto 53.\r\n\r\nSOLUCIÓN:\r\nConfigurar correctamente los servidores DNS.\r\n\r\nVERIFICACIÓN:\r\nnslookup servidor.local\r\n\r\nRESULTADO ESPERADO:\r\nLa resolución de nombres vuelve a funcionar.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.601814"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "VPN IPsec no establece túnel",
+    "prompt": "Dos sedes dejan de intercambiar tráfico y el túnel VPN aparece inactivo.",
+    "target": "DIAGNÓSTICO: Negociación IPsec fallida.\r\n\r\nCAUSAS PROBABLES:\r\n1. Claves precompartidas distintas.\r\n2. ACL interesante incorrecta.\r\n3. Parámetros ISAKMP incompatibles.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ncrypto isakmp key VPN123 address 200.1.1.2\r\n\r\nVERIFICACIÓN:\r\nshow crypto isakmp sa\r\n\r\nRESULTADO ESPERADO:\r\nEl túnel pasa al estado QM_IDLE.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.686109"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "SNMP inaccesible",
+    "prompt": "El servidor de monitoreo deja de recibir métricas desde switches Cisco.",
+    "target": "DIAGNÓSTICO: SNMP no responde.\r\n\r\nCAUSAS PROBABLES:\r\n1. Community incorrecta.\r\n2. ACL bloqueando consultas.\r\n3. SNMP deshabilitado.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nsnmp-server community monitor RO\r\n\r\nVERIFICACIÓN:\r\nshow snmp\r\n\r\nRESULTADO ESPERADO:\r\nEl sistema de monitoreo vuelve a recopilar información.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.804851"
+  },
+  {
+    "id": "caso_fb_20260610_222441",
+    "titulo": "Storm Control detecta tormenta broadcast",
+    "prompt": "La red presenta lentitud extrema y utilización anormal de ancho de banda.",
+    "target": "DIAGNÓSTICO: Tormenta de broadcast.\r\n\r\nCAUSAS PROBABLES:\r\n1. Loop de capa 2.\r\n2. Dispositivo defectuoso.\r\n3. Malware generando tráfico masivo.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface fa0/10\r\n storm-control broadcast level 5.00\r\n\r\nVERIFICACIÓN:\r\nshow storm-control\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico broadcast se mantiene dentro de límites seguros.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:41.906598"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Servidor Syslog no recibe eventos",
+    "prompt": "Los equipos Cisco generan logs localmente pero el servidor central no recibe registros.",
+    "target": "DIAGNÓSTICO: Configuración Syslog incorrecta.\r\n\r\nCAUSAS PROBABLES:\r\n1. Dirección IP errónea.\r\n2. Firewall bloqueando UDP 514.\r\n3. Nivel de logging inadecuado.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nlogging host 192.168.1.50\r\nlogging trap informational\r\n\r\nVERIFICACIÓN:\r\nshow logging\r\n\r\nRESULTADO ESPERADO:\r\nLos eventos son enviados al servidor Syslog.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.007467"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "NTP desincronizado",
+    "prompt": "Los dispositivos presentan diferencias horarias importantes y los registros muestran horas inconsistentes.",
+    "target": "DIAGNÓSTICO: Problema de sincronización NTP.\r\n\r\nCAUSAS PROBABLES:\r\n1. Servidor NTP caído.\r\n2. ACL bloqueando UDP 123.\r\n3. Configuración incorrecta.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nntp server 192.168.1.100\r\n\r\nVERIFICACIÓN:\r\nshow ntp status\r\n\r\nRESULTADO ESPERADO:\r\nTodos los dispositivos comparten la misma hora.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.110297"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "BPDU Guard deshabilita puerto",
+    "prompt": "Al conectar un switch doméstico a un puerto de usuario, el puerto deja de funcionar automáticamente.",
+    "target": "DIAGNÓSTICO: Activación de BPDU Guard.\r\n\r\nCAUSAS PROBABLES:\r\n1. Switch conectado en puerto de acceso.\r\n2. Política de seguridad STP.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface fa0/5\r\n shutdown\r\n no shutdown\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree inconsistentports\r\n\r\nRESULTADO ESPERADO:\r\nEl puerto vuelve a operar una vez corregida la causa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.197373"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Trunk bloquea VLAN requerida",
+    "prompt": "Los usuarios de una VLAN específica no pueden comunicarse entre switches.",
+    "target": "DIAGNÓSTICO: La VLAN no está permitida en el enlace troncal.\r\n\r\nCAUSAS PROBABLES:\r\n1. Lista de VLAN permitidas incompleta.\r\n2. Error humano durante cambios.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface g0/1\r\n switchport trunk allowed vlan add 50\r\n\r\nVERIFICACIÓN:\r\nshow interfaces trunk\r\n\r\nRESULTADO ESPERADO:\r\nLa VLAN vuelve a circular por el trunk.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.298356"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "MAC Flooding detectado",
+    "prompt": "El switch presenta uso elevado de CPU y comportamiento errático en la tabla CAM.",
+    "target": "DIAGNÓSTICO: Ataque MAC Flooding.\r\n\r\nCAUSAS PROBABLES:\r\n1. Herramienta maliciosa.\r\n2. Falta de Port Security.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nswitchport port-security maximum 2\r\n\r\nVERIFICACIÓN:\r\nshow port-security\r\n\r\nRESULTADO ESPERADO:\r\nLa tabla CAM permanece estable.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.406124"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Rogue Access Point detectado",
+    "prompt": "Se identifica una red inalámbrica desconocida dentro de las instalaciones corporativas.",
+    "target": "DIAGNÓSTICO: Punto de acceso no autorizado.\r\n\r\nCAUSAS PROBABLES:\r\n1. Usuario conectó AP personal.\r\n2. Intrusión interna.\r\n\r\nSOLUCIÓN:\r\nLocalizar físicamente el dispositivo y retirarlo.\r\n\r\nVERIFICACIÓN:\r\nshow mac address-table\r\n\r\nRESULTADO ESPERADO:\r\nEl AP no autorizado es eliminado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.501216"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "HSRP no realiza failover",
+    "prompt": "El gateway redundante no asume el rol activo cuando falla el router principal.",
+    "target": "DIAGNÓSTICO: Problema en la configuración HSRP.\r\n\r\nCAUSAS PROBABLES:\r\n1. Prioridades incorrectas.\r\n2. Preempt deshabilitado.\r\n3. Interfaces monitoreadas mal configuradas.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nstandby 1 priority 110\r\nstandby 1 preempt\r\n\r\nVERIFICACIÓN:\r\nshow standby brief\r\n\r\nRESULTADO ESPERADO:\r\nEl gateway secundario asume el control automáticamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.590626"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Acceso SSH rechazado",
+    "prompt": "Los administradores no pueden acceder remotamente mediante SSH aunque existe conectividad IP.",
+    "target": "DIAGNÓSTICO: SSH mal configurado.\r\n\r\nCAUSAS PROBABLES:\r\n1. Claves RSA inexistentes.\r\n2. Transporte VTY configurado solo para Telnet.\r\n3. Usuario local inexistente.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ncrypto key generate rsa\r\nip ssh version 2\r\n\r\nVERIFICACIÓN:\r\nshow ip ssh\r\n\r\nRESULTADO ESPERADO:\r\nLas sesiones SSH son aceptadas correctamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.696443"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Inter-VLAN Routing inoperante",
+    "prompt": "Los usuarios de diferentes VLAN pueden comunicarse dentro de su red local pero no entre VLANs.",
+    "target": "DIAGNÓSTICO: El enrutamiento entre VLANs está deshabilitado.\r\n\r\nCAUSAS PROBABLES:\r\n1. Falta comando ip routing.\r\n2. Interfaces VLAN apagadas.\r\n3. Gateway incorrecto.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip routing\r\n\r\nVERIFICACIÓN:\r\nshow ip route\r\nshow ip interface brief\r\n\r\nRESULTADO ESPERADO:\r\nLas VLAN intercambian tráfico normalmente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.786190"
+  },
+  {
+    "id": "caso_fb_20260610_222442",
+    "titulo": "Intento de fuerza bruta SSH",
+    "prompt": "Los logs muestran cientos de intentos fallidos de autenticación SSH provenientes de una dirección IP externa.",
+    "target": "DIAGNÓSTICO: Ataque de fuerza bruta contra el servicio SSH.\r\n\r\nCAUSAS PROBABLES:\r\n1. Exposición directa a Internet.\r\n2. Ausencia de ACL restrictivas.\r\n3. Contraseñas débiles.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\naccess-list 10 permit 192.168.1.0 0.0.0.255\r\nline vty 0 4\r\n access-class 10 in\r\n\r\nVERIFICACIÓN:\r\nshow access-lists\r\n\r\nRESULTADO ESPERADO:\r\nSolo hosts autorizados pueden iniciar conexiones SSH.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:24:42.893974"
+  },
+  {
+    "id": "caso_fb_20260610_222732",
+    "titulo": "BGP no establece vecindad",
+    "prompt": "Dos routers de diferentes sistemas autónomos (AS) no logran establecer una sesión BGP. El comando show ip bgp summary muestra el estado Active y no se intercambian rutas.",
+    "target": "DIAGNÓSTICO: La sesión BGP no logra completar el establecimiento de vecindad.\r\n\r\nCAUSAS PROBABLES:\r\n1. Número de AS remoto incorrecto.\r\n2. Problemas de conectividad IP entre vecinos.\r\n3. Firewall bloqueando TCP puerto 179.\r\n4. Dirección neighbor mal configurada.\r\n5. Error en autenticación MD5.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nrouter bgp 65001\r\n neighbor 10.0.0.2 remote-as 65002\r\n\r\nVERIFICACIÓN:\r\nshow ip bgp summary\r\nshow ip route\r\nping 10.0.0.2\r\n\r\nRESULTADO ESPERADO:\r\nLa sesión cambia a estado Established y se intercambian rutas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:27:32.359364"
+  },
+  {
+    "id": "caso_fb_20260610_222732",
+    "titulo": "VLAN inexistente en switch",
+    "prompt": "Un puerto está asignado a la VLAN 50 pero los usuarios conectados no tienen conectividad. La VLAN no aparece en la tabla del switch.",
+    "target": "DIAGNÓSTICO: El puerto pertenece a una VLAN que no existe localmente.\r\n\r\nCAUSAS PROBABLES:\r\n1. VLAN eliminada accidentalmente.\r\n2. Error de configuración.\r\n3. Falla de propagación VTP.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nvlan 50\r\n name CONTABILIDAD\r\n\r\nVERIFICACIÓN:\r\nshow vlan brief\r\n\r\nRESULTADO ESPERADO:\r\nLos puertos vuelven a pertenecer a una VLAN activa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:27:32.456142"
+  },
+  {
+    "id": "caso_fb_20260610_222732",
+    "titulo": "VTP borra VLANs de la red",
+    "prompt": "Después de conectar un switch nuevo, desaparecen múltiples VLANs en toda la infraestructura.",
+    "target": "DIAGNÓSTICO: Un switch VTP con número de revisión superior sobrescribió la base de datos existente.\r\n\r\nCAUSAS PROBABLES:\r\n1. Switch reutilizado sin reiniciar VTP.\r\n2. Configuración VTP incorrecta.\r\n3. Error operativo durante mantenimiento.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nvtp mode transparent\r\ndelete flash:vlan.dat\r\nreload\r\n\r\nVERIFICACIÓN:\r\nshow vtp status\r\n\r\nRESULTADO ESPERADO:\r\nLas VLANs legítimas permanecen intactas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:27:32.576183"
+  },
+  {
+    "id": "caso_fb_20260610_222732",
+    "titulo": "Interfaz err-disabled por seguridad",
+    "prompt": "Una interfaz cambia automáticamente al estado err-disabled después de que un usuario conecta un dispositivo de red.",
+    "target": "DIAGNÓSTICO: Algún mecanismo de seguridad colocó el puerto en estado err-disabled.\r\n\r\nCAUSAS PROBABLES:\r\n1. Port Security.\r\n2. BPDU Guard.\r\n3. DHCP Snooping.\r\n4. DAI.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nshow interface status err-disabled\r\n\r\nVERIFICACIÓN:\r\nshow errdisable recovery\r\nshow log\r\n\r\nRESULTADO ESPERADO:\r\nSe identifica y corrige la causa raíz.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:27:32.728215"
+  },
+  {
+    "id": "caso_fb_20260610_222732",
+    "titulo": "Servidor RADIUS no responde",
+    "prompt": "Los usuarios autenticados mediante 802.1X son rechazados y no obtienen acceso a la red.",
+    "target": "DIAGNÓSTICO: El switch no puede comunicarse con el servidor RADIUS.\r\n\r\nCAUSAS PROBABLES:\r\n1. Servidor apagado.\r\n2. Clave compartida incorrecta.\r\n3. ACL bloqueando tráfico UDP 1812.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nradius-server host 192.168.100.10 key Radius123\r\n\r\nVERIFICACIÓN:\r\nshow aaa servers\r\n\r\nRESULTADO ESPERADO:\r\nLas autenticaciones vuelven a completarse exitosamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:27:32.873260"
+  },
+  {
+    "id": "caso_fb_20260610_222931",
+    "titulo": "Ataque de VLAN Hopping mediante DTP",
+    "prompt": "Durante una auditoría de seguridad se detecta que un equipo conectado a un puerto de acceso de la VLAN 30 logra capturar tráfico perteneciente a otras VLAN corporativas. El análisis de tráfico muestra etiquetas 802.1Q inesperadas y el switch registra negociaciones DTP provenientes del puerto FastEthernet0/18. El incidente ocurrió después de que un contratista conectara un switch administrable propio a la red empresarial.",
+    "target": "DIAGNÓSTICO: Posible ataque VLAN Hopping mediante negociación DTP.\r\n\r\nSEVERIDAD: Alta.\r\n\r\nIMPACTO:\r\nUn atacante podría acceder a tráfico de múltiples VLAN, comprometiendo la segmentación lógica de la red.\r\n\r\nCAUSAS PROBABLES:\r\n1. Puerto configurado como dynamic desirable.\r\n2. DTP habilitado en puertos de acceso.\r\n3. Ausencia de controles NAC.\r\n4. Configuración insegura de troncales.\r\n\r\nPROCEDIMIENTO DE ANÁLISIS:\r\n1. Identificar modo operativo del puerto.\r\n2. Revisar negociación DTP.\r\n3. Validar VLAN permitidas en troncales.\r\n4. Analizar MAC Address Table.\r\n5. Revisar registros Syslog.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\ninterface FastEthernet0/18\r\n switchport mode access\r\n switchport nonegotiate\r\n switchport access vlan 30\r\n spanning-tree portfast\r\n spanning-tree bpduguard enable\r\n\r\nVERIFICACIÓN:\r\nshow interfaces switchport\r\nshow interfaces trunk\r\nshow dtp interface fa0/18\r\n\r\nRESULTADO ESPERADO:\r\nEl puerto deja de participar en negociaciones DTP y únicamente transporta tráfico de la VLAN autorizada.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:29:31.889337"
+  },
+  {
+    "id": "caso_fb_20260610_222932",
+    "titulo": "Rogue DHCP combinado con ARP Spoofing",
+    "prompt": "Los usuarios reportan pérdida intermitente de acceso a aplicaciones financieras. Algunos equipos reciben como gateway una dirección IP desconocida. El tráfico capturado revela respuestas DHCP provenientes de múltiples dispositivos y posteriormente se observan respuestas ARP contradictorias para la misma dirección IP del gateway corporativo. El incidente afecta principalmente a usuarios de la VLAN 20.",
+    "target": "DIAGNÓSTICO: Ataque combinado DHCP Spoofing y ARP Spoofing.\r\n\r\nSEVERIDAD: Crítica.\r\n\r\nIMPACTO:\r\nPosibilidad de Man-In-The-Middle, robo de credenciales, secuestro de sesiones y alteración de tráfico corporativo.\r\n\r\nINDICADORES DE COMPROMISO:\r\n1. Gateways diferentes para usuarios de la misma VLAN.\r\n2. Múltiples respuestas DHCP Offer.\r\n3. Cambios frecuentes en la tabla ARP.\r\n4. Certificados HTTPS inesperados.\r\n\r\nCAUSAS PROBABLES:\r\n1. Dispositivo malicioso conectado internamente.\r\n2. DHCP Snooping deshabilitado.\r\n3. Dynamic ARP Inspection deshabilitado.\r\n4. Segmentación insuficiente.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nip dhcp snooping\r\nip dhcp snooping vlan 20\r\nip arp inspection vlan 20\r\n\r\ninterface GigabitEthernet0/1\r\n ip dhcp snooping trust\r\n\r\nVERIFICACIÓN:\r\nshow ip dhcp snooping\r\nshow ip dhcp snooping binding\r\nshow ip arp inspection statistics\r\n\r\nRESULTADO ESPERADO:\r\nÚnicamente el servidor DHCP autorizado entrega configuraciones IP y se bloquean respuestas ARP fraudulentas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:29:32.009845"
+  },
+  {
+    "id": "caso_fb_20260610_222932",
+    "titulo": "Compromiso de infraestructura mediante STP Manipulation",
+    "prompt": "Después de la conexión de un nuevo switch de proveedor externo, el tráfico corporativo comienza a atravesar rutas inesperadas. El análisis de spanning-tree muestra que el nuevo dispositivo se convirtió en Root Bridge para múltiples VLAN. Los tiempos de convergencia aumentaron y se registran interrupciones periódicas de conectividad.",
+    "target": "DIAGNÓSTICO: Manipulación de STP mediante elección no autorizada de Root Bridge.\r\n\r\nSEVERIDAD: Alta.\r\n\r\nIMPACTO:\r\nPosibilidad de interceptación de tráfico, degradación de rendimiento y alteración de rutas de capa 2.\r\n\r\nCAUSAS PROBABLES:\r\n1. Prioridad STP inferior en switch externo.\r\n2. Ausencia de Root Guard.\r\n3. Políticas de seguridad insuficientes.\r\n\r\nANÁLISIS:\r\n1. Identificar Root Bridge actual.\r\n2. Revisar prioridades STP.\r\n3. Validar puertos protegidos con Root Guard.\r\n4. Revisar historial de cambios.\r\n\r\nSOLUCIÓN - Cisco IOS:\r\nspanning-tree vlan 1 priority 4096\r\n\r\ninterface GigabitEthernet0/24\r\n spanning-tree guard root\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree root\r\nshow spanning-tree inconsistentports\r\n\r\nRESULTADO ESPERADO:\r\nEl switch corporativo recupera el rol de Root Bridge y la topología vuelve a ser estable.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:29:32.121379"
+  },
+  {
+    "id": "caso_fb_20260610_222932",
+    "titulo": "Exfiltración de datos a través de túnel DNS",
+    "prompt": "El equipo SOC detecta un incremento anormal en consultas DNS hacia dominios aparentemente aleatorios. El volumen de tráfico HTTPS permanece estable, pero los servidores DNS registran miles de consultas por minuto provenientes de un único equipo de usuario. El antivirus no detecta amenazas activas.",
+    "target": "DIAGNÓSTICO: Posible DNS Tunneling utilizado para exfiltración de datos.\r\n\r\nSEVERIDAD: Crítica.\r\n\r\nIMPACTO:\r\nFuga de información confidencial hacia infraestructura externa controlada por un atacante.\r\n\r\nINDICADORES:\r\n1. Consultas DNS excesivas.\r\n2. Subdominios extremadamente largos.\r\n3. Patrones Base64 o hexadecimal.\r\n4. Alto volumen de consultas NXDOMAIN.\r\n\r\nCAUSAS PROBABLES:\r\n1. Malware especializado.\r\n2. Herramienta de comando y control.\r\n3. Backdoor persistente.\r\n\r\nACCIONES DE CONTENCIÓN:\r\n1. Aislar host comprometido.\r\n2. Bloquear dominios involucrados.\r\n3. Analizar memoria y procesos activos.\r\n4. Revisar logs DNS históricos.\r\n\r\nVERIFICACIÓN:\r\nAnálisis SIEM.\r\nCapturas PCAP.\r\nRegistros DNS.\r\n\r\nRESULTADO ESPERADO:\r\nEl canal de exfiltración es eliminado y se identifica el origen del compromiso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-10T22:29:32.266946"
+  },
+  {
+    "id": "caso_fb_20260611_061410",
+    "titulo": "BGP Route Hijacking entre proveedores",
+    "prompt": "Una empresa multinacional reporta que el tráfico dirigido hacia su portal web corporativo está llegando a una red desconocida. El monitoreo muestra que prefijos pertenecientes a la organización están siendo anunciados por un AS externo no autorizado. Los usuarios experimentan intermitencia, lentitud y en algunos casos visualizan contenido diferente al esperado. El incidente comenzó después de una actualización de políticas de enrutamiento en uno de los proveedores de tránsito.",
+    "target": "DIAGNÓSTICO: Secuestro de rutas BGP (BGP Route Hijacking).\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nDesvío de tráfico corporativo, pérdida de disponibilidad, posible interceptación de información y daño reputacional.\r\n\r\nINDICADORES:\r\n1. Cambio inesperado en AS-PATH\r\n2. Incremento de latencia\r\n3. Traceroutes atravesando AS desconocidos\r\n4. Anuncios BGP inconsistentes\r\n\r\nCAUSAS PROBABLES:\r\n1. Error de filtrado BGP en proveedor de tránsito\r\n2. Anuncio malicioso de prefijos por AS externo\r\n3. Falta de validación RPKI\r\n4. Route leak entre proveedores\r\n\r\nANÁLISIS:\r\n1. Verificar anuncios en RouteViews\r\n2. Comparar AS-PATH históricos\r\n3. Validar ROA mediante RPKI\r\n4. Revisar cambios recientes de políticas de enrutamiento\r\n\r\nSOLUCIÓN:\r\nImplementar validación RPKI, configurar filtros de prefijos estrictos y coordinar de inmediato con los proveedores de tránsito afectados para retirar los anuncios no autorizados.\r\n\r\nVERIFICACIÓN:\r\nshow ip bgp\r\nshow ip bgp neighbors\r\nConsulta RouteViews (routeviews.org)\r\nValidación RPKI con herramientas como Cloudflare RPKI\r\n\r\nRESULTADO ESPERADO:\r\nLos prefijos vuelven a anunciarse únicamente por AS autorizados y el tráfico regresa al camino correcto.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:14:10.992223"
+  },
+  {
+    "id": "caso_fb_20260611_061411",
+    "titulo": "Ataque de DNS Cache Poisoning",
+    "prompt": "Usuarios internos reportan que al ingresar a portales bancarios son redirigidos a sitios con apariencia idéntica pero con certificados inválidos. El servidor DNS interno continúa respondiendo consultas aparentemente normales y los registros muestran respuestas válidas para dominios legítimos.",
+    "target": "DIAGNÓSTICO: Envenenamiento de caché DNS (DNS Cache Poisoning).\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nRobo de credenciales bancarias, fraude financiero y compromiso de usuarios internos.\r\n\r\nINDICADORES:\r\n1. Resolución DNS inconsistente entre clientes\r\n2. Direcciones IP diferentes según ubicación o momento\r\n3. Certificados TLS inesperados o inválidos en sitios conocidos\r\n4. Entradas DNS alteradas en caché del resolver\r\n\r\nCAUSAS PROBABLES:\r\n1. DNS resolver interno sin parche vulnerable a ataque Kaminsky\r\n2. Ataque de ID prediction sobre UDP/53\r\n3. Compromiso directo del servidor DNS\r\n4. Ausencia de DNSSEC en zonas críticas\r\n\r\nANÁLISIS:\r\n1. Comparar respuestas DNS desde resolvers externos (8.8.8.8, 1.1.1.1)\r\n2. Revisar logs del servidor DNS en busca de consultas anómalas\r\n3. Verificar integridad de registros en caché\r\n4. Auditar configuración del resolver (puerto aleatorio, rate limiting)\r\n\r\nSOLUCIÓN:\r\nLimpiar caché DNS inmediatamente, actualizar el servidor DNS a versión parcheada e implementar DNSSEC en todas las zonas críticas.\r\n\r\nVERIFICACIÓN:\r\nnslookup <dominio> <servidor_dns_interno>\r\ndig @<servidor> <dominio>\r\nRevisar logs /var/log/named o equivalente\r\n\r\nRESULTADO ESPERADO:\r\nLas consultas DNS devuelven respuestas legítimas verificables mediante firmas DNSSEC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:14:11.615918"
+  },
+  {
+    "id": "caso_fb_20260611_061411",
+    "titulo": "Propagación lateral de ransomware mediante SMB",
+    "prompt": "Varios servidores comienzan a cifrar archivos simultáneamente. El SIEM detecta múltiples conexiones SMB entre estaciones de trabajo y servidores. Se observan procesos ejecutándose bajo credenciales administrativas compartidas.",
+    "target": "DIAGNÓSTICO: Movimiento lateral de ransomware mediante protocolo SMB.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nPérdida masiva de información, interrupción operativa total y afectación financiera severa.\r\n\r\nINDICADORES:\r\n1. Picos anómalos de tráfico SMB (puerto 445) entre segmentos\r\n2. Archivos renombrados masivamente con extensiones desconocidas\r\n3. Creación de tareas programadas en múltiples equipos\r\n4. Uso anómalo de cuentas con privilegios administrativos\r\n\r\nCAUSAS PROBABLES:\r\n1. Contraseñas administrativas compartidas entre equipos\r\n2. SMBv1 habilitado (vulnerable a EternalBlue)\r\n3. Segmentación de red deficiente o inexistente\r\n4. Ausencia de solución EDR en endpoints\r\n\r\nANÁLISIS:\r\n1. Identificar paciente cero mediante correlación temporal de eventos\r\n2. Analizar logs SMB para determinar origen de conexiones\r\n3. Revisar procesos ejecutados antes del cifrado\r\n4. Correlacionar eventos en SIEM para trazar propagación\r\n\r\nSOLUCIÓN:\r\nAislar inmediatamente equipos afectados de la red, bloquear tráfico SMB lateral entre VLANs, restaurar desde respaldos verificados y rotar todas las credenciales administrativas.\r\n\r\nVERIFICACIÓN:\r\nEventos Windows ID 4624, 4648, 4688\r\nLogs SIEM filtrados por puerto 445\r\nEscaneo completo con EDR\r\n\r\nRESULTADO ESPERADO:\r\nSe detiene la propagación, los sistemas son restaurados desde respaldo limpio y se implementan controles de segmentación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:14:11.821393"
+  },
+  {
+    "id": "caso_fb_20260611_062047",
+    "titulo": "Route Leak entre AS por error de política BGP",
+    "prompt": "Una organización con múltiples proveedores de tránsito detecta un incremento masivo del tráfico internacional y degradación del servicio. El análisis revela que rutas internas privadas comenzaron a propagarse fuera del AS corporativo y rutas externas comenzaron a circular dentro de segmentos que nunca debieron recibirlas. El incidente inició después de aplicar cambios automáticos de configuración en un router de borde.",
+    "target": "DIAGNÓSTICO: Fuga de rutas BGP (Route Leak) causada por políticas incorrectas de exportación.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nExposición de topología interna, saturación de enlaces WAN, rutas subóptimas y pérdida parcial de disponibilidad.\r\n\r\nINDICADORES:\r\n1. Incremento repentino del número de prefijos BGP\r\n2. Aparición de rutas privadas fuera del AS\r\n3. Consumo anómalo de CPU en routers de borde\r\n4. Crecimiento inesperado de la tabla de enrutamiento\r\n\r\nCAUSAS PROBABLES:\r\n1. Route-map aplicado incorrectamente\r\n2. Redistribución accidental entre protocolos\r\n3. Filtros outbound inexistentes\r\n4. Automatización defectuosa\r\n\r\nANÁLISIS:\r\n1. Revisar políticas import/export BGP\r\n2. Comparar snapshots de configuración\r\n3. Analizar crecimiento de tabla BGP\r\n4. Validar comunidades BGP\r\n\r\nSOLUCIÓN:\r\nAplicar filtros estrictos de exportación, retirar anuncios incorrectos y validar anuncios mediante RPKI.\r\n\r\nVERIFICACIÓN:\r\nshow ip bgp\r\nshow ip bgp neighbors advertised-routes\r\nshow route-map\r\n\r\nRESULTADO ESPERADO:\r\nSolo los prefijos autorizados son propagados hacia AS externos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:20:47.231754"
+  },
+  {
+    "id": "caso_fb_20260611_062047",
+    "titulo": "Evil Twin contra red WiFi corporativa",
+    "prompt": "Usuarios reportan desconexiones frecuentes del WiFi empresarial y algunos indican haber tenido que volver a ingresar credenciales corporativas varias veces. El monitoreo inalámbrico detecta múltiples puntos de acceso anunciando el mismo SSID corporativo pero con diferente BSSID y potencia variable.",
+    "target": "DIAGNÓSTICO: Ataque Evil Twin mediante punto de acceso fraudulento.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nRobo de credenciales, captura de tráfico y acceso no autorizado a servicios internos.\r\n\r\nINDICADORES:\r\n1. SSID duplicados\r\n2. Variaciones abruptas de potencia RSSI\r\n3. Incremento de autenticaciones fallidas\r\n4. Captura de handshakes WPA\r\n\r\nCAUSAS PROBABLES:\r\n1. AP falso cercano\r\n2. Ausencia de WIDS/WIPS\r\n3. Usuarios sin validación de certificados EAP\r\n4. Configuración insegura de WiFi empresarial\r\n\r\nANÁLISIS:\r\n1. Realizar escaneo RF\r\n2. Comparar BSSID oficiales\r\n3. Revisar eventos RADIUS\r\n4. Correlacionar sesiones WiFi\r\n\r\nSOLUCIÓN:\r\nEliminar AP fraudulento, habilitar validación estricta de certificados EAP y desplegar detección inalámbrica.\r\n\r\nVERIFICACIÓN:\r\nControlador WiFi\r\nLogs RADIUS\r\nAnálisis RF\r\n\r\nRESULTADO ESPERADO:\r\nLos clientes solo se asocian con AP corporativos legítimos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:20:47.433022"
+  },
+  {
+    "id": "caso_fb_20260611_062047",
+    "titulo": "Agotamiento de tabla CAM mediante MAC Flooding avanzado",
+    "prompt": "Un switch de distribución comienza a reenviar tráfico a múltiples puertos de forma similar a un hub. Los usuarios reportan lentitud, sesiones interrumpidas y aumento del tráfico broadcast. El monitoreo muestra miles de direcciones MAC nuevas aprendidas por segundo.",
+    "target": "DIAGNÓSTICO: Ataque CAM Table Overflow (MAC Flooding).\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nIntercepción de tráfico, degradación de rendimiento y pérdida de segmentación.\r\n\r\nINDICADORES:\r\n1. Crecimiento acelerado de MAC Address Table\r\n2. CPU elevada en switches\r\n3. Tráfico unicast inundado\r\n4. Incremento de broadcasts\r\n\r\nCAUSAS PROBABLES:\r\n1. Herramienta de ataque capa 2\r\n2. Ausencia de Port Security\r\n3. Capacidad limitada del switch\r\n4. Acceso físico no controlado\r\n\r\nANÁLISIS:\r\n1. Revisar crecimiento MAC\r\n2. Identificar puerto origen\r\n3. Correlacionar Syslog\r\n4. Capturar tráfico SPAN\r\n\r\nSOLUCIÓN:\r\nImplementar Port Security, limitar MAC por puerto y aislar origen del ataque.\r\n\r\nVERIFICACIÓN:\r\nshow mac address-table count\r\nshow port-security\r\n\r\nRESULTADO ESPERADO:\r\nLa tabla CAM permanece estable y el tráfico vuelve a ser conmutado correctamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:20:47.616829"
+  },
+  {
+    "id": "caso_fb_20260611_062645",
+    "titulo": "DDoS por amplificación DNS contra infraestructura corporativa",
+    "prompt": "El portal principal de una empresa deja de responder de forma intermitente. El firewall perimetral registra millones de paquetes UDP provenientes de miles de direcciones IP distribuidas globalmente. El ancho de banda contratado se encuentra completamente saturado y los servidores muestran consumo bajo de CPU.",
+    "target": "DIAGNÓSTICO: Ataque distribuido de denegación de servicio (DDoS) mediante amplificación DNS.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nInterrupción parcial o total de servicios expuestos, degradación de enlaces y pérdida de disponibilidad.\r\n\r\nINDICADORES:\r\n1. Tráfico UDP extremadamente elevado\r\n2. Saturación del enlace WAN\r\n3. Alto volumen de respuestas DNS inesperadas\r\n4. Multiplicidad de IP origen\r\n\r\nCAUSAS PROBABLES:\r\n1. Uso de resolvers DNS abiertos\r\n2. Ausencia de mitigación DDoS\r\n3. Capacidad insuficiente de absorción\r\n4. Servicios expuestos sin protección CDN\r\n\r\nANÁLISIS:\r\n1. Identificar puertos destino principales\r\n2. Revisar NetFlow\r\n3. Validar consultas DNS anómalas\r\n4. Comparar tráfico histórico\r\n\r\nSOLUCIÓN:\r\nAplicar mitigación DDoS aguas arriba, bloquear tráfico malicioso, limitar respuestas DNS y utilizar servicios de absorción.\r\n\r\nVERIFICACIÓN:\r\nNetFlow\r\nshow interface\r\nDashboard firewall\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico vuelve a niveles normales y los servicios recuperan disponibilidad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:26:45.862947"
+  },
+  {
+    "id": "caso_fb_20260611_062646",
+    "titulo": "Colapso de red por tormenta de broadcast originada por virtualización",
+    "prompt": "Después del despliegue de un nuevo clúster de virtualización, múltiples segmentos de red presentan latencia extrema. Los switches muestran utilización elevada y miles de paquetes broadcast por segundo. Algunos hosts dejan de responder incluso dentro de la misma VLAN.",
+    "target": "DIAGNÓSTICO: Tormenta broadcast generada por configuración incorrecta de red virtual.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nCongestión generalizada, pérdida de conectividad y degradación del rendimiento.\r\n\r\nINDICADORES:\r\n1. Broadcast elevado\r\n2. CPU alta en switches\r\n3. Latencia interna extrema\r\n4. Pérdida de paquetes\r\n\r\nCAUSAS PROBABLES:\r\n1. Loop virtual\r\n2. Bridge duplicado\r\n3. Configuración STP ausente\r\n4. Conmutación redundante incorrecta\r\n\r\nANÁLISIS:\r\n1. Revisar topología virtual\r\n2. Identificar origen broadcast\r\n3. Validar enlaces redundantes\r\n4. Analizar captura SPAN\r\n\r\nSOLUCIÓN:\r\nEliminar loops, habilitar protección STP y aislar segmento afectado.\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree\r\nshow interfaces counters\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico broadcast se reduce a niveles normales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:26:46.388311"
+  },
+  {
+    "id": "caso_fb_20260611_062646",
+    "titulo": "Explotación de VPN mediante credenciales reutilizadas",
+    "prompt": "Se detectan conexiones VPN exitosas desde múltiples países en intervalos imposibles de viaje. Las sesiones utilizan cuentas válidas y posteriormente acceden a recursos internos sensibles fuera del horario laboral.",
+    "target": "DIAGNÓSTICO: Compromiso de acceso remoto mediante reutilización de credenciales filtradas.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nAcceso no autorizado, extracción de datos y movimiento lateral.\r\n\r\nINDICADORES:\r\n1. Impossible travel\r\n2. Sesiones simultáneas\r\n3. Actividad fuera de horario\r\n4. Accesos inusuales\r\n\r\nCAUSAS PROBABLES:\r\n1. Credenciales expuestas\r\n2. MFA deshabilitado\r\n3. Contraseñas reutilizadas\r\n4. Monitoreo insuficiente\r\n\r\nANÁLISIS:\r\n1. Revisar logs VPN\r\n2. Correlacionar geolocalización\r\n3. Analizar actividad posterior\r\n4. Validar cambios de privilegios\r\n\r\nSOLUCIÓN:\r\nRotar credenciales, activar MFA obligatorio y cerrar sesiones activas.\r\n\r\nVERIFICACIÓN:\r\nLogs VPN\r\nEventos AAA\r\nSIEM\r\n\r\nRESULTADO ESPERADO:\r\nSolo usuarios legítimos mantienen acceso remoto.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:26:46.681952"
+  },
+  {
+    "id": "caso_fb_20260611_062829",
+    "titulo": "Route Reflector mal configurado provoca aislamiento BGP interno",
+    "prompt": "Después de agregar un nuevo Route Reflector en la red MPLS corporativa, varias sedes dejan de aprender rutas internas aunque la conectividad IP permanece operativa. Los routers mantienen sesiones iBGP activas pero algunas rutas desaparecen aleatoriamente durante reconvergencias.",
+    "target": "DIAGNÓSTICO: Configuración incorrecta de Route Reflector generando pérdida parcial de propagación iBGP.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nInterrupción parcial de comunicación entre sedes, rutas incompletas y tráfico desviado.\r\n\r\nINDICADORES:\r\n1. Sesiones BGP establecidas pero sin rutas esperadas\r\n2. Diferencias entre tablas RIB y BGP\r\n3. Reconvergencias frecuentes\r\n4. Prefijos presentes solo en algunos routers\r\n\r\nCAUSAS PROBABLES:\r\n1. Cluster-ID duplicado\r\n2. Clientes no definidos correctamente\r\n3. Filtrado de prefijos\r\n4. Error en políticas de reflexión\r\n\r\nANÁLISIS:\r\n1. Revisar topología Route Reflector\r\n2. Comparar tablas BGP\r\n3. Validar atributos ORIGINATOR_ID\r\n4. Analizar anuncios entre clientes\r\n\r\nSOLUCIÓN:\r\nCorregir configuración de Route Reflector, definir clientes correctamente y validar políticas de propagación.\r\n\r\nVERIFICACIÓN:\r\nshow ip bgp\r\nshow ip bgp neighbors\r\nshow ip route\r\n\r\nRESULTADO ESPERADO:\r\nTodos los routers reciben prefijos completos y consistentes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:28:29.815397"
+  },
+  {
+    "id": "caso_fb_20260611_062830",
+    "titulo": "Explotación de Active Directory mediante Pass-The-Hash",
+    "prompt": "El equipo de seguridad detecta conexiones administrativas exitosas entre múltiples servidores sin evidencia de ingreso interactivo. Las sesiones utilizan cuentas válidas pero desde equipos donde esas credenciales nunca fueron introducidas.",
+    "target": "DIAGNÓSTICO: Movimiento lateral mediante ataque Pass-The-Hash.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nEscalada de privilegios, propagación interna y compromiso del dominio.\r\n\r\nINDICADORES:\r\n1. Autenticaciones NTLM inusuales\r\n2. Uso repetido de credenciales administrativas\r\n3. Accesos simultáneos desde distintos equipos\r\n4. Conexiones SMB administrativas\r\n\r\nCAUSAS PROBABLES:\r\n1. Extracción de hashes en memoria\r\n2. Equipos comprometidos\r\n3. Uso excesivo de cuentas privilegiadas\r\n4. Falta de segmentación administrativa\r\n\r\nANÁLISIS:\r\n1. Revisar eventos 4624 y 4672\r\n2. Correlacionar origen de autenticaciones\r\n3. Validar uso de NTLM\r\n4. Analizar memoria del host sospechoso\r\n\r\nSOLUCIÓN:\r\nRotar credenciales, reducir privilegios y aplicar autenticación moderna.\r\n\r\nVERIFICACIÓN:\r\nEventos Windows\r\nSIEM\r\nLogs SMB\r\n\r\nRESULTADO ESPERADO:\r\nLas credenciales ya no pueden reutilizarse lateralmente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:28:30.252137"
+  },
+  {
+    "id": "caso_fb_20260611_062830",
+    "titulo": "Desincronización NTP provoca fallo generalizado de autenticación",
+    "prompt": "Usuarios de distintas sedes comienzan a perder acceso a VPN, aplicaciones internas y servicios SSO. Los logs muestran errores de autenticación relacionados con tiempo inválido y expiración prematura de tokens.",
+    "target": "DIAGNÓSTICO: Desincronización severa de tiempo entre sistemas críticos.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nFallo de autenticación centralizada, errores TLS y pérdida de servicios dependientes del tiempo.\r\n\r\nINDICADORES:\r\n1. Diferencias horarias entre equipos\r\n2. Tokens inválidos\r\n3. Fallos Kerberos\r\n4. Certificados aparentemente vencidos\r\n\r\nCAUSAS PROBABLES:\r\n1. Servidor NTP caído\r\n2. Jerarquía NTP incorrecta\r\n3. Firewall bloqueando sincronización\r\n4. Configuración inconsistente\r\n\r\nANÁLISIS:\r\n1. Revisar fuentes NTP\r\n2. Comparar relojes del dominio\r\n3. Analizar logs de autenticación\r\n4. Validar drift acumulado\r\n\r\nSOLUCIÓN:\r\nRestaurar sincronización NTP y definir fuentes redundantes.\r\n\r\nVERIFICACIÓN:\r\nshow ntp status\r\nw32tm /query /status\r\n\r\nRESULTADO ESPERADO:\r\nTodos los sistemas vuelven a compartir una referencia temporal consistente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:28:30.999370"
+  },
+  {
+    "id": "caso_fb_20260611_062832",
+    "titulo": "Manipulación de tráfico mediante Proxy ARP no autorizado",
+    "prompt": "Usuarios internos reportan lentitud selectiva y acceso inconsistente a aplicaciones. Las capturas muestran respuestas ARP provenientes de un equipo distinto al gateway oficial.",
+    "target": "DIAGNÓSTICO: Uso indebido de Proxy ARP para redirigir tráfico.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nIntercepción de tráfico y degradación de rutas internas.\r\n\r\nINDICADORES:\r\n1. Respuestas ARP inesperadas\r\n2. Gateway inconsistente\r\n3. Saltos adicionales\r\n4. Latencia localizada\r\n\r\nCAUSAS PROBABLES:\r\n1. Host comprometido\r\n2. Proxy ARP habilitado innecesariamente\r\n3. Error de diseño\r\n4. Manipulación intencional\r\n\r\nANÁLISIS:\r\n1. Revisar tablas ARP\r\n2. Comparar gateway real\r\n3. Capturar tráfico\r\n4. Identificar dispositivo emisor\r\n\r\nSOLUCIÓN:\r\nDeshabilitar Proxy ARP donde no sea requerido y aislar el origen.\r\n\r\nVERIFICACIÓN:\r\nshow arp\r\nCaptura ARP\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico utiliza únicamente el gateway autorizado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:28:32.668664"
+  },
+  {
+    "id": "caso_fb_20260611_062924",
+    "titulo": "MPLS VPN Route Leaking entre VRFs",
+    "prompt": "Una empresa con múltiples clientes en un proveedor MPLS reporta que tráfico confidencial de un cliente está siendo visible desde la red de otro cliente. Los routers PE muestran rutas de diferentes VRFs en tablas que no deberían contenerlas. El problema apareció tras una reconfiguración de route-targets en el proveedor.",
+    "target": "DIAGNÓSTICO: Route leaking no intencional entre VRFs en red MPLS/VPN.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nFuga de información entre clientes, violación de acuerdos de confidencialidad y posible exposición de datos sensibles.\r\n\r\nINDICADORES:\r\n1. Rutas de un VRF aparecen en la tabla de otro VRF\r\n2. Tráfico entre clientes que debería estar aislado\r\n3. Route-targets mal configurados tras cambio reciente\r\n4. Logs de cambios en configuración de PE routers\r\n\r\nCAUSAS PROBABLES:\r\n1. Route-target import/export mal configurado en VRF\r\n2. Política de redistribución incorrecta entre VRFs\r\n3. Error humano durante reconfiguración de MPLS\r\n4. Falta de validación post-cambio\r\n\r\nANÁLISIS:\r\n1. Revisar configuración de route-targets en todos los PE afectados\r\n2. Verificar tablas VRF con show ip route vrf <nombre>\r\n3. Comparar configuración actual vs respaldo previo al cambio\r\n4. Trazar el flujo de tráfico con traceroute vrf\r\n\r\nSOLUCIÓN:\r\nCorregir inmediatamente los route-targets en los VRFs afectados, verificar aislamiento completo entre clientes y realizar auditoría de todas las políticas de redistribución.\r\n\r\nVERIFICACIÓN:\r\nshow ip route vrf <cliente_A>\r\nshow ip route vrf <cliente_B>\r\nshow ip bgp vpnv4 vrf <nombre>\r\nshow running-config | section vrf\r\n\r\nRESULTADO ESPERADO:\r\nCada VRF contiene únicamente las rutas del cliente correspondiente y el tráfico entre clientes está completamente aislado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:24.467603"
+  },
+  {
+    "id": "caso_fb_20260611_062924",
+    "titulo": "STP Root Bridge Takeover por dispositivo no autorizado",
+    "prompt": "La red corporativa experimenta inestabilidad severa con caídas intermitentes en múltiples VLANs. El equipo de red detecta que el root bridge de Spanning Tree ha cambiado a un switch no gestionado conectado por un usuario en una oficina remota. Las alertas de cambio de topología (TCN) son constantes.",
+    "target": "DIAGNÓSTICO: Root Bridge Takeover de Spanning Tree Protocol por dispositivo no autorizado.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nInestabilidad generalizada de la red, caídas de servicios críticos y posible bucle de capa 2.\r\n\r\nINDICADORES:\r\n1. Root Bridge ID cambiado a un switch desconocido con prioridad 32768 por defecto\r\n2. Topology Change Notifications (TCN) constantes en toda la red\r\n3. Puertos en estado de reconvergencia frecuente\r\n4. Switch no gestionado detectado en inventario NAC\r\n\r\nCAUSAS PROBABLES:\r\n1. Switch no gestionado con prioridad STP por defecto (32768) inferior a la configurada\r\n2. Falta de BPDU Guard en puertos de acceso\r\n3. PortFast mal aplicado en puertos troncales\r\n4. Ausencia de Root Guard en puertos hacia la distribución\r\n\r\nANÁLISIS:\r\n1. Identificar el puerto al que está conectado el dispositivo no autorizado\r\n2. Verificar la prioridad actual del Root Bridge con show spanning-tree\r\n3. Revisar qué puertos tienen BPDU Guard activo\r\n4. Localizar el switch intruso mediante CDP/LLDP\r\n\r\nSOLUCIÓN:\r\nDesconectar el dispositivo no autorizado, restaurar el Root Bridge correcto ajustando prioridad, activar BPDU Guard en todos los puertos de acceso y habilitar Root Guard en uplinks.\r\n\r\nVERIFICACIÓN:\r\nshow spanning-tree vlan <id>\r\nshow spanning-tree detail\r\nshow cdp neighbors\r\nshow interfaces status\r\n\r\nRESULTADO ESPERADO:\r\nEl Root Bridge vuelve al switch designado, la topología STP se estabiliza y los puertos de acceso quedan protegidos contra futuros ataques.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:24.778849"
+  },
+  {
+    "id": "caso_fb_20260611_062925",
+    "titulo": "Exfiltración de datos mediante túneles DNS (DNS Tunneling)",
+    "prompt": "El equipo de seguridad detecta un volumen inusualmente alto de consultas DNS hacia un dominio externo poco conocido. Las consultas contienen subdominios extremadamente largos y codificados en Base64. El host origen es una estación de trabajo con acceso a datos financieros. No hay alertas de firewall porque el tráfico usa el puerto 53 UDP permitido.",
+    "target": "DIAGNÓSTICO: Exfiltración de datos mediante DNS Tunneling.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nFuga de información confidencial o financiera encubierta en consultas DNS, evasión de controles de seguridad perimetral.\r\n\r\nINDICADORES:\r\n1. Consultas DNS con subdominios de longitud anormal (>50 caracteres)\r\n2. Subdominios codificados en Base64 o Hex\r\n3. Alto volumen de consultas hacia un único dominio externo\r\n4. TTL muy bajo en las respuestas DNS\r\n5. Tráfico DNS desde host que normalmente no genera estas consultas\r\n\r\nCAUSAS PROBABLES:\r\n1. Malware instalado en la estación de trabajo usando DNS como canal C2\r\n2. Herramienta de tunneling (iodine, dnscat2) ejecutada por insider\r\n3. Firewall que permite DNS directo sin inspección de contenido\r\n4. Ausencia de DNS sinkholing o filtrado de dominios\r\n\r\nANÁLISIS:\r\n1. Capturar y analizar tráfico DNS del host con Wireshark\r\n2. Calcular entropía de subdominios consultados\r\n3. Verificar el dominio destino en threat intelligence (VirusTotal, Shodan)\r\n4. Revisar procesos activos en la estación de trabajo origen\r\n5. Correlacionar con timeline de accesos a datos financieros\r\n\r\nSOLUCIÓN:\r\nAislar inmediatamente el host afectado, bloquear el dominio destino en DNS, implementar inspección de contenido DNS (RPZ), forzar todo el tráfico DNS a través de resolvers internos controlados y desplegar análisis de entropía DNS.\r\n\r\nVERIFICACIÓN:\r\nCaptura Wireshark filtro: dns.qry.name contains \"base64\"\r\ndig +short <dominio_sospechoso>\r\nAnálisis en VirusTotal\r\nRevisión de procesos: netstat -anb / ss -tulnp\r\n\r\nRESULTADO ESPERADO:\r\nSe detiene la exfiltración, el host es remediado y se implementan controles para detectar futuros intentos de DNS tunneling.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:25.118997"
+  },
+  {
+    "id": "caso_fb_20260611_062940",
+    "titulo": "Ataque combinado de BGP Route Leak y secuestro parcial de prefijos mediante comunidades mal aplicadas",
+    "prompt": "Una empresa financiera con presencia en múltiples países reporta que ciertas regiones acceden normalmente a sus aplicaciones mientras otras experimentan latencia extrema, pérdida de sesiones y respuestas inconsistentes. El monitoreo muestra que algunos prefijos siguen el camino habitual, pero otros están siendo anunciados por proveedores distintos a los definidos en diseño. Durante la investigación se descubre que horas antes se desplegó una política automatizada para modificación de comunidades BGP y optimización de tránsito. Los routers mantienen sesiones BGP estables y no se observan caídas físicas.",
+    "target": "DIAGNÓSTICO: Incidente híbrido de Route Leak y secuestro parcial de rutas provocado por aplicación incorrecta de comunidades BGP.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nDesviación silenciosa de tráfico, pérdida de control del camino de red, exposición parcial del tráfico y degradación regional difícil de detectar.\r\n\r\nINDICADORES:\r\n1. AS-PATH diferentes para el mismo prefijo según ubicación\r\n2. Incremento de tráfico internacional inesperado\r\n3. Rutas válidas pero inconsistentes entre regiones\r\n4. Diferencias entre tablas RIB y FIB\r\n5. Variaciones de latencia superiores al histórico\r\n\r\nCAUSAS PROBABLES:\r\n1. Aplicación masiva incorrecta de comunidades BGP\r\n2. Error en automatización de políticas\r\n3. Ausencia de validación previa de cambios\r\n4. Filtros insuficientes entre proveedores\r\n5. Falta de validación RPKI\r\n\r\nANÁLISIS:\r\n1. Comparar anuncios BGP desde múltiples vantage points\r\n2. Revisar comunidades aplicadas antes y después del cambio\r\n3. Verificar propagación mediante Looking Glass\r\n4. Analizar prefijos afectados por región\r\n5. Validar ROA y anuncios externos\r\n\r\nSOLUCIÓN:\r\nRevertir políticas, retirar anuncios incorrectos, restaurar comunidades aprobadas, habilitar validación RPKI y establecer validación automática previa a despliegues.\r\n\r\nVERIFICACIÓN:\r\nshow ip bgp\r\nshow bgp ipv4 unicast\r\nshow route-policy\r\nConsultas RouteViews\r\n\r\nRESULTADO ESPERADO:\r\nLos anuncios recuperan consistencia global y el tráfico vuelve a seguir rutas autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:40.008169"
+  },
+  {
+    "id": "caso_fb_20260611_062940",
+    "titulo": "Movimiento lateral encadenado usando Kerberoasting, Pass-The-Hash y abuso de VLAN de administración",
+    "prompt": "El SOC detecta actividad anómala iniciada desde una estación de usuario aparentemente normal. En menos de una hora aparecen accesos administrativos sobre servidores críticos, creación de nuevas cuentas y modificaciones de políticas. El análisis revela solicitudes masivas de tickets Kerberos, conexiones SMB entre segmentos restringidos y posteriormente acceso a dispositivos de red desde una VLAN reservada para administración.",
+    "target": "DIAGNÓSTICO: Compromiso progresivo mediante cadena de ataque interna con extracción de credenciales y pivoteo hacia infraestructura.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nCompromiso total del dominio, acceso a infraestructura de red y persistencia administrativa.\r\n\r\nINDICADORES:\r\n1. Eventos Kerberos anómalos\r\n2. Crecimiento repentino de autenticaciones privilegiadas\r\n3. Acceso desde segmentos no autorizados\r\n4. Creación inesperada de cuentas\r\n5. Cambios simultáneos en múltiples sistemas\r\n\r\nCAUSAS PROBABLES:\r\n1. Cuentas servicio con contraseñas débiles\r\n2. Segmentación administrativa deficiente\r\n3. Exceso de privilegios\r\n4. Reutilización de credenciales\r\n5. Ausencia de monitoreo lateral\r\n\r\nANÁLISIS:\r\n1. Reconstruir cadena temporal del incidente\r\n2. Correlacionar eventos AD, SMB y TACACS\r\n3. Revisar cuentas comprometidas\r\n4. Analizar privilegios efectivos\r\n5. Determinar punto inicial de acceso\r\n\r\nSOLUCIÓN:\r\nAislar segmentos administrativos, revocar credenciales comprometidas, aplicar tiering administrativo y reforzar autenticación privilegiada.\r\n\r\nVERIFICACIÓN:\r\nEventos Windows\r\nLogs TACACS\r\nSIEM\r\nAuditoría Active Directory\r\n\r\nRESULTADO ESPERADO:\r\nLa cadena de escalamiento queda interrumpida y los accesos administrativos vuelven a estado controlado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:40.352683"
+  },
+  {
+    "id": "caso_fb_20260611_062940",
+    "titulo": "Fallo silencioso de EVPN-VXLAN por inconsistencia de VNI y control-plane distribuido",
+    "prompt": "Después de una expansión del datacenter, algunos servidores pueden comunicarse entre racks mientras otros pierden conectividad solo hacia determinadas aplicaciones. El underlay IP permanece completamente funcional y los túneles VXLAN aparecen activos. No existen pérdidas físicas ni alarmas visibles.",
+    "target": "DIAGNÓSTICO: Inconsistencia de VNI y aprendizaje distribuido defectuoso en EVPN-VXLAN.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nAislamiento parcial de cargas, pérdida de conectividad este-oeste y comportamiento impredecible del overlay.\r\n\r\nINDICADORES:\r\n1. Tráfico encapsulado válido pero no entregado\r\n2. Tablas MAC inconsistentes\r\n3. Alcance parcial entre hosts\r\n4. Ausencia de errores físicos\r\n5. Entradas EVPN incompletas\r\n\r\nCAUSAS PROBABLES:\r\n1. VNI asignado incorrectamente\r\n2. Error de automatización\r\n3. Route-target inconsistente\r\n4. Configuración asimétrica\r\n\r\nANÁLISIS:\r\n1. Revisar anuncios EVPN\r\n2. Comparar VNIs entre nodos\r\n3. Validar tablas MAC distribuidas\r\n4. Analizar encapsulación VXLAN\r\n\r\nSOLUCIÓN:\r\nUnificar definición VNI, validar route-targets y automatizar validaciones previas.\r\n\r\nVERIFICACIÓN:\r\nshow bgp l2vpn evpn\r\nshow vxlan interface\r\nshow mac address-table\r\n\r\nRESULTADO ESPERADO:\r\nTodos los hosts recuperan conectividad consistente independientemente del rack.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:29:40.591763"
+  },
+  {
+    "id": "caso_fb_20260611_063109",
+    "titulo": "Pérdida total de conectividad por aplicación accidental de ACL en interfaz troncal",
+    "prompt": "Durante una ventana de mantenimiento un ingeniero intenta bloquear temporalmente acceso SSH desde una subred específica hacia los switches de distribución. Minutos después múltiples sedes pierden conectividad con servicios centrales. No existen caídas físicas ni errores de routing. El operador confirma haber copiado una ACL desde documentación previa y aplicarla directamente sobre una interfaz de agregación.",
+    "target": "DIAGNÓSTICO: Interrupción causada por aplicación incorrecta de ACL sobre interfaz crítica.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nPérdida masiva de comunicación entre segmentos y caída parcial de servicios corporativos.\r\n\r\nINDICADORES:\r\n1. Tráfico descartado inmediatamente después del cambio\r\n2. Interfaces operativas pero sin flujo\r\n3. Incremento de paquetes deny\r\n4. Servicios inaccesibles entre VLAN\r\n\r\nCAUSAS PROBABLES:\r\n1. Aplicación de ACL en dirección incorrecta\r\n2. Uso de 'deny any' antes de reglas permitidas\r\n3. Error humano durante ventana de cambios\r\n4. Falta de validación previa\r\n\r\nANÁLISIS:\r\n1. Comparar running-config y startup-config\r\n2. Revisar contadores ACL\r\n3. Validar interfaz afectada\r\n4. Analizar logs del cambio\r\n\r\nSOLUCIÓN:\r\nRetirar ACL inmediatamente, aplicar pruebas previas y usar cambios con rollback automático.\r\n\r\nVERIFICACIÓN:\r\nshow access-lists\r\nshow run interface\r\nshow logging\r\n\r\nRESULTADO ESPERADO:\r\nEl tráfico vuelve a circular y las políticas se aplican únicamente al alcance esperado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:31:09.255251"
+  },
+  {
+    "id": "caso_fb_20260611_063109",
+    "titulo": "Caída de OSPF por eliminación accidental de red durante mantenimiento",
+    "prompt": "Un administrador intenta eliminar una red obsoleta del proceso OSPF utilizando comandos rápidos desde consola. Después del cambio desaparecen múltiples rutas y varias sedes dejan de anunciar prefijos internos. El operador asegura haber ejecutado únicamente un comando network.",
+    "target": "DIAGNÓSTICO: Eliminación accidental de declaración OSPF por coincidencia amplia de máscara wildcard.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nPérdida de intercambio de rutas y aislamiento parcial de sitios.\r\n\r\nINDICADORES:\r\n1. Vecinos OSPF reducidos\r\n2. Rutas desaparecidas\r\n3. Base LSDB inconsistente\r\n4. Reconvergencia constante\r\n\r\nCAUSAS PROBABLES:\r\n1. Uso incorrecto de wildcard\r\n2. Eliminación de network equivocada\r\n3. Error humano en CLI\r\n4. Falta de revisión post-cambio\r\n\r\nANÁLISIS:\r\n1. Revisar configuración OSPF\r\n2. Comparar backup\r\n3. Analizar LSDB\r\n4. Verificar interfaces activas\r\n\r\nSOLUCIÓN:\r\nRestaurar declaración correcta y utilizar cambios validados por pares.\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf neighbor\r\nshow ip route ospf\r\nshow ip ospf database\r\n\r\nRESULTADO ESPERADO:\r\nTodas las rutas vuelven a intercambiarse correctamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:31:09.521974"
+  },
+  {
+    "id": "caso_fb_20260611_063109",
+    "titulo": "Interrupción por ejecución del comando en dispositivo equivocado",
+    "prompt": "Durante una intervención nocturna un ingeniero debía modificar el firewall de laboratorio pero accidentalmente dejó abierta una sesión SSH hacia producción. Ejecutó limpieza de objetos y reglas pensando que trabajaba en ambiente de pruebas. Minutos después comienzan fallos de autenticación y pérdida de acceso externo.",
+    "target": "DIAGNÓSTICO: Cambio destructivo ejecutado en entorno incorrecto.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nInterrupción de servicios y eliminación accidental de políticas activas.\r\n\r\nINDICADORES:\r\n1. Cambios administrativos sin ticket asociado\r\n2. Objetos eliminados inesperadamente\r\n3. Configuración inconsistente\r\n4. Fallo inmediato tras sesión administrativa\r\n\r\nCAUSAS PROBABLES:\r\n1. Sesión SSH equivocada\r\n2. Ausencia de banners diferenciadores\r\n3. Falta de control de cambios\r\n4. Error humano\r\n\r\nANÁLISIS:\r\n1. Revisar historial de comandos\r\n2. Correlacionar auditoría\r\n3. Validar dispositivos accedidos\r\n4. Comparar configuraciones\r\n\r\nSOLUCIÓN:\r\nRestaurar backup, separar entornos visualmente y requerir confirmación antes de cambios destructivos.\r\n\r\nVERIFICACIÓN:\r\nLogs TACACS\r\nHistorial configuración\r\nAuditoría firewall\r\n\r\nRESULTADO ESPERADO:\r\nLa configuración correcta queda restaurada y se reduce el riesgo operativo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:31:09.788350"
+  },
+  {
+    "id": "caso_fb_20260611_063311",
+    "titulo": "Shutdown accidental de interfaz WAN en producción",
+    "prompt": "Un administrador ejecuta el comando shutdown en la interfaz incorrecta durante una ventana de mantenimiento. La interfaz apagada resulta ser el uplink WAN principal hacia el ISP. Toda la conectividad a internet cae de inmediato. El administrador no tiene acceso remoto para revertir el cambio porque la sesión SSH depende de esa misma interfaz.",
+    "target": "DIAGNÓSTICO: Shutdown accidental de interfaz WAN activa durante mantenimiento.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nPérdida total de conectividad a internet, caída de todos los servicios dependientes de WAN y pérdida del acceso remoto de gestión.\r\n\r\nERROR HUMANO:\r\nConfusión entre nombres de interfaz (ej: GigabitEthernet0/0 vs GigabitEthernet0/1) sin verificar descripción ni estado previo.\r\n\r\nCAUSAS PROBABLES:\r\n1. Falta de verificación previa con show interfaces description\r\n2. Ausencia de etiquetas o descripciones en las interfaces\r\n3. No usar sesión de consola o acceso OOB (Out-of-Band) durante mantenimiento\r\n4. Cambios en producción sin par revisor (four-eyes principle)\r\n\r\nANÁLISIS:\r\n1. Acceder al equipo por consola física o acceso OOB (modem, consola serial)\r\n2. Verificar estado de todas las interfaces con show ip interface brief\r\n3. Identificar la interfaz apagada por error\r\n4. Revisar logs: show logging\r\n\r\nSOLUCIÓN:\r\nAcceder por consola física o red de gestión OOB, ejecutar no shutdown en la interfaz correcta y documentar el incidente.\r\n\r\nVERIFICACIÓN:\r\nshow ip interface brief\r\nshow interfaces GigabitEthernet0/0\r\nshow logging | include shutdown\r\nping <gateway ISP>\r\n\r\nPREVENCIÓN:\r\n1. Siempre usar show interfaces description antes de tocar una interfaz\r\n2. Configurar descripciones claras: description WAN-ISP-PRINCIPAL\r\n3. Usar acceso OOB independiente del plano de datos\r\n4. Implementar política de cambios con doble revisión\r\n\r\nRESULTADO ESPERADO:\r\nInterfaz WAN restaurada, conectividad a internet restablecida y acceso remoto disponible nuevamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:11.984741"
+  },
+  {
+    "id": "caso_fb_20260611_063312",
+    "titulo": "Borrado accidental de ruta estática default en router de borde",
+    "prompt": "Durante una limpieza de configuración, un administrador elimina una línea que considera duplicada. Minutos después la conectividad a internet cae parcialmente. Al revisar, se descubre que la línea eliminada era la ruta estática por defecto (ip route 0.0.0.0 0.0.0.0 <next-hop>) que enviaba el tráfico al ISP. El router no tiene BGP configurado y dependía completamente de esa ruta.",
+    "target": "DIAGNÓSTICO: Eliminación accidental de ruta estática default durante mantenimiento de configuración.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nPérdida de conectividad a internet para todos los usuarios. Tráfico sin destino conocido es descartado.\r\n\r\nERROR HUMANO:\r\nEliminar una línea de configuración sin entender completamente su función, confundiéndola con una entrada duplicada o innecesaria.\r\n\r\nCAUSAS PROBABLES:\r\n1. No verificar la tabla de ruteo antes y después del cambio\r\n2. Limpiar configuración sin respaldar previamente\r\n3. Falta de comprensión del rol de la ruta estática en la arquitectura\r\n4. No usar entorno de pruebas o staging antes de producción\r\n\r\nANÁLISIS:\r\n1. Verificar tabla de ruteo: show ip route\r\n2. Confirmar ausencia de ruta 0.0.0.0/0\r\n3. Identificar el next-hop correcto hacia el ISP\r\n4. Revisar respaldo de configuración si existe\r\n\r\nSOLUCIÓN:\r\nRestaurar la ruta estática inmediatamente con el next-hop correcto.\r\n\r\nip route 0.0.0.0 0.0.0.0 <ip_gateway_ISP>\r\n\r\nVERIFICACIÓN:\r\nshow ip route 0.0.0.0\r\nping 8.8.8.8\r\ntraceroute 8.8.8.8\r\nshow ip route summary\r\n\r\nPREVENCIÓN:\r\n1. Siempre hacer show ip route antes de modificar configuración de ruteo\r\n2. Guardar respaldo: copy running-config tftp / copy run flash:backup.cfg\r\n3. Documentar el propósito de cada ruta estática con comentarios\r\n4. Usar change management con ventana de reversión definida\r\n\r\nRESULTADO ESPERADO:\r\nRuta por defecto restaurada, tráfico fluye correctamente hacia el ISP y la conectividad a internet se restablece.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:12.361470"
+  },
+  {
+    "id": "caso_fb_20260611_063312",
+    "titulo": "ACL aplicada en dirección incorrecta bloqueando todo el tráfico",
+    "prompt": "Un administrador crea una ACL para bloquear tráfico de un segmento específico. Al aplicarla, la coloca en dirección 'in' en lugar de 'out' en la interfaz LAN del router. Como consecuencia, toda la comunicación de la red interna queda bloqueada inmediatamente, incluyendo la sesión SSH activa del administrador.",
+    "target": "DIAGNÓSTICO: ACL aplicada en dirección incorrecta (in vs out) bloqueando todo el tráfico LAN.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nPérdida total de comunicación para los hosts del segmento afectado. Posible pérdida del acceso remoto de gestión.\r\n\r\nERROR HUMANO:\r\nConfusión entre la dirección 'in' (tráfico entrando a la interfaz desde la LAN) y 'out' (tráfico saliendo de la interfaz hacia la LAN). La dirección incorrecta aplica la ACL al tráfico equivocado.\r\n\r\nCAUSAS PROBABLES:\r\n1. No comprender la perspectiva del router para 'in' y 'out'\r\n2. No probar la ACL en un entorno de laboratorio previo\r\n3. Falta de un implicit permit al final de la ACL de prueba\r\n4. No verificar el efecto inmediato con show ip interface\r\n\r\nANÁLISIS:\r\n1. Acceder por consola o OOB\r\n2. Verificar ACL aplicada: show ip interface <interfaz>\r\n3. Revisar el contenido de la ACL: show access-lists\r\n4. Confirmar dirección incorrecta de aplicación\r\n\r\nSOLUCIÓN:\r\nRemover la ACL de la dirección incorrecta y reaplicar en la dirección correcta.\r\n\r\ninterface GigabitEthernet0/1\r\n no ip access-group <nombre_acl> in\r\n ip access-group <nombre_acl> out\r\n\r\nVERIFICACIÓN:\r\nshow ip interface GigabitEthernet0/1\r\nshow access-lists\r\nping <host_afectado>\r\nshow ip access-lists <nombre> (verificar matches)\r\n\r\nPREVENCIÓN:\r\n1. Recordar la regla: IN = tráfico que entra AL router desde esa interfaz\r\n2. Siempre incluir una entrada permit para la IP de gestión antes de deny\r\n3. Probar ACLs en laboratorio o con simulador antes de producción\r\n4. Usar remark en las ACLs para documentar propósito\r\n\r\nRESULTADO ESPERADO:\r\nACL aplicada correctamente, solo el tráfico objetivo es bloqueado y el resto del tráfico LAN fluye normalmente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:12.629366"
+  },
+  {
+    "id": "caso_fb_20260611_063321",
+    "titulo": "Redistribución accidental de tabla completa hacia OSPF por comando ejecutado en contexto equivocado",
+    "prompt": "Durante una migración de enlaces WAN un administrador intenta anunciar una única ruta estática temporal hacia OSPF. En lugar de aplicar una route-map restrictiva, ejecuta un comando de redistribución global sobre el proceso activo. En pocos minutos los routers comienzan a consumir memoria excesivamente, aparecen rutas inesperadas y múltiples sedes reportan pérdida parcial de conectividad.",
+    "target": "DIAGNÓSTICO: Fuga masiva de rutas por redistribución incorrecta hacia OSPF.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nExplosión de LSDB, reconvergencia excesiva y degradación general de la red.\r\n\r\nINDICADORES:\r\n1. Incremento abrupto del tamaño LSDB\r\n2. Uso elevado de CPU y memoria\r\n3. Miles de rutas externas nuevas\r\n4. Reconvergencia continua\r\n\r\nCAUSAS PROBABLES:\r\n1. Comando redistribute aplicado globalmente\r\n2. Falta de route-map\r\n3. Error humano durante mantenimiento\r\n4. Validación insuficiente del cambio\r\n\r\nANÁLISIS:\r\n1. Comparar tabla antes y después del cambio\r\n2. Revisar configuración OSPF\r\n3. Validar origen de rutas externas\r\n4. Medir crecimiento LSDB\r\n\r\nSOLUCIÓN:\r\nRetirar redistribución incorrecta, aplicar filtros estrictos y usar cambios simulados previamente.\r\n\r\nVERIFICACIÓN:\r\nshow ip ospf database\r\nshow ip route\r\nshow run | section ospf\r\n\r\nRESULTADO ESPERADO:\r\nLa LSDB vuelve a tamaño esperado y desaparecen rutas no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:21.516281"
+  },
+  {
+    "id": "caso_fb_20260611_063322",
+    "titulo": "Bloqueo total del acceso administrativo por error en listas AAA",
+    "prompt": "Un ingeniero intenta migrar autenticación local hacia TACACS+ para centralizar accesos administrativos. Durante el procedimiento modifica el orden de autenticación sin mantener mecanismo de respaldo. Tras cerrar sesión nadie logra volver a ingresar a routers ni switches críticos.",
+    "target": "DIAGNÓSTICO: Pérdida de acceso administrativo causada por configuración AAA incompleta.\r\nSEVERIDAD: Crítica\r\n\r\nIMPACTO:\r\nImposibilidad de administrar infraestructura y aumento del tiempo de recuperación.\r\n\r\nINDICADORES:\r\n1. Autenticación rechazada globalmente\r\n2. Consola remota inaccesible\r\n3. Equipos operativos pero bloqueados\r\n4. Eventos AAA fallidos\r\n\r\nCAUSAS PROBABLES:\r\n1. Eliminación de fallback local\r\n2. Error de orden AAA\r\n3. TACACS inaccesible\r\n4. Validación insuficiente\r\n\r\nANÁLISIS:\r\n1. Revisar configuración AAA\r\n2. Validar conectividad TACACS\r\n3. Confirmar método fallback\r\n4. Revisar logs autenticación\r\n\r\nSOLUCIÓN:\r\nRestaurar acceso local de emergencia y probar AAA antes de aplicar globalmente.\r\n\r\nVERIFICACIÓN:\r\nshow aaa servers\r\nshow running-config\r\nLogs TACACS\r\n\r\nRESULTADO ESPERADO:\r\nLos accesos administrativos funcionan tanto centralizados como por contingencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:22.526886"
+  },
+  {
+    "id": "caso_fb_20260611_063327",
+    "titulo": "Caída parcial por copiar configuración de laboratorio a producción",
+    "prompt": "Un operador reutiliza una plantilla de configuración usada previamente en laboratorio para acelerar despliegue de nuevos switches. Horas después se detectan VLAN duplicadas, gateways inconsistentes y rutas hacia segmentos inexistentes.",
+    "target": "DIAGNÓSTICO: Contaminación de configuración por reutilización de plantilla no adaptada.\r\nSEVERIDAD: Alta\r\n\r\nIMPACTO:\r\nSegmentación incorrecta, pérdida de conectividad y comportamiento impredecible.\r\n\r\nINDICADORES:\r\n1. VLAN inesperadas\r\n2. Tráfico dirigido incorrectamente\r\n3. Gateways duplicados\r\n4. Inconsistencias entre sitios\r\n\r\nCAUSAS PROBABLES:\r\n1. Copia directa desde laboratorio\r\n2. Variables sin actualizar\r\n3. Ausencia de revisión por pares\r\n4. Automatización incompleta\r\n\r\nANÁLISIS:\r\n1. Comparar configuraciones\r\n2. Revisar cambios recientes\r\n3. Identificar objetos heredados\r\n4. Validar topología lógica\r\n\r\nSOLUCIÓN:\r\nAplicar plantillas parametrizadas y validaciones automáticas.\r\n\r\nVERIFICACIÓN:\r\nshow vlan\r\nshow run\r\nshow ip interface brief\r\n\r\nRESULTADO ESPERADO:\r\nLa configuración queda alineada con diseño productivo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T06:33:27.312700"
+  },
+  {
+    "id": "caso_fb_20260611_171948",
+    "titulo": "Identidad del asistente",
+    "prompt": "¿Cómo te llamas?",
+    "target": "Mi nombre es NetAssist. Soy un asistente virtual especializado en redes, infraestructura TI, ciberseguridad y soporte técnico. Mi función es ayudarte a diagnosticar problemas, interpretar configuraciones y proponer soluciones técnicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:19:48.175840"
+  },
+  {
+    "id": "caso_fb_20260611_171948",
+    "titulo": "Ocupación del asistente",
+    "prompt": "¿A qué te dedicas?",
+    "target": "Me dedico a brindar asistencia técnica especializada en redes, sistemas, seguridad informática y administración de infraestructura tecnológica. También puedo ayudarte a interpretar errores, analizar configuraciones y proponer soluciones.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:19:48.405549"
+  },
+  {
+    "id": "caso_fb_20260611_171948",
+    "titulo": "Capacidades del asistente",
+    "prompt": "¿Qué puedes hacer?",
+    "target": "Puedo ayudarte a diagnosticar fallos de red, analizar configuraciones de routers y switches, explicar protocolos, detectar errores comunes, revisar diseños de infraestructura, interpretar resultados de escaneo y responder consultas técnicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:19:48.658680"
+  },
+  {
+    "id": "caso_fb_20260611_172120",
+    "titulo": "BGP Route Hijacking",
+    "prompt": "El tráfico destinado a un servicio corporativo está llegando a una red desconocida",
+    "target": "DIAGNÓSTICO: Posible secuestro de prefijos BGP o anuncio incorrecto por parte de un proveedor. SOLUCIÓN: Verificar anuncios BGP, validar filtros de prefijos, implementar RPKI y coordinar con los AS involucrados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:21:20.395534"
+  },
+  {
+    "id": "caso_fb_20260611_172120",
+    "titulo": "Vecino BGP no establece sesión",
+    "prompt": "Dos routers BGP no logran formar adyacencia",
+    "target": "DIAGNÓSTICO: Error en ASN, dirección peer, autenticación MD5 o conectividad IP. SOLUCIÓN: Revisar parámetros del vecino, rutas de alcance y estado TCP puerto 179.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:21:20.595183"
+  },
+  {
+    "id": "caso_fb_20260611_172120",
+    "titulo": "Alta latencia en la red",
+    "prompt": "Los usuarios reportan lentitud en aplicaciones corporativas",
+    "target": "DIAGNÓSTICO: Congestión, enlaces saturados o problemas de QoS. SOLUCIÓN: Analizar utilización de interfaces, colas de tráfico y rutas utilizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:21:20.830296"
+  },
+  {
+    "id": "caso_fb_20260611_172411",
+    "titulo": "Consulta sobre identidad",
+    "prompt": "¿Cómo te llamas y qué función cumples dentro del sistema?",
+    "target": "Mi nombre es NetAssist. Soy un asistente especializado en redes, infraestructura tecnológica, ciberseguridad y diagnóstico de incidencias. Mi objetivo es analizar problemas, interpretar configuraciones y proponer soluciones técnicas fundamentadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:24:11.644434"
+  },
+  {
+    "id": "caso_fb_20260611_172411",
+    "titulo": "Consulta sobre capacidades",
+    "prompt": "¿Qué puedes hacer por mí?",
+    "target": "Puedo ayudarte a diagnosticar fallos de red, analizar configuraciones de routers y switches, interpretar registros, explicar protocolos, detectar errores de configuración, identificar vulnerabilidades y proponer acciones correctivas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:24:11.816863"
+  },
+  {
+    "id": "caso_fb_20260611_172412",
+    "titulo": "Consulta fuera del alcance",
+    "prompt": "Necesito ayuda para un problema médico.",
+    "target": "Mi especialidad principal es la infraestructura tecnológica y las redes. Puedo proporcionar orientación general, pero para temas médicos es recomendable consultar un profesional especializado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:24:12.010492"
+  },
+  {
+    "id": "caso_fb_20260611_172522",
+    "titulo": "Error de autenticación OSPF",
+    "prompt": "Dos routers vecinos no establecen adyacencia OSPF. El comando show ip ospf neighbor no muestra vecinos y los logs indican autenticación fallida.",
+    "target": "DIAGNÓSTICO: Las claves MD5 o el tipo de autenticación no coinciden entre interfaces. SOLUCIÓN: Verificar ip ospf authentication, message-digest-key y área configurada. Aplicar la misma configuración en ambos extremos y reiniciar la adyacencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:25:22.258990"
+  },
+  {
+    "id": "caso_fb_20260611_172522",
+    "titulo": "VLAN sin conectividad",
+    "prompt": "Los equipos de la VLAN 20 no pueden comunicarse con el gateway mientras otras VLAN funcionan correctamente.",
+    "target": "DIAGNÓSTICO: La VLAN no existe en el switch o el puerto está asignado a otra VLAN. SOLUCIÓN: Verificar show vlan brief, corregir switchport access vlan y confirmar que la interfaz VLAN tenga dirección IP activa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:25:22.441876"
+  },
+  {
+    "id": "caso_fb_20260611_172522",
+    "titulo": "DHCP agotado",
+    "prompt": "Nuevos usuarios no reciben direcciones IP y aparecen mensajes de DHCP timeout.",
+    "target": "DIAGNÓSTICO: El pool DHCP se encuentra sin direcciones disponibles. SOLUCIÓN: Revisar exclusiones, ampliar el rango DHCP o liberar concesiones expiradas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:25:22.645412"
+  },
+  {
+    "id": "caso_fb_20260611_172636",
+    "titulo": "Incompatibilidad de MTU",
+    "prompt": "Dos routers establecen vecindad OSPF pero algunas rutas no funcionan y aparecen fragmentaciones frecuentes.",
+    "target": "DIAGNÓSTICO: Diferencias de MTU entre interfaces. SOLUCIÓN: Comparar valores MTU en ambos extremos, corregir configuración o utilizar ip ospf mtu-ignore temporalmente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:26:36.290693"
+  },
+  {
+    "id": "caso_fb_20260611_172636",
+    "titulo": "BGP con ASN incorrecto",
+    "prompt": "Una sesión BGP permanece en estado Active y nunca alcanza Established.",
+    "target": "DIAGNÓSTICO: ASN remoto configurado incorrectamente o conectividad TCP fallida. SOLUCIÓN: Verificar neighbor remote-as, conectividad hacia el puerto TCP 179 y filtros intermedios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:26:36.484053"
+  },
+  {
+    "id": "caso_fb_20260611_172636",
+    "titulo": "Red inalámbrica congestionada",
+    "prompt": "Los usuarios reportan baja velocidad WiFi durante horarios laborales aunque la señal es excelente.",
+    "target": "DIAGNÓSTICO: Saturación del canal por exceso de dispositivos o interferencias. SOLUCIÓN: Analizar canales disponibles, migrar a 5 GHz o 6 GHz y redistribuir puntos de acceso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:26:36.658886"
+  },
+  {
+    "id": "caso_fb_20260611_172804",
+    "titulo": "Redistribución incorrecta entre protocolos",
+    "prompt": "Después de integrar OSPF y EIGRP aparecen rutas duplicadas y algunos destinos generan bucles de enrutamiento.",
+    "target": "DIAGNÓSTICO: Redistribución mutua sin filtros adecuados. SOLUCIÓN: Aplicar route-maps, etiquetas de rutas y mecanismos anti-loop para controlar la propagación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:28:04.654670"
+  },
+  {
+    "id": "caso_fb_20260611_172804",
+    "titulo": "Switch con CPU elevada",
+    "prompt": "El switch principal mantiene un uso de CPU superior al 95% durante largos periodos.",
+    "target": "DIAGNÓSTICO: Tormenta de broadcast, exceso de SNMP, errores de spanning-tree o ataque de red. SOLUCIÓN: Revisar procesos activos, tráfico broadcast y registros del sistema.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:28:04.865397"
+  },
+  {
+    "id": "caso_fb_20260611_172805",
+    "titulo": "Error de configuración en trunk",
+    "prompt": "Un técnico configuró un enlace como access en un extremo y trunk en el otro.",
+    "target": "DIAGNÓSTICO: Incompatibilidad de encapsulación y transporte de VLANs. SOLUCIÓN: Configurar ambos extremos como trunk y validar VLANs permitidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:28:05.110176"
+  },
+  {
+    "id": "caso_fb_20260611_172945",
+    "titulo": "VRRP en estado inconsistente",
+    "prompt": "Dos routers configurados con VRRP aparecen simultáneamente como master provocando conflictos de gateway.",
+    "target": "DIAGNÓSTICO: Problema de comunicación multicast o identificadores VRRP duplicados. SOLUCIÓN: Verificar conectividad entre routers, prioridades y virtual-router-id.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:29:45.537123"
+  },
+  {
+    "id": "caso_fb_20260611_172945",
+    "titulo": "Problema de ARP",
+    "prompt": "Un servidor deja de responder aunque la interfaz física permanece activa.",
+    "target": "DIAGNÓSTICO: Entradas ARP corruptas o conflicto de direcciones IP. SOLUCIÓN: Limpiar caché ARP, verificar duplicados y validar direccionamiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:29:45.741241"
+  },
+  {
+    "id": "caso_fb_20260611_172945",
+    "titulo": "Error humano en ACL",
+    "prompt": "Un administrador agregó una regla permit any any para solucionar temporalmente un problema y olvidó retirarla.",
+    "target": "DIAGNÓSTICO: Exposición completa de segmentos protegidos. SOLUCIÓN: Eliminar la regla temporal y reconstruir la política de acceso siguiendo el principio de mínimo privilegio.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:29:45.980831"
+  },
+  {
+    "id": "caso_fb_20260611_173326",
+    "titulo": "Inconsistencia de rutas ECMP",
+    "prompt": "Algunos usuarios llegan correctamente a una aplicación mientras otros reciben timeout hacia el mismo servicio.",
+    "target": "DIAGNÓSTICO: Balanceo ECMP con rutas inconsistentes o enlaces degradados. SOLUCIÓN: Verificar tablas de enrutamiento, estado de enlaces y comportamiento de hash.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:33:26.633161"
+  },
+  {
+    "id": "caso_fb_20260611_173326",
+    "titulo": "Problema de MAC duplicada",
+    "prompt": "El switch reporta cambios constantes de ubicación para una misma dirección MAC.",
+    "target": "DIAGNÓSTICO: Dispositivo clonado, bucle de red o virtualización mal configurada. SOLUCIÓN: Identificar origen de la MAC y eliminar la duplicidad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:33:26.823211"
+  },
+  {
+    "id": "caso_fb_20260611_173326",
+    "titulo": "Error humano en direccionamiento IP",
+    "prompt": "Un administrador asignó manualmente una dirección IP ya utilizada por otro servidor crítico.",
+    "target": "DIAGNÓSTICO: Conflicto de direcciones IP. SOLUCIÓN: Identificar el dispositivo duplicado, corregir la configuración y actualizar el inventario de direccionamiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:33:27.000011"
+  },
+  {
+    "id": "caso_fb_20260611_173447",
+    "titulo": "Loop STP por prioridad mal configurada",
+    "prompt": "Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.",
+    "target": "DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:34:47.083306"
+  },
+  {
+    "id": "caso_fb_20260611_173447",
+    "titulo": "DHCP agotado",
+    "prompt": "Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.",
+    "target": "DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:34:47.278470"
+  },
+  {
+    "id": "caso_fb_20260611_173447",
+    "titulo": "Ruta estática incorrecta",
+    "prompt": "Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.",
+    "target": "DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:34:47.455707"
+  },
+  {
+    "id": "caso_fb_20260611_173525",
+    "titulo": "Loop STP por prioridad mal configurada",
+    "prompt": "Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.",
+    "target": "DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:25.297912"
+  },
+  {
+    "id": "caso_fb_20260611_173525",
+    "titulo": "DHCP agotado",
+    "prompt": "Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.",
+    "target": "DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:25.487733"
+  },
+  {
+    "id": "caso_fb_20260611_173525",
+    "titulo": "Ruta estática incorrecta",
+    "prompt": "Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.",
+    "target": "DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:25.684628"
+  },
+  {
+    "id": "caso_fb_20260611_173541",
+    "titulo": "Loop STP por prioridad mal configurada",
+    "prompt": "Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.",
+    "target": "DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:41.031371"
+  },
+  {
+    "id": "caso_fb_20260611_173541",
+    "titulo": "DHCP agotado",
+    "prompt": "Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.",
+    "target": "DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:41.213785"
+  },
+  {
+    "id": "caso_fb_20260611_173541",
+    "titulo": "Ruta estática incorrecta",
+    "prompt": "Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.",
+    "target": "DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:35:41.403691"
+  },
+  {
+    "id": "caso_fb_20260611_173609",
+    "titulo": "Redistribución OSPF a BGP fallida",
+    "prompt": "Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.",
+    "target": "DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:09.948073"
+  },
+  {
+    "id": "caso_fb_20260611_173610",
+    "titulo": "VRRP sin conmutación por error",
+    "prompt": "El router principal cae pero el secundario nunca asume la puerta de enlace virtual.",
+    "target": "DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:10.202819"
+  },
+  {
+    "id": "caso_fb_20260611_173610",
+    "titulo": "Inyección de rutas maliciosas",
+    "prompt": "Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.",
+    "target": "DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:10.406691"
+  },
+  {
+    "id": "caso_fb_20260611_173621",
+    "titulo": "Redistribución OSPF a BGP fallida",
+    "prompt": "Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.",
+    "target": "DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:21.880409"
+  },
+  {
+    "id": "caso_fb_20260611_173622",
+    "titulo": "VRRP sin conmutación por error",
+    "prompt": "El router principal cae pero el secundario nunca asume la puerta de enlace virtual.",
+    "target": "DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:22.063386"
+  },
+  {
+    "id": "caso_fb_20260611_173622",
+    "titulo": "Inyección de rutas maliciosas",
+    "prompt": "Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.",
+    "target": "DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:22.243851"
+  },
+  {
+    "id": "caso_fb_20260611_173638",
+    "titulo": "Redistribución OSPF a BGP fallida",
+    "prompt": "Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.",
+    "target": "DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:38.029906"
+  },
+  {
+    "id": "caso_fb_20260611_173638",
+    "titulo": "VRRP sin conmutación por error",
+    "prompt": "El router principal cae pero el secundario nunca asume la puerta de enlace virtual.",
+    "target": "DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:38.203745"
+  },
+  {
+    "id": "caso_fb_20260611_173638",
+    "titulo": "Inyección de rutas maliciosas",
+    "prompt": "Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.",
+    "target": "DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:36:38.406621"
+  },
+  {
+    "id": "caso_fb_20260611_173956",
+    "titulo": "El sistema responde quién es",
+    "prompt": "¿Cómo te llamas y cuál es tu función principal?",
+    "target": "DIAGNÓSTICO: Consulta informativa del sistema. RESPUESTA: Mi nombre es NetAssist IA. Soy un asistente especializado en diagnóstico, análisis y resolución de problemas de redes, infraestructura, conectividad, protocolos de enrutamiento, servicios de red y seguridad informática. Puedo ayudar a identificar fallos, interpretar configuraciones y proponer soluciones técnicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:39:56.394314"
+  },
+  {
+    "id": "caso_fb_20260611_173956",
+    "titulo": "El sistema responde sus capacidades",
+    "prompt": "¿Qué tipo de problemas puedes solucionar?",
+    "target": "DIAGNÓSTICO: Solicitud de capacidades del sistema. RESPUESTA: Puedo analizar incidencias relacionadas con DHCP, DNS, VLAN, STP, OSPF, BGP, NAT, VPN, WiFi, routing, switching, firewalls, virtualización, monitoreo, seguridad y administración de redes. También puedo interpretar logs, configuraciones y síntomas reportados por usuarios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:39:56.666722"
+  },
+  {
+    "id": "caso_fb_20260611_173956",
+    "titulo": "El sistema responde sus limitaciones",
+    "prompt": "¿Puedes ejecutar comandos directamente en los equipos?",
+    "target": "DIAGNÓSTICO: Consulta sobre capacidades operativas. RESPUESTA: No ejecuto cambios directamente sobre dispositivos reales. Mi función consiste en analizar la información suministrada, identificar posibles causas raíz y proponer procedimientos de validación y corrección para que sean aplicados por el administrador o técnico responsable.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:39:56.893946"
+  },
+  {
+    "id": "caso_fb_20260611_174011",
+    "titulo": "OSPF con áreas inconsistentes",
+    "prompt": "Dos routers vecinos no establecen adyacencia OSPF. Ambos muestran paquetes Hello, pero el estado permanece en INIT.",
+    "target": "DIAGNÓSTICO: Inconsistencia en parámetros OSPF. POSIBLES CAUSAS: Área configurada de forma diferente, temporizadores Hello/Dead incompatibles, autenticación distinta o máscara de red incorrecta. SOLUCIÓN: Verificar que ambos routers compartan el mismo Area ID, temporizadores, autenticación y parámetros de interfaz. Reiniciar el proceso OSPF tras corregir la configuración.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:11.693943"
+  },
+  {
+    "id": "caso_fb_20260611_174011",
+    "titulo": "Redistribución incompleta entre protocolos",
+    "prompt": "Las rutas aprendidas por EIGRP no aparecen dentro de la tabla OSPF después de configurar redistribución.",
+    "target": "DIAGNÓSTICO: Redistribución parcial o incorrecta. POSIBLES CAUSAS: Falta de métricas, route-map restrictivo o redistribución aplicada en el router equivocado. SOLUCIÓN: Verificar configuración redistribute, definir métricas adecuadas y validar filtros aplicados mediante route-maps o distribute-lists.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:11.915869"
+  },
+  {
+    "id": "caso_fb_20260611_174012",
+    "titulo": "Loop de enrutamiento intermitente",
+    "prompt": "Los paquetes llegan a destino algunas veces, pero en otros momentos quedan atrapados entre varios routers.",
+    "target": "DIAGNÓSTICO: Posible bucle de enrutamiento. POSIBLES CAUSAS: Redistribuciones bidireccionales sin filtrado, rutas resumidas incorrectamente o métricas inconsistentes. SOLUCIÓN: Revisar redistribuciones, implementar filtros de rutas, verificar sumarización y validar tablas de enrutamiento en todos los saltos involucrados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:12.120576"
+  },
+  {
+    "id": "caso_fb_20260611_174029",
+    "titulo": "Sistema detecta inconsistencia lógica",
+    "prompt": "La CPU del router se encuentra al 95%, pero el tráfico de red es prácticamente nulo.",
+    "target": "DIAGNÓSTICO: Comportamiento anómalo. POSIBLES CAUSAS: Proceso bloqueado, bug del sistema operativo, ataque de control plane o proceso de monitoreo defectuoso. SOLUCIÓN: Revisar procesos activos, verificar logs del sistema, identificar consumo por proceso y aplicar actualizaciones recomendadas por el fabricante.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:29.644826"
+  },
+  {
+    "id": "caso_fb_20260611_174029",
+    "titulo": "Respuesta sobre análisis de logs",
+    "prompt": "¿Puedes analizar registros de eventos para identificar la causa de una falla?",
+    "target": "DIAGNÓSTICO: Solicitud de asistencia analítica. RESPUESTA: Sí. Puedo interpretar registros de routers, switches, firewalls, servidores y sistemas operativos para identificar patrones de error, correlacionar eventos y proponer hipótesis de causa raíz junto con acciones correctivas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:29.845865"
+  },
+  {
+    "id": "caso_fb_20260611_174030",
+    "titulo": "Sistema recibe información insuficiente",
+    "prompt": "La red no funciona. Arréglala.",
+    "target": "DIAGNÓSTICO: Información insuficiente para determinar la causa raíz. SOLICITUD: Proporcione síntomas observados, mensajes de error, topología, configuraciones relevantes, resultados de pruebas de conectividad y equipos afectados para realizar un diagnóstico preciso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:40:30.085729"
+  },
+  {
+    "id": "caso_fb_20260611_174302",
+    "titulo": "Inconsistencia entre VLAN y Gateway",
+    "prompt": "Los equipos de la VLAN 30 obtienen dirección IP correctamente mediante DHCP, pero no pueden comunicarse con otras VLAN. El switch muestra que los puertos pertenecen a la VLAN adecuada y el router responde a ping desde su propia interfaz.",
+    "target": "DIAGNÓSTICO: La subinterfaz del router asociada a la VLAN 30 tiene configurada una dirección IP diferente a la definida como gateway en el pool DHCP. SOLUCIÓN: Verificar la configuración de encapsulación 802.1Q, corregir la IP gateway entregada por DHCP o modificar la dirección de la subinterfaz para que coincidan.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:43:02.174661"
+  },
+  {
+    "id": "caso_fb_20260611_174302",
+    "titulo": "IA-802 responde sobre su identidad",
+    "prompt": "Un usuario pregunta al sistema: '¿Cómo te llamas y cuál es tu función dentro de esta plataforma?'",
+    "target": "DIAGNÓSTICO: No existe fallo de infraestructura. CONSULTA INFORMATIVA. RESPUESTA ESPERADA: Mi nombre es IA-802. Soy un asistente especializado en redes, telecomunicaciones, administración de sistemas, seguridad informática y soporte técnico. Mi función es ayudar en el diagnóstico, configuración, resolución de incidentes y explicación de tecnologías relacionadas con infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:43:02.593048"
+  },
+  {
+    "id": "caso_fb_20260611_174302",
+    "titulo": "Troncal con VLAN nativa incorrecta",
+    "prompt": "Dos switches intercambian tráfico entre varias VLAN mediante un enlace troncal. Algunas VLAN funcionan correctamente pero otras presentan pérdida intermitente de conectividad. No se observan errores físicos en el enlace.",
+    "target": "DIAGNÓSTICO: Existe una discrepancia en la VLAN nativa configurada en los extremos del troncal. Esto provoca que ciertos paquetes sean etiquetados de forma inconsistente. SOLUCIÓN: Revisar la configuración trunk en ambos switches y garantizar que la VLAN nativa coincida exactamente en los dos extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-11T17:43:02.963767"
   }
 ]

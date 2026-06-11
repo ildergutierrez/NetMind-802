@@ -268,3 +268,3088 @@ show interfaces GigabitEthernet0/0
 show interfaces Serial0/0/0 counters
 ping 8.8.8.8 repeat 100 size 1500 df-bit
 traceroute 8.8.8.8
+
+Can you write a short introduction about the relevance of the term "monopsony" in economics? Please use examples related to potential monopsonies in the labour market and cite relevant research.
+"Monopsony" refers to a market structure where there is only one buyer for a particular good or service. In economics, this term is particularly relevant in the labor market, where a monopsony employer has significant power over the wages and working conditions of their employees. The presence of a monopsony can result in lower wages and reduced employment opportunities for workers, as the employer has little incentive to increase wages or provide better working conditions.
+
+where a few large companies control a significant portion of the market (Bivens & Mishel
+2013). In these industries
+
+J.
+& Mishel
+
+¿Cuáles son las etapas del desarrollo y en qué consisten según Piaget?
+Jean Piaget propuso cuatro etapas del desarrollo cognitivo:
+
+Can you explain contrastive learning in machine learning in simple terms for someone new to the field of ML?
+Contrastive learning trains a model to pull representations of similar data points closer together and push different ones apart. For example, cat images should have similar vector representations, while cat-dog pairs should differ. This is done using derivatives — the model adjusts weights to increase or decrease distances between pairs. After enough training steps, the model learns to reliably distinguish between categories.
+
+I want to start doing astrophotography as a hobby, any suggestions?
+Getting started in astrophotography:
+
+sturdy tripod
+fast wide-angle lens (f/2.8+)
+
+f/2.8 or wider
+ISO 800-1600
+
+Método del Perceptrón biclásico: definición y variantes del método. ¿Cómo se aplicaría al caso multiclásico? ¿Se podría utilizar con patrones cuadráticamente separables?
+El Perceptrón biclásico es un algoritmo para clasificar patrones en dos categorías buscando un hiperplano separador.
+
+promedio
+relajado
+
+ya que solo separa datos linealmente. Se recomienda SVM
+regresión logística o árboles de decisión.
+
+Can you give me an example of a Python script that opens an API endpoint and serves a string? And how to modify it to serve JSON?
+Serve a string with Flask:
+
+How can I learn to optimize my webpage for search engines?
+Learning SEO involves:
+
+meta descriptions
+and headers.
+
+Moz
+or SEMrush.
+
+I am using docker compose and I need to mount the docker socket - how would I do that?
+Add the following volume to your docker-compose.yml:
+
+I'm creating a NodeJS backend using Express and getting: Uncaught TypeError: Cannot read properties of undefined (reading 'id')
+The error occurs because req.body.id is undefined. Add a check before accessing it:
+
+(req
+res) => {
+
+What is the difference between a Raspberry Pi and an ESP32? What is better suited for interfacing with an SD card?
+Raspberry Pi: single-board computer, runs full OS (Linux), large library ecosystem, great for SD cards.
+
+used for IoT
+limited memory and processing.
+
+use external memory
+use dynamic allocation
+
+What types of mechanical keyboard switches are there and what are their properties?
+Main types:
+
+fast)
+Brown (tactile
+
+cheaper
+similar variants to Cherry MX.
+
+quiet
+tactile bump.
+
+El router no propaga rutas OSPF al área backbone
+DIAGNÓSTICO: Fallo en adyacencia OSPF entre routers vecinos.
+
+CAUSAS PROBABLES:
+1. El área OSPF del enlace no es el área 0 (backbone).
+2. Mismatch en el tipo de red OSPF (broadcast vs point-to-point).
+3. Temporizadores Hello/Dead incompatibles entre vecinos.
+4. Autenticación OSPF configurada en un lado pero no en el otro.
+
+SOLUCIÓN - Cisco IOS:
+  router ospf 1
+  network 192.168.1.0 0.0.0.255 area 0
+  ! Verificar que ambos routers usen area 0 en el enlace
+  interface GigabitEthernet0/0
+  ip ospf hello-interval 10
+  ip ospf dead-interval 40
+
+VERIFICACIÓN:
+  show ip ospf neighbor
+  show ip ospf interface
+  debug ip ospf adj
+
+Los clientes no reciben IP del DHCP
+DIAGNÓSTICO: El servidor DHCP no responde a las solicitudes DISCOVER de los clientes.
+
+CAUSAS PROBABLES:
+1. El pool DHCP está agotado (no quedan direcciones disponibles).
+2. El servicio DHCP está detenido o deshabilitado.
+3. Un firewall bloquea los puertos UDP 67/68.
+4. El relay DHCP (ip helper-address) no está configurado si el servidor está en otra VLAN.
+
+SOLUCIÓN - Cisco IOS:
+  ! Configurar relay DHCP en la interfaz del cliente
+  interface GigabitEthernet0/1
+  ip helper-address 10.0.0.1
+  !
+  ! En el servidor DHCP
+  ip dhcp pool LAN_POOL
+  network 192.168.1.0 255.255.255.0
+  default-router 192.168.1.1
+  dns-server 8.8.8.8
+  lease 1
+  ip dhcp excluded-address 192.168.1.1 192.168.1.10
+
+SOLUCIÓN - Windows PowerShell:
+  Get-DhcpServerv4Scope
+  Get-DhcpServerv4Statistics
+  Restart-Service DHCPServer
+
+VERIFICACIÓN:
+  show ip dhcp pool
+  show ip dhcp binding
+  show ip dhcp conflict
+
+Aparece alerta de Native VLAN mismatch en el enlace troncal entre dos switches
+DIAGNÓSTICO: Los dos extremos del enlace trunk 802.1Q tienen configurada distinta Native VLAN, generando tráfico sin etiquetar inconsistente y posible bucle o fallo de conectividad.
+
+CAUSAS PROBABLES:
+1. Native VLAN configurada manualmente diferente en cada switch.
+2. Configuración por defecto (VLAN 1) no modificada en uno de los extremos.
+3. Error humano al aplicar cambios de VLAN.
+
+SOLUCIÓN - Cisco IOS:
+  ! En ambos switches, igualar la native VLAN
+  interface GigabitEthernet0/1
+  switchport trunk encapsulation dot1q
+  switchport mode trunk
+  switchport trunk native vlan 99
+  !
+  ! Crear la VLAN 99 si no existe
+  vlan 99
+  name NATIVE
+
+VERIFICACIÓN:
+  show interfaces trunk
+  show spanning-tree vlan 99
+  ! CDP reportará el mismatch si persiste
+
+La red sufre tormenta de broadcast y los switches están saturados
+DIAGNÓSTICO: Existe un bucle de capa 2 activo. Spanning Tree Protocol (STP/RSTP) no está convergiendo correctamente o está deshabilitado.
+
+CAUSAS PROBABLES:
+1. STP deshabilitado intencionalmente en algún switch.
+2. PortFast activado en un puerto troncal, causando que el puerto no pase por los estados STP.
+3. BPDUs bloqueadas por un dispositivo intermedio (hub, switch no gestionado).
+4. Topología cambiada sin recalcular el árbol de expansión.
+
+SOLUCIÓN - Cisco IOS:
+  ! Verificar y habilitar STP
+  spanning-tree mode rapid-pvst
+  !
+  ! Configurar root bridge primario
+  spanning-tree vlan 1-4094 priority 4096
+  !
+  ! Activar BPDU Guard en puertos de acceso
+  interface range GigabitEthernet0/1 - 24
+  spanning-tree portfast
+  spanning-tree bpduguard enable
+
+VERIFICACIÓN:
+  show spanning-tree
+  show spanning-tree inconsistentports
+  show mac address-table count
+
+La red inalámbrica 802.11n tiene baja velocidad y alta latencia en 2.4 GHz
+DIAGNÓSTICO: Interferencia de canal en la banda 2.4 GHz causada por solapamiento de canales o dispositivos externos (microondas, teléfonos DECT, otras redes Wi-Fi).
+
+CAUSAS PROBABLES:
+1. Múltiples APs usando el mismo canal o canales solapados (usar solo 1, 6 o 11 en 2.4 GHz).
+2. Alta densidad de redes vecinas en el mismo canal.
+3. Dispositivos Bluetooth o microondas generando ruido en 2.4 GHz.
+4. Canal configurado en 'auto' con selección subóptima.
+
+SOLUCIÓN:
+  ! En el AP/controladora — asignar manualmente canal no solapado
+  canal recomendado: 1, 6 o 11 (no usar 3, 4, 7, etc.)
+  !
+  ! Migrar tráfico sensible a 5 GHz (802.11ac/ax)
+  Habilitar band steering para empujar clientes a 5 GHz
+  !
+  ! Reducir potencia TX si hay APs muy próximos
+  tx-power 50%  (evita que el AP 'tape' a los vecinos)
+
+SOLUCIÓN - Linux (hostapd):
+  channel=6
+  hw_mode=g
+  ieee80211n=1
+  ht_capab=[HT40+]
+
+VERIFICACIÓN:
+  Usar WiFi Analyzer para escanear canales vecinos
+  iwlist wlan0 scan | grep -E 'Channel|Signal'
+
+Una ACL en el router está bloqueando tráfico que debería estar permitido
+DIAGNÓSTICO: La lista de control de acceso (ACL) tiene reglas incorrectamente ordenadas o con máscara wildcard errónea, bloqueando tráfico legítimo antes de que alcance la regla de permiso.
+
+CAUSAS PROBABLES:
+1. Regla 'deny' más específica colocada después de un 'permit any' — el tráfico ya fue permitido antes.
+2. Wildcard mask incorrecta (confusión con subnet mask).
+3. ACL aplicada en la interfaz o dirección equivocada (in vs out).
+4. ACL implícita 'deny all' al final bloqueando protocolos olvidados.
+
+SOLUCIÓN - Cisco IOS:
+  ! Revisar el orden de las ACEs
+  show ip access-lists
+  !
+  ! Ejemplo de ACL corregida
+  ip access-list extended FILTRO_LAN
+  10 permit tcp 192.168.1.0 0.0.0.255 any eq 80
+  20 permit tcp 192.168.1.0 0.0.0.255 any eq 443
+  30 permit icmp 192.168.1.0 0.0.0.255 any
+  40 deny   ip any any log
+  !
+  interface GigabitEthernet0/0
+  ip access-group FILTRO_LAN in
+
+VERIFICACIÓN:
+  show ip access-lists FILTRO_LAN
+  ! Revisar contadores de matches por regla
+  debug ip packet detail
+
+El enlace entre dos switches no establece el trunk y queda en modo access
+DIAGNÓSTICO: Negociación DTP (Dynamic Trunking Protocol) fallida o conflicto de modo de puerto entre los dos switches.
+
+CAUSAS PROBABLES:
+1. Un lado en modo 'dynamic auto' y el otro también — ninguno inicia la negociación.
+2. Encapsulación 802.1Q no soportada o diferente (ISL vs dot1q).
+3. VLANs no existentes en la VLAN database del switch.
+4. Diferencia de velocidad o dúplex en el enlace físico.
+
+SOLUCIÓN - Cisco IOS:
+  ! Forzar el trunk en ambos extremos
+  interface GigabitEthernet0/1
+  switchport trunk encapsulation dot1q
+  switchport mode trunk
+  switchport nonegotiate   ! deshabilita DTP
+  switchport trunk allowed vlan 10,20,30,99
+
+VERIFICACIÓN:
+  show interfaces GigabitEthernet0/1 trunk
+  show dtp interface GigabitEthernet0/1
+  show vlan brief
+
+El enlace WAN está al 100% de uso y hay pérdida de paquetes
+DIAGNÓSTICO: Congestión del enlace WAN por tráfico sin priorización. Todo el tráfico compite por el mismo ancho de banda sin diferenciación de criticidad.
+
+CAUSAS PROBABLES:
+1. Sin QoS configurado — el tráfico de video/backup compite con voz y datos críticos.
+2. Un único flujo (backup, transferencia masiva) consume todo el enlace.
+3. Crecimiento del tráfico sin actualización del contrato WAN.
+4. Microbobbles de buffer en interfaces con mismatched speed.
+
+SOLUCIÓN - Cisco IOS (QoS MQC):
+  ! Definir clases de tráfico
+  class-map match-any VOIP
+  match dscp ef
+  class-map match-any CRITICO
+  match dscp af31 af32
+  !
+  ! Definir política de colas
+  policy-map WAN_QOS
+  class VOIP
+    priority percent 20
+  class CRITICO
+    bandwidth percent 40
+  class class-default
+    fair-queue
+  !
+  interface Serial0/0
+  service-policy output WAN_QOS
+
+VERIFICACIÓN:
+  show policy-map interface Serial0/0
+  show interfaces Serial0/0 | include rate
+  show queue Serial0/0
+
+Los dispositivos no se autentican con 802.1X y quedan sin acceso a la red
+DIAGNÓSTICO: Fallo en el proceso de autenticación EAP/802.1X entre el suplicante (cliente), el autenticador (switch) y el servidor RADIUS.
+
+CAUSAS PROBABLES:
+1. Shared secret incorrecto entre switch y servidor RADIUS.
+2. Certificado del servidor RADIUS no confiado por el cliente.
+3. Método EAP incompatible (PEAP vs EAP-TLS).
+4. Puerto del servidor RADIUS bloqueado (UDP 1812/1813).
+5. Suplicante 802.1X deshabilitado en el equipo cliente.
+
+SOLUCIÓN - Cisco IOS:
+  aaa new-model
+  aaa authentication dot1x default group radius
+  aaa authorization network default group radius
+  !
+  radius-server host 10.0.0.10 auth-port 1812 acct-port 1813
+  radius-server key S3cr3t0
+  !
+  dot1x system-auth-control
+  !
+  interface GigabitEthernet0/5
+  switchport mode access
+  switchport access vlan 10
+  dot1x port-control auto
+  spanning-tree portfast
+
+SOLUCIÓN - Windows PowerShell (cliente):
+  # Habilitar suplicante 802.1X
+  Set-Service dot3svc -StartupType Automatic
+  Start-Service dot3svc
+
+VERIFICACIÓN:
+  show dot1x all
+  show authentication sessions
+  debug dot1x all
+  debug radius authentication
+
+Los routers EIGRP de la red no aprenden la ruta por defecto hacia Internet
+DIAGNÓSTICO: La ruta por defecto (0.0.0.0/0) no se está redistribuyendo dentro del dominio EIGRP desde el router de borde.
+
+CAUSAS PROBABLES:
+1. Falta el comando 'redistribute static' o 'default-information originate' en EIGRP.
+2. La ruta estática por defecto no existe en la tabla de enrutamiento del borde.
+3. Filtro de ruta (distribute-list) bloqueando la propagación de la default route.
+4. Split horizon evitando que la ruta se anuncie de vuelta por la misma interfaz.
+
+SOLUCIÓN - Cisco IOS:
+  ! En el router de borde con acceso a Internet
+  ip route 0.0.0.0 0.0.0.0 203.0.113.1   ! ruta estática hacia ISP
+  !
+  router eigrp 100
+  redistribute static metric 10000 100 255 1 1500
+  ! O alternativamente:
+  ! ip default-network 0.0.0.0  (método alternativo)
+
+VERIFICACIÓN:
+  show ip route eigrp
+  show ip route 0.0.0.0
+  show ip eigrp topology 0.0.0.0/0
+
+Las llamadas VoIP presentan cortes, eco y alta latencia
+DIAGNÓSTICO: El tráfico de voz no está siendo priorizado (QoS insuficiente) y comparte cola con tráfico de datos masivo, generando jitter y latencia variables.
+
+CAUSAS PROBABLES:
+1. Sin marcado DSCP EF (46) en los paquetes RTP de voz.
+2. Buffers de interfaz configurados con tamaño excesivo (bufferbloat).
+3. Codec de voz de alta compresión (G.729) con pérdida de paquetes > 1%.
+4. Enlace half-duplex o colisiones en la red LAN.
+
+SOLUCIÓN - Cisco IOS:
+  ! Marcar tráfico VoIP con DSCP EF
+  class-map match-any VOIP_RTP
+  match protocol rtp audio
+  match dscp ef
+  !
+  policy-map MARCAR_VOIP
+  class VOIP_RTP
+    set dscp ef
+    priority percent 20
+  !
+  interface GigabitEthernet0/0
+  service-policy output MARCAR_VOIP
+  !
+  ! Reducir buffer para minimizar bufferbloat
+  tx-ring-limit 3
+
+SOLUCIÓN - Linux (tc/iproute2):
+  tc qdisc add dev eth0 root handle 1: htb default 30
+  tc class add dev eth0 parent 1: classid 1:1 htb rate 100mbit
+  tc class add dev eth0 parent 1:1 classid 1:10 htb rate 20mbit prio 1
+  tc filter add dev eth0 protocol ip parent 1:0 prio 1 u32 \
+    match ip dscp 0x2e 0xfc flowid 1:10
+
+VERIFICACIÓN:
+  show policy-map interface
+  ping ip 10.0.0.1 repeat 1000 size 160
+  ! Jitter < 30ms y pérdida < 1% para VoIP aceptable
+
+El switch dejó de aprender nuevas MACs y reenvía tráfico a todos los puertos
+DIAGNÓSTICO: La tabla CAM (Content Addressable Memory) del switch está llena — posiblemente por un ataque MAC flooding o por exceso legítimo de dispositivos.
+
+CAUSAS PROBABLES:
+1. Ataque MAC flooding desde un puerto comprometido (herramienta macof/dsniff).
+2. Tabla CAM con capacidad insuficiente para la cantidad de dispositivos.
+3. Port security no configurado, permitiendo aprendizaje ilimitado de MACs.
+
+SOLUCIÓN - Cisco IOS:
+  ! Configurar Port Security para limitar MACs por puerto
+  interface GigabitEthernet0/3
+  switchport mode access
+  switchport port-security
+  switchport port-security maximum 2
+  switchport port-security violation restrict
+  switchport port-security mac-address sticky
+  !
+  ! Para todos los puertos de acceso
+  interface range GigabitEthernet0/1 - 24
+  switchport port-security maximum 3
+  switchport port-security violation shutdown
+
+VERIFICACIÓN:
+  show mac address-table count
+  show port-security
+  show port-security address
+  ! Si la tabla está al 100%, identificar el puerto origen del flooding
+
+La sesión BGP con el proveedor de Internet cae y no reconverce
+DIAGNÓSTICO: La sesión eBGP con el ISP está siendo derribada (idle/active) por problemas de conectividad, autenticación MD5 o discrepancia en parámetros de la sesión.
+
+CAUSAS PROBABLES:
+1. TTL = 1 por defecto en eBGP — si hay más de un salto al peer, la sesión no se establece.
+2. Contraseña MD5 incorrecta o ausente en uno de los lados.
+3. AS number del peer incorrecto en la configuración.
+4. ACL o firewall bloqueando TCP puerto 179.
+5. Temporizadores keepalive/hold incompatibles.
+
+SOLUCIÓN - Cisco IOS:
+  router bgp 65001
+  neighbor 203.0.113.1 remote-as 65000
+  neighbor 203.0.113.1 password C1sc0BGP
+  neighbor 203.0.113.1 timers 10 30
+  neighbor 203.0.113.1 ebgp-multihop 2   ! si hay más de 1 salto
+  neighbor 203.0.113.1 update-source Loopback0
+  !
+  ! Verificar que TCP 179 no esté bloqueado
+  ip access-list extended ALLOW_BGP
+  permit tcp host 203.0.113.1 host 203.0.113.2 eq 179
+  permit tcp host 203.0.113.1 eq 179 host 203.0.113.2
+
+VERIFICACIÓN:
+  show bgp summary
+  show bgp neighbors 203.0.113.1
+  debug bgp 203.0.113.1 events
+  telnet 203.0.113.1 179
+
+El router no propaga rutas OSPF al área backbone
+DIAGNÓSTICO: Fallo en adyacencia OSPF entre vecinos
+
+Los clientes no reciben IP del servidor DHCP
+DIAGNÓSTICO: El servidor DHCP no responde solicitudes DISCOVER
+
+Aparece alerta de Native VLAN mismatch en enlace troncal entre switches
+DIAGNÓSTICO: Distinta Native VLAN configurada en cada extremo del trunk
+
+La red sufre tormenta de broadcast y los switches están saturados
+DIAGNÓSTICO: Bucle de capa 2 activo por STP no convergido o deshabilitado
+
+La red inalámbrica 802.11n tiene baja velocidad y alta latencia en 2.4 GHz
+DIAGNÓSTICO: Interferencia de canal en 2.4 GHz por solapamiento o dispositivos externos
+
+Una ACL en el router está bloqueando tráfico que debería estar permitido
+DIAGNÓSTICO: Reglas ACL mal ordenadas o wildcard incorrecta bloquean tráfico válido
+
+El enlace entre dos switches no establece trunk y queda en modo access
+DIAGNÓSTICO: Negociación DTP fallida o conflicto de modo entre los switches
+
+20
+30
+
+El enlace WAN está al 100% de uso con pérdida de paquetes
+DIAGNÓSTICO: Congestión WAN por ausencia de QoS y tráfico sin priorización
+
+Los dispositivos no se autentican con 802.1X y quedan sin acceso
+DIAGNÓSTICO: Fallo EAP entre suplicante, switch y servidor RADIUS
+
+Los routers EIGRP no aprenden la ruta por defecto hacia Internet
+DIAGNÓSTICO: La ruta 0.0.0.0/0 no se redistribuye dentro del dominio EIGRP
+
+Las llamadas VoIP presentan cortes, eco y alta latencia
+DIAGNÓSTICO: Tráfico de voz no priorizado comparte cola con datos masivos
+
+El switch dejó de aprender MACs y reenvía tráfico a todos los puertos
+DIAGNÓSTICO: Tabla CAM llena por ataque MAC flooding o exceso de dispositivos
+
+La sesión BGP con el proveedor de Internet cae y no reconverge
+DIAGNÓSTICO: Sesión eBGP derribada por conectividad, autenticación o parámetros incorrectos
+
+Los clientes no pueden resolver nombres de dominio
+DIAGNÓSTICO: El servidor DNS no responde o los clientes apuntan a un servidor incorrecto
+
+Un enlace Ethernet muestra muchos errores y baja velocidad entre dos dispositivos
+DIAGNÓSTICO: Mismatch de dúplex o velocidad entre los dos extremos del enlace
+
+El túnel VPN IPSec entre dos routers no establece la fase 1 IKE
+DIAGNÓSTICO: Fallo en negociación IKE Fase 1 por parámetros incompatibles o conectividad
+
+hash
+grupo DH)
+
+Una VLAN configurada no aparece activa en el switch ni permite tráfico
+DIAGNÓSTICO: VLAN no creada en la base de datos local o suspendida por VTP
+
+Hay pérdida intermitente de paquetes al hacer ping a un servidor
+DIAGNÓSTICO: Pérdida de paquetes por congestión, error físico o filtrado de ICMP
+
+runts
+giants)
+
+Los hosts internos no tienen acceso a Internet, NAT no funciona
+DIAGNÓSTICO: NAT mal configurado, interfaz inside/outside incorrecta o ACL de NAT errónea
+
+El root bridge de STP está en un switch de acceso en lugar del switch core
+DIAGNÓSTICO: El root bridge fue elegido por MAC address más baja, no por diseño
+
+Un usuario reemplaza su computador por uno nuevo. Al conectarlo al puerto FastEthernet0/12 no obtiene conectividad. El LED del puerto permanece en color naranja y en los logs aparece una alerta de seguridad.
+El puerto fue deshabilitado por una violación de Port Security.
+
+CAUSAS PROBABLES:
+
+Se cambió la MAC autorizada.
+El límite de MAC permitidas fue excedido.
+
+SOLUCIÓN – Cisco IOS:
+
+interface FastEthernet0/12
+shutdown
+no shutdown
+switchport port-security mac-address sticky
+
+VERIFICACIÓN:
+
+show port-security interface fa0/12
+
+Analiza este email sospechoso: re : 6 . 1100 , disc : uniformitarianism , re : 1086 ; sex / lang dick hudson 's observations on us use of 's on ' but not 'd aughter ' as a vocative are very thought-provoking , but i am not sure that it is fair to attribute this to " sons " being " treated like senior relatives " . for one thing , we do n't normally use ' brother ' in this way any more than we do 'd aughter ' , and it is hard to imagine a natural class comprising senior relatives and 's on ' but excluding ' brother ' . for ano
+DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.
+
+Analiza este email sospechoso: the other side of * galicismos * * galicismo * is a spanish term which names the improper introduction of french words which are spanish sounding and thus very deceptive to the ear . * galicismo * is often considered to be a * barbarismo * . what would be the term which designates the opposite phenomenon , that is unlawful words of spanish origin which may have crept into french ? can someone provide examples ? thank you joseph m kozono < kozonoj @ gunet . georgetown . edu >
+DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.
+
+Analiza este email sospechoso: re : equistar deal tickets are you still available to assist robert with entering the new deal tickets for equistar ? after talking with bryan hull and anita luong , kyle and i decided we only need 1 additional sale ticket and 1 additional buyback ticket set up . - - - - - - - - - - - - - - - - - - - - - - forwarded by tina valadez / hou / ect on 04 / 06 / 2000 12 : 56 pm - - - - - - - - - - - - - - - - - - - - - - - - - - - from : robert e lloyd on 04 / 06 / 2000 12 : 40 pm to : tina valadez /
+DIAGNÓSTICO: Email legítimo. No se detectan indicadores de phishing o actividad maliciosa.
+
+Un usuario reemplaza su computador por uno nuevo. Al conectarlo al puerto FastEthernet0/12 no obtiene conectividad. El LED del puerto permanece en color naranja. En los registros del switch aparecen mensajes de violación de seguridad y el puerto cambia automáticamente al estado err-disabled.
+DIAGNÓSTICO: El puerto fue deshabilitado por una violación de Port Security.
+
+CAUSAS PROBABLES:
+1. La dirección MAC aprendida previamente ya no coincide con el nuevo dispositivo.
+2. El puerto fue configurado para aceptar una única MAC autorizada.
+3. Se conectó un switch o dispositivo adicional que generó múltiples direcciones MAC.
+4. Existe una configuración sticky MAC obsoleta.
+
+SOLUCIÓN - Cisco IOS:
+interface FastEthernet0/12
+ shutdown
+ no shutdown
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+
+VERIFICACIÓN:
+show port-security interface fa0/12
+show interfaces status
+show running-config interface fa0/12
+
+RESULTADO ESPERADO:
+El puerto vuelve a estado up/up, aprende la nueva MAC autorizada y el usuario recupera la conectividad.
+
+Los equipos conectados a la VLAN 20 muestran direcciones APIPA 169.254.x.x. Ningún cliente obtiene configuración automática de red y los usuarios reportan pérdida total de conectividad hacia recursos corporativos.
+DIAGNÓSTICO: Los mensajes DHCP Discover no están llegando al servidor DHCP o el servidor no está respondiendo.
+
+CAUSAS PROBABLES:
+1. El servidor DHCP se encuentra apagado o inaccesible.
+2. El pool de direcciones se encuentra agotado.
+3. Falta la configuración ip helper-address en la interfaz de la VLAN.
+4. Existe una ACL bloqueando tráfico UDP 67 y 68.
+5. DHCP Snooping está descartando solicitudes válidas.
+
+SOLUCIÓN - Cisco IOS:
+interface vlan 20
+ ip helper-address 192.168.1.10
+
+VERIFICACIÓN:
+show ip interface vlan 20
+show ip dhcp binding
+show ip dhcp pool
+ping 192.168.1.10
+
+RESULTADO ESPERADO:
+Los clientes reciben automáticamente dirección IP, máscara, gateway y servidores DNS.
+
+Los usuarios comienzan a recibir direcciones IP de una red desconocida. Algunos equipos pierden acceso a servidores internos y otros utilizan una puerta de enlace diferente a la configurada por la organización.
+DIAGNÓSTICO: Existe un servidor DHCP no autorizado respondiendo más rápido que el servidor legítimo.
+
+CAUSAS PROBABLES:
+1. Un usuario conectó un router doméstico a la red corporativa.
+2. Un atacante implementó un servidor DHCP falso.
+3. No está habilitado DHCP Snooping.
+4. Los puertos de acceso fueron configurados como trusted incorrectamente.
+
+SOLUCIÓN - Cisco IOS:
+ip dhcp snooping
+ip dhcp snooping vlan 10,20,30
+interface GigabitEthernet0/1
+ ip dhcp snooping trust
+
+VERIFICACIÓN:
+show ip dhcp snooping
+show ip dhcp snooping binding
+show running-config | include snooping
+
+RESULTADO ESPERADO:
+Únicamente el servidor DHCP autorizado entrega configuraciones IP a los clientes.
+
+El router no propaga rutas OSPF al área backbone
+DIAGNÓSTICO: Fallo en adyacencia OSPF entre routers vecinos.
+
+CAUSAS PROBABLES:
+1. El área OSPF del enlace no es el área 0
+2. Temporizadores Hello/Dead incompatibles
+3. Autenticación OSPF configurada solo en un lado
+4. MTU distinto en cada extremo del enlace
+
+SOLUCIÓN - Cisco IOS:
+router ospf 1
+ network 192.168.1.0 0.0.0.255 area 0
+interface GigabitEthernet0/0
+ ip ospf hello-interval 10
+ ip ospf dead-interval 40
+
+VERIFICACIÓN:
+show ip ospf neighbor
+show ip ospf interface
+debug ip ospf adj
+
+Los clientes no reciben dirección IP del servidor DHCP
+DIAGNÓSTICO: El servidor DHCP no responde solicitudes DISCOVER de los clientes.
+
+CAUSAS PROBABLES:
+1. Pool DHCP agotado sin direcciones disponibles
+2. Falta ip helper-address en el router entre VLANs
+3. Servicio DHCP detenido
+4. UDP 67/68 bloqueado por ACL o firewall
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/1
+ ip helper-address 10.0.0.1
+ip dhcp pool LAN
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ dns-server 8.8.8.8
+ip dhcp excluded-address 192.168.1.1 192.168.1.10
+
+VERIFICACIÓN:
+show ip dhcp pool
+show ip dhcp binding
+show ip dhcp conflict
+
+Aparece alerta de Native VLAN mismatch en el enlace troncal entre dos switches
+DIAGNÓSTICO: Los extremos del trunk 802.1Q tienen distinta Native VLAN configurada.
+
+CAUSAS PROBABLES:
+1. Native VLAN diferente en cada switch
+2. Un extremo usa VLAN 1 por defecto sin cambiar
+3. Error de configuración manual
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk native vlan 99
+vlan 99
+ name NATIVE
+
+VERIFICACIÓN:
+show interfaces trunk
+show spanning-tree vlan 99
+
+La red sufre tormenta de broadcast y los switches están saturados al 100%
+DIAGNÓSTICO: Bucle de capa 2 activo por STP no convergido o deshabilitado.
+
+CAUSAS PROBABLES:
+1. STP deshabilitado en algún switch
+2. PortFast activo en puerto troncal
+3. BPDUs bloqueadas por switch no gestionado
+4. Cambio de topología sin recalcular árbol
+
+SOLUCIÓN - Cisco IOS:
+spanning-tree mode rapid-pvst
+spanning-tree vlan 1-4094 priority 4096
+interface range GigabitEthernet0/1 - 24
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+VERIFICACIÓN:
+show spanning-tree
+show spanning-tree inconsistentports
+show mac address-table count
+
+La red inalámbrica 802.11n tiene baja velocidad y alta latencia en banda 2.4 GHz
+DIAGNÓSTICO: Interferencia de canal en 2.4 GHz por solapamiento o dispositivos externos.
+
+CAUSAS PROBABLES:
+1. Múltiples APs usando el mismo canal
+2. Alta densidad de redes vecinas en 2.4 GHz
+3. Interferencia de Bluetooth o microondas
+4. Canal en auto con selección subóptima
+
+SOLUCIÓN - hostapd.conf:
+channel=6
+hw_mode=g
+ieee80211n=1
+ht_capab=[HT40+]
+
+SOLUCIÓN - General:
+- Asignar manualmente canal 1, 6 u 11
+- Habilitar band steering hacia 5 GHz
+- Reducir TX-power si APs muy próximos
+
+VERIFICACIÓN:
+iwlist wlan0 scan | grep -E 'Channel|Signal'
+Usar WiFi Analyzer para escanear canales vecinos
+
+Una ACL en el router bloquea tráfico HTTP y HTTPS que debería estar permitido
+DIAGNÓSTICO: Reglas ACL mal ordenadas o con wildcard incorrecta bloquean tráfico válido.
+
+CAUSAS PROBABLES:
+1. Regla deny ubicada antes del permit correcto
+2. Wildcard mask equivocada (confusión con subnet mask)
+3. ACL aplicada en interfaz o dirección incorrecta (in vs out)
+4. Deny implícito al final no contemplado
+
+SOLUCIÓN - Cisco IOS:
+ip access-list extended FILTRO_LAN
+ 10 permit tcp 192.168.1.0 0.0.0.255 any eq 80
+ 20 permit tcp 192.168.1.0 0.0.0.255 any eq 443
+ 30 permit icmp 192.168.1.0 0.0.0.255 any
+ 40 deny ip any any log
+interface GigabitEthernet0/0
+ ip access-group FILTRO_LAN in
+
+VERIFICACIÓN:
+show ip access-lists FILTRO_LAN
+debug ip packet detail
+
+El enlace entre dos switches no establece trunk y permanece en modo access
+DIAGNÓSTICO: Negociación DTP fallida o conflicto de modo entre los switches.
+
+CAUSAS PROBABLES:
+1. Ambos lados configurados en dynamic auto sin iniciar negociación
+2. Encapsulación distinta en cada extremo
+3. VLANs no presentes en la VLAN database
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport nonegotiate
+ switchport trunk allowed vlan 10,20,30,99
+
+VERIFICACIÓN:
+show interfaces GigabitEthernet0/1 trunk
+show dtp interface GigabitEthernet0/1
+show vlan brief
+
+El enlace WAN está al 100% de uso y hay pérdida de paquetes severa
+DIAGNÓSTICO: Congestión WAN por ausencia de QoS y tráfico sin priorización.
+
+CAUSAS PROBABLES:
+1. Sin QoS configurado, todo compite por el mismo ancho de banda
+2. Backup o transferencia masiva satura el enlace
+3. Bufferbloat en interfaces seriales
+
+SOLUCIÓN - Cisco IOS:
+class-map match-any VOIP
+ match dscp ef
+policy-map WAN_QOS
+ class VOIP
+  priority percent 20
+ class class-default
+  fair-queue
+interface Serial0/0
+ service-policy output WAN_QOS
+
+VERIFICACIÓN:
+show policy-map interface Serial0/0
+show interfaces Serial0/0 | include rate
+
+Los dispositivos no se autentican con 802.1X y quedan sin acceso a la red
+DIAGNÓSTICO: Fallo EAP entre suplicante, switch y servidor RADIUS.
+
+CAUSAS PROBABLES:
+1. Shared secret incorrecto entre switch y RADIUS
+2. Método EAP incompatible (PEAP vs EAP-TLS)
+3. UDP 1812/1813 bloqueado por firewall
+4. Suplicante 802.1X deshabilitado en el cliente
+
+SOLUCIÓN - Cisco IOS:
+aaa new-model
+aaa authentication dot1x default group radius
+radius-server host 10.0.0.10 auth-port 1812
+radius-server key S3cr3t0
+dot1x system-auth-control
+interface GigabitEthernet0/5
+ switchport mode access
+ dot1x port-control auto
+
+VERIFICACIÓN:
+show dot1x all
+show authentication sessions
+debug dot1x all
+
+Los routers del dominio EIGRP no aprenden la ruta por defecto hacia Internet
+DIAGNÓSTICO: La ruta 0.0.0.0/0 no se redistribuye dentro del dominio EIGRP.
+
+CAUSAS PROBABLES:
+1. Falta comando redistribute static en EIGRP
+2. Ruta estática por defecto no existe en el router de borde
+3. Distribute-list filtrando la default route
+
+SOLUCIÓN - Cisco IOS:
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+router eigrp 100
+ redistribute static metric 10000 100 255 1 1500
+
+VERIFICACIÓN:
+show ip route eigrp
+show ip route 0.0.0.0
+show ip eigrp topology 0.0.0.0/0
+
+Las llamadas VoIP presentan cortes, eco y alta latencia intermitente
+DIAGNÓSTICO: Tráfico de voz no priorizado comparte cola con datos masivos.
+
+CAUSAS PROBABLES:
+1. Sin marcado DSCP EF en paquetes RTP
+2. Bufferbloat en interfaz de salida
+3. Pérdida de paquetes superior al 1%
+4. Enlace half-duplex o con colisiones
+
+SOLUCIÓN - Cisco IOS:
+class-map match-any VOIP_RTP
+ match protocol rtp audio
+ match dscp ef
+policy-map MARCAR_VOIP
+ class VOIP_RTP
+  set dscp ef
+  priority percent 20
+interface GigabitEthernet0/0
+ service-policy output MARCAR_VOIP
+ tx-ring-limit 3
+
+VERIFICACIÓN:
+show policy-map interface
+ping 10.0.0.1 repeat 1000 size 160
+
+El switch dejó de aprender nuevas MACs y reenvía tráfico a todos los puertos
+DIAGNÓSTICO: Tabla CAM llena por ataque MAC flooding o exceso de dispositivos.
+
+CAUSAS PROBABLES:
+1. Ataque con herramienta macof/dsniff desde puerto comprometido
+2. Port Security no configurado
+3. Capacidad CAM insuficiente para la cantidad de dispositivos
+
+SOLUCIÓN - Cisco IOS:
+interface range GigabitEthernet0/1 - 24
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 3
+ switchport port-security violation shutdown
+ switchport port-security mac-address sticky
+
+VERIFICACIÓN:
+show mac address-table count
+show port-security
+show port-security address
+
+La sesión eBGP con el proveedor de Internet cae y no reconverge
+DIAGNÓSTICO: Sesión eBGP derribada por parámetros incompatibles, autenticación o conectividad.
+
+CAUSAS PROBABLES:
+1. TTL=1 por defecto con más de un salto al peer
+2. Contraseña MD5 incorrecta o ausente en un lado
+3. TCP 179 bloqueado por firewall o ACL
+4. AS number del peer incorrecto
+
+SOLUCIÓN - Cisco IOS:
+router bgp 65001
+ neighbor 203.0.113.1 remote-as 65000
+ neighbor 203.0.113.1 password C1sc0BGP
+ neighbor 203.0.113.1 timers 10 30
+ neighbor 203.0.113.1 ebgp-multihop 2
+
+VERIFICACIÓN:
+show bgp summary
+show bgp neighbors 203.0.113.1
+debug bgp 203.0.113.1 events
+
+Los clientes no pueden resolver nombres de dominio en la red
+DIAGNÓSTICO: El servidor DNS no responde o los clientes apuntan a servidor incorrecto.
+
+CAUSAS PROBABLES:
+1. Servidor DNS primario caído o inaccesible
+2. UDP/TCP 53 bloqueado por ACL o firewall
+3. Dirección DNS incorrecta en pool DHCP
+4. Caché DNS corrompida en clientes
+
+SOLUCIÓN - Cisco IOS:
+ip dns server
+ip name-server 8.8.8.8
+ip dhcp pool LAN
+ dns-server 192.168.1.1 8.8.8.8
+
+SOLUCIÓN - Linux:
+systemctl restart systemd-resolved
+nslookup google.com 8.8.8.8
+
+VERIFICACIÓN:
+nslookup google.com
+dig @192.168.1.1 google.com
+show ip dns view default
+
+Un enlace Ethernet muestra muchos errores de CRC y baja velocidad efectiva
+DIAGNÓSTICO: Mismatch de dúplex o velocidad entre los dos extremos del enlace.
+
+CAUSAS PROBABLES:
+1. Un extremo en full-duplex y el otro en half-duplex
+2. Autonegociación fallida con un lado forzado
+3. Cable de mala calidad o con falsos contactos
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/1
+ duplex full
+ speed 1000
+ no shutdown
+
+SOLUCIÓN - Linux:
+ethtool -s eth0 speed 1000 duplex full autoneg off
+
+VERIFICACIÓN:
+show interfaces GigabitEthernet0/1
+show interfaces GigabitEthernet0/1 counters errors
+ethtool eth0 | grep -i duplex
+
+El túnel VPN IPSec entre dos routers no establece la fase 1 IKE y queda en estado MM_NO_STATE
+DIAGNÓSTICO: Fallo en negociación IKE Fase 1 por parámetros incompatibles o conectividad bloqueada.
+
+CAUSAS PROBABLES:
+1. Pre-shared key distinta en cada extremo
+2. Propuestas ISAKMP incompatibles (cifrado, hash, grupo DH)
+3. UDP 500/4500 bloqueado en firewall
+4. IP del peer incorrecta en la crypto map
+
+SOLUCIÓN - Cisco IOS:
+crypto isakmp policy 10
+ encr aes 256
+ hash sha256
+ authentication pre-share
+ group 14
+crypto isakmp key M1Clave123 address 203.0.113.5
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+crypto map MAPA 10 ipsec-isakmp
+ set peer 203.0.113.5
+ set transform-set TS
+ match address VPN_ACL
+
+VERIFICACIÓN:
+show crypto isakmp sa
+show crypto ipsec sa
+debug crypto isakmp
+
+Una VLAN configurada no aparece activa en el switch y no permite tráfico
+DIAGNÓSTICO: VLAN no creada en la base de datos local o suspendida por VTP.
+
+CAUSAS PROBABLES:
+1. VLAN no añadida con comando vlan <id>
+2. VTP modo cliente sin recibir la VLAN del servidor
+3. VLAN en estado suspended
+4. Puerto no asignado a la VLAN correcta
+
+SOLUCIÓN - Cisco IOS:
+vlan 20
+ name VENTAS
+ state active
+interface GigabitEthernet0/5
+ switchport mode access
+ switchport access vlan 20
+vtp mode transparent
+
+VERIFICACIÓN:
+show vlan brief
+show vlan id 20
+show vtp status
+
+Los hosts internos no tienen acceso a Internet, NAT no funciona correctamente
+DIAGNÓSTICO: NAT mal configurado, interfaces inside/outside incorrectas o ACL de NAT errónea.
+
+CAUSAS PROBABLES:
+1. Interfaces inside/outside no marcadas
+2. ACL de NAT no coincide con el rango de la red interna
+3. Pool NAT sin direcciones disponibles
+4. Ruta por defecto ausente en el router
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/0
+ ip nat inside
+interface GigabitEthernet0/1
+ ip nat outside
+ip access-list standard LAN_NAT
+ permit 192.168.1.0 0.0.0.255
+ip nat inside source list LAN_NAT interface GigabitEthernet0/1 overload
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+
+VERIFICACIÓN:
+show ip nat translations
+show ip nat statistics
+debug ip nat
+
+El root bridge de Spanning Tree está en un switch de acceso en lugar del switch core
+DIAGNÓSTICO: Root bridge elegido por MAC address más baja en lugar de por diseño administrativo.
+
+CAUSAS PROBABLES:
+1. Prioridad STP no configurada manualmente en el core
+2. Switch antiguo con MAC baja ganó la elección automática
+3. Cambio de topología sin reconfiguar prioridades
+
+SOLUCIÓN - Cisco IOS:
+spanning-tree vlan 1-4094 priority 4096
+spanning-tree vlan 1-4094 root primary
+
+SOLUCIÓN - Switch secundario:
+spanning-tree vlan 1-4094 priority 8192
+
+VERIFICACIÓN:
+show spanning-tree
+show spanning-tree root
+show spanning-tree vlan 1 detail
+
+Hay pérdida intermitente de paquetes al hacer ping a un servidor crítico
+DIAGNÓSTICO: Pérdida de paquetes por congestión, error físico o filtrado de ICMP en ruta.
+
+CAUSAS PROBABLES:
+1. ACL filtra ICMP en algún punto del camino
+2. QoS descarta paquetes ICMP por baja prioridad
+3. Error físico en interfaz (CRC, runts)
+4. Routing asimétrico con rutas inestables
+
+SOLUCIÓN - Cisco IOS:
+ip access-list extended PERMITIR_ICMP
+ permit icmp any any
+interface GigabitEthernet0/0
+ ip access-group PERMITIR_ICMP in
+
+VERIFICACIÓN:
+ping 10.0.0.1 repeat 500
+traceroute 10.0.0.1
+show interfaces GigabitEthernet0/0 counters
+
+Se recibe email solicitando confirmar datos bancarios con urgencia, aparentando ser del banco
+DIAGNÓSTICO: Email de phishing financiero para obtener credenciales o datos bancarios mediante urgencia falsa.
+
+CAUSAS PROBABLES:
+1. Dominio remitente no corresponde al banco legítimo (typosquatting)
+2. SPF/DKIM/DMARC fallidos o ausentes
+3. URL destino es sitio clon del banco real
+4. Ningún banco solicita credenciales por email
+
+SOLUCIÓN - Postfix:
+smtpd_sender_restrictions = reject_unknown_sender_domain
+smtpd_recipient_restrictions =
+ reject_rbl_client zen.spamhaus.org
+
+SOLUCIÓN - Política:
+- Implementar DMARC en modo reject
+- Capacitar usuarios: bancos no solicitan datos por email
+- DNS filtering para bloquear dominios maliciosos
+
+VERIFICACIÓN:
+Verificar cabeceras: Received-SPF, DKIM-Signature
+Analizar URL en https://virustotal.com
+
+Email solicita verificar cuenta con urgencia mediante enlace que redirige a página de login falsa
+DIAGNÓSTICO: Email de credential harvesting con página clon para robar usuario y contraseña.
+
+CAUSAS PROBABLES:
+1. Enlace redirige a sitio clon del legítimo
+2. Dominio con variación tipográfica
+3. Certificado SSL en dominio fraudulento genera falsa confianza
+4. Formulario envía credenciales al servidor del atacante
+
+SOLUCIÓN - Bind9 RPZ:
+zone rpz.local { type master; file rpz.db; };
+
+SOLUCIÓN - General:
+- Implementar MFA en todos los servicios
+- Proxy web con reputación de URL
+- Filtro DNS para dominios maliciosos
+
+VERIFICACIÓN:
+Analizar URL en https://virustotal.com
+Verificar WHOIS del dominio sospechoso
+nslookup dominio-sospechoso.com
+
+Email recibido contiene código HTML con scripts embebidos y formularios ocultos
+DIAGNÓSTICO: Email con código HTML/JavaScript malicioso para explotar el cliente de correo o navegador.
+
+CAUSAS PROBABLES:
+1. Script embebido en el cuerpo del email
+2. Iframe apuntando a recurso externo malicioso
+3. Formulario oculto exfiltra datos al abrir el mensaje
+4. Evento onload ejecuta código sin interacción del usuario
+
+SOLUCIÓN - Postfix + Amavis:
+$banned_filename_re = qr/\.(html?|js|vbs)/i;
+
+SOLUCIÓN - Exchange:
+Set-TransportRule -BlockHTML $true
+
+SOLUCIÓN - General:
+- Configurar cliente de correo para no renderizar HTML externo
+- Sandboxing de contenido HTML
+
+VERIFICACIÓN:
+Analizar cabeceras MIME
+strings adjunto.html | grep -i script
+
+El servidor de correo recibe miles de mensajes no solicitados saturando los recursos
+DIAGNÓSTICO: Campaña de spam masivo (UCE) desde IPs listadas en blacklists.
+
+CAUSAS PROBABLES:
+1. IP remitente en listas negras DNSBL
+2. Sin mecanismo de rate limiting en el MTA
+3. SPF ausente permite suplantación del dominio
+4. Cabecera To con BCC masivo oculto
+
+SOLUCIÓN - Postfix main.cf:
+smtpd_recipient_restrictions =
+ reject_rbl_client zen.spamhaus.org
+ reject_rbl_client bl.spamcop.net
+ permit_mynetworks
+
+SOLUCIÓN - SpamAssassin:
+required_score 5.0
+use_bayes 1
+
+VERIFICACIÓN:
+Consultar IP en https://mxtoolbox.com/blacklists.aspx
+tail -f /var/log/mail.log | grep reject
+
+Email recibido promete millones de dólares en herencia a cambio de adelantar una pequeña suma
+DIAGNÓSTICO: Email de estafa 419 (advance-fee fraud) para extraer dinero mediante promesa falsa.
+
+CAUSAS PROBABLES:
+1. Historia inverosímil de herencia o fondos bloqueados
+2. Remitente desde dominio gratuito (gmail, yahoo)
+3. Solicita confidencialidad y urgencia artificial
+4. SPF/DKIM ausentes o inválidos
+
+SOLUCIÓN - SpamAssassin:
+body SCAM_419 /confidential|inheritance|million dollars|transfer funds/i
+score SCAM_419 6.0
+
+SOLUCIÓN - Postfix:
+header_checks = regexp:/etc/postfix/header_checks
+
+VERIFICACIÓN:
+Analizar cabecera X-Originating-IP
+Consultar IP en abuse databases
+
+La red 802.11ac en 5 GHz muestra desconexiones repentinas y baja cobertura
+DIAGNÓSTICO: Desconexiones por DFS (Dynamic Frequency Selection) o radar detection en 5 GHz.
+
+CAUSAS PROBABLES:
+1. Canal DFS activo detectó radar y cambió de canal automáticamente
+2. Potencia TX insuficiente para la distancia requerida
+3. Obstáculos físicos que degradan la señal en 5 GHz
+4. Driver del AP desactualizado con bug en DFS
+
+SOLUCIÓN - hostapd.conf:
+channel=36
+ieee80211ac=1
+vht_oper_chwidth=1
+vht_oper_centr_freq_seg0_idx=42
+
+SOLUCIÓN - General:
+- Usar canales no-DFS: 36, 40, 44, 48
+- Aumentar potencia TX si cobertura es insuficiente
+- Actualizar firmware del AP
+
+VERIFICACIÓN:
+iw dev wlan0 info
+dmesg | grep -i dfs
+iw wlan0 scan | grep -E 'freq|signal'
+
+El gateway de redundancia HSRP no hace failover cuando el router activo falla
+DIAGNÓSTICO: HSRP no detecta el fallo del router activo a tiempo o la prioridad está mal configurada.
+
+CAUSAS PROBABLES:
+1. Temporizadores Hello/Hold demasiado altos
+2. Prioridad igual en ambos routers sin preempt
+3. Tracking de interfaz no configurado
+4. HSRP hello bloqueado por ACL
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/0
+ standby 1 ip 192.168.1.254
+ standby 1 priority 110
+ standby 1 preempt
+ standby 1 timers 1 3
+ standby 1 track GigabitEthernet0/1 20
+
+VERIFICACIÓN:
+show standby
+show standby brief
+debug standby
+
+Un puerto del switch queda permanentemente en estado blocking de STP sin pasar a forwarding
+DIAGNÓSTICO: Puerto bloqueado por STP como mecanismo anti-loop; puede ser BPDU Guard o inconsistencia de puerto.
+
+CAUSAS PROBABLES:
+1. BPDU Guard disparado al recibir BPDU en puerto PortFast
+2. Puerto en inconsistencia por root guard
+3. Costo de ruta STP subóptimo que mantiene el puerto bloqueado
+4. Configuración manual de puerto en blocking
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/3
+ no spanning-tree bpduguard enable
+ spanning-tree cost 10
+ shutdown
+ no shutdown
+
+SOLUCIÓN - Si es puerto de acceso legítimo:
+ spanning-tree portfast
+
+VERIFICACIÓN:
+show spanning-tree interface GigabitEthernet0/3
+show spanning-tree inconsistentports
+show errdisable recovery
+
+Los vecinos OSPF se quedan en estado EXSTART y no llegan a FULL
+DIAGNÓSTICO: Problema de MTU mismatch entre interfaces OSPF impide intercambio de DBD.
+
+CAUSAS PROBABLES:
+1. MTU distinto en cada extremo del enlace OSPF
+2. Fragmentación de paquetes DBD bloqueada
+3. Autenticación OSPF tipo 2 con contraseña diferente
+
+SOLUCIÓN - Cisco IOS:
+interface GigabitEthernet0/0
+ ip mtu 1500
+ ip ospf mtu-ignore
+
+SOLUCIÓN - Si es autenticación:
+interface GigabitEthernet0/0
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 Clave123
+
+VERIFICACIÓN:
+show ip ospf neighbor
+show interfaces GigabitEthernet0/0 | include MTU
+debug ip ospf adj
+
+Los teléfonos IP en la VLAN de voz no reciben prioridad y la calidad de llamada es mala
+DIAGNÓSTICO: VLAN de voz configurada pero sin QoS trust en el puerto de acceso del switch.
+
+CAUSAS PROBABLES:
+1. Switch no confía en el marcado CoS/DSCP del teléfono IP
+2. VLAN de voz no configurada en el puerto de acceso
+3. CDP deshabilitado impide que el teléfono reciba VLAN automáticamente
+4. QoS no habilitado globalmente en el switch
+
+SOLUCIÓN - Cisco IOS:
+mls qos
+interface GigabitEthernet0/10
+ switchport mode access
+ switchport access vlan 10
+ switchport voice vlan 100
+ mls qos trust cos
+ spanning-tree portfast
+
+VERIFICACIÓN:
+show interfaces GigabitEthernet0/10 trunk
+show mls qos interface GigabitEthernet0/10
+show cdp neighbors
+
+Dos routers conectados directamente no forman vecindad OSPF. El comando show ip ospf neighbor no muestra vecinos activos y las rutas no se intercambian entre áreas.
+DIAGNÓSTICO: La adyacencia OSPF no se está estableciendo correctamente.
+
+CAUSAS PROBABLES:
+1. Área OSPF diferente entre routers.
+2. Máscaras incompatibles.
+3. Temporizadores Hello y Dead distintos.
+4. Autenticación OSPF inconsistente.
+5. Interfaces en estado passive-interface.
+
+SOLUCIÓN - Cisco IOS:
+router ospf 1
+ network 10.0.0.0 0.0.0.255 area 0
+
+VERIFICACIÓN:
+show ip ospf neighbor
+show ip ospf interface
+
+RESULTADO ESPERADO:
+Los routers establecen vecindad FULL y comienzan a intercambiar rutas.
+
+Los usuarios pueden acceder a recursos internos pero no pueden navegar por Internet. El gateway responde correctamente.
+DIAGNÓSTICO: No existe una ruta por defecto válida hacia Internet.
+
+CAUSAS PROBABLES:
+1. Default route eliminada.
+2. Error de configuración del ISP.
+3. Gateway incorrecto.
+
+SOLUCIÓN - Cisco IOS:
+ip route 0.0.0.0 0.0.0.0 200.10.10.1
+
+VERIFICACIÓN:
+show ip route
+
+RESULTADO ESPERADO:
+El tráfico desconocido se dirige correctamente hacia Internet.
+
+Dos switches conectados mediante EtherChannel muestran interfaces suspendidas y tráfico intermitente.
+DIAGNÓSTICO: Configuración inconsistente en el EtherChannel.
+
+CAUSAS PROBABLES:
+1. Diferentes modos LACP.
+2. VLAN permitidas distintas.
+3. Velocidad o duplex incompatibles.
+
+SOLUCIÓN - Cisco IOS:
+interface range g0/1-2
+ channel-group 1 mode active
+
+VERIFICACIÓN:
+show etherchannel summary
+
+RESULTADO ESPERADO:
+El Port-Channel aparece operativo y balancea tráfico correctamente.
+
+Después de conectar un switch nuevo, un puerto entra en estado root-inconsistent y deja de transmitir tráfico.
+DIAGNÓSTICO: Root Guard detectó una BPDU superior.
+
+CAUSAS PROBABLES:
+1. Switch no autorizado.
+2. Error de diseño STP.
+
+SOLUCIÓN - Cisco IOS:
+Revisar prioridades STP y eliminar el dispositivo no autorizado.
+
+VERIFICACIÓN:
+show spanning-tree inconsistentports
+
+RESULTADO ESPERADO:
+La topología vuelve a ser estable.
+
+Los usuarios experimentan redirecciones extrañas y pérdida intermitente de conectividad.
+DIAGNÓSTICO: Posible ataque Man-In-The-Middle mediante ARP Spoofing.
+
+CAUSAS PROBABLES:
+1. Host comprometido.
+2. Dynamic ARP Inspection deshabilitado.
+
+SOLUCIÓN - Cisco IOS:
+ip arp inspection vlan 10
+
+VERIFICACIÓN:
+show ip arp inspection statistics
+
+RESULTADO ESPERADO:
+Se bloquean respuestas ARP fraudulentas.
+
+Los administradores no pueden iniciar sesión mediante credenciales corporativas en los equipos Cisco.
+DIAGNÓSTICO: Fallo en autenticación AAA.
+
+CAUSAS PROBABLES:
+1. Servidor RADIUS inaccesible.
+2. Shared secret incorrecta.
+3. ACL bloqueando tráfico.
+
+SOLUCIÓN - Cisco IOS:
+aaa new-model
+radius-server host 192.168.1.5 key ClaveSegura
+
+VERIFICACIÓN:
+show aaa servers
+
+RESULTADO ESPERADO:
+Los usuarios son autenticados correctamente.
+
+Los usuarios internos no pueden acceder a Internet aunque existe conectividad hasta el router perimetral.
+DIAGNÓSTICO: NAT no está traduciendo direcciones correctamente.
+
+CAUSAS PROBABLES:
+1. ACL NAT incorrecta.
+2. Interfaces mal definidas.
+3. Pool NAT agotado.
+
+SOLUCIÓN - Cisco IOS:
+ip nat inside source list 1 interface g0/0 overload
+
+VERIFICACIÓN:
+show ip nat translations
+
+RESULTADO ESPERADO:
+Las direcciones privadas son traducidas exitosamente.
+
+Los usuarios pueden hacer ping por dirección IP pero no por nombres de dominio.
+DIAGNÓSTICO: Problema de resolución DNS.
+
+CAUSAS PROBABLES:
+1. DNS apagado.
+2. Dirección DNS incorrecta.
+3. Firewall bloqueando puerto 53.
+
+SOLUCIÓN:
+Configurar correctamente los servidores DNS.
+
+VERIFICACIÓN:
+nslookup servidor.local
+
+RESULTADO ESPERADO:
+La resolución de nombres vuelve a funcionar.
+
+Dos sedes dejan de intercambiar tráfico y el túnel VPN aparece inactivo.
+DIAGNÓSTICO: Negociación IPsec fallida.
+
+CAUSAS PROBABLES:
+1. Claves precompartidas distintas.
+2. ACL interesante incorrecta.
+3. Parámetros ISAKMP incompatibles.
+
+SOLUCIÓN - Cisco IOS:
+crypto isakmp key VPN123 address 200.1.1.2
+
+VERIFICACIÓN:
+show crypto isakmp sa
+
+RESULTADO ESPERADO:
+El túnel pasa al estado QM_IDLE.
+
+El servidor de monitoreo deja de recibir métricas desde switches Cisco.
+DIAGNÓSTICO: SNMP no responde.
+
+CAUSAS PROBABLES:
+1. Community incorrecta.
+2. ACL bloqueando consultas.
+3. SNMP deshabilitado.
+
+SOLUCIÓN - Cisco IOS:
+snmp-server community monitor RO
+
+VERIFICACIÓN:
+show snmp
+
+RESULTADO ESPERADO:
+El sistema de monitoreo vuelve a recopilar información.
+
+La red presenta lentitud extrema y utilización anormal de ancho de banda.
+DIAGNÓSTICO: Tormenta de broadcast.
+
+CAUSAS PROBABLES:
+1. Loop de capa 2.
+2. Dispositivo defectuoso.
+3. Malware generando tráfico masivo.
+
+SOLUCIÓN - Cisco IOS:
+interface fa0/10
+ storm-control broadcast level 5.00
+
+VERIFICACIÓN:
+show storm-control
+
+RESULTADO ESPERADO:
+El tráfico broadcast se mantiene dentro de límites seguros.
+
+Los equipos Cisco generan logs localmente pero el servidor central no recibe registros.
+DIAGNÓSTICO: Configuración Syslog incorrecta.
+
+CAUSAS PROBABLES:
+1. Dirección IP errónea.
+2. Firewall bloqueando UDP 514.
+3. Nivel de logging inadecuado.
+
+SOLUCIÓN - Cisco IOS:
+logging host 192.168.1.50
+logging trap informational
+
+VERIFICACIÓN:
+show logging
+
+RESULTADO ESPERADO:
+Los eventos son enviados al servidor Syslog.
+
+Los dispositivos presentan diferencias horarias importantes y los registros muestran horas inconsistentes.
+DIAGNÓSTICO: Problema de sincronización NTP.
+
+CAUSAS PROBABLES:
+1. Servidor NTP caído.
+2. ACL bloqueando UDP 123.
+3. Configuración incorrecta.
+
+SOLUCIÓN - Cisco IOS:
+ntp server 192.168.1.100
+
+VERIFICACIÓN:
+show ntp status
+
+RESULTADO ESPERADO:
+Todos los dispositivos comparten la misma hora.
+
+Al conectar un switch doméstico a un puerto de usuario, el puerto deja de funcionar automáticamente.
+DIAGNÓSTICO: Activación de BPDU Guard.
+
+CAUSAS PROBABLES:
+1. Switch conectado en puerto de acceso.
+2. Política de seguridad STP.
+
+SOLUCIÓN - Cisco IOS:
+interface fa0/5
+ shutdown
+ no shutdown
+
+VERIFICACIÓN:
+show spanning-tree inconsistentports
+
+RESULTADO ESPERADO:
+El puerto vuelve a operar una vez corregida la causa.
+
+Los usuarios de una VLAN específica no pueden comunicarse entre switches.
+DIAGNÓSTICO: La VLAN no está permitida en el enlace troncal.
+
+CAUSAS PROBABLES:
+1. Lista de VLAN permitidas incompleta.
+2. Error humano durante cambios.
+
+SOLUCIÓN - Cisco IOS:
+interface g0/1
+ switchport trunk allowed vlan add 50
+
+VERIFICACIÓN:
+show interfaces trunk
+
+RESULTADO ESPERADO:
+La VLAN vuelve a circular por el trunk.
+
+El switch presenta uso elevado de CPU y comportamiento errático en la tabla CAM.
+DIAGNÓSTICO: Ataque MAC Flooding.
+
+CAUSAS PROBABLES:
+1. Herramienta maliciosa.
+2. Falta de Port Security.
+
+SOLUCIÓN - Cisco IOS:
+switchport port-security maximum 2
+
+VERIFICACIÓN:
+show port-security
+
+RESULTADO ESPERADO:
+La tabla CAM permanece estable.
+
+Se identifica una red inalámbrica desconocida dentro de las instalaciones corporativas.
+DIAGNÓSTICO: Punto de acceso no autorizado.
+
+CAUSAS PROBABLES:
+1. Usuario conectó AP personal.
+2. Intrusión interna.
+
+SOLUCIÓN:
+Localizar físicamente el dispositivo y retirarlo.
+
+VERIFICACIÓN:
+show mac address-table
+
+RESULTADO ESPERADO:
+El AP no autorizado es eliminado.
+
+El gateway redundante no asume el rol activo cuando falla el router principal.
+DIAGNÓSTICO: Problema en la configuración HSRP.
+
+CAUSAS PROBABLES:
+1. Prioridades incorrectas.
+2. Preempt deshabilitado.
+3. Interfaces monitoreadas mal configuradas.
+
+SOLUCIÓN - Cisco IOS:
+standby 1 priority 110
+standby 1 preempt
+
+VERIFICACIÓN:
+show standby brief
+
+RESULTADO ESPERADO:
+El gateway secundario asume el control automáticamente.
+
+Los administradores no pueden acceder remotamente mediante SSH aunque existe conectividad IP.
+DIAGNÓSTICO: SSH mal configurado.
+
+CAUSAS PROBABLES:
+1. Claves RSA inexistentes.
+2. Transporte VTY configurado solo para Telnet.
+3. Usuario local inexistente.
+
+SOLUCIÓN - Cisco IOS:
+crypto key generate rsa
+ip ssh version 2
+
+VERIFICACIÓN:
+show ip ssh
+
+RESULTADO ESPERADO:
+Las sesiones SSH son aceptadas correctamente.
+
+Los usuarios de diferentes VLAN pueden comunicarse dentro de su red local pero no entre VLANs.
+DIAGNÓSTICO: El enrutamiento entre VLANs está deshabilitado.
+
+CAUSAS PROBABLES:
+1. Falta comando ip routing.
+2. Interfaces VLAN apagadas.
+3. Gateway incorrecto.
+
+SOLUCIÓN - Cisco IOS:
+ip routing
+
+VERIFICACIÓN:
+show ip route
+show ip interface brief
+
+RESULTADO ESPERADO:
+Las VLAN intercambian tráfico normalmente.
+
+Los logs muestran cientos de intentos fallidos de autenticación SSH provenientes de una dirección IP externa.
+DIAGNÓSTICO: Ataque de fuerza bruta contra el servicio SSH.
+
+CAUSAS PROBABLES:
+1. Exposición directa a Internet.
+2. Ausencia de ACL restrictivas.
+3. Contraseñas débiles.
+
+SOLUCIÓN - Cisco IOS:
+access-list 10 permit 192.168.1.0 0.0.0.255
+line vty 0 4
+ access-class 10 in
+
+VERIFICACIÓN:
+show access-lists
+
+RESULTADO ESPERADO:
+Solo hosts autorizados pueden iniciar conexiones SSH.
+
+Dos routers de diferentes sistemas autónomos (AS) no logran establecer una sesión BGP. El comando show ip bgp summary muestra el estado Active y no se intercambian rutas.
+DIAGNÓSTICO: La sesión BGP no logra completar el establecimiento de vecindad.
+
+CAUSAS PROBABLES:
+1. Número de AS remoto incorrecto.
+2. Problemas de conectividad IP entre vecinos.
+3. Firewall bloqueando TCP puerto 179.
+4. Dirección neighbor mal configurada.
+5. Error en autenticación MD5.
+
+SOLUCIÓN - Cisco IOS:
+router bgp 65001
+ neighbor 10.0.0.2 remote-as 65002
+
+VERIFICACIÓN:
+show ip bgp summary
+show ip route
+ping 10.0.0.2
+
+RESULTADO ESPERADO:
+La sesión cambia a estado Established y se intercambian rutas.
+
+Un puerto está asignado a la VLAN 50 pero los usuarios conectados no tienen conectividad. La VLAN no aparece en la tabla del switch.
+DIAGNÓSTICO: El puerto pertenece a una VLAN que no existe localmente.
+
+CAUSAS PROBABLES:
+1. VLAN eliminada accidentalmente.
+2. Error de configuración.
+3. Falla de propagación VTP.
+
+SOLUCIÓN - Cisco IOS:
+vlan 50
+ name CONTABILIDAD
+
+VERIFICACIÓN:
+show vlan brief
+
+RESULTADO ESPERADO:
+Los puertos vuelven a pertenecer a una VLAN activa.
+
+Después de conectar un switch nuevo, desaparecen múltiples VLANs en toda la infraestructura.
+DIAGNÓSTICO: Un switch VTP con número de revisión superior sobrescribió la base de datos existente.
+
+CAUSAS PROBABLES:
+1. Switch reutilizado sin reiniciar VTP.
+2. Configuración VTP incorrecta.
+3. Error operativo durante mantenimiento.
+
+SOLUCIÓN - Cisco IOS:
+vtp mode transparent
+delete flash:vlan.dat
+reload
+
+VERIFICACIÓN:
+show vtp status
+
+RESULTADO ESPERADO:
+Las VLANs legítimas permanecen intactas.
+
+Una interfaz cambia automáticamente al estado err-disabled después de que un usuario conecta un dispositivo de red.
+DIAGNÓSTICO: Algún mecanismo de seguridad colocó el puerto en estado err-disabled.
+
+CAUSAS PROBABLES:
+1. Port Security.
+2. BPDU Guard.
+3. DHCP Snooping.
+4. DAI.
+
+SOLUCIÓN - Cisco IOS:
+show interface status err-disabled
+
+VERIFICACIÓN:
+show errdisable recovery
+show log
+
+RESULTADO ESPERADO:
+Se identifica y corrige la causa raíz.
+
+Los usuarios autenticados mediante 802.1X son rechazados y no obtienen acceso a la red.
+DIAGNÓSTICO: El switch no puede comunicarse con el servidor RADIUS.
+
+CAUSAS PROBABLES:
+1. Servidor apagado.
+2. Clave compartida incorrecta.
+3. ACL bloqueando tráfico UDP 1812.
+
+SOLUCIÓN - Cisco IOS:
+radius-server host 192.168.100.10 key Radius123
+
+VERIFICACIÓN:
+show aaa servers
+
+RESULTADO ESPERADO:
+Las autenticaciones vuelven a completarse exitosamente.
+
+Durante una auditoría de seguridad se detecta que un equipo conectado a un puerto de acceso de la VLAN 30 logra capturar tráfico perteneciente a otras VLAN corporativas. El análisis de tráfico muestra etiquetas 802.1Q inesperadas y el switch registra negociaciones DTP provenientes del puerto FastEthernet0/18. El incidente ocurrió después de que un contratista conectara un switch administrable propio a la red empresarial.
+DIAGNÓSTICO: Posible ataque VLAN Hopping mediante negociación DTP.
+
+SEVERIDAD: Alta.
+
+IMPACTO:
+Un atacante podría acceder a tráfico de múltiples VLAN, comprometiendo la segmentación lógica de la red.
+
+CAUSAS PROBABLES:
+1. Puerto configurado como dynamic desirable.
+2. DTP habilitado en puertos de acceso.
+3. Ausencia de controles NAC.
+4. Configuración insegura de troncales.
+
+PROCEDIMIENTO DE ANÁLISIS:
+1. Identificar modo operativo del puerto.
+2. Revisar negociación DTP.
+3. Validar VLAN permitidas en troncales.
+4. Analizar MAC Address Table.
+5. Revisar registros Syslog.
+
+SOLUCIÓN - Cisco IOS:
+interface FastEthernet0/18
+ switchport mode access
+ switchport nonegotiate
+ switchport access vlan 30
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+
+VERIFICACIÓN:
+show interfaces switchport
+show interfaces trunk
+show dtp interface fa0/18
+
+RESULTADO ESPERADO:
+El puerto deja de participar en negociaciones DTP y únicamente transporta tráfico de la VLAN autorizada.
+
+Los usuarios reportan pérdida intermitente de acceso a aplicaciones financieras. Algunos equipos reciben como gateway una dirección IP desconocida. El tráfico capturado revela respuestas DHCP provenientes de múltiples dispositivos y posteriormente se observan respuestas ARP contradictorias para la misma dirección IP del gateway corporativo. El incidente afecta principalmente a usuarios de la VLAN 20.
+DIAGNÓSTICO: Ataque combinado DHCP Spoofing y ARP Spoofing.
+
+SEVERIDAD: Crítica.
+
+IMPACTO:
+Posibilidad de Man-In-The-Middle, robo de credenciales, secuestro de sesiones y alteración de tráfico corporativo.
+
+INDICADORES DE COMPROMISO:
+1. Gateways diferentes para usuarios de la misma VLAN.
+2. Múltiples respuestas DHCP Offer.
+3. Cambios frecuentes en la tabla ARP.
+4. Certificados HTTPS inesperados.
+
+CAUSAS PROBABLES:
+1. Dispositivo malicioso conectado internamente.
+2. DHCP Snooping deshabilitado.
+3. Dynamic ARP Inspection deshabilitado.
+4. Segmentación insuficiente.
+
+SOLUCIÓN - Cisco IOS:
+ip dhcp snooping
+ip dhcp snooping vlan 20
+ip arp inspection vlan 20
+
+interface GigabitEthernet0/1
+ ip dhcp snooping trust
+
+VERIFICACIÓN:
+show ip dhcp snooping
+show ip dhcp snooping binding
+show ip arp inspection statistics
+
+RESULTADO ESPERADO:
+Únicamente el servidor DHCP autorizado entrega configuraciones IP y se bloquean respuestas ARP fraudulentas.
+
+Después de la conexión de un nuevo switch de proveedor externo, el tráfico corporativo comienza a atravesar rutas inesperadas. El análisis de spanning-tree muestra que el nuevo dispositivo se convirtió en Root Bridge para múltiples VLAN. Los tiempos de convergencia aumentaron y se registran interrupciones periódicas de conectividad.
+DIAGNÓSTICO: Manipulación de STP mediante elección no autorizada de Root Bridge.
+
+SEVERIDAD: Alta.
+
+IMPACTO:
+Posibilidad de interceptación de tráfico, degradación de rendimiento y alteración de rutas de capa 2.
+
+CAUSAS PROBABLES:
+1. Prioridad STP inferior en switch externo.
+2. Ausencia de Root Guard.
+3. Políticas de seguridad insuficientes.
+
+ANÁLISIS:
+1. Identificar Root Bridge actual.
+2. Revisar prioridades STP.
+3. Validar puertos protegidos con Root Guard.
+4. Revisar historial de cambios.
+
+SOLUCIÓN - Cisco IOS:
+spanning-tree vlan 1 priority 4096
+
+interface GigabitEthernet0/24
+ spanning-tree guard root
+
+VERIFICACIÓN:
+show spanning-tree root
+show spanning-tree inconsistentports
+
+RESULTADO ESPERADO:
+El switch corporativo recupera el rol de Root Bridge y la topología vuelve a ser estable.
+
+El equipo SOC detecta un incremento anormal en consultas DNS hacia dominios aparentemente aleatorios. El volumen de tráfico HTTPS permanece estable, pero los servidores DNS registran miles de consultas por minuto provenientes de un único equipo de usuario. El antivirus no detecta amenazas activas.
+DIAGNÓSTICO: Posible DNS Tunneling utilizado para exfiltración de datos.
+
+SEVERIDAD: Crítica.
+
+IMPACTO:
+Fuga de información confidencial hacia infraestructura externa controlada por un atacante.
+
+INDICADORES:
+1. Consultas DNS excesivas.
+2. Subdominios extremadamente largos.
+3. Patrones Base64 o hexadecimal.
+4. Alto volumen de consultas NXDOMAIN.
+
+CAUSAS PROBABLES:
+1. Malware especializado.
+2. Herramienta de comando y control.
+3. Backdoor persistente.
+
+ACCIONES DE CONTENCIÓN:
+1. Aislar host comprometido.
+2. Bloquear dominios involucrados.
+3. Analizar memoria y procesos activos.
+4. Revisar logs DNS históricos.
+
+VERIFICACIÓN:
+Análisis SIEM.
+Capturas PCAP.
+Registros DNS.
+
+RESULTADO ESPERADO:
+El canal de exfiltración es eliminado y se identifica el origen del compromiso.
+
+Una empresa multinacional reporta que el tráfico dirigido hacia su portal web corporativo está llegando a una red desconocida. El monitoreo muestra que prefijos pertenecientes a la organización están siendo anunciados por un AS externo no autorizado. Los usuarios experimentan intermitencia, lentitud y en algunos casos visualizan contenido diferente al esperado. El incidente comenzó después de una actualización de políticas de enrutamiento en uno de los proveedores de tránsito.
+DIAGNÓSTICO: Secuestro de rutas BGP (BGP Route Hijacking).
+SEVERIDAD: Crítica
+
+IMPACTO:
+Desvío de tráfico corporativo, pérdida de disponibilidad, posible interceptación de información y daño reputacional.
+
+INDICADORES:
+1. Cambio inesperado en AS-PATH
+2. Incremento de latencia
+3. Traceroutes atravesando AS desconocidos
+4. Anuncios BGP inconsistentes
+
+CAUSAS PROBABLES:
+1. Error de filtrado BGP en proveedor de tránsito
+2. Anuncio malicioso de prefijos por AS externo
+3. Falta de validación RPKI
+4. Route leak entre proveedores
+
+ANÁLISIS:
+1. Verificar anuncios en RouteViews
+2. Comparar AS-PATH históricos
+3. Validar ROA mediante RPKI
+4. Revisar cambios recientes de políticas de enrutamiento
+
+SOLUCIÓN:
+Implementar validación RPKI, configurar filtros de prefijos estrictos y coordinar de inmediato con los proveedores de tránsito afectados para retirar los anuncios no autorizados.
+
+VERIFICACIÓN:
+show ip bgp
+show ip bgp neighbors
+Consulta RouteViews (routeviews.org)
+Validación RPKI con herramientas como Cloudflare RPKI
+
+RESULTADO ESPERADO:
+Los prefijos vuelven a anunciarse únicamente por AS autorizados y el tráfico regresa al camino correcto.
+
+Usuarios internos reportan que al ingresar a portales bancarios son redirigidos a sitios con apariencia idéntica pero con certificados inválidos. El servidor DNS interno continúa respondiendo consultas aparentemente normales y los registros muestran respuestas válidas para dominios legítimos.
+DIAGNÓSTICO: Envenenamiento de caché DNS (DNS Cache Poisoning).
+SEVERIDAD: Crítica
+
+IMPACTO:
+Robo de credenciales bancarias, fraude financiero y compromiso de usuarios internos.
+
+INDICADORES:
+1. Resolución DNS inconsistente entre clientes
+2. Direcciones IP diferentes según ubicación o momento
+3. Certificados TLS inesperados o inválidos en sitios conocidos
+4. Entradas DNS alteradas en caché del resolver
+
+CAUSAS PROBABLES:
+1. DNS resolver interno sin parche vulnerable a ataque Kaminsky
+2. Ataque de ID prediction sobre UDP/53
+3. Compromiso directo del servidor DNS
+4. Ausencia de DNSSEC en zonas críticas
+
+ANÁLISIS:
+1. Comparar respuestas DNS desde resolvers externos (8.8.8.8, 1.1.1.1)
+2. Revisar logs del servidor DNS en busca de consultas anómalas
+3. Verificar integridad de registros en caché
+4. Auditar configuración del resolver (puerto aleatorio, rate limiting)
+
+SOLUCIÓN:
+Limpiar caché DNS inmediatamente, actualizar el servidor DNS a versión parcheada e implementar DNSSEC en todas las zonas críticas.
+
+VERIFICACIÓN:
+nslookup <dominio> <servidor_dns_interno>
+dig @<servidor> <dominio>
+Revisar logs /var/log/named o equivalente
+
+RESULTADO ESPERADO:
+Las consultas DNS devuelven respuestas legítimas verificables mediante firmas DNSSEC.
+
+Varios servidores comienzan a cifrar archivos simultáneamente. El SIEM detecta múltiples conexiones SMB entre estaciones de trabajo y servidores. Se observan procesos ejecutándose bajo credenciales administrativas compartidas.
+DIAGNÓSTICO: Movimiento lateral de ransomware mediante protocolo SMB.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Pérdida masiva de información, interrupción operativa total y afectación financiera severa.
+
+INDICADORES:
+1. Picos anómalos de tráfico SMB (puerto 445) entre segmentos
+2. Archivos renombrados masivamente con extensiones desconocidas
+3. Creación de tareas programadas en múltiples equipos
+4. Uso anómalo de cuentas con privilegios administrativos
+
+CAUSAS PROBABLES:
+1. Contraseñas administrativas compartidas entre equipos
+2. SMBv1 habilitado (vulnerable a EternalBlue)
+3. Segmentación de red deficiente o inexistente
+4. Ausencia de solución EDR en endpoints
+
+ANÁLISIS:
+1. Identificar paciente cero mediante correlación temporal de eventos
+2. Analizar logs SMB para determinar origen de conexiones
+3. Revisar procesos ejecutados antes del cifrado
+4. Correlacionar eventos en SIEM para trazar propagación
+
+SOLUCIÓN:
+Aislar inmediatamente equipos afectados de la red, bloquear tráfico SMB lateral entre VLANs, restaurar desde respaldos verificados y rotar todas las credenciales administrativas.
+
+VERIFICACIÓN:
+Eventos Windows ID 4624, 4648, 4688
+Logs SIEM filtrados por puerto 445
+Escaneo completo con EDR
+
+RESULTADO ESPERADO:
+Se detiene la propagación, los sistemas son restaurados desde respaldo limpio y se implementan controles de segmentación.
+
+Una organización con múltiples proveedores de tránsito detecta un incremento masivo del tráfico internacional y degradación del servicio. El análisis revela que rutas internas privadas comenzaron a propagarse fuera del AS corporativo y rutas externas comenzaron a circular dentro de segmentos que nunca debieron recibirlas. El incidente inició después de aplicar cambios automáticos de configuración en un router de borde.
+DIAGNÓSTICO: Fuga de rutas BGP (Route Leak) causada por políticas incorrectas de exportación.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Exposición de topología interna, saturación de enlaces WAN, rutas subóptimas y pérdida parcial de disponibilidad.
+
+INDICADORES:
+1. Incremento repentino del número de prefijos BGP
+2. Aparición de rutas privadas fuera del AS
+3. Consumo anómalo de CPU en routers de borde
+4. Crecimiento inesperado de la tabla de enrutamiento
+
+CAUSAS PROBABLES:
+1. Route-map aplicado incorrectamente
+2. Redistribución accidental entre protocolos
+3. Filtros outbound inexistentes
+4. Automatización defectuosa
+
+ANÁLISIS:
+1. Revisar políticas import/export BGP
+2. Comparar snapshots de configuración
+3. Analizar crecimiento de tabla BGP
+4. Validar comunidades BGP
+
+SOLUCIÓN:
+Aplicar filtros estrictos de exportación, retirar anuncios incorrectos y validar anuncios mediante RPKI.
+
+VERIFICACIÓN:
+show ip bgp
+show ip bgp neighbors advertised-routes
+show route-map
+
+RESULTADO ESPERADO:
+Solo los prefijos autorizados son propagados hacia AS externos.
+
+Usuarios reportan desconexiones frecuentes del WiFi empresarial y algunos indican haber tenido que volver a ingresar credenciales corporativas varias veces. El monitoreo inalámbrico detecta múltiples puntos de acceso anunciando el mismo SSID corporativo pero con diferente BSSID y potencia variable.
+DIAGNÓSTICO: Ataque Evil Twin mediante punto de acceso fraudulento.
+SEVERIDAD: Alta
+
+IMPACTO:
+Robo de credenciales, captura de tráfico y acceso no autorizado a servicios internos.
+
+INDICADORES:
+1. SSID duplicados
+2. Variaciones abruptas de potencia RSSI
+3. Incremento de autenticaciones fallidas
+4. Captura de handshakes WPA
+
+CAUSAS PROBABLES:
+1. AP falso cercano
+2. Ausencia de WIDS/WIPS
+3. Usuarios sin validación de certificados EAP
+4. Configuración insegura de WiFi empresarial
+
+ANÁLISIS:
+1. Realizar escaneo RF
+2. Comparar BSSID oficiales
+3. Revisar eventos RADIUS
+4. Correlacionar sesiones WiFi
+
+SOLUCIÓN:
+Eliminar AP fraudulento, habilitar validación estricta de certificados EAP y desplegar detección inalámbrica.
+
+VERIFICACIÓN:
+Controlador WiFi
+Logs RADIUS
+Análisis RF
+
+RESULTADO ESPERADO:
+Los clientes solo se asocian con AP corporativos legítimos.
+
+Un switch de distribución comienza a reenviar tráfico a múltiples puertos de forma similar a un hub. Los usuarios reportan lentitud, sesiones interrumpidas y aumento del tráfico broadcast. El monitoreo muestra miles de direcciones MAC nuevas aprendidas por segundo.
+DIAGNÓSTICO: Ataque CAM Table Overflow (MAC Flooding).
+SEVERIDAD: Alta
+
+IMPACTO:
+Intercepción de tráfico, degradación de rendimiento y pérdida de segmentación.
+
+INDICADORES:
+1. Crecimiento acelerado de MAC Address Table
+2. CPU elevada en switches
+3. Tráfico unicast inundado
+4. Incremento de broadcasts
+
+CAUSAS PROBABLES:
+1. Herramienta de ataque capa 2
+2. Ausencia de Port Security
+3. Capacidad limitada del switch
+4. Acceso físico no controlado
+
+ANÁLISIS:
+1. Revisar crecimiento MAC
+2. Identificar puerto origen
+3. Correlacionar Syslog
+4. Capturar tráfico SPAN
+
+SOLUCIÓN:
+Implementar Port Security, limitar MAC por puerto y aislar origen del ataque.
+
+VERIFICACIÓN:
+show mac address-table count
+show port-security
+
+RESULTADO ESPERADO:
+La tabla CAM permanece estable y el tráfico vuelve a ser conmutado correctamente.
+
+El portal principal de una empresa deja de responder de forma intermitente. El firewall perimetral registra millones de paquetes UDP provenientes de miles de direcciones IP distribuidas globalmente. El ancho de banda contratado se encuentra completamente saturado y los servidores muestran consumo bajo de CPU.
+DIAGNÓSTICO: Ataque distribuido de denegación de servicio (DDoS) mediante amplificación DNS.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Interrupción parcial o total de servicios expuestos, degradación de enlaces y pérdida de disponibilidad.
+
+INDICADORES:
+1. Tráfico UDP extremadamente elevado
+2. Saturación del enlace WAN
+3. Alto volumen de respuestas DNS inesperadas
+4. Multiplicidad de IP origen
+
+CAUSAS PROBABLES:
+1. Uso de resolvers DNS abiertos
+2. Ausencia de mitigación DDoS
+3. Capacidad insuficiente de absorción
+4. Servicios expuestos sin protección CDN
+
+ANÁLISIS:
+1. Identificar puertos destino principales
+2. Revisar NetFlow
+3. Validar consultas DNS anómalas
+4. Comparar tráfico histórico
+
+SOLUCIÓN:
+Aplicar mitigación DDoS aguas arriba, bloquear tráfico malicioso, limitar respuestas DNS y utilizar servicios de absorción.
+
+VERIFICACIÓN:
+NetFlow
+show interface
+Dashboard firewall
+
+RESULTADO ESPERADO:
+El tráfico vuelve a niveles normales y los servicios recuperan disponibilidad.
+
+Después del despliegue de un nuevo clúster de virtualización, múltiples segmentos de red presentan latencia extrema. Los switches muestran utilización elevada y miles de paquetes broadcast por segundo. Algunos hosts dejan de responder incluso dentro de la misma VLAN.
+DIAGNÓSTICO: Tormenta broadcast generada por configuración incorrecta de red virtual.
+SEVERIDAD: Alta
+
+IMPACTO:
+Congestión generalizada, pérdida de conectividad y degradación del rendimiento.
+
+INDICADORES:
+1. Broadcast elevado
+2. CPU alta en switches
+3. Latencia interna extrema
+4. Pérdida de paquetes
+
+CAUSAS PROBABLES:
+1. Loop virtual
+2. Bridge duplicado
+3. Configuración STP ausente
+4. Conmutación redundante incorrecta
+
+ANÁLISIS:
+1. Revisar topología virtual
+2. Identificar origen broadcast
+3. Validar enlaces redundantes
+4. Analizar captura SPAN
+
+SOLUCIÓN:
+Eliminar loops, habilitar protección STP y aislar segmento afectado.
+
+VERIFICACIÓN:
+show spanning-tree
+show interfaces counters
+
+RESULTADO ESPERADO:
+El tráfico broadcast se reduce a niveles normales.
+
+Se detectan conexiones VPN exitosas desde múltiples países en intervalos imposibles de viaje. Las sesiones utilizan cuentas válidas y posteriormente acceden a recursos internos sensibles fuera del horario laboral.
+DIAGNÓSTICO: Compromiso de acceso remoto mediante reutilización de credenciales filtradas.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Acceso no autorizado, extracción de datos y movimiento lateral.
+
+INDICADORES:
+1. Impossible travel
+2. Sesiones simultáneas
+3. Actividad fuera de horario
+4. Accesos inusuales
+
+CAUSAS PROBABLES:
+1. Credenciales expuestas
+2. MFA deshabilitado
+3. Contraseñas reutilizadas
+4. Monitoreo insuficiente
+
+ANÁLISIS:
+1. Revisar logs VPN
+2. Correlacionar geolocalización
+3. Analizar actividad posterior
+4. Validar cambios de privilegios
+
+SOLUCIÓN:
+Rotar credenciales, activar MFA obligatorio y cerrar sesiones activas.
+
+VERIFICACIÓN:
+Logs VPN
+Eventos AAA
+SIEM
+
+RESULTADO ESPERADO:
+Solo usuarios legítimos mantienen acceso remoto.
+
+Después de agregar un nuevo Route Reflector en la red MPLS corporativa, varias sedes dejan de aprender rutas internas aunque la conectividad IP permanece operativa. Los routers mantienen sesiones iBGP activas pero algunas rutas desaparecen aleatoriamente durante reconvergencias.
+DIAGNÓSTICO: Configuración incorrecta de Route Reflector generando pérdida parcial de propagación iBGP.
+SEVERIDAD: Alta
+
+IMPACTO:
+Interrupción parcial de comunicación entre sedes, rutas incompletas y tráfico desviado.
+
+INDICADORES:
+1. Sesiones BGP establecidas pero sin rutas esperadas
+2. Diferencias entre tablas RIB y BGP
+3. Reconvergencias frecuentes
+4. Prefijos presentes solo en algunos routers
+
+CAUSAS PROBABLES:
+1. Cluster-ID duplicado
+2. Clientes no definidos correctamente
+3. Filtrado de prefijos
+4. Error en políticas de reflexión
+
+ANÁLISIS:
+1. Revisar topología Route Reflector
+2. Comparar tablas BGP
+3. Validar atributos ORIGINATOR_ID
+4. Analizar anuncios entre clientes
+
+SOLUCIÓN:
+Corregir configuración de Route Reflector, definir clientes correctamente y validar políticas de propagación.
+
+VERIFICACIÓN:
+show ip bgp
+show ip bgp neighbors
+show ip route
+
+RESULTADO ESPERADO:
+Todos los routers reciben prefijos completos y consistentes.
+
+El equipo de seguridad detecta conexiones administrativas exitosas entre múltiples servidores sin evidencia de ingreso interactivo. Las sesiones utilizan cuentas válidas pero desde equipos donde esas credenciales nunca fueron introducidas.
+DIAGNÓSTICO: Movimiento lateral mediante ataque Pass-The-Hash.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Escalada de privilegios, propagación interna y compromiso del dominio.
+
+INDICADORES:
+1. Autenticaciones NTLM inusuales
+2. Uso repetido de credenciales administrativas
+3. Accesos simultáneos desde distintos equipos
+4. Conexiones SMB administrativas
+
+CAUSAS PROBABLES:
+1. Extracción de hashes en memoria
+2. Equipos comprometidos
+3. Uso excesivo de cuentas privilegiadas
+4. Falta de segmentación administrativa
+
+ANÁLISIS:
+1. Revisar eventos 4624 y 4672
+2. Correlacionar origen de autenticaciones
+3. Validar uso de NTLM
+4. Analizar memoria del host sospechoso
+
+SOLUCIÓN:
+Rotar credenciales, reducir privilegios y aplicar autenticación moderna.
+
+VERIFICACIÓN:
+Eventos Windows
+SIEM
+Logs SMB
+
+RESULTADO ESPERADO:
+Las credenciales ya no pueden reutilizarse lateralmente.
+
+Usuarios de distintas sedes comienzan a perder acceso a VPN, aplicaciones internas y servicios SSO. Los logs muestran errores de autenticación relacionados con tiempo inválido y expiración prematura de tokens.
+DIAGNÓSTICO: Desincronización severa de tiempo entre sistemas críticos.
+SEVERIDAD: Alta
+
+IMPACTO:
+Fallo de autenticación centralizada, errores TLS y pérdida de servicios dependientes del tiempo.
+
+INDICADORES:
+1. Diferencias horarias entre equipos
+2. Tokens inválidos
+3. Fallos Kerberos
+4. Certificados aparentemente vencidos
+
+CAUSAS PROBABLES:
+1. Servidor NTP caído
+2. Jerarquía NTP incorrecta
+3. Firewall bloqueando sincronización
+4. Configuración inconsistente
+
+ANÁLISIS:
+1. Revisar fuentes NTP
+2. Comparar relojes del dominio
+3. Analizar logs de autenticación
+4. Validar drift acumulado
+
+SOLUCIÓN:
+Restaurar sincronización NTP y definir fuentes redundantes.
+
+VERIFICACIÓN:
+show ntp status
+w32tm /query /status
+
+RESULTADO ESPERADO:
+Todos los sistemas vuelven a compartir una referencia temporal consistente.
+
+Usuarios internos reportan lentitud selectiva y acceso inconsistente a aplicaciones. Las capturas muestran respuestas ARP provenientes de un equipo distinto al gateway oficial.
+DIAGNÓSTICO: Uso indebido de Proxy ARP para redirigir tráfico.
+SEVERIDAD: Alta
+
+IMPACTO:
+Intercepción de tráfico y degradación de rutas internas.
+
+INDICADORES:
+1. Respuestas ARP inesperadas
+2. Gateway inconsistente
+3. Saltos adicionales
+4. Latencia localizada
+
+CAUSAS PROBABLES:
+1. Host comprometido
+2. Proxy ARP habilitado innecesariamente
+3. Error de diseño
+4. Manipulación intencional
+
+ANÁLISIS:
+1. Revisar tablas ARP
+2. Comparar gateway real
+3. Capturar tráfico
+4. Identificar dispositivo emisor
+
+SOLUCIÓN:
+Deshabilitar Proxy ARP donde no sea requerido y aislar el origen.
+
+VERIFICACIÓN:
+show arp
+Captura ARP
+
+RESULTADO ESPERADO:
+El tráfico utiliza únicamente el gateway autorizado.
+
+Una empresa con múltiples clientes en un proveedor MPLS reporta que tráfico confidencial de un cliente está siendo visible desde la red de otro cliente. Los routers PE muestran rutas de diferentes VRFs en tablas que no deberían contenerlas. El problema apareció tras una reconfiguración de route-targets en el proveedor.
+DIAGNÓSTICO: Route leaking no intencional entre VRFs en red MPLS/VPN.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Fuga de información entre clientes, violación de acuerdos de confidencialidad y posible exposición de datos sensibles.
+
+INDICADORES:
+1. Rutas de un VRF aparecen en la tabla de otro VRF
+2. Tráfico entre clientes que debería estar aislado
+3. Route-targets mal configurados tras cambio reciente
+4. Logs de cambios en configuración de PE routers
+
+CAUSAS PROBABLES:
+1. Route-target import/export mal configurado en VRF
+2. Política de redistribución incorrecta entre VRFs
+3. Error humano durante reconfiguración de MPLS
+4. Falta de validación post-cambio
+
+ANÁLISIS:
+1. Revisar configuración de route-targets en todos los PE afectados
+2. Verificar tablas VRF con show ip route vrf <nombre>
+3. Comparar configuración actual vs respaldo previo al cambio
+4. Trazar el flujo de tráfico con traceroute vrf
+
+SOLUCIÓN:
+Corregir inmediatamente los route-targets en los VRFs afectados, verificar aislamiento completo entre clientes y realizar auditoría de todas las políticas de redistribución.
+
+VERIFICACIÓN:
+show ip route vrf <cliente_A>
+show ip route vrf <cliente_B>
+show ip bgp vpnv4 vrf <nombre>
+show running-config | section vrf
+
+RESULTADO ESPERADO:
+Cada VRF contiene únicamente las rutas del cliente correspondiente y el tráfico entre clientes está completamente aislado.
+
+La red corporativa experimenta inestabilidad severa con caídas intermitentes en múltiples VLANs. El equipo de red detecta que el root bridge de Spanning Tree ha cambiado a un switch no gestionado conectado por un usuario en una oficina remota. Las alertas de cambio de topología (TCN) son constantes.
+DIAGNÓSTICO: Root Bridge Takeover de Spanning Tree Protocol por dispositivo no autorizado.
+SEVERIDAD: Alta
+
+IMPACTO:
+Inestabilidad generalizada de la red, caídas de servicios críticos y posible bucle de capa 2.
+
+INDICADORES:
+1. Root Bridge ID cambiado a un switch desconocido con prioridad 32768 por defecto
+2. Topology Change Notifications (TCN) constantes en toda la red
+3. Puertos en estado de reconvergencia frecuente
+4. Switch no gestionado detectado en inventario NAC
+
+CAUSAS PROBABLES:
+1. Switch no gestionado con prioridad STP por defecto (32768) inferior a la configurada
+2. Falta de BPDU Guard en puertos de acceso
+3. PortFast mal aplicado en puertos troncales
+4. Ausencia de Root Guard en puertos hacia la distribución
+
+ANÁLISIS:
+1. Identificar el puerto al que está conectado el dispositivo no autorizado
+2. Verificar la prioridad actual del Root Bridge con show spanning-tree
+3. Revisar qué puertos tienen BPDU Guard activo
+4. Localizar el switch intruso mediante CDP/LLDP
+
+SOLUCIÓN:
+Desconectar el dispositivo no autorizado, restaurar el Root Bridge correcto ajustando prioridad, activar BPDU Guard en todos los puertos de acceso y habilitar Root Guard en uplinks.
+
+VERIFICACIÓN:
+show spanning-tree vlan <id>
+show spanning-tree detail
+show cdp neighbors
+show interfaces status
+
+RESULTADO ESPERADO:
+El Root Bridge vuelve al switch designado, la topología STP se estabiliza y los puertos de acceso quedan protegidos contra futuros ataques.
+
+El equipo de seguridad detecta un volumen inusualmente alto de consultas DNS hacia un dominio externo poco conocido. Las consultas contienen subdominios extremadamente largos y codificados en Base64. El host origen es una estación de trabajo con acceso a datos financieros. No hay alertas de firewall porque el tráfico usa el puerto 53 UDP permitido.
+DIAGNÓSTICO: Exfiltración de datos mediante DNS Tunneling.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Fuga de información confidencial o financiera encubierta en consultas DNS, evasión de controles de seguridad perimetral.
+
+INDICADORES:
+1. Consultas DNS con subdominios de longitud anormal (>50 caracteres)
+2. Subdominios codificados en Base64 o Hex
+3. Alto volumen de consultas hacia un único dominio externo
+4. TTL muy bajo en las respuestas DNS
+5. Tráfico DNS desde host que normalmente no genera estas consultas
+
+CAUSAS PROBABLES:
+1. Malware instalado en la estación de trabajo usando DNS como canal C2
+2. Herramienta de tunneling (iodine, dnscat2) ejecutada por insider
+3. Firewall que permite DNS directo sin inspección de contenido
+4. Ausencia de DNS sinkholing o filtrado de dominios
+
+ANÁLISIS:
+1. Capturar y analizar tráfico DNS del host con Wireshark
+2. Calcular entropía de subdominios consultados
+3. Verificar el dominio destino en threat intelligence (VirusTotal, Shodan)
+4. Revisar procesos activos en la estación de trabajo origen
+5. Correlacionar con timeline de accesos a datos financieros
+
+SOLUCIÓN:
+Aislar inmediatamente el host afectado, bloquear el dominio destino en DNS, implementar inspección de contenido DNS (RPZ), forzar todo el tráfico DNS a través de resolvers internos controlados y desplegar análisis de entropía DNS.
+
+VERIFICACIÓN:
+Captura Wireshark filtro: dns.qry.name contains "base64"
+dig +short <dominio_sospechoso>
+Análisis en VirusTotal
+Revisión de procesos: netstat -anb / ss -tulnp
+
+RESULTADO ESPERADO:
+Se detiene la exfiltración, el host es remediado y se implementan controles para detectar futuros intentos de DNS tunneling.
+
+Una empresa financiera con presencia en múltiples países reporta que ciertas regiones acceden normalmente a sus aplicaciones mientras otras experimentan latencia extrema, pérdida de sesiones y respuestas inconsistentes. El monitoreo muestra que algunos prefijos siguen el camino habitual, pero otros están siendo anunciados por proveedores distintos a los definidos en diseño. Durante la investigación se descubre que horas antes se desplegó una política automatizada para modificación de comunidades BGP y optimización de tránsito. Los routers mantienen sesiones BGP estables y no se observan caídas físicas.
+DIAGNÓSTICO: Incidente híbrido de Route Leak y secuestro parcial de rutas provocado por aplicación incorrecta de comunidades BGP.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Desviación silenciosa de tráfico, pérdida de control del camino de red, exposición parcial del tráfico y degradación regional difícil de detectar.
+
+INDICADORES:
+1. AS-PATH diferentes para el mismo prefijo según ubicación
+2. Incremento de tráfico internacional inesperado
+3. Rutas válidas pero inconsistentes entre regiones
+4. Diferencias entre tablas RIB y FIB
+5. Variaciones de latencia superiores al histórico
+
+CAUSAS PROBABLES:
+1. Aplicación masiva incorrecta de comunidades BGP
+2. Error en automatización de políticas
+3. Ausencia de validación previa de cambios
+4. Filtros insuficientes entre proveedores
+5. Falta de validación RPKI
+
+ANÁLISIS:
+1. Comparar anuncios BGP desde múltiples vantage points
+2. Revisar comunidades aplicadas antes y después del cambio
+3. Verificar propagación mediante Looking Glass
+4. Analizar prefijos afectados por región
+5. Validar ROA y anuncios externos
+
+SOLUCIÓN:
+Revertir políticas, retirar anuncios incorrectos, restaurar comunidades aprobadas, habilitar validación RPKI y establecer validación automática previa a despliegues.
+
+VERIFICACIÓN:
+show ip bgp
+show bgp ipv4 unicast
+show route-policy
+Consultas RouteViews
+
+RESULTADO ESPERADO:
+Los anuncios recuperan consistencia global y el tráfico vuelve a seguir rutas autorizadas.
+
+El SOC detecta actividad anómala iniciada desde una estación de usuario aparentemente normal. En menos de una hora aparecen accesos administrativos sobre servidores críticos, creación de nuevas cuentas y modificaciones de políticas. El análisis revela solicitudes masivas de tickets Kerberos, conexiones SMB entre segmentos restringidos y posteriormente acceso a dispositivos de red desde una VLAN reservada para administración.
+DIAGNÓSTICO: Compromiso progresivo mediante cadena de ataque interna con extracción de credenciales y pivoteo hacia infraestructura.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Compromiso total del dominio, acceso a infraestructura de red y persistencia administrativa.
+
+INDICADORES:
+1. Eventos Kerberos anómalos
+2. Crecimiento repentino de autenticaciones privilegiadas
+3. Acceso desde segmentos no autorizados
+4. Creación inesperada de cuentas
+5. Cambios simultáneos en múltiples sistemas
+
+CAUSAS PROBABLES:
+1. Cuentas servicio con contraseñas débiles
+2. Segmentación administrativa deficiente
+3. Exceso de privilegios
+4. Reutilización de credenciales
+5. Ausencia de monitoreo lateral
+
+ANÁLISIS:
+1. Reconstruir cadena temporal del incidente
+2. Correlacionar eventos AD, SMB y TACACS
+3. Revisar cuentas comprometidas
+4. Analizar privilegios efectivos
+5. Determinar punto inicial de acceso
+
+SOLUCIÓN:
+Aislar segmentos administrativos, revocar credenciales comprometidas, aplicar tiering administrativo y reforzar autenticación privilegiada.
+
+VERIFICACIÓN:
+Eventos Windows
+Logs TACACS
+SIEM
+Auditoría Active Directory
+
+RESULTADO ESPERADO:
+La cadena de escalamiento queda interrumpida y los accesos administrativos vuelven a estado controlado.
+
+Después de una expansión del datacenter, algunos servidores pueden comunicarse entre racks mientras otros pierden conectividad solo hacia determinadas aplicaciones. El underlay IP permanece completamente funcional y los túneles VXLAN aparecen activos. No existen pérdidas físicas ni alarmas visibles.
+DIAGNÓSTICO: Inconsistencia de VNI y aprendizaje distribuido defectuoso en EVPN-VXLAN.
+SEVERIDAD: Alta
+
+IMPACTO:
+Aislamiento parcial de cargas, pérdida de conectividad este-oeste y comportamiento impredecible del overlay.
+
+INDICADORES:
+1. Tráfico encapsulado válido pero no entregado
+2. Tablas MAC inconsistentes
+3. Alcance parcial entre hosts
+4. Ausencia de errores físicos
+5. Entradas EVPN incompletas
+
+CAUSAS PROBABLES:
+1. VNI asignado incorrectamente
+2. Error de automatización
+3. Route-target inconsistente
+4. Configuración asimétrica
+
+ANÁLISIS:
+1. Revisar anuncios EVPN
+2. Comparar VNIs entre nodos
+3. Validar tablas MAC distribuidas
+4. Analizar encapsulación VXLAN
+
+SOLUCIÓN:
+Unificar definición VNI, validar route-targets y automatizar validaciones previas.
+
+VERIFICACIÓN:
+show bgp l2vpn evpn
+show vxlan interface
+show mac address-table
+
+RESULTADO ESPERADO:
+Todos los hosts recuperan conectividad consistente independientemente del rack.
+
+Durante una ventana de mantenimiento un ingeniero intenta bloquear temporalmente acceso SSH desde una subred específica hacia los switches de distribución. Minutos después múltiples sedes pierden conectividad con servicios centrales. No existen caídas físicas ni errores de routing. El operador confirma haber copiado una ACL desde documentación previa y aplicarla directamente sobre una interfaz de agregación.
+DIAGNÓSTICO: Interrupción causada por aplicación incorrecta de ACL sobre interfaz crítica.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Pérdida masiva de comunicación entre segmentos y caída parcial de servicios corporativos.
+
+INDICADORES:
+1. Tráfico descartado inmediatamente después del cambio
+2. Interfaces operativas pero sin flujo
+3. Incremento de paquetes deny
+4. Servicios inaccesibles entre VLAN
+
+CAUSAS PROBABLES:
+1. Aplicación de ACL en dirección incorrecta
+2. Uso de 'deny any' antes de reglas permitidas
+3. Error humano durante ventana de cambios
+4. Falta de validación previa
+
+ANÁLISIS:
+1. Comparar running-config y startup-config
+2. Revisar contadores ACL
+3. Validar interfaz afectada
+4. Analizar logs del cambio
+
+SOLUCIÓN:
+Retirar ACL inmediatamente, aplicar pruebas previas y usar cambios con rollback automático.
+
+VERIFICACIÓN:
+show access-lists
+show run interface
+show logging
+
+RESULTADO ESPERADO:
+El tráfico vuelve a circular y las políticas se aplican únicamente al alcance esperado.
+
+Un administrador intenta eliminar una red obsoleta del proceso OSPF utilizando comandos rápidos desde consola. Después del cambio desaparecen múltiples rutas y varias sedes dejan de anunciar prefijos internos. El operador asegura haber ejecutado únicamente un comando network.
+DIAGNÓSTICO: Eliminación accidental de declaración OSPF por coincidencia amplia de máscara wildcard.
+SEVERIDAD: Alta
+
+IMPACTO:
+Pérdida de intercambio de rutas y aislamiento parcial de sitios.
+
+INDICADORES:
+1. Vecinos OSPF reducidos
+2. Rutas desaparecidas
+3. Base LSDB inconsistente
+4. Reconvergencia constante
+
+CAUSAS PROBABLES:
+1. Uso incorrecto de wildcard
+2. Eliminación de network equivocada
+3. Error humano en CLI
+4. Falta de revisión post-cambio
+
+ANÁLISIS:
+1. Revisar configuración OSPF
+2. Comparar backup
+3. Analizar LSDB
+4. Verificar interfaces activas
+
+SOLUCIÓN:
+Restaurar declaración correcta y utilizar cambios validados por pares.
+
+VERIFICACIÓN:
+show ip ospf neighbor
+show ip route ospf
+show ip ospf database
+
+RESULTADO ESPERADO:
+Todas las rutas vuelven a intercambiarse correctamente.
+
+Durante una intervención nocturna un ingeniero debía modificar el firewall de laboratorio pero accidentalmente dejó abierta una sesión SSH hacia producción. Ejecutó limpieza de objetos y reglas pensando que trabajaba en ambiente de pruebas. Minutos después comienzan fallos de autenticación y pérdida de acceso externo.
+DIAGNÓSTICO: Cambio destructivo ejecutado en entorno incorrecto.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Interrupción de servicios y eliminación accidental de políticas activas.
+
+INDICADORES:
+1. Cambios administrativos sin ticket asociado
+2. Objetos eliminados inesperadamente
+3. Configuración inconsistente
+4. Fallo inmediato tras sesión administrativa
+
+CAUSAS PROBABLES:
+1. Sesión SSH equivocada
+2. Ausencia de banners diferenciadores
+3. Falta de control de cambios
+4. Error humano
+
+ANÁLISIS:
+1. Revisar historial de comandos
+2. Correlacionar auditoría
+3. Validar dispositivos accedidos
+4. Comparar configuraciones
+
+SOLUCIÓN:
+Restaurar backup, separar entornos visualmente y requerir confirmación antes de cambios destructivos.
+
+VERIFICACIÓN:
+Logs TACACS
+Historial configuración
+Auditoría firewall
+
+RESULTADO ESPERADO:
+La configuración correcta queda restaurada y se reduce el riesgo operativo.
+
+Un administrador ejecuta el comando shutdown en la interfaz incorrecta durante una ventana de mantenimiento. La interfaz apagada resulta ser el uplink WAN principal hacia el ISP. Toda la conectividad a internet cae de inmediato. El administrador no tiene acceso remoto para revertir el cambio porque la sesión SSH depende de esa misma interfaz.
+DIAGNÓSTICO: Shutdown accidental de interfaz WAN activa durante mantenimiento.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Pérdida total de conectividad a internet, caída de todos los servicios dependientes de WAN y pérdida del acceso remoto de gestión.
+
+ERROR HUMANO:
+Confusión entre nombres de interfaz (ej: GigabitEthernet0/0 vs GigabitEthernet0/1) sin verificar descripción ni estado previo.
+
+CAUSAS PROBABLES:
+1. Falta de verificación previa con show interfaces description
+2. Ausencia de etiquetas o descripciones en las interfaces
+3. No usar sesión de consola o acceso OOB (Out-of-Band) durante mantenimiento
+4. Cambios en producción sin par revisor (four-eyes principle)
+
+ANÁLISIS:
+1. Acceder al equipo por consola física o acceso OOB (modem, consola serial)
+2. Verificar estado de todas las interfaces con show ip interface brief
+3. Identificar la interfaz apagada por error
+4. Revisar logs: show logging
+
+SOLUCIÓN:
+Acceder por consola física o red de gestión OOB, ejecutar no shutdown en la interfaz correcta y documentar el incidente.
+
+VERIFICACIÓN:
+show ip interface brief
+show interfaces GigabitEthernet0/0
+show logging | include shutdown
+ping <gateway ISP>
+
+PREVENCIÓN:
+1. Siempre usar show interfaces description antes de tocar una interfaz
+2. Configurar descripciones claras: description WAN-ISP-PRINCIPAL
+3. Usar acceso OOB independiente del plano de datos
+4. Implementar política de cambios con doble revisión
+
+RESULTADO ESPERADO:
+Interfaz WAN restaurada, conectividad a internet restablecida y acceso remoto disponible nuevamente.
+
+Durante una limpieza de configuración, un administrador elimina una línea que considera duplicada. Minutos después la conectividad a internet cae parcialmente. Al revisar, se descubre que la línea eliminada era la ruta estática por defecto (ip route 0.0.0.0 0.0.0.0 <next-hop>) que enviaba el tráfico al ISP. El router no tiene BGP configurado y dependía completamente de esa ruta.
+DIAGNÓSTICO: Eliminación accidental de ruta estática default durante mantenimiento de configuración.
+SEVERIDAD: Alta
+
+IMPACTO:
+Pérdida de conectividad a internet para todos los usuarios. Tráfico sin destino conocido es descartado.
+
+ERROR HUMANO:
+Eliminar una línea de configuración sin entender completamente su función, confundiéndola con una entrada duplicada o innecesaria.
+
+CAUSAS PROBABLES:
+1. No verificar la tabla de ruteo antes y después del cambio
+2. Limpiar configuración sin respaldar previamente
+3. Falta de comprensión del rol de la ruta estática en la arquitectura
+4. No usar entorno de pruebas o staging antes de producción
+
+ANÁLISIS:
+1. Verificar tabla de ruteo: show ip route
+2. Confirmar ausencia de ruta 0.0.0.0/0
+3. Identificar el next-hop correcto hacia el ISP
+4. Revisar respaldo de configuración si existe
+
+SOLUCIÓN:
+Restaurar la ruta estática inmediatamente con el next-hop correcto.
+
+ip route 0.0.0.0 0.0.0.0 <ip_gateway_ISP>
+
+VERIFICACIÓN:
+show ip route 0.0.0.0
+ping 8.8.8.8
+traceroute 8.8.8.8
+show ip route summary
+
+PREVENCIÓN:
+1. Siempre hacer show ip route antes de modificar configuración de ruteo
+2. Guardar respaldo: copy running-config tftp / copy run flash:backup.cfg
+3. Documentar el propósito de cada ruta estática con comentarios
+4. Usar change management con ventana de reversión definida
+
+RESULTADO ESPERADO:
+Ruta por defecto restaurada, tráfico fluye correctamente hacia el ISP y la conectividad a internet se restablece.
+
+Un administrador crea una ACL para bloquear tráfico de un segmento específico. Al aplicarla, la coloca en dirección 'in' en lugar de 'out' en la interfaz LAN del router. Como consecuencia, toda la comunicación de la red interna queda bloqueada inmediatamente, incluyendo la sesión SSH activa del administrador.
+DIAGNÓSTICO: ACL aplicada en dirección incorrecta (in vs out) bloqueando todo el tráfico LAN.
+SEVERIDAD: Alta
+
+IMPACTO:
+Pérdida total de comunicación para los hosts del segmento afectado. Posible pérdida del acceso remoto de gestión.
+
+ERROR HUMANO:
+Confusión entre la dirección 'in' (tráfico entrando a la interfaz desde la LAN) y 'out' (tráfico saliendo de la interfaz hacia la LAN). La dirección incorrecta aplica la ACL al tráfico equivocado.
+
+CAUSAS PROBABLES:
+1. No comprender la perspectiva del router para 'in' y 'out'
+2. No probar la ACL en un entorno de laboratorio previo
+3. Falta de un implicit permit al final de la ACL de prueba
+4. No verificar el efecto inmediato con show ip interface
+
+ANÁLISIS:
+1. Acceder por consola o OOB
+2. Verificar ACL aplicada: show ip interface <interfaz>
+3. Revisar el contenido de la ACL: show access-lists
+4. Confirmar dirección incorrecta de aplicación
+
+SOLUCIÓN:
+Remover la ACL de la dirección incorrecta y reaplicar en la dirección correcta.
+
+interface GigabitEthernet0/1
+ no ip access-group <nombre_acl> in
+ ip access-group <nombre_acl> out
+
+VERIFICACIÓN:
+show ip interface GigabitEthernet0/1
+show access-lists
+ping <host_afectado>
+show ip access-lists <nombre> (verificar matches)
+
+PREVENCIÓN:
+1. Recordar la regla: IN = tráfico que entra AL router desde esa interfaz
+2. Siempre incluir una entrada permit para la IP de gestión antes de deny
+3. Probar ACLs en laboratorio o con simulador antes de producción
+4. Usar remark en las ACLs para documentar propósito
+
+RESULTADO ESPERADO:
+ACL aplicada correctamente, solo el tráfico objetivo es bloqueado y el resto del tráfico LAN fluye normalmente.
+
+Durante una migración de enlaces WAN un administrador intenta anunciar una única ruta estática temporal hacia OSPF. En lugar de aplicar una route-map restrictiva, ejecuta un comando de redistribución global sobre el proceso activo. En pocos minutos los routers comienzan a consumir memoria excesivamente, aparecen rutas inesperadas y múltiples sedes reportan pérdida parcial de conectividad.
+DIAGNÓSTICO: Fuga masiva de rutas por redistribución incorrecta hacia OSPF.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Explosión de LSDB, reconvergencia excesiva y degradación general de la red.
+
+INDICADORES:
+1. Incremento abrupto del tamaño LSDB
+2. Uso elevado de CPU y memoria
+3. Miles de rutas externas nuevas
+4. Reconvergencia continua
+
+CAUSAS PROBABLES:
+1. Comando redistribute aplicado globalmente
+2. Falta de route-map
+3. Error humano durante mantenimiento
+4. Validación insuficiente del cambio
+
+ANÁLISIS:
+1. Comparar tabla antes y después del cambio
+2. Revisar configuración OSPF
+3. Validar origen de rutas externas
+4. Medir crecimiento LSDB
+
+SOLUCIÓN:
+Retirar redistribución incorrecta, aplicar filtros estrictos y usar cambios simulados previamente.
+
+VERIFICACIÓN:
+show ip ospf database
+show ip route
+show run | section ospf
+
+RESULTADO ESPERADO:
+La LSDB vuelve a tamaño esperado y desaparecen rutas no autorizadas.
+
+Un ingeniero intenta migrar autenticación local hacia TACACS+ para centralizar accesos administrativos. Durante el procedimiento modifica el orden de autenticación sin mantener mecanismo de respaldo. Tras cerrar sesión nadie logra volver a ingresar a routers ni switches críticos.
+DIAGNÓSTICO: Pérdida de acceso administrativo causada por configuración AAA incompleta.
+SEVERIDAD: Crítica
+
+IMPACTO:
+Imposibilidad de administrar infraestructura y aumento del tiempo de recuperación.
+
+INDICADORES:
+1. Autenticación rechazada globalmente
+2. Consola remota inaccesible
+3. Equipos operativos pero bloqueados
+4. Eventos AAA fallidos
+
+CAUSAS PROBABLES:
+1. Eliminación de fallback local
+2. Error de orden AAA
+3. TACACS inaccesible
+4. Validación insuficiente
+
+ANÁLISIS:
+1. Revisar configuración AAA
+2. Validar conectividad TACACS
+3. Confirmar método fallback
+4. Revisar logs autenticación
+
+SOLUCIÓN:
+Restaurar acceso local de emergencia y probar AAA antes de aplicar globalmente.
+
+VERIFICACIÓN:
+show aaa servers
+show running-config
+Logs TACACS
+
+RESULTADO ESPERADO:
+Los accesos administrativos funcionan tanto centralizados como por contingencia.
+
+Un operador reutiliza una plantilla de configuración usada previamente en laboratorio para acelerar despliegue de nuevos switches. Horas después se detectan VLAN duplicadas, gateways inconsistentes y rutas hacia segmentos inexistentes.
+DIAGNÓSTICO: Contaminación de configuración por reutilización de plantilla no adaptada.
+SEVERIDAD: Alta
+
+IMPACTO:
+Segmentación incorrecta, pérdida de conectividad y comportamiento impredecible.
+
+INDICADORES:
+1. VLAN inesperadas
+2. Tráfico dirigido incorrectamente
+3. Gateways duplicados
+4. Inconsistencias entre sitios
+
+CAUSAS PROBABLES:
+1. Copia directa desde laboratorio
+2. Variables sin actualizar
+3. Ausencia de revisión por pares
+4. Automatización incompleta
+
+ANÁLISIS:
+1. Comparar configuraciones
+2. Revisar cambios recientes
+3. Identificar objetos heredados
+4. Validar topología lógica
+
+SOLUCIÓN:
+Aplicar plantillas parametrizadas y validaciones automáticas.
+
+VERIFICACIÓN:
+show vlan
+show run
+show ip interface brief
+
+RESULTADO ESPERADO:
+La configuración queda alineada con diseño productivo.
+
+¿Cómo te llamas?
+Mi nombre es NetAssist. Soy un asistente virtual especializado en redes, infraestructura TI, ciberseguridad y soporte técnico. Mi función es ayudarte a diagnosticar problemas, interpretar configuraciones y proponer soluciones técnicas.
+
+¿A qué te dedicas?
+Me dedico a brindar asistencia técnica especializada en redes, sistemas, seguridad informática y administración de infraestructura tecnológica. También puedo ayudarte a interpretar errores, analizar configuraciones y proponer soluciones.
+
+¿Qué puedes hacer?
+Puedo ayudarte a diagnosticar fallos de red, analizar configuraciones de routers y switches, explicar protocolos, detectar errores comunes, revisar diseños de infraestructura, interpretar resultados de escaneo y responder consultas técnicas.
+
+El tráfico destinado a un servicio corporativo está llegando a una red desconocida
+DIAGNÓSTICO: Posible secuestro de prefijos BGP o anuncio incorrecto por parte de un proveedor. SOLUCIÓN: Verificar anuncios BGP, validar filtros de prefijos, implementar RPKI y coordinar con los AS involucrados.
+
+Dos routers BGP no logran formar adyacencia
+DIAGNÓSTICO: Error en ASN, dirección peer, autenticación MD5 o conectividad IP. SOLUCIÓN: Revisar parámetros del vecino, rutas de alcance y estado TCP puerto 179.
+
+Los usuarios reportan lentitud en aplicaciones corporativas
+DIAGNÓSTICO: Congestión, enlaces saturados o problemas de QoS. SOLUCIÓN: Analizar utilización de interfaces, colas de tráfico y rutas utilizadas.
+
+¿Cómo te llamas y qué función cumples dentro del sistema?
+Mi nombre es NetAssist. Soy un asistente especializado en redes, infraestructura tecnológica, ciberseguridad y diagnóstico de incidencias. Mi objetivo es analizar problemas, interpretar configuraciones y proponer soluciones técnicas fundamentadas.
+
+¿Qué puedes hacer por mí?
+Puedo ayudarte a diagnosticar fallos de red, analizar configuraciones de routers y switches, interpretar registros, explicar protocolos, detectar errores de configuración, identificar vulnerabilidades y proponer acciones correctivas.
+
+Necesito ayuda para un problema médico.
+Mi especialidad principal es la infraestructura tecnológica y las redes. Puedo proporcionar orientación general, pero para temas médicos es recomendable consultar un profesional especializado.
+
+Dos routers vecinos no establecen adyacencia OSPF. El comando show ip ospf neighbor no muestra vecinos y los logs indican autenticación fallida.
+DIAGNÓSTICO: Las claves MD5 o el tipo de autenticación no coinciden entre interfaces. SOLUCIÓN: Verificar ip ospf authentication, message-digest-key y área configurada. Aplicar la misma configuración en ambos extremos y reiniciar la adyacencia.
+
+Los equipos de la VLAN 20 no pueden comunicarse con el gateway mientras otras VLAN funcionan correctamente.
+DIAGNÓSTICO: La VLAN no existe en el switch o el puerto está asignado a otra VLAN. SOLUCIÓN: Verificar show vlan brief, corregir switchport access vlan y confirmar que la interfaz VLAN tenga dirección IP activa.
+
+Nuevos usuarios no reciben direcciones IP y aparecen mensajes de DHCP timeout.
+DIAGNÓSTICO: El pool DHCP se encuentra sin direcciones disponibles. SOLUCIÓN: Revisar exclusiones, ampliar el rango DHCP o liberar concesiones expiradas.
+
+Dos routers establecen vecindad OSPF pero algunas rutas no funcionan y aparecen fragmentaciones frecuentes.
+DIAGNÓSTICO: Diferencias de MTU entre interfaces. SOLUCIÓN: Comparar valores MTU en ambos extremos, corregir configuración o utilizar ip ospf mtu-ignore temporalmente.
+
+Una sesión BGP permanece en estado Active y nunca alcanza Established.
+DIAGNÓSTICO: ASN remoto configurado incorrectamente o conectividad TCP fallida. SOLUCIÓN: Verificar neighbor remote-as, conectividad hacia el puerto TCP 179 y filtros intermedios.
+
+Los usuarios reportan baja velocidad WiFi durante horarios laborales aunque la señal es excelente.
+DIAGNÓSTICO: Saturación del canal por exceso de dispositivos o interferencias. SOLUCIÓN: Analizar canales disponibles, migrar a 5 GHz o 6 GHz y redistribuir puntos de acceso.
+
+Después de integrar OSPF y EIGRP aparecen rutas duplicadas y algunos destinos generan bucles de enrutamiento.
+DIAGNÓSTICO: Redistribución mutua sin filtros adecuados. SOLUCIÓN: Aplicar route-maps, etiquetas de rutas y mecanismos anti-loop para controlar la propagación.
+
+El switch principal mantiene un uso de CPU superior al 95% durante largos periodos.
+DIAGNÓSTICO: Tormenta de broadcast, exceso de SNMP, errores de spanning-tree o ataque de red. SOLUCIÓN: Revisar procesos activos, tráfico broadcast y registros del sistema.
+
+Un técnico configuró un enlace como access en un extremo y trunk en el otro.
+DIAGNÓSTICO: Incompatibilidad de encapsulación y transporte de VLANs. SOLUCIÓN: Configurar ambos extremos como trunk y validar VLANs permitidas.
+
+Dos routers configurados con VRRP aparecen simultáneamente como master provocando conflictos de gateway.
+DIAGNÓSTICO: Problema de comunicación multicast o identificadores VRRP duplicados. SOLUCIÓN: Verificar conectividad entre routers, prioridades y virtual-router-id.
+
+Un servidor deja de responder aunque la interfaz física permanece activa.
+DIAGNÓSTICO: Entradas ARP corruptas o conflicto de direcciones IP. SOLUCIÓN: Limpiar caché ARP, verificar duplicados y validar direccionamiento.
+
+Un administrador agregó una regla permit any any para solucionar temporalmente un problema y olvidó retirarla.
+DIAGNÓSTICO: Exposición completa de segmentos protegidos. SOLUCIÓN: Eliminar la regla temporal y reconstruir la política de acceso siguiendo el principio de mínimo privilegio.
+
+Algunos usuarios llegan correctamente a una aplicación mientras otros reciben timeout hacia el mismo servicio.
+DIAGNÓSTICO: Balanceo ECMP con rutas inconsistentes o enlaces degradados. SOLUCIÓN: Verificar tablas de enrutamiento, estado de enlaces y comportamiento de hash.
+
+El switch reporta cambios constantes de ubicación para una misma dirección MAC.
+DIAGNÓSTICO: Dispositivo clonado, bucle de red o virtualización mal configurada. SOLUCIÓN: Identificar origen de la MAC y eliminar la duplicidad.
+
+Un administrador asignó manualmente una dirección IP ya utilizada por otro servidor crítico.
+DIAGNÓSTICO: Conflicto de direcciones IP. SOLUCIÓN: Identificar el dispositivo duplicado, corregir la configuración y actualizar el inventario de direccionamiento.
+
+Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.
+DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.
+
+Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.
+DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.
+
+Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.
+DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.
+
+Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.
+DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.
+
+Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.
+DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.
+
+Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.
+DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.
+
+Tras agregar un nuevo switch a la red, los usuarios reportan lentitud extrema, pérdida de conectividad intermitente y tráfico broadcast excesivo. El administrador observa que múltiples switches se consideran Root Bridge.
+DIAGNÓSTICO: Existe un bucle de capa 2 debido a una elección incorrecta del Root Bridge. SOLUCIÓN: Verificar 'show spanning-tree', identificar el Root Bridge actual, ajustar la prioridad STP en el switch principal mediante 'spanning-tree vlan X priority 4096' o similar, eliminar enlaces redundantes no controlados y validar convergencia.
+
+Los nuevos dispositivos no reciben dirección IP, mientras que los equipos antiguos siguen funcionando normalmente.
+DIAGNÓSTICO: El pool DHCP se encuentra agotado. SOLUCIÓN: Revisar el rango configurado, ampliar el pool disponible, eliminar concesiones obsoletas y verificar que no existan dispositivos utilizando IPs estáticas dentro del rango DHCP.
+
+Una sucursal pierde acceso a la red central después de una modificación realizada por un técnico junior.
+DIAGNÓSTICO: Ruta estática mal configurada o next-hop incorrecto. SOLUCIÓN: Revisar 'show ip route', identificar rutas erróneas, corregir la dirección del gateway y validar conectividad mediante ping y traceroute.
+
+Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.
+DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.
+
+El router principal cae pero el secundario nunca asume la puerta de enlace virtual.
+DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.
+
+Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.
+DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.
+
+Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.
+DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.
+
+El router principal cae pero el secundario nunca asume la puerta de enlace virtual.
+DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.
+
+Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.
+DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.
+
+Las rutas internas OSPF no aparecen en la tabla BGP después de una migración de infraestructura.
+DIAGNÓSTICO: La redistribución entre protocolos no está configurada correctamente. SOLUCIÓN: Verificar comandos de redistribución, route-maps asociados, filtros de prefijos y métricas aplicadas.
+
+El router principal cae pero el secundario nunca asume la puerta de enlace virtual.
+DIAGNÓSTICO: Configuración VRRP inconsistente o prioridad incorrecta. SOLUCIÓN: Revisar prioridades, estado de interfaces, temporizadores y comunicación multicast entre routers.
+
+Aparecen rutas inesperadas en la tabla de enrutamiento y parte del tráfico sale por enlaces desconocidos.
+DIAGNÓSTICO: Posible manipulación de protocolos de enrutamiento o redistribución incorrecta. SOLUCIÓN: Auditar cambios recientes, validar autenticación de protocolos y filtrar rutas no autorizadas.
+
+¿Cómo te llamas y cuál es tu función principal?
+DIAGNÓSTICO: Consulta informativa del sistema. RESPUESTA: Mi nombre es NetAssist IA. Soy un asistente especializado en diagnóstico, análisis y resolución de problemas de redes, infraestructura, conectividad, protocolos de enrutamiento, servicios de red y seguridad informática. Puedo ayudar a identificar fallos, interpretar configuraciones y proponer soluciones técnicas.
+
+¿Qué tipo de problemas puedes solucionar?
+DIAGNÓSTICO: Solicitud de capacidades del sistema. RESPUESTA: Puedo analizar incidencias relacionadas con DHCP, DNS, VLAN, STP, OSPF, BGP, NAT, VPN, WiFi, routing, switching, firewalls, virtualización, monitoreo, seguridad y administración de redes. También puedo interpretar logs, configuraciones y síntomas reportados por usuarios.
+
+¿Puedes ejecutar comandos directamente en los equipos?
+DIAGNÓSTICO: Consulta sobre capacidades operativas. RESPUESTA: No ejecuto cambios directamente sobre dispositivos reales. Mi función consiste en analizar la información suministrada, identificar posibles causas raíz y proponer procedimientos de validación y corrección para que sean aplicados por el administrador o técnico responsable.
+
+Dos routers vecinos no establecen adyacencia OSPF. Ambos muestran paquetes Hello, pero el estado permanece en INIT.
+DIAGNÓSTICO: Inconsistencia en parámetros OSPF. POSIBLES CAUSAS: Área configurada de forma diferente, temporizadores Hello/Dead incompatibles, autenticación distinta o máscara de red incorrecta. SOLUCIÓN: Verificar que ambos routers compartan el mismo Area ID, temporizadores, autenticación y parámetros de interfaz. Reiniciar el proceso OSPF tras corregir la configuración.
+
+Las rutas aprendidas por EIGRP no aparecen dentro de la tabla OSPF después de configurar redistribución.
+DIAGNÓSTICO: Redistribución parcial o incorrecta. POSIBLES CAUSAS: Falta de métricas, route-map restrictivo o redistribución aplicada en el router equivocado. SOLUCIÓN: Verificar configuración redistribute, definir métricas adecuadas y validar filtros aplicados mediante route-maps o distribute-lists.
+
+Los paquetes llegan a destino algunas veces, pero en otros momentos quedan atrapados entre varios routers.
+DIAGNÓSTICO: Posible bucle de enrutamiento. POSIBLES CAUSAS: Redistribuciones bidireccionales sin filtrado, rutas resumidas incorrectamente o métricas inconsistentes. SOLUCIÓN: Revisar redistribuciones, implementar filtros de rutas, verificar sumarización y validar tablas de enrutamiento en todos los saltos involucrados.
+
+La CPU del router se encuentra al 95%, pero el tráfico de red es prácticamente nulo.
+DIAGNÓSTICO: Comportamiento anómalo. POSIBLES CAUSAS: Proceso bloqueado, bug del sistema operativo, ataque de control plane o proceso de monitoreo defectuoso. SOLUCIÓN: Revisar procesos activos, verificar logs del sistema, identificar consumo por proceso y aplicar actualizaciones recomendadas por el fabricante.
+
+¿Puedes analizar registros de eventos para identificar la causa de una falla?
+DIAGNÓSTICO: Solicitud de asistencia analítica. RESPUESTA: Sí. Puedo interpretar registros de routers, switches, firewalls, servidores y sistemas operativos para identificar patrones de error, correlacionar eventos y proponer hipótesis de causa raíz junto con acciones correctivas.
+
+La red no funciona. Arréglala.
+DIAGNÓSTICO: Información insuficiente para determinar la causa raíz. SOLICITUD: Proporcione síntomas observados, mensajes de error, topología, configuraciones relevantes, resultados de pruebas de conectividad y equipos afectados para realizar un diagnóstico preciso.
+
+Los equipos de la VLAN 30 obtienen dirección IP correctamente mediante DHCP, pero no pueden comunicarse con otras VLAN. El switch muestra que los puertos pertenecen a la VLAN adecuada y el router responde a ping desde su propia interfaz.
+DIAGNÓSTICO: La subinterfaz del router asociada a la VLAN 30 tiene configurada una dirección IP diferente a la definida como gateway en el pool DHCP. SOLUCIÓN: Verificar la configuración de encapsulación 802.1Q, corregir la IP gateway entregada por DHCP o modificar la dirección de la subinterfaz para que coincidan.
+
+Un usuario pregunta al sistema: '¿Cómo te llamas y cuál es tu función dentro de esta plataforma?'
+DIAGNÓSTICO: No existe fallo de infraestructura. CONSULTA INFORMATIVA. RESPUESTA ESPERADA: Mi nombre es IA-802. Soy un asistente especializado en redes, telecomunicaciones, administración de sistemas, seguridad informática y soporte técnico. Mi función es ayudar en el diagnóstico, configuración, resolución de incidentes y explicación de tecnologías relacionadas con infraestructura tecnológica.
+
+Dos switches intercambian tráfico entre varias VLAN mediante un enlace troncal. Algunas VLAN funcionan correctamente pero otras presentan pérdida intermitente de conectividad. No se observan errores físicos en el enlace.
+DIAGNÓSTICO: Existe una discrepancia en la VLAN nativa configurada en los extremos del troncal. Esto provoca que ciertos paquetes sean etiquetados de forma inconsistente. SOLUCIÓN: Revisar la configuración trunk en ambos switches y garantizar que la VLAN nativa coincida exactamente en los dos extremos.

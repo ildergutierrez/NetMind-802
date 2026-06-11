@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetMind — Carga de Datos de Entrenamiento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="upload-styles.css" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">NetMind</span>
+      <span class="topbar-sep">/</span>
+      <span class="topbar-section">Carga de Datos</span>
+    </div>
+    <div class="topbar-right">
+      <div class="server-pill" id="serverPill">
+        <span class="pill-dot" id="pillDot"></span>
+        <span id="pillLabel">Verificando...</span>
+        <span class="pill-cases" id="pillCases"></span>
+      </div>
+      <a href="index.html" class="btn-back">← Volver al diagnóstico</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page">
+
+    <div class="page-intro">
+      <h1>Carga de Datos de Entrenamiento</h1>
+      <p>Importa casos de entrenamiento desde archivos CSV o PDF, o añade casos manualmente. Todos los datos se envían al endpoint <code>POST /feedback</code> y quedan listos para re-entrenar el modelo.</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" data-tab="csv">📊 Importar CSV</button>
+      <button class="tab" data-tab="pdf">📄 Importar PDF</button>
+      <button class="tab" data-tab="manual">✍️ Caso manual</button>
+      <button class="tab" data-tab="batch">📦 Lote JSON</button>
+    </div>
+
+    <!-- ── TAB: CSV ── -->
+    <section class="tab-panel active" id="tab-csv">
+      <div class="panel-header">
+        <div>
+          <h2>Importar desde CSV</h2>
+          <p>El CSV debe tener las columnas <code>titulo</code>, <code>prompt</code> y <code>respuesta</code>. La columna <code>titulo</code> es opcional.</p>
+        </div>
+        <a class="btn-ghost" id="btnDownloadTemplate" download="plantilla_netmind.csv">⬇ Descargar plantilla</a>
+      </div>
+
+      <div class="format-box">
+        <span class="format-label">Formato esperado</span>
+        <pre>titulo,prompt,respuesta
+"Fallo OSPF","El router no propaga rutas OSPF al área backbone","DIAGNÓSTICO: ..."
+"DHCP sin IPs","Los clientes no reciben IP...","DIAGNÓSTICO: ..."</pre>
+      </div>
+
+      <div class="dropzone" id="dropzoneCSV">
+        <input type="file" id="fileCSV" accept=".csv,text/csv" hidden />
+        <div class="dz-inner" id="dzCSVInner">
+          <div class="dz-icon">📊</div>
+          <div class="dz-text">Arrastra tu archivo CSV aquí o
+            <button type="button" class="link-btn" onclick="document.getElementById('fileCSV').click()">selecciona archivo</button>
+          </div>
+          <div class="dz-hint">Solo archivos .csv — separador coma o punto y coma</div>
+        </div>
+        <div class="dz-loaded hidden" id="dzCSVLoaded">
+          <div class="dz-file-info">
+            <span class="dz-file-icon">📊</span>
+            <div>
+              <div class="dz-file-name" id="csvFileName">—</div>
+              <div class="dz-file-meta" id="csvFileMeta">—</div>
+            </div>
+            <button class="dz-remove" id="csvRemove">✕</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVIEW TABLE -->
+      <div class="preview-wrap hidden" id="csvPreviewWrap">
+        <div class="preview-header">
+          <span class="preview-title">Vista previa — <span id="csvRowCount">0</span> casos encontrados</span>
+          <div class="preview-actions">
+            <button class="btn-ghost" id="btnCSVSelectAll">Seleccionar todos</button>
+            <button class="btn-ghost" id="btnCSVDeselectAll">Deseleccionar</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="csvTable">
+            <thead>
+              <tr>
+                <th class="col-check"><input type="checkbox" id="csvCheckAll" /></th>
+                <th>Título</th>
+                <th>Prompt</th>
+                <th>Respuesta</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="csvTbody"></tbody>
+          </table>
+        </div>
+        <div class="panel-footer">
+          <span class="selected-count" id="csvSelectedCount">0 seleccionados</span>
+          <button class="btn-primary" id="btnSendCSV">
+            <span class="btn-text">Enviar seleccionados al modelo</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAB: PDF ── -->
+    <section class="tab-panel hidden" id="tab-pdf">
+      <div class="panel-header">
+        <div>
+          <h2>Importar desde PDF</h2>
+          <p>Sube un PDF con casos de red. El sistema extrae el texto y lo prepara como casos individuales para que los revises antes de enviar.</p>
+        </div>
+      </div>
+
+      <div class="info-banner">
+        <span class="info-icon">ℹ️</span>
+        <span>El PDF se envía al servidor <strong>para procesarlo con pdfplumber</strong>. Asegúrate de que el servidor esté activo. El texto extraído se dividirá en casos usando separadores <code>---</code> o doble salto de línea.</span>
+      </div>
+
+      <div class="dropzone" id="dropzonePDF">
+        <input type="file" id="filePDF" accept=".pdf,application/pdf" hidden />
+        <div class="dz-inner" id="dzPDFInner">
+          <div class="dz-icon">📄</div>
+          <div class="dz-text">Arrastra tu archivo PDF aquí o
+            <button type="button" class="link-btn" onclick="document.getElementById('filePDF').click()">selecciona archivo</button>
+          </div>
+          <div class="dz-hint">Solo archivos .pdf — máx. 20 MB</div>
+        </div>
+        <div class="dz-loaded hidden" id="dzPDFLoaded">
+          <div class="dz-file-info">
+            <span class="dz-file-icon">📄</span>
+            <div>
+              <div class="dz-file-name" id="pdfFileName">—</div>
+              <div class="dz-file-meta" id="pdfFileMeta">—</div>
+            </div>
+            <button class="dz-remove" id="pdfRemove">✕</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pdf-config hidden" id="pdfConfig">
+        <div class="config-row">
+          <label class="config-label">Título base para los casos extraídos</label>
+          <input type="text" id="pdfTituloBase" class="field-input" placeholder="Ej: Manual Cisco IOS — Caso" />
+        </div>
+        <div class="config-row">
+          <label class="config-label">Separador de casos en el PDF</label>
+          <select id="pdfSeparator" class="field-select">
+            <option value="---">Triple guión: ---</option>
+            <option value="\n\n">Doble salto de línea</option>
+            <option value="Caso">Palabra "Caso"</option>
+            <option value="custom">Personalizado...</option>
+          </select>
+          <input type="text" id="pdfSepCustom" class="field-input hidden" placeholder="Escribe el separador..." />
+        </div>
+        <button class="btn-primary btn-outline" id="btnExtractPDF">
+          <span class="btn-text">Extraer texto del PDF</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+      </div>
+
+      <!-- CASOS EXTRAÍDOS -->
+      <div class="extracted-wrap hidden" id="pdfExtractedWrap">
+        <div class="preview-header">
+          <span class="preview-title">Casos extraídos — <span id="pdfCaseCount">0</span> encontrados</span>
+          <div class="preview-actions">
+            <button class="btn-ghost" id="btnPDFSelectAll">Seleccionar todos</button>
+            <button class="btn-ghost" id="btnPDFDeselectAll">Deseleccionar</button>
+          </div>
+        </div>
+        <div id="pdfCasesContainer"></div>
+        <div class="panel-footer">
+          <span class="selected-count" id="pdfSelectedCount">0 seleccionados</span>
+          <button class="btn-primary" id="btnSendPDF">
+            <span class="btn-text">Enviar seleccionados al modelo</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TAB: MANUAL ── -->
+    <section class="tab-panel hidden" id="tab-manual">
+      <div class="panel-header">
+        <div>
+          <h2>Añadir caso manualmente</h2>
+          <p>Escribe un caso de entrenamiento directamente. Útil para corregir respuestas incorrectas del modelo.</p>
+        </div>
+      </div>
+
+      <div class="manual-form">
+        <div class="field-group">
+          <label class="field-label" for="manualTitulo">Título del caso <span class="optional">(opcional)</span></label>
+          <input type="text" id="manualTitulo" class="field-input" placeholder="Ej: Native VLAN Mismatch en trunk Cisco" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="manualPrompt">Prompt — descripción del problema <span class="required">*</span></label>
+          <textarea id="manualPrompt" class="field-textarea" rows="4"
+            placeholder="Ej: Desajuste de VLAN nativa en enlace troncal 802.1Q entre switches Cisco. Aparece alerta CDP en consola y hay pérdida de paquetes en la VLAN nativa."></textarea>
+          <div class="char-counter"><span id="promptChars">0</span> / 1000</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="manualRespuesta">Respuesta correcta — Diagnóstico + Causas + Solución <span class="required">*</span></label>
+          <textarea id="manualRespuesta" class="field-textarea" rows="12"
+            placeholder="DIAGNÓSTICO: ...&#10;&#10;CAUSAS PROBABLES:&#10;1. ...&#10;2. ...&#10;&#10;SOLUCIÓN - Cisco IOS:&#10;interface GigabitEthernet0/1&#10; switchport trunk native vlan 99&#10;&#10;VERIFICACIÓN:&#10;show interfaces trunk"></textarea>
+          <div class="char-counter"><span id="respChars">0</span> caracteres</div>
+        </div>
+
+        <div class="manual-footer">
+          <div class="manual-tips">
+            <strong>💡 Formato recomendado para la respuesta:</strong>
+            <code>DIAGNÓSTICO:</code> → <code>CAUSAS PROBABLES:</code> → <code>SOLUCIÓN - [plataforma]:</code> → <code>VERIFICACIÓN:</code>
+          </div>
+          <div class="manual-actions">
+            <button class="btn-ghost" id="btnManualClear">Limpiar</button>
+            <button class="btn-primary" id="btnManualSend">
+              <span class="btn-text">Guardar en dataset</span>
+              <span class="btn-loader hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="result-inline hidden" id="manualResult"></div>
+      </div>
+    </section>
+
+    <!-- ── TAB: BATCH JSON ── -->
+    <section class="tab-panel hidden" id="tab-batch">
+      <div class="panel-header">
+        <div>
+          <h2>Importar lote JSON</h2>
+          <p>Pega o sube un array JSON con múltiples casos. Cada objeto debe tener <code>prompt</code> y <code>respuesta</code>. El campo <code>titulo</code> es opcional.</p>
+        </div>
+      </div>
+
+      <div class="format-box">
+        <span class="format-label">Formato esperado</span>
+        <pre>[
+  {
+    "titulo": "Fallo OSPF",
+    "prompt": "El router no propaga rutas OSPF al área backbone",
+    "respuesta": "DIAGNÓSTICO: ..."
+  },
+  {
+    "prompt": "Los clientes no reciben IP del DHCP",
+    "respuesta": "DIAGNÓSTICO: ..."
+  }
+]</pre>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Pegar JSON</label>
+        <textarea id="batchJSON" class="field-textarea field-mono" rows="12" placeholder='[&#10;  { "prompt": "...", "respuesta": "..." }&#10;]'></textarea>
+      </div>
+
+      <div class="batch-or">
+        <span>— o cargar desde archivo —</span>
+      </div>
+
+      <div class="dropzone dz-compact" id="dropzoneBatch">
+        <input type="file" id="fileBatch" accept=".json,application/json" hidden />
+        <div class="dz-inner" id="dzBatchInner">
+          <span class="dz-icon-sm">📦</span>
+          <span class="dz-text">Arrastra un .json o
+            <button type="button" class="link-btn" onclick="document.getElementById('fileBatch').click()">selecciona archivo</button>
+          </span>
+        </div>
+        <div class="dz-loaded hidden" id="dzBatchLoaded">
+          <span class="dz-file-icon">📦</span>
+          <span class="dz-file-name" id="batchFileName">—</span>
+          <button class="dz-remove" id="batchRemove">✕</button>
+        </div>
+      </div>
+
+      <div class="batch-validate hidden" id="batchValidate">
+        <div class="validate-row">
+          <span class="validate-icon" id="validateIcon">—</span>
+          <span id="validateMsg">—</span>
+        </div>
+      </div>
+
+      <div class="panel-footer" style="margin-top:24px;">
+        <button class="btn-ghost" id="btnValidateBatch">Validar JSON</button>
+        <button class="btn-primary" id="btnSendBatch" disabled>
+          <span class="btn-text">Enviar todos al modelo</span>
+          <span class="btn-loader hidden"></span>
+        </button>
+      </div>
+
+      <div class="result-inline hidden" id="batchResult"></div>
+    </section>
+
+    <!-- PROGRESS LOG -->
+    <div class="log-panel hidden" id="logPanel">
+      <div class="log-header">
+        <span class="log-title">📋 Registro de envíos</span>
+        <button class="btn-ghost btn-sm" id="btnClearLog">Limpiar</button>
+      </div>
+      <div class="log-body" id="logBody"></div>
+    </div>
+
+    <!-- TRAIN TRIGGER -->
+    <div class="train-banner" id="trainBanner" style="display:none">
+      <div class="train-banner-text">
+        <strong>🧠 Tienes casos nuevos sin entrenar.</strong>
+        <span id="trainBannerCount"></span>
+      </div>
+      <button class="btn-primary btn-amber" id="btnTrainFromUpload">
+        <span class="btn-text">Re-entrenar ahora</span>
+        <span class="btn-loader hidden"></span>
+      </button>
+    </div>
+
+  </main>
+
+  <script src="upload-app.js"></script>
+</body>
+</html>

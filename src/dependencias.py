@@ -43,6 +43,9 @@ DEPENDENCIAS = [
 
     # --- Búsqueda Web (Para enriquecer respuestas con información de Internet) ---
     "httpx",
+
+    #Directx
+    "onnxruntime-directml",
 ]
 
 SO = platform.system()

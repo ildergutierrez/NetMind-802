@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetMind — Diagnóstico de Red con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">NetMind</span>
+      </div>
+      <div class="server-status" id="serverStatus">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-label" id="statusLabel">Verificando...</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-section="diagnose">
+        <span class="nav-icon">🔍</span>
+        <span>Diagnóstico Local</span>
+        <span class="nav-badge">POST /diagnose</span>
+      </button>
+      <button class="nav-item" data-section="diagnose-web">
+        <span class="nav-icon">🌐</span>
+        <span>Diagnóstico Web</span>
+        <span class="nav-badge">POST /diagnose-web</span>
+      </button>
+      <button class="nav-item" data-section="feedback">
+        <span class="nav-icon">✅</span>
+        <span>Enviar Feedback</span>
+        <span class="nav-badge">POST /feedback</span>
+      </button>
+      <button class="nav-item" data-section="train">
+        <span class="nav-icon">🧠</span>
+        <span>Re-entrenar Modelo</span>
+        <span class="nav-badge">POST /train</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="stats-card" id="statsCard">
+        <div class="stat-item">
+          <span class="stat-label">Casos aprendidos</span>
+          <span class="stat-value" id="statCases">—</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Estado modelo</span>
+          <span class="stat-value" id="statModel">—</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="topbar-title" id="topbarTitle">Diagnóstico Local</div>
+      <a href="upload.html" class="btn-refresh" title="Cargar datos de entrenamiento" style="text-decoration:none;">⬆ Cargar datos</a>
+      <button class="btn-refresh" id="btnRefresh" title="Refrescar estado del servidor">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Refrescar
+      </button>
+    </header>
+
+    <!-- SECTIONS -->
+    <div class="content">
+
+      <!-- DIAGNOSE LOCAL -->
+      <section class="section active" id="section-diagnose">
+        <div class="section-intro">
+          <h2>Diagnóstico con modelo local</h2>
+          <p>Describe el problema de red o adjunta una imagen (topología, captura de pantalla, logs). El modelo local analizará la consulta y entregará un diagnóstico.</p>
+        </div>
+
+        <div class="form-card">
+          <div class="field-group">
+            <label class="field-label" for="diagnoseText">Descripción del problema</label>
+            <textarea
+              id="diagnoseText"
+              class="field-textarea"
+              placeholder="Ej: El router no propaga rutas OSPF al área backbone. Los vecinos aparecen en estado EXSTART pero nunca llegan a FULL..."
+              rows="5"
+            ></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Imagen (opcional)</label>
+            <div class="dropzone" id="dropzoneDiagnose">
+              <input type="file" id="fileDiagnose" accept="image/*" hidden />
+              <div class="dropzone-inner" id="dropzoneDiagnoseInner">
+                <span class="dropzone-icon">📎</span>
+                <span class="dropzone-text">Arrastra una imagen o <button type="button" class="link-btn" onclick="document.getElementById('fileDiagnose').click()">selecciona archivo</button></span>
+                <span class="dropzone-hint">PNG, JPG, GIF — máx. 10 MB</span>
+              </div>
+              <div class="dropzone-preview hidden" id="previewDiagnose">
+                <img id="previewImgDiagnose" src="" alt="preview" />
+                <button type="button" class="remove-img" data-target="fileDiagnose" data-preview="previewDiagnose" data-inner="dropzoneDiagnoseInner">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" id="btnDiagnose">
+              <span class="btn-text">Diagnosticar</span>
+              <span class="btn-loader hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="result-card hidden" id="resultDiagnose"></div>
+      </section>
+
+      <!-- DIAGNOSE WEB -->
+      <section class="section" id="section-diagnose-web">
+        <div class="section-intro">
+          <h2>Diagnóstico con búsqueda web</h2>
+          <p>El modelo combina el diagnóstico local con búsqueda en tiempo real en Cisco, Wikipedia e IEEE para enriquecer la respuesta.</p>
+        </div>
+
+        <div class="form-card">
+          <div class="field-group">
+            <label class="field-label" for="diagnoseWebText">Descripción del problema</label>
+            <textarea
+              id="diagnoseWebText"
+              class="field-textarea"
+              placeholder="Ej: Pérdida de paquetes intermitente en enlace MPLS entre PE y CE, MTU parece estar causando fragmentación..."
+              rows="5"
+            ></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Imagen (opcional)</label>
+            <div class="dropzone" id="dropzoneWeb">
+              <input type="file" id="fileWeb" accept="image/*" hidden />
+              <div class="dropzone-inner" id="dropzoneWebInner">
+                <span class="dropzone-icon">📎</span>
+                <span class="dropzone-text">Arrastra una imagen o <button type="button" class="link-btn" onclick="document.getElementById('fileWeb').click()">selecciona archivo</button></span>
+                <span class="dropzone-hint">PNG, JPG, GIF — máx. 10 MB</span>
+              </div>
+              <div class="dropzone-preview hidden" id="previewWeb">
+                <img id="previewImgWeb" src="" alt="preview" />
+                <button type="button" class="remove-img" data-target="fileWeb" data-preview="previewWeb" data-inner="dropzoneWebInner">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary" id="btnDiagnoseWeb">
+              <span class="btn-text">Diagnosticar + Web</span>
+              <span class="btn-loader hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="result-card hidden" id="resultDiagnoseWeb"></div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="section" id="section-feedback">
+        <div class="section-intro">
+          <h2>Enviar caso correcto</h2>
+          <p>Si ya conoces la solución correcta, envíala para que el modelo aprenda de este caso y mejore futuros diagnósticos.</p>
+        </div>
+
+        <div class="form-card">
+          <div class="field-group">
+            <label class="field-label" for="fbTitulo">Título del caso <span style="color:var(--text-3);font-weight:400">(opcional)</span></label>
+            <input id="fbTitulo" class="field-textarea" style="resize:none;height:auto;padding:10px 14px;" type="text" placeholder="Ej: Fallo OSPF en área backbone — solución MTU" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="fbPrompt">Prompt / Descripción del problema <span style="color:var(--red)">*</span></label>
+            <textarea id="fbPrompt" class="field-textarea" placeholder="Describe el problema de red tal como lo consultarías a la IA..." rows="4"></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="fbRespuesta">Respuesta correcta (Diagnóstico + Causas + Solución) <span style="color:var(--red)">*</span></label>
+            <textarea id="fbRespuesta" class="field-textarea" placeholder="Escribe la respuesta correcta completa que la IA debería haber dado..." rows="5"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn-primary btn-green" id="btnFeedback">
+              <span class="btn-text">Guardar en dataset</span>
+              <span class="btn-loader hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="result-card hidden" id="resultFeedback"></div>
+      </section>
+
+      <!-- TRAIN -->
+      <section class="section" id="section-train">
+        <div class="section-intro">
+          <h2>Re-entrenar el modelo</h2>
+          <p>Lanza un nuevo ciclo de entrenamiento con todos los casos acumulados en el dataset. Este proceso puede tardar varios minutos.</p>
+        </div>
+
+        <div class="form-card train-card">
+          <div class="train-icon">🧠</div>
+          <p class="train-desc">El modelo será re-entrenado con todos los casos de feedback guardados hasta el momento. Asegúrate de haber enviado los casos correctos antes de continuar.</p>
+          <div class="form-actions">
+            <button class="btn-primary btn-amber" id="btnTrain">
+              <span class="btn-text">Iniciar entrenamiento</span>
+              <span class="btn-loader hidden"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="result-card hidden" id="resultTrain"></div>
+      </section>
+
+    </div><!-- /content -->
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
