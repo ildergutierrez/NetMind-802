@@ -2435,6 +2435,7 @@
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
+    "id": "caso_fb_20260612_174953",
     "titulo": "LACP no agrega los enlaces (EtherChannel)",
     "prompt": "Configuré un EtherChannel con LACP entre dos switches Cisco pero los puertos no se agregan. show etherchannel summary muestra los puertos en estado (I) individual. ¿Qué revisar?",
     "target": "Diagnóstico: LACP no está logrando agregar los puertos en el EtherChannel porque hay parámetros incompatibles entre los puertos. Causa: Para que LACP funcione, todos los puertos del channel deben tener la misma velocidad, dúplex, VLAN nativa, VLANs permitidas y modo de switchport. Solución: 1) show etherchannel detail para ver el motivo por el que los puertos no se agregan. 2) Verificar que todos los puertos tienen la misma velocidad y dúplex. 3) Verificar VLANs: todos los puertos deben tener la misma VLAN nativa y VLANs permitidas. 4) Verificar modo: channel-group 1 mode active (LACP activo) en ambos extremos. 5) No mezclar LACP con PAgP o modo on. 6) Después de corregir: clear etherchannel y reconfigurar.",
