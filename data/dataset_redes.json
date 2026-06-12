@@ -223,14 +223,7 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-10T21:54:59.407360"
   },
-  {
-    "id": "caso_fb_20260610_215459",
-    "titulo": "app.delete('/post'",
-    "prompt": "(req",
-    "target": "res) => {",
-    "origen": "feedback_usuario",
-    "fecha": "2026-06-10T21:54:59.539234"
-  },
+
   {
     "id": "caso_fb_20260610_215459",
     "titulo": "Raspberry Pi vs ESP32 SD card",
@@ -2091,14 +2084,13 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
-    {
-      "id": "caso_fb_20260612_174951",
+  {
+    "id": "caso_fb_20260612_174951",
     "titulo": "Puerto en err-disabled por port-security",
     "prompt": "El puerto GigabitEthernet0/1 del switch Cisco 2960 aparece en estado err-disabled. El usuario conectó un hub al puerto. ¿Cómo se diagnostica y soluciona?",
     "target": "Diagnóstico: El puerto entró en err-disabled por violación de port-security al detectar múltiples MACs. Causa: Se conectó un hub que expuso varias direcciones MAC al puerto, superando el límite configurado. Solución: 1) show port-security interface Gi0/1 para ver la violación. 2) interface GigabitEthernet0/1 / shutdown / no shutdown para recuperar el puerto. 3) Ajustar límite: switchport port-security maximum 3. 4) Cambiar modo a restrict en vez de shutdown: switchport port-security violation restrict.",
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
-  
   },
   {
     "id": "caso_fb_20260612_174952",
@@ -2112,26 +2104,24 @@
     "id": "caso_fb_20260612_174953",
     "titulo": "Trunk no pasa VLANs entre switches",
     "prompt": "Tengo dos switches Cisco 2960 conectados por un enlace trunk pero solo pasa la VLAN 1. Las VLANs 10, 20 y 30 no se comunican entre switches. ¿Qué revisar?",
-    "target": "Diagnóstico: El trunk está activo pero las VLANs 10, 20 y 30 no están permitidas en el enlace. Causa: Por defecto el trunk puede tener una lista de VLANs permitidas restringida o fue modificada con switchport trunk allowed vlan. Solución: 1) show interfaces Gi0/1 trunk para ver VLANs permitidas y activas. 2) switchport trunk allowed vlan add 10,20,30 en ambos switches. 3) Verificar que las VLANs existen en ambos switches con show vlan brief. 4) Confirmar modo trunk: switchport mode trunk en ambos extremos."
-  ,
-  "origen": "feedback_usuario",
+    "target": "Diagnóstico: El trunk está activo pero las VLANs 10, 20 y 30 no están permitidas en el enlace. Causa: Por defecto el trunk puede tener una lista de VLANs permitidas restringida o fue modificada con switchport trunk allowed vlan. Solución: 1) show interfaces Gi0/1 trunk para ver VLANs permitidas y activas. 2) switchport trunk allowed vlan add 10,20,30 en ambos switches. 3) Verificar que las VLANs existen en ambos switches con show vlan brief. 4) Confirmar modo trunk: switchport mode trunk en ambos extremos.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-      "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "STP bloqueando puerto de acceso",
     "prompt": "Un puerto de acceso en un switch de acceso está en estado BLK de Spanning Tree y los usuarios de esa sala no tienen red. No hay bucles físicos visibles. ¿Qué hacer?",
-    "target": "Diagnóstico: Spanning Tree Protocol está bloqueando el puerto por considerarlo parte de un posible bucle en la topología. Causa: Puede ser que el switch reciba BPDUs por ese puerto, indicando otro switch conectado, o la prioridad del switch raíz no está bien configurada. Solución: 1) show spanning-tree vlan X para ver el estado de cada puerto. 2) Si el puerto es de acceso a usuario final, habilitar PortFast: interface Gi0/x / spanning-tree portfast. 3) Habilitar BPDU Guard para proteger puertos de acceso: spanning-tree portfast bpduguard default. 4) Si hay un switch no autorizado, retirarlo."
-  ,
-  "origen": "feedback_usuario",
+    "target": "Diagnóstico: Spanning Tree Protocol está bloqueando el puerto por considerarlo parte de un posible bucle en la topología. Causa: Puede ser que el switch reciba BPDUs por ese puerto, indicando otro switch conectado, o la prioridad del switch raíz no está bien configurada. Solución: 1) show spanning-tree vlan X para ver el estado de cada puerto. 2) Si el puerto es de acceso a usuario final, habilitar PortFast: interface Gi0/x / spanning-tree portfast. 3) Habilitar BPDU Guard para proteger puertos de acceso: spanning-tree portfast bpduguard default. 4) Si hay un switch no autorizado, retirarlo.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "IP duplicada en la red causa intermitencia",
     "prompt": "Varios usuarios reportan que su conexión se cae cada pocos minutos. En la consola del switch aparece el mensaje: IP address conflict detected. ¿Cómo se resuelve?",
-    "target": "Diagnóstico: Existe una dirección IP duplicada en la red. Dos dispositivos están usando la misma IP causando conflictos ARP. Causa: Un dispositivo fue configurado con IP estática igual a una IP del rango DHCP, o dos dispositivos tienen la misma IP estática. Solución: 1) En el switch: show ip arp para ver MACs asociadas a la IP conflictiva. 2) Identificar los dos dispositivos con esa IP. 3) Cambiar la IP estática del dispositivo conflictivo o excluirla del pool DHCP: ip dhcp excluded-address 192.168.1.x. 4) En Windows usar arp -a para verificar duplicados."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: Existe una dirección IP duplicada en la red. Dos dispositivos están usando la misma IP causando conflictos ARP. Causa: Un dispositivo fue configurado con IP estática igual a una IP del rango DHCP, o dos dispositivos tienen la misma IP estática. Solución: 1) En el switch: show ip arp para ver MACs asociadas a la IP conflictiva. 2) Identificar los dos dispositivos con esa IP. 3) Cambiar la IP estática del dispositivo conflictivo o excluirla del pool DHCP: ip dhcp excluded-address 192.168.1.x. 4) En Windows usar arp -a para verificar duplicados.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
@@ -2143,344 +2133,354 @@
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "DHCP no asigna direcciones",
     "prompt": "Los clientes no reciben IP del servidor DHCP Cisco. Muestran APIPA 169.254.x.x. El servidor DHCP está en un router Cisco en otra subred. ¿Cómo se soluciona?",
-    "target": "Diagnóstico: Los clientes no reciben respuesta DHCP porque el DHCP Discover no llega al servidor en la otra subred. Causa: Los routers no retransmiten broadcasts por defecto, por lo que el DHCP Discover (broadcast) no cruza la red. Solución: 1) Configurar DHCP Relay en el router de la subred cliente: interface Vlan10 / ip helper-address 192.168.1.1 (IP del servidor DHCP). 2) Verificar el pool DHCP: show ip dhcp pool. 3) Verificar conflictos: show ip dhcp conflict. 4) Verificar que el pool tiene el rango correcto y el gateway configurado: default-router 192.168.10.1."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: Los clientes no reciben respuesta DHCP porque el DHCP Discover no llega al servidor en la otra subred. Causa: Los routers no retransmiten broadcasts por defecto, por lo que el DHCP Discover (broadcast) no cruza la red. Solución: 1) Configurar DHCP Relay en el router de la subred cliente: interface Vlan10 / ip helper-address 192.168.1.1 (IP del servidor DHCP). 2) Verificar el pool DHCP: show ip dhcp pool. 3) Verificar conflictos: show ip dhcp conflict. 4) Verificar que el pool tiene el rango correcto y el gateway configurado: default-router 192.168.10.1.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Cable de red sin conectividad física",
     "prompt": "Un usuario no tiene red. El LED del puerto del switch está apagado. Se cambió el cable y sigue igual. El adaptador de red del PC aparece como desconectado. ¿Qué revisar?",
-    "target": "Diagnóstico: No hay enlace físico (Layer 1) entre el PC y el switch. Causa: Puede ser falla en el adaptador de red del PC, puerto del switch dañado, o el cable nuevo también es defectuoso. Solución: 1) Probar el cable con un cable tester para verificar continuidad. 2) Conectar otro dispositivo al mismo puerto del switch para descartar el puerto. 3) Conectar el PC a otro puerto del switch para descartar el adaptador. 4) En Cisco: show interfaces Gi0/x para ver si el puerto detecta señal. 5) Verificar que el puerto no está administrativamente apagado: no shutdown."
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: No hay enlace físico (Layer 1) entre el PC y el switch. Causa: Puede ser falla en el adaptador de red del PC, puerto del switch dañado, o el cable nuevo también es defectuoso. Solución: 1) Probar el cable con un cable tester para verificar continuidad. 2) Conectar otro dispositivo al mismo puerto del switch para descartar el puerto. 3) Conectar el PC a otro puerto del switch para descartar el adaptador. 4) En Cisco: show interfaces Gi0/x para ver si el puerto detecta señal. 5) Verificar que el puerto no está administrativamente apagado: no shutdown.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "ACL bloquea tráfico legítimo",
     "prompt": "Después de aplicar una ACL en un router Cisco, los usuarios no pueden acceder al servidor web interno 192.168.10.5. El ping al servidor funciona pero HTTP no. ¿Qué revisar?",
-    "target": "Diagnóstico: La ACL está bloqueando el tráfico HTTP (puerto 80) hacia el servidor aunque permita ICMP. Causa: La ACL tiene una regla que bloquea TCP puerto 80 o no tiene una regla explícita de permiso para ese tráfico, y la regla implícita deny any al final la bloquea. Solución: 1) show ip access-lists para ver las reglas y los contadores de coincidencias. 2) Agregar regla de permiso: permit tcp any host 192.168.10.5 eq 80. 3) Verificar el orden de las reglas (las ACL se procesan de arriba hacia abajo). 4) Quitar y re-aplicar la ACL si es necesario reorganizarla: no ip access-group en la interfaz."
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: La ACL está bloqueando el tráfico HTTP (puerto 80) hacia el servidor aunque permita ICMP. Causa: La ACL tiene una regla que bloquea TCP puerto 80 o no tiene una regla explícita de permiso para ese tráfico, y la regla implícita deny any al final la bloquea. Solución: 1) show ip access-lists para ver las reglas y los contadores de coincidencias. 2) Agregar regla de permiso: permit tcp any host 192.168.10.5 eq 80. 3) Verificar el orden de las reglas (las ACL se procesan de arriba hacia abajo). 4) Quitar y re-aplicar la ACL si es necesario reorganizarla: no ip access-group en la interfaz.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "NAT no traduce correctamente",
     "prompt": "Los usuarios de la red interna 192.168.1.0/24 no tienen acceso a internet. El router tiene configurado NAT. show ip nat translations aparece vacío. ¿Qué falla?",
-    "target": "Diagnóstico: NAT no está traduciendo porque la configuración está incompleta o incorrecta. Causa: Puede faltar marcar las interfaces como inside/outside, el pool NAT puede ser incorrecto, o la ACL de NAT no coincide con el tráfico. Solución: 1) Verificar interfaces: interface Gi0/0 / ip nat inside — interface Gi0/1 / ip nat outside. 2) Verificar la ACL: access-list 1 permit 192.168.1.0 0.0.0.255. 3) Verificar NAT overload: ip nat inside source list 1 interface Gi0/1 overload. 4) Probar con ping desde un cliente y verificar show ip nat translations en tiempo real."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: NAT no está traduciendo porque la configuración está incompleta o incorrecta. Causa: Puede faltar marcar las interfaces como inside/outside, el pool NAT puede ser incorrecto, o la ACL de NAT no coincide con el tráfico. Solución: 1) Verificar interfaces: interface Gi0/0 / ip nat inside — interface Gi0/1 / ip nat outside. 2) Verificar la ACL: access-list 1 permit 192.168.1.0 0.0.0.255. 3) Verificar NAT overload: ip nat inside source list 1 interface Gi0/1 overload. 4) Probar con ping desde un cliente y verificar show ip nat translations en tiempo real.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-   "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "WiFi con señal pero sin internet",
     "prompt": "Los clientes WiFi se conectan al AP y obtienen IP, pero no tienen acceso a internet. Los clientes cableados sí tienen internet. ¿Qué verificar?",
-    "target": "Diagnóstico: El problema está en el segmento inalámbrico, probablemente en el gateway o en el enrutamiento hacia internet desde la VLAN WiFi. Causa: La VLAN asignada al SSID puede no tener gateway correcto, o el firewall puede estar bloqueando tráfico de esa subred. Solución: 1) Verificar que los clientes WiFi reciben IP, máscara y gateway correctos. 2) Hacer ping al gateway desde un cliente WiFi. 3) Si el ping al gateway falla, verificar la configuración de la interfaz VLAN en el switch o router. 4) Verificar reglas de firewall que afecten la subred WiFi. 5) Verificar que el AP está en la VLAN correcta."
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: El problema está en el segmento inalámbrico, probablemente en el gateway o en el enrutamiento hacia internet desde la VLAN WiFi. Causa: La VLAN asignada al SSID puede no tener gateway correcto, o el firewall puede estar bloqueando tráfico de esa subred. Solución: 1) Verificar que los clientes WiFi reciben IP, máscara y gateway correctos. 2) Hacer ping al gateway desde un cliente WiFi. 3) Si el ping al gateway falla, verificar la configuración de la interfaz VLAN en el switch o router. 4) Verificar reglas de firewall que afecten la subred WiFi. 5) Verificar que el AP está en la VLAN correcta.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "Bucle de red causa tormenta de broadcast",
     "prompt": "La red completa se volvió extremadamente lenta. Los LEDs de todos los puertos del switch parpadean muy rápido. Los usuarios no tienen conectividad. ¿Qué está pasando?",
-    "target": "Diagnóstico: Hay una tormenta de broadcast causada por un bucle de red (loop). Causa: Un cable de red fue conectado entre dos puertos del mismo switch o entre dos switches sin Spanning Tree activo, creando un bucle que multiplica los broadcasts indefinidamente. Solución: Inmediata: 1) Desconectar cables uno a uno hasta que los LEDs se estabilicen. 2) Identificar el cable que forma el bucle y retirarlo. Definitiva: 3) Verificar que STP está activo: show spanning-tree. 4) Habilitar storm control: storm-control broadcast level 20. 5) En puertos de usuario habilitar PortFast + BPDU Guard para prevenir futuros bucles."
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: Hay una tormenta de broadcast causada por un bucle de red (loop). Causa: Un cable de red fue conectado entre dos puertos del mismo switch o entre dos switches sin Spanning Tree activo, creando un bucle que multiplica los broadcasts indefinidamente. Solución: Inmediata: 1) Desconectar cables uno a uno hasta que los LEDs se estabilicen. 2) Identificar el cable que forma el bucle y retirarlo. Definitiva: 3) Verificar que STP está activo: show spanning-tree. 4) Habilitar storm control: storm-control broadcast level 20. 5) En puertos de usuario habilitar PortFast + BPDU Guard para prevenir futuros bucles.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-
     "id": "caso_fb_20260612_174953",
     "titulo": "Interfaz serial con estado down/down",
     "prompt": "El enlace WAN serial entre dos routers Cisco aparece en estado Serial0/0 is down, line protocol is down. El ISP confirma que su lado está activo. ¿Qué revisar?",
-    "target": "Diagnóstico: La interfaz serial no detecta señal de portadora del ISP o hay un problema de configuración local. Causa: Puede ser cable DTE/DCE incorrecto, falta de clock rate en el lado DCE, interfaz apagada administrativamente, o encapsulación incorrecta. Solución: 1) show interfaces Serial0/0 para ver el estado detallado. 2) Verificar que la interfaz no está apagada: no shutdown. 3) Si es DCE local: clock rate 64000. 4) Verificar encapsulación: encapsulation hdlc o ppp según el ISP. 5) show controllers Serial0/0 para ver si es DTE o DCE y verificar señal."
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: La interfaz serial no detecta señal de portadora del ISP o hay un problema de configuración local. Causa: Puede ser cable DTE/DCE incorrecto, falta de clock rate en el lado DCE, interfaz apagada administrativamente, o encapsulación incorrecta. Solución: 1) show interfaces Serial0/0 para ver el estado detallado. 2) Verificar que la interfaz no está apagada: no shutdown. 3) Si es DCE local: clock rate 64000. 4) Verificar encapsulación: encapsulation hdlc o ppp según el ISP. 5) show controllers Serial0/0 para ver si es DTE o DCE y verificar señal.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "OSPF no forma adyacencia",
     "prompt": "Dos routers Cisco configurados con OSPF no forman adyacencia. show ip ospf neighbor aparece vacío. Los routers están directamente conectados. ¿Qué revisar?",
-    "target": "Diagnóstico: OSPF no puede establecer la relación de vecindad entre los dos routers. Causa: Los problemas más comunes son: área diferente en cada router, hello/dead timers distintos, autenticación incorrecta, MTU diferente, o la interfaz no está en la red anunciada. Solución: 1) Verificar que ambos routers tienen el mismo área: show ip ospf interface. 2) Verificar timers: deben coincidir hello 10 / dead 40. 3) Verificar MTU: ip mtu 1500 en ambas interfaces. 4) Verificar que la red está anunciada: network 192.168.1.0 0.0.0.255 area 0. 5) Si hay autenticación: ip ospf authentication-key debe coincidir."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: OSPF no puede establecer la relación de vecindad entre los dos routers. Causa: Los problemas más comunes son: área diferente en cada router, hello/dead timers distintos, autenticación incorrecta, MTU diferente, o la interfaz no está en la red anunciada. Solución: 1) Verificar que ambos routers tienen el mismo área: show ip ospf interface. 2) Verificar timers: deben coincidir hello 10 / dead 40. 3) Verificar MTU: ip mtu 1500 en ambas interfaces. 4) Verificar que la red está anunciada: network 192.168.1.0 0.0.0.255 area 0. 5) Si hay autenticación: ip ospf authentication-key debe coincidir.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Switch con CPU al 100%",
     "prompt": "Un switch Cisco 3560 tiene la CPU al 100% y responde muy lento a comandos. Los usuarios tienen conectividad intermitente. show processes cpu muestra alto consumo. ¿Qué hacer?",
-    "target": "Diagnóstico: El procesador del switch está saturado procesando tráfico o eventos anormales. Causa: Puede ser un ataque de flooding de MAC addresses, una tormenta de broadcast, spanning tree inestable, o un proceso de actualización de tablas excesivo. Solución: 1) show processes cpu sorted para identificar el proceso que consume más CPU. 2) show interfaces para buscar interfaces con muchos errores o alta tasa de paquetes. 3) Si es un ataque: port-security en los puertos afectados. 4) Si es STP: show spanning-tree detail para buscar cambios de topología frecuentes. 5) Considerar actualizar el IOS si hay bugs conocidos."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: El procesador del switch está saturado procesando tráfico o eventos anormales. Causa: Puede ser un ataque de flooding de MAC addresses, una tormenta de broadcast, spanning tree inestable, o un proceso de actualización de tablas excesivo. Solución: 1) show processes cpu sorted para identificar el proceso que consume más CPU. 2) show interfaces para buscar interfaces con muchos errores o alta tasa de paquetes. 3) Si es un ataque: port-security en los puertos afectados. 4) Si es STP: show spanning-tree detail para buscar cambios de topología frecuentes. 5) Considerar actualizar el IOS si hay bugs conocidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-   "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "VPN site-to-site no levanta",
     "prompt": "Una VPN IPSec site-to-site entre dos routers Cisco no establece el túnel. show crypto isakmp sa muestra estado MM_NO_STATE. ¿Cómo se diagnostica?",
-    "target": "Diagnóstico: La fase 1 de IKE (ISAKMP) no está completando la negociación. Causa: Los parámetros de la política ISAKMP no coinciden entre los dos routers: algoritmo de cifrado, hash, método de autenticación, grupo DH o lifetime diferentes. También puede ser problema de conectividad UDP 500. Solución: 1) show crypto isakmp policy en ambos routers y comparar parámetros. 2) Verificar conectividad: ping a la IP pública del peer. 3) Verificar que UDP 500 y 4500 no están bloqueados. 4) debug crypto isakmp para ver el intercambio en detalle. 5) Verificar que las pre-shared keys coinciden: crypto isakmp key CLAVE address X.X.X.X."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: La fase 1 de IKE (ISAKMP) no está completando la negociación. Causa: Los parámetros de la política ISAKMP no coinciden entre los dos routers: algoritmo de cifrado, hash, método de autenticación, grupo DH o lifetime diferentes. También puede ser problema de conectividad UDP 500. Solución: 1) show crypto isakmp policy en ambos routers y comparar parámetros. 2) Verificar conectividad: ping a la IP pública del peer. 3) Verificar que UDP 500 y 4500 no están bloqueados. 4) debug crypto isakmp para ver el intercambio en detalle. 5) Verificar que las pre-shared keys coinciden: crypto isakmp key CLAVE address X.X.X.X.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "QoS no prioriza tráfico de voz",
     "prompt": "Las llamadas VoIP tienen mala calidad (cortes, eco, retraso) aunque el ancho de banda es suficiente. QoS está configurado pero no parece funcionar. ¿Qué verificar?",
-    "target": "Diagnóstico: QoS no está clasificando o priorizando correctamente el tráfico de voz RTP. Causa: La política de QoS puede no estar aplicada en la interfaz correcta, la clasificación del tráfico VoIP puede ser incorrecta, o la cola de prioridad no está configurada. Solución: 1) show policy-map interface para ver si la política está aplicada y contadores de tráfico. 2) Verificar clasificación: class-map VoIP / match ip dscp ef (VoIP usa DSCP EF). 3) Verificar cola de prioridad: policy-map QOS / class VoIP / priority percent 30. 4) Aplicar en la interfaz WAN saliente: service-policy output QOS. 5) Verificar que los teléfonos IP marcan el tráfico con DSCP EF."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: QoS no está clasificando o priorizando correctamente el tráfico de voz RTP. Causa: La política de QoS puede no estar aplicada en la interfaz correcta, la clasificación del tráfico VoIP puede ser incorrecta, o la cola de prioridad no está configurada. Solución: 1) show policy-map interface para ver si la política está aplicada y contadores de tráfico. 2) Verificar clasificación: class-map VoIP / match ip dscp ef (VoIP usa DSCP EF). 3) Verificar cola de prioridad: policy-map QOS / class VoIP / priority percent 30. 4) Aplicar en la interfaz WAN saliente: service-policy output QOS. 5) Verificar que los teléfonos IP marcan el tráfico con DSCP EF.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Tabla MAC del switch llena (MAC flooding)",
     "prompt": "El switch tiene comportamiento de hub: todo el tráfico se replica en todos los puertos. show mac address-table count muestra la tabla al 100%. ¿Qué está pasando?",
-    "target": "Diagnóstico: La tabla CAM del switch está llena por un ataque de MAC flooding o por un fallo de configuración. Causa: Un atacante está enviando frames con miles de MACs falsas usando herramientas como macof, llenando la tabla CAM y forzando al switch a comportarse como hub. Solución: Inmediata: 1) Identificar el puerto origen: show mac address-table y buscar el puerto con miles de MACs. 2) Apagar el puerto: interface Gi0/x / shutdown. Definitiva: 3) Configurar port-security: switchport port-security maximum 5 / switchport port-security violation shutdown. 4) Implementar 802.1X para autenticación de dispositivos."
-  
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: La tabla CAM del switch está llena por un ataque de MAC flooding o por un fallo de configuración. Causa: Un atacante está enviando frames con miles de MACs falsas usando herramientas como macof, llenando la tabla CAM y forzando al switch a comportarse como hub. Solución: Inmediata: 1) Identificar el puerto origen: show mac address-table y buscar el puerto con miles de MACs. 2) Apagar el puerto: interface Gi0/x / shutdown. Definitiva: 3) Configurar port-security: switchport port-security maximum 5 / switchport port-security violation shutdown. 4) Implementar 802.1X para autenticación de dispositivos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "EIGRP no redistribuye rutas estáticas",
     "prompt": "Tengo rutas estáticas en un router Cisco con EIGRP pero los demás routers no las ven en su tabla de ruteo. ¿Cómo se redistribuyen rutas estáticas en EIGRP?",
-    "target": "Diagnóstico: Las rutas estáticas no se están redistribuyendo hacia el proceso EIGRP. Causa: EIGRP no redistribuye rutas estáticas automáticamente, requiere configuración explícita de redistribución. Solución: 1) Entrar al proceso EIGRP: router eigrp 100. 2) Redistribuir rutas estáticas: redistribute static metric 10000 100 255 1 1500 (los valores son: bandwidth, delay, reliability, load, MTU). 3) Verificar en los otros routers: show ip route eigrp — las rutas redistribuidas aparecen con D EX. 4) Alternativa para ruta default: ip route 0.0.0.0 0.0.0.0 X.X.X.X y redistribute static."
-  
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: Las rutas estáticas no se están redistribuyendo hacia el proceso EIGRP. Causa: EIGRP no redistribuye rutas estáticas automáticamente, requiere configuración explícita de redistribución. Solución: 1) Entrar al proceso EIGRP: router eigrp 100. 2) Redistribuir rutas estáticas: redistribute static metric 10000 100 255 1 1500 (los valores son: bandwidth, delay, reliability, load, MTU). 3) Verificar en los otros routers: show ip route eigrp — las rutas redistribuidas aparecen con D EX. 4) Alternativa para ruta default: ip route 0.0.0.0 0.0.0.0 X.X.X.X y redistribute static.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Puerto del switch en half-duplex",
     "prompt": "Una interfaz de red tiene muchas colisiones y el rendimiento es muy bajo. show interfaces muestra Half-duplex. El switch y el dispositivo deberían negociar full-duplex automáticamente. ¿Qué hacer?",
-    "target": "Diagnóstico: Hay un problema de negociación de dúplex entre el switch y el dispositivo conectado. Causa: Un extremo está en auto-negociación y el otro tiene dúplex forzado, o el cable tiene problemas que impiden la negociación correcta. Esto resulta en duplex mismatch. Solución: 1) show interfaces Gi0/x para ver dúplex y velocidad actuales. 2) Forzar dúplex y velocidad en ambos extremos: interface Gi0/x / duplex full / speed 1000. 3) Si el otro extremo es un servidor o PC, configurar igual en la NIC. 4) Nunca mezclar auto en un extremo y forzado en el otro. 5) Verificar el cable con cable tester."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: Hay un problema de negociación de dúplex entre el switch y el dispositivo conectado. Causa: Un extremo está en auto-negociación y el otro tiene dúplex forzado, o el cable tiene problemas que impiden la negociación correcta. Esto resulta en duplex mismatch. Solución: 1) show interfaces Gi0/x para ver dúplex y velocidad actuales. 2) Forzar dúplex y velocidad en ambos extremos: interface Gi0/x / duplex full / speed 1000. 3) Si el otro extremo es un servidor o PC, configurar igual en la NIC. 4) Nunca mezclar auto en un extremo y forzado en el otro. 5) Verificar el cable con cable tester.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "DNS no resuelve nombres internos",
     "prompt": "Los usuarios pueden navegar por IP pero no por nombre. El servidor DNS interno 192.168.1.10 no resuelve los nombres del dominio local empresa.local. ¿Qué verificar?",
-    "target": "Diagnóstico: El servidor DNS no tiene registros para el dominio interno o los clientes no están consultando el DNS correcto. Causa: Los clientes pueden estar usando el DNS del ISP en vez del DNS interno, o el servidor DNS interno no tiene las zonas configuradas correctamente. Solución: 1) En el cliente: nslookup servidor.empresa.local 192.168.1.10 para probar directamente el DNS interno. 2) Verificar que los clientes reciben 192.168.1.10 como DNS (via DHCP: dns-server 192.168.1.10). 3) En Windows Server DNS: verificar que existe la zona de búsqueda directa empresa.local con los registros A correctos. 4) Verificar que el firewall permite UDP/TCP 53 hacia el DNS interno."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El servidor DNS no tiene registros para el dominio interno o los clientes no están consultando el DNS correcto. Causa: Los clientes pueden estar usando el DNS del ISP en vez del DNS interno, o el servidor DNS interno no tiene las zonas configuradas correctamente. Solución: 1) En el cliente: nslookup servidor.empresa.local 192.168.1.10 para probar directamente el DNS interno. 2) Verificar que los clientes reciben 192.168.1.10 como DNS (via DHCP: dns-server 192.168.1.10). 3) En Windows Server DNS: verificar que existe la zona de búsqueda directa empresa.local con los registros A correctos. 4) Verificar que el firewall permite UDP/TCP 53 hacia el DNS interno.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "HSRP no hace failover automático",
     "prompt": "Tengo dos routers con HSRP configurado para alta disponibilidad. Cuando apago el router activo, los clientes pierden conectividad y no cambian al router standby. ¿Qué revisar?",
-    "target": "Diagnóstico: HSRP no está ejecutando el failover correctamente al router standby. Causa: Puede ser que los routers no están en el mismo grupo HSRP, la IP virtual no coincide, los timers son muy altos, o hay un problema de conectividad entre ellos. Solución: 1) show standby brief en ambos routers para ver el estado (Active/Standby). 2) Verificar mismo grupo y misma IP virtual: standby 1 ip 192.168.1.254. 3) Reducir timers para failover más rápido: standby 1 timers msec 200 msec 750. 4) Verificar prioridad: standby 1 priority 110 en el router principal. 5) Habilitar preempt: standby 1 preempt para que el principal retome el rol."
- 
- ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459" },
+    "target": "Diagnóstico: HSRP no está ejecutando el failover correctamente al router standby. Causa: Puede ser que los routers no están en el mismo grupo HSRP, la IP virtual no coincide, los timers son muy altos, o hay un problema de conectividad entre ellos. Solución: 1) show standby brief en ambos routers para ver el estado (Active/Standby). 2) Verificar mismo grupo y misma IP virtual: standby 1 ip 192.168.1.254. 3) Reducir timers para failover más rápido: standby 1 timers msec 200 msec 750. 4) Verificar prioridad: standby 1 priority 110 en el router principal. 5) Habilitar preempt: standby 1 preempt para que el principal retome el rol.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Ataque ARP spoofing en la red",
     "prompt": "Los usuarios reportan que su tráfico está siendo interceptado. Wireshark muestra múltiples respuestas ARP desde distintas MACs para la misma IP del gateway. ¿Cómo se mitiga?",
-    "target": "Diagnóstico: Hay un ataque de ARP Spoofing o ARP Poisoning en la red. Un atacante está enviando respuestas ARP falsas para asociar su MAC con la IP del gateway. Causa: Un dispositivo comprometido en la red está ejecutando un ataque man-in-the-middle mediante envenenamiento de caché ARP. Solución: 1) Identificar el dispositivo atacante: show ip arp inspection statistics. 2) Habilitar Dynamic ARP Inspection (DAI): ip arp inspection vlan 10. 3) Configurar DHCP Snooping primero (DAI lo requiere): ip dhcp snooping / ip dhcp snooping vlan 10. 4) Marcar puertos confiables (uplinks): ip arp inspection trust. 5) Aislar el dispositivo atacante."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: Hay un ataque de ARP Spoofing o ARP Poisoning en la red. Un atacante está enviando respuestas ARP falsas para asociar su MAC con la IP del gateway. Causa: Un dispositivo comprometido en la red está ejecutando un ataque man-in-the-middle mediante envenenamiento de caché ARP. Solución: 1) Identificar el dispositivo atacante: show ip arp inspection statistics. 2) Habilitar Dynamic ARP Inspection (DAI): ip arp inspection vlan 10. 3) Configurar DHCP Snooping primero (DAI lo requiere): ip dhcp snooping / ip dhcp snooping vlan 10. 4) Marcar puertos confiables (uplinks): ip arp inspection trust. 5) Aislar el dispositivo atacante.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "VLAN de voz no funciona en teléfonos IP",
     "prompt": "Los teléfonos IP Cisco no registran con el servidor de llamadas. Están conectados al switch pero no obtienen IP de la VLAN de voz 100. Los PCs conectados al teléfono sí tienen red en VLAN 10. ¿Qué revisar?",
-    "target": "Diagnóstico: El puerto del switch no está configurado correctamente para soportar VLAN de datos y VLAN de voz simultáneamente. Causa: Falta la configuración de voice vlan en el puerto, o el teléfono no está recibiendo CDP para autodescubrir la VLAN de voz. Solución: 1) Configurar el puerto: interface Gi0/x / switchport mode access / switchport access vlan 10 / switchport voice vlan 100. 2) Verificar que CDP está activo: cdp enable en la interfaz. 3) Verificar que existe un pool DHCP para la VLAN 100 con option 150 (TFTP server): option 150 ip 192.168.100.10. 4) show interfaces Gi0/x trunk para ver si la VLAN 100 está activa."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El puerto del switch no está configurado correctamente para soportar VLAN de datos y VLAN de voz simultáneamente. Causa: Falta la configuración de voice vlan en el puerto, o el teléfono no está recibiendo CDP para autodescubrir la VLAN de voz. Solución: 1) Configurar el puerto: interface Gi0/x / switchport mode access / switchport access vlan 10 / switchport voice vlan 100. 2) Verificar que CDP está activo: cdp enable en la interfaz. 3) Verificar que existe un pool DHCP para la VLAN 100 con option 150 (TFTP server): option 150 ip 192.168.100.10. 4) show interfaces Gi0/x trunk para ver si la VLAN 100 está activa.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Ancho de banda saturado en enlace WAN",
     "prompt": "El enlace WAN de 10 Mbps está al 100% de utilización constantemente. Los usuarios se quejan de lentitud. No hay forma de contratar más ancho de banda inmediatamente. ¿Qué se puede hacer?",
-    "target": "Diagnóstico: El enlace WAN está saturado y se requiere gestión de tráfico para optimizar el uso del ancho de banda disponible. Causa: Puede haber tráfico no productivo (streaming, descargas, backups) consumiendo el ancho de banda en horario laboral. Solución: 1) Identificar el tráfico: show interfaces Serial0/0 y usar NBAR: ip nbar protocol-discovery. 2) Implementar QoS para priorizar tráfico crítico: voz y aplicaciones de negocio. 3) Limitar tráfico no productivo con traffic shaping: policy-map LIMIT / class STREAMING / police rate 1000000 bps. 4) Programar backups fuera de horario laboral. 5) Implementar compresión WAN si el router lo soporta."
- ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El enlace WAN está saturado y se requiere gestión de tráfico para optimizar el uso del ancho de banda disponible. Causa: Puede haber tráfico no productivo (streaming, descargas, backups) consumiendo el ancho de banda en horario laboral. Solución: 1) Identificar el tráfico: show interfaces Serial0/0 y usar NBAR: ip nbar protocol-discovery. 2) Implementar QoS para priorizar tráfico crítico: voz y aplicaciones de negocio. 3) Limitar tráfico no productivo con traffic shaping: policy-map LIMIT / class STREAMING / police rate 1000000 bps. 4) Programar backups fuera de horario laboral. 5) Implementar compresión WAN si el router lo soporta.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Switch no aprende direcciones MAC",
     "prompt": "La tabla MAC del switch siempre aparece vacía. show mac address-table no muestra ninguna entrada. Los dispositivos conectados no tienen conectividad entre ellos. ¿Qué puede causar esto?",
-    "target": "Diagnóstico: El switch no está aprendiendo direcciones MAC de los dispositivos conectados. Causa: Puede ser que port-security esté configurado en modo protect descartando frames, las interfaces están en estado down, o hay un problema con el ASIC del switch. Solución: 1) Verificar estado de interfaces: show interfaces status para ver cuáles están connected. 2) Verificar port-security: show port-security — puede estar bloqueando el aprendizaje. 3) Verificar que no hay mac address-table static configuradas incorrectamente. 4) Probar con un dispositivo simple: conectar un PC y hacer ping para generar tráfico. 5) Si el problema persiste en todos los puertos, puede ser falla de hardware."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El switch no está aprendiendo direcciones MAC de los dispositivos conectados. Causa: Puede ser que port-security esté configurado en modo protect descartando frames, las interfaces están en estado down, o hay un problema con el ASIC del switch. Solución: 1) Verificar estado de interfaces: show interfaces status para ver cuáles están connected. 2) Verificar port-security: show port-security — puede estar bloqueando el aprendizaje. 3) Verificar que no hay mac address-table static configuradas incorrectamente. 4) Probar con un dispositivo simple: conectar un PC y hacer ping para generar tráfico. 5) Si el problema persiste en todos los puertos, puede ser falla de hardware.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "BGP no establece sesión con ISP",
     "prompt": "El router de borde Cisco no establece sesión BGP con el router del ISP. show bgp summary muestra el neighbor en estado Active. El ISP confirma que su router está configurado. ¿Qué revisar?",
-    "target": "Diagnóstico: BGP no puede establecer la sesión TCP en el puerto 179 con el router del ISP. Causa: Puede ser problema de conectividad básica, ACL bloqueando TCP 179, AS number incorrecto, o IP del neighbor incorrecta. Solución: 1) Verificar conectividad básica: ping a la IP del neighbor BGP del ISP. 2) Verificar configuración: show running-config | section bgp — confirmar neighbor IP y remote-as. 3) Verificar que TCP 179 no está bloqueado: telnet X.X.X.X 179. 4) Verificar que el ISP tiene configurado el AS number correcto de tu organización como remote-as. 5) debug ip bgp X.X.X.X events para ver el intercambio."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: BGP no puede establecer la sesión TCP en el puerto 179 con el router del ISP. Causa: Puede ser problema de conectividad básica, ACL bloqueando TCP 179, AS number incorrecto, o IP del neighbor incorrecta. Solución: 1) Verificar conectividad básica: ping a la IP del neighbor BGP del ISP. 2) Verificar configuración: show running-config | section bgp — confirmar neighbor IP y remote-as. 3) Verificar que TCP 179 no está bloqueado: telnet X.X.X.X 179. 4) Verificar que el ISP tiene configurado el AS number correcto de tu organización como remote-as. 5) debug ip bgp X.X.X.X events para ver el intercambio.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "NTP no sincroniza el reloj del router",
     "prompt": "Los routers Cisco no sincronizan la hora con el servidor NTP. show ntp status muestra unsynchronized. Los logs tienen timestamps incorrectos lo que dificulta el análisis de eventos. ¿Cómo se soluciona?",
-    "target": "Diagnóstico: El router no puede sincronizar con el servidor NTP configurado. Causa: Puede ser problema de conectividad con el servidor NTP, UDP 123 bloqueado, o el servidor NTP no está accesible desde el router. Solución: 1) Verificar conectividad: ping al servidor NTP. 2) Verificar configuración: ntp server 192.168.1.1 — show ntp associations. 3) Verificar que UDP 123 no está bloqueado por ACL. 4) Si el router tiene reloj de hardware: ntp update-calendar. 5) Configurar el router como servidor NTP para los demás dispositivos: ntp master 3. 6) Verificar zona horaria: clock timezone COT -5."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El router no puede sincronizar con el servidor NTP configurado. Causa: Puede ser problema de conectividad con el servidor NTP, UDP 123 bloqueado, o el servidor NTP no está accesible desde el router. Solución: 1) Verificar conectividad: ping al servidor NTP. 2) Verificar configuración: ntp server 192.168.1.1 — show ntp associations. 3) Verificar que UDP 123 no está bloqueado por ACL. 4) Si el router tiene reloj de hardware: ntp update-calendar. 5) Configurar el router como servidor NTP para los demás dispositivos: ntp master 3. 6) Verificar zona horaria: clock timezone COT -5.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "Wireless: clientes no pueden conectarse al SSID",
     "prompt": "Varios clientes no pueden conectarse a un SSID WPA2-Enterprise. Reciben el error: No se puede conectar a esta red. El SSID sí aparece en la lista de redes disponibles. ¿Qué revisar?",
-    "target": "Diagnóstico: Los clientes no pueden autenticarse con WPA2-Enterprise (802.1X/EAP). Causa: Puede ser problema con el servidor RADIUS, certificados incorrectos, configuración EAP incompatible, o el cliente no tiene el perfil correcto. Solución: 1) Verificar que el servidor RADIUS está respondiendo desde el AP/WLC. 2) En el AP/WLC: verificar la clave compartida (shared secret) con el servidor RADIUS. 3) Verificar los logs del servidor RADIUS para ver el motivo del rechazo. 4) Verificar que el método EAP configurado en el servidor coincide con el del cliente (PEAP, EAP-TLS, etc.). 5) En Windows: configurar el perfil WiFi con las credenciales de dominio correctas."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: Los clientes no pueden autenticarse con WPA2-Enterprise (802.1X/EAP). Causa: Puede ser problema con el servidor RADIUS, certificados incorrectos, configuración EAP incompatible, o el cliente no tiene el perfil correcto. Solución: 1) Verificar que el servidor RADIUS está respondiendo desde el AP/WLC. 2) En el AP/WLC: verificar la clave compartida (shared secret) con el servidor RADIUS. 3) Verificar los logs del servidor RADIUS para ver el motivo del rechazo. 4) Verificar que el método EAP configurado en el servidor coincide con el del cliente (PEAP, EAP-TLS, etc.). 5) En Windows: configurar el perfil WiFi con las credenciales de dominio correctas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "SNMP no recibe traps",
     "prompt": "El servidor de monitoreo no recibe traps SNMP de los switches Cisco. La configuración SNMP parece correcta. ¿Qué puede estar fallando?",
-    "target": "Diagnóstico: Los traps SNMP no están llegando al servidor de monitoreo. Causa: Puede ser que la dirección del trap host esté incorrecta, la community string no coincide, UDP 162 está bloqueado, o los traps específicos no están habilitados. Solución: 1) Verificar configuración: show snmp — confirmar trap host y community. 2) Verificar la dirección del servidor: snmp-server host 192.168.1.100 version 2c PUBLIC. 3) Habilitar traps específicos: snmp-server enable traps. 4) Verificar que UDP 162 no está bloqueado entre el switch y el servidor. 5) Usar Wireshark en el servidor para verificar si los paquetes llegan. 6) Para SNMPv3 verificar usuario y nivel de seguridad."
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: Los traps SNMP no están llegando al servidor de monitoreo. Causa: Puede ser que la dirección del trap host esté incorrecta, la community string no coincide, UDP 162 está bloqueado, o los traps específicos no están habilitados. Solución: 1) Verificar configuración: show snmp — confirmar trap host y community. 2) Verificar la dirección del servidor: snmp-server host 192.168.1.100 version 2c PUBLIC. 3) Habilitar traps específicos: snmp-server enable traps. 4) Verificar que UDP 162 no está bloqueado entre el switch y el servidor. 5) Usar Wireshark en el servidor para verificar si los paquetes llegan. 6) Para SNMPv3 verificar usuario y nivel de seguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Fibra óptica sin enlace",
     "prompt": "Un enlace de fibra óptica entre dos switches no levanta. Los puertos SFP muestran el LED apagado. Los módulos SFP son nuevos. ¿Qué verificar?",
     "target": "Diagnóstico: No hay señal óptica entre los dos extremos del enlace de fibra. Causa: Puede ser que las fibras TX/RX estén invertidas, el módulo SFP no es compatible, la fibra tiene demasiada atenuación, o los conectores están sucios. Solución: 1) Verificar que el cable de fibra no tenga los hilos TX/RX cruzados incorrectamente (en enlaces directos deben cruzarse: TX de un lado va a RX del otro). 2) Limpiar los conectores de fibra con kit de limpieza óptica. 3) Verificar compatibilidad del SFP con el switch: show interfaces Gi0/x transceiver. 4) Medir potencia óptica con óptico-medidor. 5) Verificar que el tipo de fibra coincide con el SFP (monomodo/multimodo)."
   },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "RADIUS rechaza autenticación 802.1X",
     "prompt": "Los usuarios no pueden autenticarse en la red con 802.1X. El servidor RADIUS muestra Access-Reject. Los usuarios tienen credenciales de dominio correctas. ¿Qué revisar?",
-    "target": "Diagnóstico: El servidor RADIUS está rechazando las solicitudes de autenticación. Causa: Puede ser que las credenciales no coinciden con las del servidor RADIUS, el certificado del servidor no es confiable para el cliente, o el método EAP no es compatible. Solución: 1) Revisar los logs del servidor RADIUS para ver el motivo específico del rechazo. 2) En Windows NPS: verificar la política de red y las condiciones de acceso. 3) Verificar que el usuario pertenece al grupo autorizado en la política RADIUS. 4) Para PEAP: verificar que el certificado del servidor RADIUS es válido y confiable. 5) Verificar que el switch envía correctamente el atributo NAS-IP-Address configurado como cliente en RADIUS."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El servidor RADIUS está rechazando las solicitudes de autenticación. Causa: Puede ser que las credenciales no coinciden con las del servidor RADIUS, el certificado del servidor no es confiable para el cliente, o el método EAP no es compatible. Solución: 1) Revisar los logs del servidor RADIUS para ver el motivo específico del rechazo. 2) En Windows NPS: verificar la política de red y las condiciones de acceso. 3) Verificar que el usuario pertenece al grupo autorizado en la política RADIUS. 4) Para PEAP: verificar que el certificado del servidor RADIUS es válido y confiable. 5) Verificar que el switch envía correctamente el atributo NAS-IP-Address configurado como cliente en RADIUS.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "Latencia alta en red LAN",
     "prompt": "Los usuarios reportan latencia alta en la red LAN. El ping entre PCs en el mismo switch da 50-100ms cuando debería ser menos de 1ms. ¿Qué puede causar esto?",
-    "target": "Diagnóstico: La latencia en la LAN es anormalmente alta, lo que indica un problema de rendimiento en el switch o en la red. Causa: Puede ser que el switch está procesando tráfico por software (alto CPU), hay un bucle parcial, colisiones excesivas por duplex mismatch, o el switch tiene poca memoria de buffer. Solución: 1) show processes cpu para ver si el CPU del switch está alto. 2) show interfaces para buscar errores, colisiones y resets. 3) Verificar dúplex: show interfaces status — buscar interfaces en half-duplex. 4) Buscar bucles: show spanning-tree para ver cambios de topología frecuentes. 5) Verificar que no hay storm de broadcast: show interfaces | include broadcast."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: La latencia en la LAN es anormalmente alta, lo que indica un problema de rendimiento en el switch o en la red. Causa: Puede ser que el switch está procesando tráfico por software (alto CPU), hay un bucle parcial, colisiones excesivas por duplex mismatch, o el switch tiene poca memoria de buffer. Solución: 1) show processes cpu para ver si el CPU del switch está alto. 2) show interfaces para buscar errores, colisiones y resets. 3) Verificar dúplex: show interfaces status — buscar interfaces en half-duplex. 4) Buscar bucles: show spanning-tree para ver cambios de topología frecuentes. 5) Verificar que no hay storm de broadcast: show interfaces | include broadcast.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Configuración se pierde al reiniciar el router",
     "prompt": "Cada vez que el router Cisco se reinicia, vuelve a la configuración de fábrica. Los cambios no se guardan. ¿Por qué ocurre esto?",
-    "target": "Diagnóstico: La configuración en ejecución (running-config) no se está guardando en la configuración de inicio (startup-config). Causa: El administrador no está ejecutando el comando de guardar la configuración antes de reiniciar, o la NVRAM del router tiene problemas. Solución: 1) Siempre guardar antes de reiniciar: copy running-config startup-config o write memory. 2) Verificar que la startup-config tiene contenido: show startup-config. 3) Verificar la NVRAM: show version — buscar Configuration register. 4) Si el registro de configuración es 0x2142, el router está ignorando la startup-config (modo de recuperación de contraseña): config-register 0x2102 / reload. 5) Verificar espacio en flash: show flash."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: La configuración en ejecución (running-config) no se está guardando en la configuración de inicio (startup-config). Causa: El administrador no está ejecutando el comando de guardar la configuración antes de reiniciar, o la NVRAM del router tiene problemas. Solución: 1) Siempre guardar antes de reiniciar: copy running-config startup-config o write memory. 2) Verificar que la startup-config tiene contenido: show startup-config. 3) Verificar la NVRAM: show version — buscar Configuration register. 4) Si el registro de configuración es 0x2142, el router está ignorando la startup-config (modo de recuperación de contraseña): config-register 0x2102 / reload. 5) Verificar espacio en flash: show flash.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "IP helper no funciona para DHCP",
     "prompt": "Configuré ip helper-address en la interfaz VLAN del router pero los clientes en esa VLAN siguen sin recibir IP del servidor DHCP central. ¿Qué puede estar fallando?",
-    "target": "Diagnóstico: El ip helper-address está configurado pero el relay DHCP no está funcionando correctamente. Causa: Puede ser que la dirección helper apunta a una IP incorrecta, hay una ACL bloqueando UDP 67/68, el servidor DHCP no tiene un pool para esa subred, o el helper está en la interfaz incorrecta. Solución: 1) Verificar la interfaz correcta: show running-config interface Vlan10 — confirmar ip helper-address. 2) La dirección helper debe ser la IP del servidor DHCP, no el gateway. 3) Verificar que no hay ACL bloqueando UDP 67 y 68. 4) En el servidor DHCP verificar que existe un scope para la subred de los clientes. 5) debug ip dhcp server events en el servidor para ver si llegan las solicitudes."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El ip helper-address está configurado pero el relay DHCP no está funcionando correctamente. Causa: Puede ser que la dirección helper apunta a una IP incorrecta, hay una ACL bloqueando UDP 67/68, el servidor DHCP no tiene un pool para esa subred, o el helper está en la interfaz incorrecta. Solución: 1) Verificar la interfaz correcta: show running-config interface Vlan10 — confirmar ip helper-address. 2) La dirección helper debe ser la IP del servidor DHCP, no el gateway. 3) Verificar que no hay ACL bloqueando UDP 67 y 68. 4) En el servidor DHCP verificar que existe un scope para la subred de los clientes. 5) debug ip dhcp server events en el servidor para ver si llegan las solicitudes.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Spanning Tree Root Bridge incorrecto",
     "prompt": "El Root Bridge de Spanning Tree no es el switch de core sino un switch de acceso. Esto causa rutas subóptimas. ¿Cómo se corrige?",
-    "target": "Diagnóstico: El Root Bridge de STP fue elegido por defecto basándose en la MAC address más baja, no en la jerarquía de la red. Causa: No se configuró la prioridad de STP en los switches, por lo que el que tenga la MAC más baja se convierte en Root Bridge, aunque sea un switch de acceso. Solución: 1) show spanning-tree para identificar el Root Bridge actual. 2) En el switch de core configurar la prioridad más baja: spanning-tree vlan 1-4094 priority 4096. 3) Alternativa: spanning-tree vlan 1-4094 root primary (Cisco automáticamente ajusta la prioridad). 4) Para el switch secundario: spanning-tree vlan 1-4094 root secondary. 5) Verificar el nuevo Root Bridge: show spanning-tree | include Root."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El Root Bridge de STP fue elegido por defecto basándose en la MAC address más baja, no en la jerarquía de la red. Causa: No se configuró la prioridad de STP en los switches, por lo que el que tenga la MAC más baja se convierte en Root Bridge, aunque sea un switch de acceso. Solución: 1) show spanning-tree para identificar el Root Bridge actual. 2) En el switch de core configurar la prioridad más baja: spanning-tree vlan 1-4094 priority 4096. 3) Alternativa: spanning-tree vlan 1-4094 root primary (Cisco automáticamente ajusta la prioridad). 4) Para el switch secundario: spanning-tree vlan 1-4094 root secondary. 5) Verificar el nuevo Root Bridge: show spanning-tree | include Root.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-   "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "VLAN privada (Private VLAN) mal configurada",
     "prompt": "Configuré Private VLANs para aislar clientes en un switch Cisco pero los hosts en VLANs aisladas pueden comunicarse entre ellos. El aislamiento no funciona. ¿Qué revisar?",
-    "target": "Diagnóstico: Las Private VLANs no están aislando correctamente el tráfico entre hosts. Causa: La configuración de PVLAN puede estar incompleta: falta asociar las VLANs secundarias a la primaria, los puertos no tienen el tipo correcto (isolated/community/promiscuous), o el modo VTP no permite PVLANs. Solución: 1) VTP debe estar en modo transparent para PVLANs: vtp mode transparent. 2) Configurar VLAN primaria y secundaria: vlan 100 / private-vlan primary — vlan 101 / private-vlan isolated. 3) Asociar: vlan 100 / private-vlan association 101. 4) Configurar puertos: interface Gi0/x / switchport mode private-vlan host / switchport private-vlan host-association 100 101. 5) Puerto promiscuo (router/firewall): switchport private-vlan mapping 100 101."
-  
-  ,"origen": "feedback_usuario",
-    "fecha": "2026-06-12T17:49:52.301459"},
+    "target": "Diagnóstico: Las Private VLANs no están aislando correctamente el tráfico entre hosts. Causa: La configuración de PVLAN puede estar incompleta: falta asociar las VLANs secundarias a la primaria, los puertos no tienen el tipo correcto (isolated/community/promiscuous), o el modo VTP no permite PVLANs. Solución: 1) VTP debe estar en modo transparent para PVLANs: vtp mode transparent. 2) Configurar VLAN primaria y secundaria: vlan 100 / private-vlan primary — vlan 101 / private-vlan isolated. 3) Asociar: vlan 100 / private-vlan association 101. 4) Configurar puertos: interface Gi0/x / switchport mode private-vlan host / switchport private-vlan host-association 100 101. 5) Puerto promiscuo (router/firewall): switchport private-vlan mapping 100 101.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Firewall bloqueando tráfico FTP",
     "prompt": "Los usuarios no pueden transferir archivos por FTP activo. El comando ftp funciona para conectarse pero al intentar listar directorios o transferir falla. FTP pasivo sí funciona. ¿Por qué?",
-    "target": "Diagnóstico: El firewall está bloqueando las conexiones de datos del FTP activo. Causa: En FTP activo, el servidor inicia la conexión de datos hacia el cliente desde el puerto 20. El firewall bloquea esta conexión entrante porque la ve como una conexión no solicitada. En FTP pasivo el cliente inicia ambas conexiones por eso funciona. Solución: 1) La solución recomendada es usar siempre FTP pasivo (SFTP o FTPS son más seguros). 2) Si se necesita FTP activo: habilitar ip inspect ftp en el firewall Cisco para inspección stateful. 3) En Cisco IOS: ip inspect name FTP_INSPECT ftp / interface outside / ip inspect FTP_INSPECT out. 4) Alternativa: migrar a SFTP sobre SSH que es stateful y no tiene este problema."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El firewall está bloqueando las conexiones de datos del FTP activo. Causa: En FTP activo, el servidor inicia la conexión de datos hacia el cliente desde el puerto 20. El firewall bloquea esta conexión entrante porque la ve como una conexión no solicitada. En FTP pasivo el cliente inicia ambas conexiones por eso funciona. Solución: 1) La solución recomendada es usar siempre FTP pasivo (SFTP o FTPS son más seguros). 2) Si se necesita FTP activo: habilitar ip inspect ftp en el firewall Cisco para inspección stateful. 3) En Cisco IOS: ip inspect name FTP_INSPECT ftp / interface outside / ip inspect FTP_INSPECT out. 4) Alternativa: migrar a SFTP sobre SSH que es stateful y no tiene este problema.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Routers con rutas flotantes no hace failover",
     "prompt": "Tengo dos enlaces WAN con rutas flotantes (administrative distance diferente) pero cuando el enlace principal falla, el tráfico no conmuta al enlace de respaldo. ¿Qué revisar?",
-    "target": "Diagnóstico: Las rutas flotantes están configuradas pero el failover no ocurre automáticamente. Causa: El router no detecta la caída del enlace principal porque la interfaz física sigue activa aunque el servicio WAN del ISP esté caído. Las rutas estáticas no desaparecen hasta que la interfaz baja. Solución: 1) Implementar IP SLA para monitorear la conectividad real: ip sla 1 / icmp-echo 8.8.8.8 source-interface Gi0/0 / frequency 5. 2) Track: track 1 ip sla 1 reachability. 3) Asociar la ruta principal al track: ip route 0.0.0.0 0.0.0.0 Gi0/0 ISP1 track 1. 4) La ruta flotante: ip route 0.0.0.0 0.0.0.0 Gi0/1 ISP2 10 (AD mayor). 5) Cuando IP SLA falla, la ruta principal desaparece y activa la flotante."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: Las rutas flotantes están configuradas pero el failover no ocurre automáticamente. Causa: El router no detecta la caída del enlace principal porque la interfaz física sigue activa aunque el servicio WAN del ISP esté caído. Las rutas estáticas no desaparecen hasta que la interfaz baja. Solución: 1) Implementar IP SLA para monitorear la conectividad real: ip sla 1 / icmp-echo 8.8.8.8 source-interface Gi0/0 / frequency 5. 2) Track: track 1 ip sla 1 reachability. 3) Asociar la ruta principal al track: ip route 0.0.0.0 0.0.0.0 Gi0/0 ISP1 track 1. 4) La ruta flotante: ip route 0.0.0.0 0.0.0.0 Gi0/1 ISP2 10 (AD mayor). 5) Cuando IP SLA falla, la ruta principal desaparece y activa la flotante.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Switch apilado pierde un miembro del stack",
     "prompt": "Un switch Cisco Catalyst apilado (stack) perdió un miembro. El LED del stack link está en rojo. Los puertos del switch que salió del stack no tienen conectividad. ¿Cómo se diagnostica?",
-    "target": "Diagnóstico: Un switch miembro abandonó el stack, posiblemente por falla en el cable de stack, falla de hardware, o versión de IOS incompatible. Causa: El cable de stack StackWise puede estar dañado, el switch puede haber fallado, o una actualización de IOS dejó versiones incompatibles entre miembros. Solución: 1) show switch para ver el estado de todos los miembros del stack. 2) Verificar el cable de stack: reemplazarlo si es posible. 3) Si el switch está físicamente presente pero no une al stack: verificar que tiene la misma versión de IOS con show version. 4) Si hay versiones diferentes: actualizar el IOS del miembro usando auto-upgrade: switch auto-upgrade. 5) Reasignar número de switch si es necesario: switch X renumber Y."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: Un switch miembro abandonó el stack, posiblemente por falla en el cable de stack, falla de hardware, o versión de IOS incompatible. Causa: El cable de stack StackWise puede estar dañado, el switch puede haber fallado, o una actualización de IOS dejó versiones incompatibles entre miembros. Solución: 1) show switch para ver el estado de todos los miembros del stack. 2) Verificar el cable de stack: reemplazarlo si es posible. 3) Si el switch está físicamente presente pero no une al stack: verificar que tiene la misma versión de IOS con show version. 4) Si hay versiones diferentes: actualizar el IOS del miembro usando auto-upgrade: switch auto-upgrade. 5) Reasignar número de switch si es necesario: switch X renumber Y.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Multicast no llega a los receptores",
     "prompt": "Una aplicación de video streaming multicast funciona en algunos segmentos de red pero no llega a otros. Los receptores en VLANs remotas no reciben el stream. ¿Cómo se diagnostica?",
-    "target": "Diagnóstico: El tráfico multicast no está siendo enrutado correctamente hacia todos los segmentos. Causa: Puede faltar la configuración de PIM (Protocol Independent Multicast) en las interfaces del router, IGMP Snooping puede estar bloqueando el tráfico en los switches, o no hay un Rendezvous Point configurado para PIM-SM. Solución: 1) Habilitar multicast routing: ip multicast-routing. 2) En cada interfaz del router: ip pim sparse-mode o dense-mode. 3) Configurar RP para PIM-SM: ip pim rp-address 192.168.1.1. 4) Verificar que los receptores envían IGMP joins: show ip igmp groups. 5) En switches: verificar IGMP Snooping: show ip igmp snooping — puede estar bloqueando multicast si no hay querier."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El tráfico multicast no está siendo enrutado correctamente hacia todos los segmentos. Causa: Puede faltar la configuración de PIM (Protocol Independent Multicast) en las interfaces del router, IGMP Snooping puede estar bloqueando el tráfico en los switches, o no hay un Rendezvous Point configurado para PIM-SM. Solución: 1) Habilitar multicast routing: ip multicast-routing. 2) En cada interfaz del router: ip pim sparse-mode o dense-mode. 3) Configurar RP para PIM-SM: ip pim rp-address 192.168.1.1. 4) Verificar que los receptores envían IGMP joins: show ip igmp groups. 5) En switches: verificar IGMP Snooping: show ip igmp snooping — puede estar bloqueando multicast si no hay querier.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "Error de CRC en interfaz Ethernet",
     "prompt": "Una interfaz del switch muestra miles de errores CRC en show interfaces. El rendimiento de la conexión es muy bajo. ¿Qué causa los errores CRC y cómo se soluciona?",
-    "target": "Diagnóstico: La interfaz está recibiendo frames con errores de integridad (CRC), lo que indica corrupción de datos en la capa física. Causa: Cables de baja calidad o dañados, conectores RJ45 mal crimpados, interferencia electromagnética, duplex mismatch, o una NIC defectuosa. Solución: 1) show interfaces Gi0/x para ver el contador de CRC errors y input errors. 2) Reemplazar el cable de red — verificar que es Cat5e o superior para GigabitEthernet. 3) Verificar el crimpado del conector RJ45 con cable tester. 4) Verificar que no hay fuentes de interferencia cerca (motores, UPS). 5) Verificar duplex: show interfaces status — forzar duplex full / speed 1000 en ambos extremos. 6) Si persiste con cable nuevo, puede ser NIC defectuosa."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: La interfaz está recibiendo frames con errores de integridad (CRC), lo que indica corrupción de datos en la capa física. Causa: Cables de baja calidad o dañados, conectores RJ45 mal crimpados, interferencia electromagnética, duplex mismatch, o una NIC defectuosa. Solución: 1) show interfaces Gi0/x para ver el contador de CRC errors y input errors. 2) Reemplazar el cable de red — verificar que es Cat5e o superior para GigabitEthernet. 3) Verificar el crimpado del conector RJ45 con cable tester. 4) Verificar que no hay fuentes de interferencia cerca (motores, UPS). 5) Verificar duplex: show interfaces status — forzar duplex full / speed 1000 en ambos extremos. 6) Si persiste con cable nuevo, puede ser NIC defectuosa.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "TACACS+ no autentica usuarios de red",
     "prompt": "Los administradores no pueden hacer login en los switches y routers con sus credenciales de TACACS+. El servidor TACACS+ está activo. Se usa el usuario local como fallback. ¿Qué revisar?",
-    "target": "Diagnóstico: El dispositivo Cisco no puede comunicarse correctamente con el servidor TACACS+ para autenticar. Causa: Puede ser que la clave compartida no coincide, la IP del servidor es incorrecta, TCP 49 está bloqueado, o la lista de métodos AAA no tiene el orden correcto. Solución: 1) Verificar la configuración: show tacacs — IP del servidor y clave. 2) Verificar conectividad: telnet X.X.X.X 49 desde el dispositivo. 3) Verificar la clave compartida con el servidor: tacacs-server key CLAVE (debe coincidir exactamente, sensible a mayúsculas). 4) Verificar la lista de métodos AAA: aaa authentication login default group tacacs+ local — el local es el fallback. 5) En el servidor revisar los logs para ver si llegan las solicitudes."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El dispositivo Cisco no puede comunicarse correctamente con el servidor TACACS+ para autenticar. Causa: Puede ser que la clave compartida no coincide, la IP del servidor es incorrecta, TCP 49 está bloqueado, o la lista de métodos AAA no tiene el orden correcto. Solución: 1) Verificar la configuración: show tacacs — IP del servidor y clave. 2) Verificar conectividad: telnet X.X.X.X 49 desde el dispositivo. 3) Verificar la clave compartida con el servidor: tacacs-server key CLAVE (debe coincidir exactamente, sensible a mayúsculas). 4) Verificar la lista de métodos AAA: aaa authentication login default group tacacs+ local — el local es el fallback. 5) En el servidor revisar los logs para ver si llegan las solicitudes.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-    "id": "caso_fb_20260612_174953",  
+    "id": "caso_fb_20260612_174953",
     "titulo": "Tráfico asimétrico causa problemas de firewall stateful",
     "prompt": "El firewall descarta paquetes de conexiones establecidas. Los logs muestran: TCP out-of-order o session not found. Las conexiones se caen intermitentemente. ¿Qué está pasando?",
-    "target": "Diagnóstico: El enrutamiento asimétrico está causando que el firewall vea solo un lado de las conexiones TCP. Causa: El tráfico de ida y de vuelta toma rutas diferentes y solo uno de los caminos pasa por el firewall stateful. El firewall no puede mantener el estado de la conexión si no ve ambos sentidos. Solución: 1) Verificar la tabla de enrutamiento en todos los routers para encontrar rutas asimétricas. 2) Corregir el enrutamiento para que todo el tráfico de una conexión pase por el mismo firewall. 3) Si hay dos firewalls en cluster: verificar la sincronización de estado (state sync). 4) Solución temporal: deshabilitar la inspección stateful para las interfaces afectadas (no recomendado en producción). 5) Implementar enrutamiento basado en políticas (PBR) para forzar simetría."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El enrutamiento asimétrico está causando que el firewall vea solo un lado de las conexiones TCP. Causa: El tráfico de ida y de vuelta toma rutas diferentes y solo uno de los caminos pasa por el firewall stateful. El firewall no puede mantener el estado de la conexión si no ve ambos sentidos. Solución: 1) Verificar la tabla de enrutamiento en todos los routers para encontrar rutas asimétricas. 2) Corregir el enrutamiento para que todo el tráfico de una conexión pase por el mismo firewall. 3) Si hay dos firewalls en cluster: verificar la sincronización de estado (state sync). 4) Solución temporal: deshabilitar la inspección stateful para las interfaces afectadas (no recomendado en producción). 5) Implementar enrutamiento basado en políticas (PBR) para forzar simetría.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-    
     "titulo": "LACP no agrega los enlaces (EtherChannel)",
     "prompt": "Configuré un EtherChannel con LACP entre dos switches Cisco pero los puertos no se agregan. show etherchannel summary muestra los puertos en estado (I) individual. ¿Qué revisar?",
-    "target": "Diagnóstico: LACP no está logrando agregar los puertos en el EtherChannel porque hay parámetros incompatibles entre los puertos. Causa: Para que LACP funcione, todos los puertos del channel deben tener la misma velocidad, dúplex, VLAN nativa, VLANs permitidas y modo de switchport. Solución: 1) show etherchannel detail para ver el motivo por el que los puertos no se agregan. 2) Verificar que todos los puertos tienen la misma velocidad y dúplex. 3) Verificar VLANs: todos los puertos deben tener la misma VLAN nativa y VLANs permitidas. 4) Verificar modo: channel-group 1 mode active (LACP activo) en ambos extremos. 5) No mezclar LACP con PAgP o modo on. 6) Después de corregir: clear etherchannel y reconfigurar."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: LACP no está logrando agregar los puertos en el EtherChannel porque hay parámetros incompatibles entre los puertos. Causa: Para que LACP funcione, todos los puertos del channel deben tener la misma velocidad, dúplex, VLAN nativa, VLANs permitidas y modo de switchport. Solución: 1) show etherchannel detail para ver el motivo por el que los puertos no se agregan. 2) Verificar que todos los puertos tienen la misma velocidad y dúplex. 3) Verificar VLANs: todos los puertos deben tener la misma VLAN nativa y VLANs permitidas. 4) Verificar modo: channel-group 1 mode active (LACP activo) en ambos extremos. 5) No mezclar LACP con PAgP o modo on. 6) Después de corregir: clear etherchannel y reconfigurar.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-"id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Servidor no accesible desde internet",
     "prompt": "Tenemos un servidor web en la red interna 192.168.1.100. Configuramos una regla NAT estática para que sea accesible desde internet en el puerto 80, pero desde internet no se puede acceder. ¿Qué revisar?",
-    "target": "Diagnóstico: El NAT estático puede estar configurado pero hay otros elementos que impiden el acceso desde internet. Causa: Puede ser que el NAT estático está mal configurado, el firewall bloquea el puerto 80 entrante, la IP pública no está correctamente anunciada, o el servidor tiene el gateway incorrecto. Solución: 1) Verificar NAT estático: ip nat inside source static 192.168.1.100 X.X.X.X (IP pública). 2) Verificar que las interfaces tienen ip nat inside / ip nat outside correctamente. 3) Verificar ACL o firewall que permita TCP 80 entrante hacia la IP pública. 4) Desde internet: telnet IP_PUBLICA 80 para probar conectividad. 5) Verificar que el servidor tiene como gateway la IP interna del router: 192.168.1.1. 6) show ip nat translations para verificar la traducción estática."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El NAT estático puede estar configurado pero hay otros elementos que impiden el acceso desde internet. Causa: Puede ser que el NAT estático está mal configurado, el firewall bloquea el puerto 80 entrante, la IP pública no está correctamente anunciada, o el servidor tiene el gateway incorrecto. Solución: 1) Verificar NAT estático: ip nat inside source static 192.168.1.100 X.X.X.X (IP pública). 2) Verificar que las interfaces tienen ip nat inside / ip nat outside correctamente. 3) Verificar ACL o firewall que permita TCP 80 entrante hacia la IP pública. 4) Desde internet: telnet IP_PUBLICA 80 para probar conectividad. 5) Verificar que el servidor tiene como gateway la IP interna del router: 192.168.1.1. 6) show ip nat translations para verificar la traducción estática.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-   "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Pérdida de paquetes en red WiFi 2.4GHz",
     "prompt": "Los usuarios en WiFi 2.4GHz tienen alta pérdida de paquetes y velocidad muy baja. En 5GHz el rendimiento es normal. El AP está en un entorno de oficina con muchos APs vecinos. ¿Qué está pasando?",
-    "target": "Diagnóstico: La banda 2.4GHz está saturada por interferencia de canales o por la coexistencia con muchas redes WiFi vecinas. Causa: La banda 2.4GHz solo tiene 3 canales no solapados (1, 6, 11) y en entornos densos hay mucha interferencia. Además pueden haber interferencias de microondas, teléfonos inalámbricos y dispositivos Bluetooth. Solución: 1) Escanear el espectro con herramientas como WiFi Analyzer para ver los canales usados por APs vecinos. 2) Configurar el AP en el canal menos congestionado (1, 6 o 11). 3) Reducir la potencia de transmisión para minimizar interferencia entre APs propios. 4) Migrar usuarios a 5GHz usando band steering. 5) Verificar que no hay fuentes de interferencia no WiFi (microondas, cámaras inalámbricas) cerca del AP."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: La banda 2.4GHz está saturada por interferencia de canales o por la coexistencia con muchas redes WiFi vecinas. Causa: La banda 2.4GHz solo tiene 3 canales no solapados (1, 6, 11) y en entornos densos hay mucha interferencia. Además pueden haber interferencias de microondas, teléfonos inalámbricos y dispositivos Bluetooth. Solución: 1) Escanear el espectro con herramientas como WiFi Analyzer para ver los canales usados por APs vecinos. 2) Configurar el AP en el canal menos congestionado (1, 6 o 11). 3) Reducir la potencia de transmisión para minimizar interferencia entre APs propios. 4) Migrar usuarios a 5GHz usando band steering. 5) Verificar que no hay fuentes de interferencia no WiFi (microondas, cámaras inalámbricas) cerca del AP.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
- "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "GRE tunnel no enruta tráfico",
     "prompt": "Configuré un túnel GRE entre dos routers pero el tráfico de las redes remotas no pasa por el túnel. show interfaces Tunnel0 muestra up/up pero no hay conectividad entre las redes. ¿Qué revisar?",
-    "target": "Diagnóstico: El túnel GRE está activo pero no hay rutas que dirijan el tráfico de las redes remotas a través del túnel. Causa: El túnel GRE solo crea una interfaz virtual entre los dos routers, pero las rutas hacia las redes remotas deben configurarse manualmente o mediante un protocolo de enrutamiento sobre el túnel. Solución: 1) Verificar la interfaz del túnel: show interfaces Tunnel0 — debe estar up/up. 2) Agregar rutas estáticas a través del túnel: ip route 192.168.2.0 255.255.255.0 Tunnel0. 3) Alternativa: configurar OSPF u EIGRP sobre el túnel para intercambiar rutas dinámicamente. 4) Verificar que la interfaz del túnel tiene IP: ip address 10.0.0.1 255.255.255.252. 5) Verificar source y destination del túnel: tunnel source / tunnel destination con IPs públicas correctas."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El túnel GRE está activo pero no hay rutas que dirijan el tráfico de las redes remotas a través del túnel. Causa: El túnel GRE solo crea una interfaz virtual entre los dos routers, pero las rutas hacia las redes remotas deben configurarse manualmente o mediante un protocolo de enrutamiento sobre el túnel. Solución: 1) Verificar la interfaz del túnel: show interfaces Tunnel0 — debe estar up/up. 2) Agregar rutas estáticas a través del túnel: ip route 192.168.2.0 255.255.255.0 Tunnel0. 3) Alternativa: configurar OSPF u EIGRP sobre el túnel para intercambiar rutas dinámicamente. 4) Verificar que la interfaz del túnel tiene IP: ip address 10.0.0.1 255.255.255.252. 5) Verificar source y destination del túnel: tunnel source / tunnel destination con IPs públicas correctas.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-  "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Usuarios no pueden acceder a recursos compartidos Windows",
     "prompt": "Los usuarios no pueden acceder a carpetas compartidas en un servidor Windows. El ping al servidor funciona. El error es: No se puede tener acceso a la ruta de red. ¿Qué verificar?",
-    "target": "Diagnóstico: La conectividad básica existe pero el protocolo SMB no puede establecer la sesión con el servidor. Causa: Puede ser que el firewall de Windows está bloqueando SMB (TCP 445), el servicio Server no está activo, los permisos de compartición son incorrectos, o hay un problema de resolución de nombres NetBIOS. Solución: 1) Verificar que TCP 445 no está bloqueado: telnet SERVIDOR 445 desde el cliente. 2) En el servidor: verificar que el firewall de Windows permite Compartir archivos e impresoras. 3) Verificar el servicio Server está activo: services.msc — Server service. 4) Verificar permisos de red y permisos NTFS de la carpeta compartida. 5) Si accede por nombre y no por IP: verificar resolución DNS del servidor. 6) En PowerShell: Test-NetConnection -ComputerName SERVIDOR -Port 445."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: La conectividad básica existe pero el protocolo SMB no puede establecer la sesión con el servidor. Causa: Puede ser que el firewall de Windows está bloqueando SMB (TCP 445), el servicio Server no está activo, los permisos de compartición son incorrectos, o hay un problema de resolución de nombres NetBIOS. Solución: 1) Verificar que TCP 445 no está bloqueado: telnet SERVIDOR 445 desde el cliente. 2) En el servidor: verificar que el firewall de Windows permite Compartir archivos e impresoras. 3) Verificar el servicio Server está activo: services.msc — Server service. 4) Verificar permisos de red y permisos NTFS de la carpeta compartida. 5) Si accede por nombre y no por IP: verificar resolución DNS del servidor. 6) En PowerShell: Test-NetConnection -ComputerName SERVIDOR -Port 445.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
   {
-   "id": "caso_fb_20260612_174953",
+    "id": "caso_fb_20260612_174953",
     "titulo": "Router con alta utilización de memoria",
     "prompt": "Un router Cisco muestra alta utilización de memoria y ocasionalmente reinicia solo. show processes memory muestra varios procesos con alto consumo. ¿Cómo se diagnostica y soluciona?",
-    "target": "Diagnóstico: El router está quedándose sin memoria RAM disponible, lo que causa inestabilidad y reinicios. Causa: Puede haber un memory leak en algún proceso de IOS, tablas de enrutamiento muy grandes (full BGP table), demasiadas conexiones NAT, o una versión de IOS con bugs conocidos. Solución: 1) show processes memory sorted para identificar los procesos que más consumen. 2) show ip bgp summary — si maneja full BGP table (900k+ rutas) puede agotar la memoria. 3) show ip nat translations total — demasiadas traducciones NAT consumen memoria. 4) Verificar la versión de IOS: show version — buscar bugs de memory leak en el Cisco Bug Toolkit. 5) Si es BGP: filtrar rutas con prefix-list para no recibir la tabla completa. 6) Considerar actualizar la RAM o migrar a un equipo con más capacidad."
-  ,"origen": "feedback_usuario",
+    "target": "Diagnóstico: El router está quedándose sin memoria RAM disponible, lo que causa inestabilidad y reinicios. Causa: Puede haber un memory leak en algún proceso de IOS, tablas de enrutamiento muy grandes (full BGP table), demasiadas conexiones NAT, o una versión de IOS con bugs conocidos. Solución: 1) show processes memory sorted para identificar los procesos que más consumen. 2) show ip bgp summary — si maneja full BGP table (900k+ rutas) puede agotar la memoria. 3) show ip nat translations total — demasiadas traducciones NAT consumen memoria. 4) Verificar la versión de IOS: show version — buscar bugs de memory leak en el Cisco Bug Toolkit. 5) Si es BGP: filtrar rutas con prefix-list para no recibir la tabla completa. 6) Considerar actualizar la RAM o migrar a un equipo con más capacidad.",
+    "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
-  
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "BGP Route Hijacking entre proveedores",
@@ -2561,7 +2561,7 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
- {
+  {
     "id": "caso_fb_20260612_174953",
     "titulo": "OSPF LSA Flooding excesivo",
     "prompt": "La CPU de varios routers alcanza el 95% y se observan miles de actualizaciones OSPF por minuto. La red converge constantemente aunque no existen cambios físicos.",
@@ -2801,7 +2801,7 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
-   {
+  {
     "id": "caso_fb_20260612_174953",
     "titulo": "MPLS VPN pierde rutas entre sedes",
     "prompt": "Varias sucursales conectadas mediante MPLS dejan de comunicarse entre sí. Los enlaces físicos están activos pero las rutas remotas desaparecen.",
@@ -2961,7 +2961,6 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   },
-
   {
     "id": "caso_fb_20260612_174953",
     "titulo": "EVPN VXLAN no aprende rutas MAC remotas",
@@ -3122,6 +3121,4 @@
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
   }
-
-
 ]
