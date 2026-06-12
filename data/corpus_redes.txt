@@ -3353,3 +3353,12 @@ DIAGNÓSTICO: No existe fallo de infraestructura. CONSULTA INFORMATIVA. RESPUEST
 
 Dos switches intercambian tráfico entre varias VLAN mediante un enlace troncal. Algunas VLAN funcionan correctamente pero otras presentan pérdida intermitente de conectividad. No se observan errores físicos en el enlace.
 DIAGNÓSTICO: Existe una discrepancia en la VLAN nativa configurada en los extremos del troncal. Esto provoca que ciertos paquetes sean etiquetados de forma inconsistente. SOLUCIÓN: Revisar la configuración trunk en ambos switches y garantizar que la VLAN nativa coincida exactamente en los dos extremos.
+
+El puerto GigabitEthernet0/1 del switch Cisco 2960 aparece en estado err-disabled. El usuario conectó un hub al puerto. ¿Cómo se diagnostica y soluciona?
+Diagnóstico: El puerto entró en err-disabled por violación de port-security al detectar múltiples MACs. Causa: Se conectó un hub que expuso varias direcciones MAC al puerto, superando el límite configurado. Solución: 1) show port-security interface Gi0/1 para ver la violación. 2) interface GigabitEthernet0/1 / shutdown / no shutdown para recuperar el puerto. 3) Ajustar límite: switchport port-security maximum 3. 4) Cambiar modo a restrict en vez de shutdown: switchport port-security violation restrict.
+
+Configuré la VLAN 50 en un switch Cisco pero no aparece en show vlan brief. Los puertos asignados a esa VLAN no tienen conectividad. ¿Por qué?
+Diagnóstico: La VLAN 50 no está en la base de datos de VLANs activas del switch. Causa: La VLAN fue asignada a puertos con switchport access vlan 50 pero nunca fue creada explícitamente con vlan 50 / name VENTAS en modo de configuración global. Solución: 1) conf t / vlan 50 / name VENTAS / exit. 2) Verificar con show vlan brief que aparece activa. 3) Confirmar que los puertos están correctamente asignados con show interfaces Gi0/x switchport.
+
+Tengo dos switches Cisco 2960 conectados por un enlace trunk pero solo pasa la VLAN 1. Las VLANs 10, 20 y 30 no se comunican entre switches. ¿Qué revisar?
+Diagnóstico: El trunk está activo pero las VLANs 10, 20 y 30 no están permitidas en el enlace. Causa: Por defecto el trunk puede tener una lista de VLANs permitidas restringida o fue modificada con switchport trunk allowed vlan. Solución: 1) show interfaces Gi0/1 trunk para ver VLANs permitidas y activas. 2) switchport trunk allowed vlan add 10,20,30 en ambos switches. 3) Verificar que las VLANs existen en ambos switches con show vlan brief. 4) Confirmar modo trunk: switchport mode trunk en ambos extremos.

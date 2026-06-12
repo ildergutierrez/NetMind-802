@@ -2066,5 +2066,1062 @@
     "titulo": "Router con alta utilización de memoria",
     "prompt": "Un router Cisco muestra alta utilización de memoria y ocasionalmente reinicia solo. show processes memory muestra varios procesos con alto consumo. ¿Cómo se diagnostica y soluciona?",
     "target": "Diagnóstico: El router está quedándose sin memoria RAM disponible, lo que causa inestabilidad y reinicios. Causa: Puede haber un memory leak en algún proceso de IOS, tablas de enrutamiento muy grandes (full BGP table), demasiadas conexiones NAT, o una versión de IOS con bugs conocidos. Solución: 1) show processes memory sorted para identificar los procesos que más consumen. 2) show ip bgp summary — si maneja full BGP table (900k+ rutas) puede agotar la memoria. 3) show ip nat translations total — demasiadas traducciones NAT consumen memoria. 4) Verificar la versión de IOS: show version — buscar bugs de memory leak en el Cisco Bug Toolkit. 5) Si es BGP: filtrar rutas con prefix-list para no recibir la tabla completa. 6) Considerar actualizar la RAM o migrar a un equipo con más capacidad."
+  },
+  {
+    "id": "caso_fb_20260612_174951",
+    "titulo": "Puerto en err-disabled por port-security",
+    "prompt": "El puerto GigabitEthernet0/1 del switch Cisco 2960 aparece en estado err-disabled. El usuario conectó un hub al puerto. ¿Cómo se diagnostica y soluciona?",
+    "target": "Diagnóstico: El puerto entró en err-disabled por violación de port-security al detectar múltiples MACs. Causa: Se conectó un hub que expuso varias direcciones MAC al puerto, superando el límite configurado. Solución: 1) show port-security interface Gi0/1 para ver la violación. 2) interface GigabitEthernet0/1 / shutdown / no shutdown para recuperar el puerto. 3) Ajustar límite: switchport port-security maximum 3. 4) Cambiar modo a restrict en vez de shutdown: switchport port-security violation restrict.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:51.682155"
+  },
+  {
+    "id": "caso_fb_20260612_174952",
+    "titulo": "VLAN no aparece en tabla de VLANs",
+    "prompt": "Configuré la VLAN 50 en un switch Cisco pero no aparece en show vlan brief. Los puertos asignados a esa VLAN no tienen conectividad. ¿Por qué?",
+    "target": "Diagnóstico: La VLAN 50 no está en la base de datos de VLANs activas del switch. Causa: La VLAN fue asignada a puertos con switchport access vlan 50 pero nunca fue creada explícitamente con vlan 50 / name VENTAS en modo de configuración global. Solución: 1) conf t / vlan 50 / name VENTAS / exit. 2) Verificar con show vlan brief que aparece activa. 3) Confirmar que los puertos están correctamente asignados con show interfaces Gi0/x switchport.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.018729"
+  },
+  {
+    "id": "caso_fb_20260612_174952",
+    "titulo": "Trunk no pasa VLANs entre switches",
+    "prompt": "Tengo dos switches Cisco 2960 conectados por un enlace trunk pero solo pasa la VLAN 1. Las VLANs 10, 20 y 30 no se comunican entre switches. ¿Qué revisar?",
+    "target": "Diagnóstico: El trunk está activo pero las VLANs 10, 20 y 30 no están permitidas en el enlace. Causa: Por defecto el trunk puede tener una lista de VLANs permitidas restringida o fue modificada con switchport trunk allowed vlan. Solución: 1) show interfaces Gi0/1 trunk para ver VLANs permitidas y activas. 2) switchport trunk allowed vlan add 10,20,30 en ambos switches. 3) Verificar que las VLANs existen en ambos switches con show vlan brief. 4) Confirmar modo trunk: switchport mode trunk en ambos extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+    {
+      "id": "caso_fb_20260612_174951",
+    "titulo": "Puerto en err-disabled por port-security",
+    "prompt": "El puerto GigabitEthernet0/1 del switch Cisco 2960 aparece en estado err-disabled. El usuario conectó un hub al puerto. ¿Cómo se diagnostica y soluciona?",
+    "target": "Diagnóstico: El puerto entró en err-disabled por violación de port-security al detectar múltiples MACs. Causa: Se conectó un hub que expuso varias direcciones MAC al puerto, superando el límite configurado. Solución: 1) show port-security interface Gi0/1 para ver la violación. 2) interface GigabitEthernet0/1 / shutdown / no shutdown para recuperar el puerto. 3) Ajustar límite: switchport port-security maximum 3. 4) Cambiar modo a restrict en vez de shutdown: switchport port-security violation restrict.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  
+  },
+  {
+    "id": "caso_fb_20260612_174952",
+    "titulo": "VLAN no aparece en tabla de VLANs",
+    "prompt": "Configuré la VLAN 50 en un switch Cisco pero no aparece en show vlan brief. Los puertos asignados a esa VLAN no tienen conectividad. ¿Por qué?",
+    "target": "Diagnóstico: La VLAN 50 no está en la base de datos de VLANs activas del switch. Causa: La VLAN fue asignada a puertos con switchport access vlan 50 pero nunca fue creada explícitamente con vlan 50 / name VENTAS en modo de configuración global. Solución: 1) conf t / vlan 50 / name VENTAS / exit. 2) Verificar con show vlan brief que aparece activa. 3) Confirmar que los puertos están correctamente asignados con show interfaces Gi0/x switchport.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Trunk no pasa VLANs entre switches",
+    "prompt": "Tengo dos switches Cisco 2960 conectados por un enlace trunk pero solo pasa la VLAN 1. Las VLANs 10, 20 y 30 no se comunican entre switches. ¿Qué revisar?",
+    "target": "Diagnóstico: El trunk está activo pero las VLANs 10, 20 y 30 no están permitidas en el enlace. Causa: Por defecto el trunk puede tener una lista de VLANs permitidas restringida o fue modificada con switchport trunk allowed vlan. Solución: 1) show interfaces Gi0/1 trunk para ver VLANs permitidas y activas. 2) switchport trunk allowed vlan add 10,20,30 en ambos switches. 3) Verificar que las VLANs existen en ambos switches con show vlan brief. 4) Confirmar modo trunk: switchport mode trunk en ambos extremos."
+  ,
+  "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+      "id": "caso_fb_20260612_174953",
+    "titulo": "STP bloqueando puerto de acceso",
+    "prompt": "Un puerto de acceso en un switch de acceso está en estado BLK de Spanning Tree y los usuarios de esa sala no tienen red. No hay bucles físicos visibles. ¿Qué hacer?",
+    "target": "Diagnóstico: Spanning Tree Protocol está bloqueando el puerto por considerarlo parte de un posible bucle en la topología. Causa: Puede ser que el switch reciba BPDUs por ese puerto, indicando otro switch conectado, o la prioridad del switch raíz no está bien configurada. Solución: 1) show spanning-tree vlan X para ver el estado de cada puerto. 2) Si el puerto es de acceso a usuario final, habilitar PortFast: interface Gi0/x / spanning-tree portfast. 3) Habilitar BPDU Guard para proteger puertos de acceso: spanning-tree portfast bpduguard default. 4) Si hay un switch no autorizado, retirarlo."
+  ,
+  "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "IP duplicada en la red causa intermitencia",
+    "prompt": "Varios usuarios reportan que su conexión se cae cada pocos minutos. En la consola del switch aparece el mensaje: IP address conflict detected. ¿Cómo se resuelve?",
+    "target": "Diagnóstico: Existe una dirección IP duplicada en la red. Dos dispositivos están usando la misma IP causando conflictos ARP. Causa: Un dispositivo fue configurado con IP estática igual a una IP del rango DHCP, o dos dispositivos tienen la misma IP estática. Solución: 1) En el switch: show ip arp para ver MACs asociadas a la IP conflictiva. 2) Identificar los dos dispositivos con esa IP. 3) Cambiar la IP estática del dispositivo conflictivo o excluirla del pool DHCP: ip dhcp excluded-address 192.168.1.x. 4) En Windows usar arp -a para verificar duplicados."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Router no enruta entre VLANs (Router-on-a-Stick)",
+    "prompt": "Tengo un router Cisco conectado a un switch con subinterfaces para enrutamiento inter-VLAN. Los hosts de VLAN 10 no pueden hacer ping a VLAN 20. ¿Qué verificar?",
+    "target": "Diagnóstico: El enrutamiento inter-VLAN con router-on-a-stick no está funcionando correctamente. Causa: Puede fallar por: subinterfaces no configuradas correctamente, encapsulación dot1q incorrecta, puerto del switch no en modo trunk, o gateway incorrecto en los hosts. Solución: 1) Verificar subinterfaces en el router: show ip interface brief. 2) Confirmar encapsulación: interface Gi0/0.10 / encapsulation dot1Q 10 / ip address 192.168.10.1 255.255.255.0. 3) En el switch: show interfaces Gi0/1 trunk para confirmar modo trunk. 4) Verificar que los hosts tienen el gateway correcto apuntando a la subinterfaz del router.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "DHCP no asigna direcciones",
+    "prompt": "Los clientes no reciben IP del servidor DHCP Cisco. Muestran APIPA 169.254.x.x. El servidor DHCP está en un router Cisco en otra subred. ¿Cómo se soluciona?",
+    "target": "Diagnóstico: Los clientes no reciben respuesta DHCP porque el DHCP Discover no llega al servidor en la otra subred. Causa: Los routers no retransmiten broadcasts por defecto, por lo que el DHCP Discover (broadcast) no cruza la red. Solución: 1) Configurar DHCP Relay en el router de la subred cliente: interface Vlan10 / ip helper-address 192.168.1.1 (IP del servidor DHCP). 2) Verificar el pool DHCP: show ip dhcp pool. 3) Verificar conflictos: show ip dhcp conflict. 4) Verificar que el pool tiene el rango correcto y el gateway configurado: default-router 192.168.10.1."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "Cable de red sin conectividad física",
+    "prompt": "Un usuario no tiene red. El LED del puerto del switch está apagado. Se cambió el cable y sigue igual. El adaptador de red del PC aparece como desconectado. ¿Qué revisar?",
+    "target": "Diagnóstico: No hay enlace físico (Layer 1) entre el PC y el switch. Causa: Puede ser falla en el adaptador de red del PC, puerto del switch dañado, o el cable nuevo también es defectuoso. Solución: 1) Probar el cable con un cable tester para verificar continuidad. 2) Conectar otro dispositivo al mismo puerto del switch para descartar el puerto. 3) Conectar el PC a otro puerto del switch para descartar el adaptador. 4) En Cisco: show interfaces Gi0/x para ver si el puerto detecta señal. 5) Verificar que el puerto no está administrativamente apagado: no shutdown."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Después de aplicar una ACL en un router Cisco, los usuarios no pueden acceder al servidor web interno 192.168.10.5. El ping al servidor funciona pero HTTP no. ¿Qué revisar?",
+    "target": "Diagnóstico: La ACL está bloqueando el tráfico HTTP (puerto 80) hacia el servidor aunque permita ICMP. Causa: La ACL tiene una regla que bloquea TCP puerto 80 o no tiene una regla explícita de permiso para ese tráfico, y la regla implícita deny any al final la bloquea. Solución: 1) show ip access-lists para ver las reglas y los contadores de coincidencias. 2) Agregar regla de permiso: permit tcp any host 192.168.10.5 eq 80. 3) Verificar el orden de las reglas (las ACL se procesan de arriba hacia abajo). 4) Quitar y re-aplicar la ACL si es necesario reorganizarla: no ip access-group en la interfaz."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "NAT no traduce correctamente",
+    "prompt": "Los usuarios de la red interna 192.168.1.0/24 no tienen acceso a internet. El router tiene configurado NAT. show ip nat translations aparece vacío. ¿Qué falla?",
+    "target": "Diagnóstico: NAT no está traduciendo porque la configuración está incompleta o incorrecta. Causa: Puede faltar marcar las interfaces como inside/outside, el pool NAT puede ser incorrecto, o la ACL de NAT no coincide con el tráfico. Solución: 1) Verificar interfaces: interface Gi0/0 / ip nat inside — interface Gi0/1 / ip nat outside. 2) Verificar la ACL: access-list 1 permit 192.168.1.0 0.0.0.255. 3) Verificar NAT overload: ip nat inside source list 1 interface Gi0/1 overload. 4) Probar con ping desde un cliente y verificar show ip nat translations en tiempo real."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+   "id": "caso_fb_20260612_174953",
+    "titulo": "WiFi con señal pero sin internet",
+    "prompt": "Los clientes WiFi se conectan al AP y obtienen IP, pero no tienen acceso a internet. Los clientes cableados sí tienen internet. ¿Qué verificar?",
+    "target": "Diagnóstico: El problema está en el segmento inalámbrico, probablemente en el gateway o en el enrutamiento hacia internet desde la VLAN WiFi. Causa: La VLAN asignada al SSID puede no tener gateway correcto, o el firewall puede estar bloqueando tráfico de esa subred. Solución: 1) Verificar que los clientes WiFi reciben IP, máscara y gateway correctos. 2) Hacer ping al gateway desde un cliente WiFi. 3) Si el ping al gateway falla, verificar la configuración de la interfaz VLAN en el switch o router. 4) Verificar reglas de firewall que afecten la subred WiFi. 5) Verificar que el AP está en la VLAN correcta."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Bucle de red causa tormenta de broadcast",
+    "prompt": "La red completa se volvió extremadamente lenta. Los LEDs de todos los puertos del switch parpadean muy rápido. Los usuarios no tienen conectividad. ¿Qué está pasando?",
+    "target": "Diagnóstico: Hay una tormenta de broadcast causada por un bucle de red (loop). Causa: Un cable de red fue conectado entre dos puertos del mismo switch o entre dos switches sin Spanning Tree activo, creando un bucle que multiplica los broadcasts indefinidamente. Solución: Inmediata: 1) Desconectar cables uno a uno hasta que los LEDs se estabilicen. 2) Identificar el cable que forma el bucle y retirarlo. Definitiva: 3) Verificar que STP está activo: show spanning-tree. 4) Habilitar storm control: storm-control broadcast level 20. 5) En puertos de usuario habilitar PortFast + BPDU Guard para prevenir futuros bucles."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Interfaz serial con estado down/down",
+    "prompt": "El enlace WAN serial entre dos routers Cisco aparece en estado Serial0/0 is down, line protocol is down. El ISP confirma que su lado está activo. ¿Qué revisar?",
+    "target": "Diagnóstico: La interfaz serial no detecta señal de portadora del ISP o hay un problema de configuración local. Causa: Puede ser cable DTE/DCE incorrecto, falta de clock rate en el lado DCE, interfaz apagada administrativamente, o encapsulación incorrecta. Solución: 1) show interfaces Serial0/0 para ver el estado detallado. 2) Verificar que la interfaz no está apagada: no shutdown. 3) Si es DCE local: clock rate 64000. 4) Verificar encapsulación: encapsulation hdlc o ppp según el ISP. 5) show controllers Serial0/0 para ver si es DTE o DCE y verificar señal."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF no forma adyacencia",
+    "prompt": "Dos routers Cisco configurados con OSPF no forman adyacencia. show ip ospf neighbor aparece vacío. Los routers están directamente conectados. ¿Qué revisar?",
+    "target": "Diagnóstico: OSPF no puede establecer la relación de vecindad entre los dos routers. Causa: Los problemas más comunes son: área diferente en cada router, hello/dead timers distintos, autenticación incorrecta, MTU diferente, o la interfaz no está en la red anunciada. Solución: 1) Verificar que ambos routers tienen el mismo área: show ip ospf interface. 2) Verificar timers: deben coincidir hello 10 / dead 40. 3) Verificar MTU: ip mtu 1500 en ambas interfaces. 4) Verificar que la red está anunciada: network 192.168.1.0 0.0.0.255 area 0. 5) Si hay autenticación: ip ospf authentication-key debe coincidir."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Switch con CPU al 100%",
+    "prompt": "Un switch Cisco 3560 tiene la CPU al 100% y responde muy lento a comandos. Los usuarios tienen conectividad intermitente. show processes cpu muestra alto consumo. ¿Qué hacer?",
+    "target": "Diagnóstico: El procesador del switch está saturado procesando tráfico o eventos anormales. Causa: Puede ser un ataque de flooding de MAC addresses, una tormenta de broadcast, spanning tree inestable, o un proceso de actualización de tablas excesivo. Solución: 1) show processes cpu sorted para identificar el proceso que consume más CPU. 2) show interfaces para buscar interfaces con muchos errores o alta tasa de paquetes. 3) Si es un ataque: port-security en los puertos afectados. 4) Si es STP: show spanning-tree detail para buscar cambios de topología frecuentes. 5) Considerar actualizar el IOS si hay bugs conocidos."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+   "id": "caso_fb_20260612_174953",
+    "titulo": "VPN site-to-site no levanta",
+    "prompt": "Una VPN IPSec site-to-site entre dos routers Cisco no establece el túnel. show crypto isakmp sa muestra estado MM_NO_STATE. ¿Cómo se diagnostica?",
+    "target": "Diagnóstico: La fase 1 de IKE (ISAKMP) no está completando la negociación. Causa: Los parámetros de la política ISAKMP no coinciden entre los dos routers: algoritmo de cifrado, hash, método de autenticación, grupo DH o lifetime diferentes. También puede ser problema de conectividad UDP 500. Solución: 1) show crypto isakmp policy en ambos routers y comparar parámetros. 2) Verificar conectividad: ping a la IP pública del peer. 3) Verificar que UDP 500 y 4500 no están bloqueados. 4) debug crypto isakmp para ver el intercambio en detalle. 5) Verificar que las pre-shared keys coinciden: crypto isakmp key CLAVE address X.X.X.X."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "QoS no prioriza tráfico de voz",
+    "prompt": "Las llamadas VoIP tienen mala calidad (cortes, eco, retraso) aunque el ancho de banda es suficiente. QoS está configurado pero no parece funcionar. ¿Qué verificar?",
+    "target": "Diagnóstico: QoS no está clasificando o priorizando correctamente el tráfico de voz RTP. Causa: La política de QoS puede no estar aplicada en la interfaz correcta, la clasificación del tráfico VoIP puede ser incorrecta, o la cola de prioridad no está configurada. Solución: 1) show policy-map interface para ver si la política está aplicada y contadores de tráfico. 2) Verificar clasificación: class-map VoIP / match ip dscp ef (VoIP usa DSCP EF). 3) Verificar cola de prioridad: policy-map QOS / class VoIP / priority percent 30. 4) Aplicar en la interfaz WAN saliente: service-policy output QOS. 5) Verificar que los teléfonos IP marcan el tráfico con DSCP EF."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Tabla MAC del switch llena (MAC flooding)",
+    "prompt": "El switch tiene comportamiento de hub: todo el tráfico se replica en todos los puertos. show mac address-table count muestra la tabla al 100%. ¿Qué está pasando?",
+    "target": "Diagnóstico: La tabla CAM del switch está llena por un ataque de MAC flooding o por un fallo de configuración. Causa: Un atacante está enviando frames con miles de MACs falsas usando herramientas como macof, llenando la tabla CAM y forzando al switch a comportarse como hub. Solución: Inmediata: 1) Identificar el puerto origen: show mac address-table y buscar el puerto con miles de MACs. 2) Apagar el puerto: interface Gi0/x / shutdown. Definitiva: 3) Configurar port-security: switchport port-security maximum 5 / switchport port-security violation shutdown. 4) Implementar 802.1X para autenticación de dispositivos."
+  
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "EIGRP no redistribuye rutas estáticas",
+    "prompt": "Tengo rutas estáticas en un router Cisco con EIGRP pero los demás routers no las ven en su tabla de ruteo. ¿Cómo se redistribuyen rutas estáticas en EIGRP?",
+    "target": "Diagnóstico: Las rutas estáticas no se están redistribuyendo hacia el proceso EIGRP. Causa: EIGRP no redistribuye rutas estáticas automáticamente, requiere configuración explícita de redistribución. Solución: 1) Entrar al proceso EIGRP: router eigrp 100. 2) Redistribuir rutas estáticas: redistribute static metric 10000 100 255 1 1500 (los valores son: bandwidth, delay, reliability, load, MTU). 3) Verificar en los otros routers: show ip route eigrp — las rutas redistribuidas aparecen con D EX. 4) Alternativa para ruta default: ip route 0.0.0.0 0.0.0.0 X.X.X.X y redistribute static."
+  
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "Puerto del switch en half-duplex",
+    "prompt": "Una interfaz de red tiene muchas colisiones y el rendimiento es muy bajo. show interfaces muestra Half-duplex. El switch y el dispositivo deberían negociar full-duplex automáticamente. ¿Qué hacer?",
+    "target": "Diagnóstico: Hay un problema de negociación de dúplex entre el switch y el dispositivo conectado. Causa: Un extremo está en auto-negociación y el otro tiene dúplex forzado, o el cable tiene problemas que impiden la negociación correcta. Esto resulta en duplex mismatch. Solución: 1) show interfaces Gi0/x para ver dúplex y velocidad actuales. 2) Forzar dúplex y velocidad en ambos extremos: interface Gi0/x / duplex full / speed 1000. 3) Si el otro extremo es un servidor o PC, configurar igual en la NIC. 4) Nunca mezclar auto en un extremo y forzado en el otro. 5) Verificar el cable con cable tester."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "DNS no resuelve nombres internos",
+    "prompt": "Los usuarios pueden navegar por IP pero no por nombre. El servidor DNS interno 192.168.1.10 no resuelve los nombres del dominio local empresa.local. ¿Qué verificar?",
+    "target": "Diagnóstico: El servidor DNS no tiene registros para el dominio interno o los clientes no están consultando el DNS correcto. Causa: Los clientes pueden estar usando el DNS del ISP en vez del DNS interno, o el servidor DNS interno no tiene las zonas configuradas correctamente. Solución: 1) En el cliente: nslookup servidor.empresa.local 192.168.1.10 para probar directamente el DNS interno. 2) Verificar que los clientes reciben 192.168.1.10 como DNS (via DHCP: dns-server 192.168.1.10). 3) En Windows Server DNS: verificar que existe la zona de búsqueda directa empresa.local con los registros A correctos. 4) Verificar que el firewall permite UDP/TCP 53 hacia el DNS interno."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "HSRP no hace failover automático",
+    "prompt": "Tengo dos routers con HSRP configurado para alta disponibilidad. Cuando apago el router activo, los clientes pierden conectividad y no cambian al router standby. ¿Qué revisar?",
+    "target": "Diagnóstico: HSRP no está ejecutando el failover correctamente al router standby. Causa: Puede ser que los routers no están en el mismo grupo HSRP, la IP virtual no coincide, los timers son muy altos, o hay un problema de conectividad entre ellos. Solución: 1) show standby brief en ambos routers para ver el estado (Active/Standby). 2) Verificar mismo grupo y misma IP virtual: standby 1 ip 192.168.1.254. 3) Reducir timers para failover más rápido: standby 1 timers msec 200 msec 750. 4) Verificar prioridad: standby 1 priority 110 en el router principal. 5) Habilitar preempt: standby 1 preempt para que el principal retome el rol."
+ 
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459" },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Ataque ARP spoofing en la red",
+    "prompt": "Los usuarios reportan que su tráfico está siendo interceptado. Wireshark muestra múltiples respuestas ARP desde distintas MACs para la misma IP del gateway. ¿Cómo se mitiga?",
+    "target": "Diagnóstico: Hay un ataque de ARP Spoofing o ARP Poisoning en la red. Un atacante está enviando respuestas ARP falsas para asociar su MAC con la IP del gateway. Causa: Un dispositivo comprometido en la red está ejecutando un ataque man-in-the-middle mediante envenenamiento de caché ARP. Solución: 1) Identificar el dispositivo atacante: show ip arp inspection statistics. 2) Habilitar Dynamic ARP Inspection (DAI): ip arp inspection vlan 10. 3) Configurar DHCP Snooping primero (DAI lo requiere): ip dhcp snooping / ip dhcp snooping vlan 10. 4) Marcar puertos confiables (uplinks): ip arp inspection trust. 5) Aislar el dispositivo atacante."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "VLAN de voz no funciona en teléfonos IP",
+    "prompt": "Los teléfonos IP Cisco no registran con el servidor de llamadas. Están conectados al switch pero no obtienen IP de la VLAN de voz 100. Los PCs conectados al teléfono sí tienen red en VLAN 10. ¿Qué revisar?",
+    "target": "Diagnóstico: El puerto del switch no está configurado correctamente para soportar VLAN de datos y VLAN de voz simultáneamente. Causa: Falta la configuración de voice vlan en el puerto, o el teléfono no está recibiendo CDP para autodescubrir la VLAN de voz. Solución: 1) Configurar el puerto: interface Gi0/x / switchport mode access / switchport access vlan 10 / switchport voice vlan 100. 2) Verificar que CDP está activo: cdp enable en la interfaz. 3) Verificar que existe un pool DHCP para la VLAN 100 con option 150 (TFTP server): option 150 ip 192.168.100.10. 4) show interfaces Gi0/x trunk para ver si la VLAN 100 está activa."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Ancho de banda saturado en enlace WAN",
+    "prompt": "El enlace WAN de 10 Mbps está al 100% de utilización constantemente. Los usuarios se quejan de lentitud. No hay forma de contratar más ancho de banda inmediatamente. ¿Qué se puede hacer?",
+    "target": "Diagnóstico: El enlace WAN está saturado y se requiere gestión de tráfico para optimizar el uso del ancho de banda disponible. Causa: Puede haber tráfico no productivo (streaming, descargas, backups) consumiendo el ancho de banda en horario laboral. Solución: 1) Identificar el tráfico: show interfaces Serial0/0 y usar NBAR: ip nbar protocol-discovery. 2) Implementar QoS para priorizar tráfico crítico: voz y aplicaciones de negocio. 3) Limitar tráfico no productivo con traffic shaping: policy-map LIMIT / class STREAMING / police rate 1000000 bps. 4) Programar backups fuera de horario laboral. 5) Implementar compresión WAN si el router lo soporta."
+ ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Switch no aprende direcciones MAC",
+    "prompt": "La tabla MAC del switch siempre aparece vacía. show mac address-table no muestra ninguna entrada. Los dispositivos conectados no tienen conectividad entre ellos. ¿Qué puede causar esto?",
+    "target": "Diagnóstico: El switch no está aprendiendo direcciones MAC de los dispositivos conectados. Causa: Puede ser que port-security esté configurado en modo protect descartando frames, las interfaces están en estado down, o hay un problema con el ASIC del switch. Solución: 1) Verificar estado de interfaces: show interfaces status para ver cuáles están connected. 2) Verificar port-security: show port-security — puede estar bloqueando el aprendizaje. 3) Verificar que no hay mac address-table static configuradas incorrectamente. 4) Probar con un dispositivo simple: conectar un PC y hacer ping para generar tráfico. 5) Si el problema persiste en todos los puertos, puede ser falla de hardware."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "BGP no establece sesión con ISP",
+    "prompt": "El router de borde Cisco no establece sesión BGP con el router del ISP. show bgp summary muestra el neighbor en estado Active. El ISP confirma que su router está configurado. ¿Qué revisar?",
+    "target": "Diagnóstico: BGP no puede establecer la sesión TCP en el puerto 179 con el router del ISP. Causa: Puede ser problema de conectividad básica, ACL bloqueando TCP 179, AS number incorrecto, o IP del neighbor incorrecta. Solución: 1) Verificar conectividad básica: ping a la IP del neighbor BGP del ISP. 2) Verificar configuración: show running-config | section bgp — confirmar neighbor IP y remote-as. 3) Verificar que TCP 179 no está bloqueado: telnet X.X.X.X 179. 4) Verificar que el ISP tiene configurado el AS number correcto de tu organización como remote-as. 5) debug ip bgp X.X.X.X events para ver el intercambio."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "NTP no sincroniza el reloj del router",
+    "prompt": "Los routers Cisco no sincronizan la hora con el servidor NTP. show ntp status muestra unsynchronized. Los logs tienen timestamps incorrectos lo que dificulta el análisis de eventos. ¿Cómo se soluciona?",
+    "target": "Diagnóstico: El router no puede sincronizar con el servidor NTP configurado. Causa: Puede ser problema de conectividad con el servidor NTP, UDP 123 bloqueado, o el servidor NTP no está accesible desde el router. Solución: 1) Verificar conectividad: ping al servidor NTP. 2) Verificar configuración: ntp server 192.168.1.1 — show ntp associations. 3) Verificar que UDP 123 no está bloqueado por ACL. 4) Si el router tiene reloj de hardware: ntp update-calendar. 5) Configurar el router como servidor NTP para los demás dispositivos: ntp master 3. 6) Verificar zona horaria: clock timezone COT -5."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Wireless: clientes no pueden conectarse al SSID",
+    "prompt": "Varios clientes no pueden conectarse a un SSID WPA2-Enterprise. Reciben el error: No se puede conectar a esta red. El SSID sí aparece en la lista de redes disponibles. ¿Qué revisar?",
+    "target": "Diagnóstico: Los clientes no pueden autenticarse con WPA2-Enterprise (802.1X/EAP). Causa: Puede ser problema con el servidor RADIUS, certificados incorrectos, configuración EAP incompatible, o el cliente no tiene el perfil correcto. Solución: 1) Verificar que el servidor RADIUS está respondiendo desde el AP/WLC. 2) En el AP/WLC: verificar la clave compartida (shared secret) con el servidor RADIUS. 3) Verificar los logs del servidor RADIUS para ver el motivo del rechazo. 4) Verificar que el método EAP configurado en el servidor coincide con el del cliente (PEAP, EAP-TLS, etc.). 5) En Windows: configurar el perfil WiFi con las credenciales de dominio correctas."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "SNMP no recibe traps",
+    "prompt": "El servidor de monitoreo no recibe traps SNMP de los switches Cisco. La configuración SNMP parece correcta. ¿Qué puede estar fallando?",
+    "target": "Diagnóstico: Los traps SNMP no están llegando al servidor de monitoreo. Causa: Puede ser que la dirección del trap host esté incorrecta, la community string no coincide, UDP 162 está bloqueado, o los traps específicos no están habilitados. Solución: 1) Verificar configuración: show snmp — confirmar trap host y community. 2) Verificar la dirección del servidor: snmp-server host 192.168.1.100 version 2c PUBLIC. 3) Habilitar traps específicos: snmp-server enable traps. 4) Verificar que UDP 162 no está bloqueado entre el switch y el servidor. 5) Usar Wireshark en el servidor para verificar si los paquetes llegan. 6) Para SNMPv3 verificar usuario y nivel de seguridad."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Fibra óptica sin enlace",
+    "prompt": "Un enlace de fibra óptica entre dos switches no levanta. Los puertos SFP muestran el LED apagado. Los módulos SFP son nuevos. ¿Qué verificar?",
+    "target": "Diagnóstico: No hay señal óptica entre los dos extremos del enlace de fibra. Causa: Puede ser que las fibras TX/RX estén invertidas, el módulo SFP no es compatible, la fibra tiene demasiada atenuación, o los conectores están sucios. Solución: 1) Verificar que el cable de fibra no tenga los hilos TX/RX cruzados incorrectamente (en enlaces directos deben cruzarse: TX de un lado va a RX del otro). 2) Limpiar los conectores de fibra con kit de limpieza óptica. 3) Verificar compatibilidad del SFP con el switch: show interfaces Gi0/x transceiver. 4) Medir potencia óptica con óptico-medidor. 5) Verificar que el tipo de fibra coincide con el SFP (monomodo/multimodo)."
+  },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "RADIUS rechaza autenticación 802.1X",
+    "prompt": "Los usuarios no pueden autenticarse en la red con 802.1X. El servidor RADIUS muestra Access-Reject. Los usuarios tienen credenciales de dominio correctas. ¿Qué revisar?",
+    "target": "Diagnóstico: El servidor RADIUS está rechazando las solicitudes de autenticación. Causa: Puede ser que las credenciales no coinciden con las del servidor RADIUS, el certificado del servidor no es confiable para el cliente, o el método EAP no es compatible. Solución: 1) Revisar los logs del servidor RADIUS para ver el motivo específico del rechazo. 2) En Windows NPS: verificar la política de red y las condiciones de acceso. 3) Verificar que el usuario pertenece al grupo autorizado en la política RADIUS. 4) Para PEAP: verificar que el certificado del servidor RADIUS es válido y confiable. 5) Verificar que el switch envía correctamente el atributo NAS-IP-Address configurado como cliente en RADIUS."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Latencia alta en red LAN",
+    "prompt": "Los usuarios reportan latencia alta en la red LAN. El ping entre PCs en el mismo switch da 50-100ms cuando debería ser menos de 1ms. ¿Qué puede causar esto?",
+    "target": "Diagnóstico: La latencia en la LAN es anormalmente alta, lo que indica un problema de rendimiento en el switch o en la red. Causa: Puede ser que el switch está procesando tráfico por software (alto CPU), hay un bucle parcial, colisiones excesivas por duplex mismatch, o el switch tiene poca memoria de buffer. Solución: 1) show processes cpu para ver si el CPU del switch está alto. 2) show interfaces para buscar errores, colisiones y resets. 3) Verificar dúplex: show interfaces status — buscar interfaces en half-duplex. 4) Buscar bucles: show spanning-tree para ver cambios de topología frecuentes. 5) Verificar que no hay storm de broadcast: show interfaces | include broadcast."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Configuración se pierde al reiniciar el router",
+    "prompt": "Cada vez que el router Cisco se reinicia, vuelve a la configuración de fábrica. Los cambios no se guardan. ¿Por qué ocurre esto?",
+    "target": "Diagnóstico: La configuración en ejecución (running-config) no se está guardando en la configuración de inicio (startup-config). Causa: El administrador no está ejecutando el comando de guardar la configuración antes de reiniciar, o la NVRAM del router tiene problemas. Solución: 1) Siempre guardar antes de reiniciar: copy running-config startup-config o write memory. 2) Verificar que la startup-config tiene contenido: show startup-config. 3) Verificar la NVRAM: show version — buscar Configuration register. 4) Si el registro de configuración es 0x2142, el router está ignorando la startup-config (modo de recuperación de contraseña): config-register 0x2102 / reload. 5) Verificar espacio en flash: show flash."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "IP helper no funciona para DHCP",
+    "prompt": "Configuré ip helper-address en la interfaz VLAN del router pero los clientes en esa VLAN siguen sin recibir IP del servidor DHCP central. ¿Qué puede estar fallando?",
+    "target": "Diagnóstico: El ip helper-address está configurado pero el relay DHCP no está funcionando correctamente. Causa: Puede ser que la dirección helper apunta a una IP incorrecta, hay una ACL bloqueando UDP 67/68, el servidor DHCP no tiene un pool para esa subred, o el helper está en la interfaz incorrecta. Solución: 1) Verificar la interfaz correcta: show running-config interface Vlan10 — confirmar ip helper-address. 2) La dirección helper debe ser la IP del servidor DHCP, no el gateway. 3) Verificar que no hay ACL bloqueando UDP 67 y 68. 4) En el servidor DHCP verificar que existe un scope para la subred de los clientes. 5) debug ip dhcp server events en el servidor para ver si llegan las solicitudes."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Spanning Tree Root Bridge incorrecto",
+    "prompt": "El Root Bridge de Spanning Tree no es el switch de core sino un switch de acceso. Esto causa rutas subóptimas. ¿Cómo se corrige?",
+    "target": "Diagnóstico: El Root Bridge de STP fue elegido por defecto basándose en la MAC address más baja, no en la jerarquía de la red. Causa: No se configuró la prioridad de STP en los switches, por lo que el que tenga la MAC más baja se convierte en Root Bridge, aunque sea un switch de acceso. Solución: 1) show spanning-tree para identificar el Root Bridge actual. 2) En el switch de core configurar la prioridad más baja: spanning-tree vlan 1-4094 priority 4096. 3) Alternativa: spanning-tree vlan 1-4094 root primary (Cisco automáticamente ajusta la prioridad). 4) Para el switch secundario: spanning-tree vlan 1-4094 root secondary. 5) Verificar el nuevo Root Bridge: show spanning-tree | include Root."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+   "id": "caso_fb_20260612_174953",
+    "titulo": "VLAN privada (Private VLAN) mal configurada",
+    "prompt": "Configuré Private VLANs para aislar clientes en un switch Cisco pero los hosts en VLANs aisladas pueden comunicarse entre ellos. El aislamiento no funciona. ¿Qué revisar?",
+    "target": "Diagnóstico: Las Private VLANs no están aislando correctamente el tráfico entre hosts. Causa: La configuración de PVLAN puede estar incompleta: falta asociar las VLANs secundarias a la primaria, los puertos no tienen el tipo correcto (isolated/community/promiscuous), o el modo VTP no permite PVLANs. Solución: 1) VTP debe estar en modo transparent para PVLANs: vtp mode transparent. 2) Configurar VLAN primaria y secundaria: vlan 100 / private-vlan primary — vlan 101 / private-vlan isolated. 3) Asociar: vlan 100 / private-vlan association 101. 4) Configurar puertos: interface Gi0/x / switchport mode private-vlan host / switchport private-vlan host-association 100 101. 5) Puerto promiscuo (router/firewall): switchport private-vlan mapping 100 101."
+  
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"},
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "Firewall bloqueando tráfico FTP",
+    "prompt": "Los usuarios no pueden transferir archivos por FTP activo. El comando ftp funciona para conectarse pero al intentar listar directorios o transferir falla. FTP pasivo sí funciona. ¿Por qué?",
+    "target": "Diagnóstico: El firewall está bloqueando las conexiones de datos del FTP activo. Causa: En FTP activo, el servidor inicia la conexión de datos hacia el cliente desde el puerto 20. El firewall bloquea esta conexión entrante porque la ve como una conexión no solicitada. En FTP pasivo el cliente inicia ambas conexiones por eso funciona. Solución: 1) La solución recomendada es usar siempre FTP pasivo (SFTP o FTPS son más seguros). 2) Si se necesita FTP activo: habilitar ip inspect ftp en el firewall Cisco para inspección stateful. 3) En Cisco IOS: ip inspect name FTP_INSPECT ftp / interface outside / ip inspect FTP_INSPECT out. 4) Alternativa: migrar a SFTP sobre SSH que es stateful y no tiene este problema."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Routers con rutas flotantes no hace failover",
+    "prompt": "Tengo dos enlaces WAN con rutas flotantes (administrative distance diferente) pero cuando el enlace principal falla, el tráfico no conmuta al enlace de respaldo. ¿Qué revisar?",
+    "target": "Diagnóstico: Las rutas flotantes están configuradas pero el failover no ocurre automáticamente. Causa: El router no detecta la caída del enlace principal porque la interfaz física sigue activa aunque el servicio WAN del ISP esté caído. Las rutas estáticas no desaparecen hasta que la interfaz baja. Solución: 1) Implementar IP SLA para monitorear la conectividad real: ip sla 1 / icmp-echo 8.8.8.8 source-interface Gi0/0 / frequency 5. 2) Track: track 1 ip sla 1 reachability. 3) Asociar la ruta principal al track: ip route 0.0.0.0 0.0.0.0 Gi0/0 ISP1 track 1. 4) La ruta flotante: ip route 0.0.0.0 0.0.0.0 Gi0/1 ISP2 10 (AD mayor). 5) Cuando IP SLA falla, la ruta principal desaparece y activa la flotante."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Switch apilado pierde un miembro del stack",
+    "prompt": "Un switch Cisco Catalyst apilado (stack) perdió un miembro. El LED del stack link está en rojo. Los puertos del switch que salió del stack no tienen conectividad. ¿Cómo se diagnostica?",
+    "target": "Diagnóstico: Un switch miembro abandonó el stack, posiblemente por falla en el cable de stack, falla de hardware, o versión de IOS incompatible. Causa: El cable de stack StackWise puede estar dañado, el switch puede haber fallado, o una actualización de IOS dejó versiones incompatibles entre miembros. Solución: 1) show switch para ver el estado de todos los miembros del stack. 2) Verificar el cable de stack: reemplazarlo si es posible. 3) Si el switch está físicamente presente pero no une al stack: verificar que tiene la misma versión de IOS con show version. 4) Si hay versiones diferentes: actualizar el IOS del miembro usando auto-upgrade: switch auto-upgrade. 5) Reasignar número de switch si es necesario: switch X renumber Y."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "Multicast no llega a los receptores",
+    "prompt": "Una aplicación de video streaming multicast funciona en algunos segmentos de red pero no llega a otros. Los receptores en VLANs remotas no reciben el stream. ¿Cómo se diagnostica?",
+    "target": "Diagnóstico: El tráfico multicast no está siendo enrutado correctamente hacia todos los segmentos. Causa: Puede faltar la configuración de PIM (Protocol Independent Multicast) en las interfaces del router, IGMP Snooping puede estar bloqueando el tráfico en los switches, o no hay un Rendezvous Point configurado para PIM-SM. Solución: 1) Habilitar multicast routing: ip multicast-routing. 2) En cada interfaz del router: ip pim sparse-mode o dense-mode. 3) Configurar RP para PIM-SM: ip pim rp-address 192.168.1.1. 4) Verificar que los receptores envían IGMP joins: show ip igmp groups. 5) En switches: verificar IGMP Snooping: show ip igmp snooping — puede estar bloqueando multicast si no hay querier."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Error de CRC en interfaz Ethernet",
+    "prompt": "Una interfaz del switch muestra miles de errores CRC en show interfaces. El rendimiento de la conexión es muy bajo. ¿Qué causa los errores CRC y cómo se soluciona?",
+    "target": "Diagnóstico: La interfaz está recibiendo frames con errores de integridad (CRC), lo que indica corrupción de datos en la capa física. Causa: Cables de baja calidad o dañados, conectores RJ45 mal crimpados, interferencia electromagnética, duplex mismatch, o una NIC defectuosa. Solución: 1) show interfaces Gi0/x para ver el contador de CRC errors y input errors. 2) Reemplazar el cable de red — verificar que es Cat5e o superior para GigabitEthernet. 3) Verificar el crimpado del conector RJ45 con cable tester. 4) Verificar que no hay fuentes de interferencia cerca (motores, UPS). 5) Verificar duplex: show interfaces status — forzar duplex full / speed 1000 en ambos extremos. 6) Si persiste con cable nuevo, puede ser NIC defectuosa."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "TACACS+ no autentica usuarios de red",
+    "prompt": "Los administradores no pueden hacer login en los switches y routers con sus credenciales de TACACS+. El servidor TACACS+ está activo. Se usa el usuario local como fallback. ¿Qué revisar?",
+    "target": "Diagnóstico: El dispositivo Cisco no puede comunicarse correctamente con el servidor TACACS+ para autenticar. Causa: Puede ser que la clave compartida no coincide, la IP del servidor es incorrecta, TCP 49 está bloqueado, o la lista de métodos AAA no tiene el orden correcto. Solución: 1) Verificar la configuración: show tacacs — IP del servidor y clave. 2) Verificar conectividad: telnet X.X.X.X 49 desde el dispositivo. 3) Verificar la clave compartida con el servidor: tacacs-server key CLAVE (debe coincidir exactamente, sensible a mayúsculas). 4) Verificar la lista de métodos AAA: aaa authentication login default group tacacs+ local — el local es el fallback. 5) En el servidor revisar los logs para ver si llegan las solicitudes."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",  
+    "titulo": "Tráfico asimétrico causa problemas de firewall stateful",
+    "prompt": "El firewall descarta paquetes de conexiones establecidas. Los logs muestran: TCP out-of-order o session not found. Las conexiones se caen intermitentemente. ¿Qué está pasando?",
+    "target": "Diagnóstico: El enrutamiento asimétrico está causando que el firewall vea solo un lado de las conexiones TCP. Causa: El tráfico de ida y de vuelta toma rutas diferentes y solo uno de los caminos pasa por el firewall stateful. El firewall no puede mantener el estado de la conexión si no ve ambos sentidos. Solución: 1) Verificar la tabla de enrutamiento en todos los routers para encontrar rutas asimétricas. 2) Corregir el enrutamiento para que todo el tráfico de una conexión pase por el mismo firewall. 3) Si hay dos firewalls en cluster: verificar la sincronización de estado (state sync). 4) Solución temporal: deshabilitar la inspección stateful para las interfaces afectadas (no recomendado en producción). 5) Implementar enrutamiento basado en políticas (PBR) para forzar simetría."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    
+    "titulo": "LACP no agrega los enlaces (EtherChannel)",
+    "prompt": "Configuré un EtherChannel con LACP entre dos switches Cisco pero los puertos no se agregan. show etherchannel summary muestra los puertos en estado (I) individual. ¿Qué revisar?",
+    "target": "Diagnóstico: LACP no está logrando agregar los puertos en el EtherChannel porque hay parámetros incompatibles entre los puertos. Causa: Para que LACP funcione, todos los puertos del channel deben tener la misma velocidad, dúplex, VLAN nativa, VLANs permitidas y modo de switchport. Solución: 1) show etherchannel detail para ver el motivo por el que los puertos no se agregan. 2) Verificar que todos los puertos tienen la misma velocidad y dúplex. 3) Verificar VLANs: todos los puertos deben tener la misma VLAN nativa y VLANs permitidas. 4) Verificar modo: channel-group 1 mode active (LACP activo) en ambos extremos. 5) No mezclar LACP con PAgP o modo on. 6) Después de corregir: clear etherchannel y reconfigurar."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+"id": "caso_fb_20260612_174953",
+    "titulo": "Servidor no accesible desde internet",
+    "prompt": "Tenemos un servidor web en la red interna 192.168.1.100. Configuramos una regla NAT estática para que sea accesible desde internet en el puerto 80, pero desde internet no se puede acceder. ¿Qué revisar?",
+    "target": "Diagnóstico: El NAT estático puede estar configurado pero hay otros elementos que impiden el acceso desde internet. Causa: Puede ser que el NAT estático está mal configurado, el firewall bloquea el puerto 80 entrante, la IP pública no está correctamente anunciada, o el servidor tiene el gateway incorrecto. Solución: 1) Verificar NAT estático: ip nat inside source static 192.168.1.100 X.X.X.X (IP pública). 2) Verificar que las interfaces tienen ip nat inside / ip nat outside correctamente. 3) Verificar ACL o firewall que permita TCP 80 entrante hacia la IP pública. 4) Desde internet: telnet IP_PUBLICA 80 para probar conectividad. 5) Verificar que el servidor tiene como gateway la IP interna del router: 192.168.1.1. 6) show ip nat translations para verificar la traducción estática."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+   "id": "caso_fb_20260612_174953",
+    "titulo": "Pérdida de paquetes en red WiFi 2.4GHz",
+    "prompt": "Los usuarios en WiFi 2.4GHz tienen alta pérdida de paquetes y velocidad muy baja. En 5GHz el rendimiento es normal. El AP está en un entorno de oficina con muchos APs vecinos. ¿Qué está pasando?",
+    "target": "Diagnóstico: La banda 2.4GHz está saturada por interferencia de canales o por la coexistencia con muchas redes WiFi vecinas. Causa: La banda 2.4GHz solo tiene 3 canales no solapados (1, 6, 11) y en entornos densos hay mucha interferencia. Además pueden haber interferencias de microondas, teléfonos inalámbricos y dispositivos Bluetooth. Solución: 1) Escanear el espectro con herramientas como WiFi Analyzer para ver los canales usados por APs vecinos. 2) Configurar el AP en el canal menos congestionado (1, 6 o 11). 3) Reducir la potencia de transmisión para minimizar interferencia entre APs propios. 4) Migrar usuarios a 5GHz usando band steering. 5) Verificar que no hay fuentes de interferencia no WiFi (microondas, cámaras inalámbricas) cerca del AP."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+ "id": "caso_fb_20260612_174953",
+    "titulo": "GRE tunnel no enruta tráfico",
+    "prompt": "Configuré un túnel GRE entre dos routers pero el tráfico de las redes remotas no pasa por el túnel. show interfaces Tunnel0 muestra up/up pero no hay conectividad entre las redes. ¿Qué revisar?",
+    "target": "Diagnóstico: El túnel GRE está activo pero no hay rutas que dirijan el tráfico de las redes remotas a través del túnel. Causa: El túnel GRE solo crea una interfaz virtual entre los dos routers, pero las rutas hacia las redes remotas deben configurarse manualmente o mediante un protocolo de enrutamiento sobre el túnel. Solución: 1) Verificar la interfaz del túnel: show interfaces Tunnel0 — debe estar up/up. 2) Agregar rutas estáticas a través del túnel: ip route 192.168.2.0 255.255.255.0 Tunnel0. 3) Alternativa: configurar OSPF u EIGRP sobre el túnel para intercambiar rutas dinámicamente. 4) Verificar que la interfaz del túnel tiene IP: ip address 10.0.0.1 255.255.255.252. 5) Verificar source y destination del túnel: tunnel source / tunnel destination con IPs públicas correctas."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+  "id": "caso_fb_20260612_174953",
+    "titulo": "Usuarios no pueden acceder a recursos compartidos Windows",
+    "prompt": "Los usuarios no pueden acceder a carpetas compartidas en un servidor Windows. El ping al servidor funciona. El error es: No se puede tener acceso a la ruta de red. ¿Qué verificar?",
+    "target": "Diagnóstico: La conectividad básica existe pero el protocolo SMB no puede establecer la sesión con el servidor. Causa: Puede ser que el firewall de Windows está bloqueando SMB (TCP 445), el servicio Server no está activo, los permisos de compartición son incorrectos, o hay un problema de resolución de nombres NetBIOS. Solución: 1) Verificar que TCP 445 no está bloqueado: telnet SERVIDOR 445 desde el cliente. 2) En el servidor: verificar que el firewall de Windows permite Compartir archivos e impresoras. 3) Verificar el servicio Server está activo: services.msc — Server service. 4) Verificar permisos de red y permisos NTFS de la carpeta compartida. 5) Si accede por nombre y no por IP: verificar resolución DNS del servidor. 6) En PowerShell: Test-NetConnection -ComputerName SERVIDOR -Port 445."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+   "id": "caso_fb_20260612_174953",
+    "titulo": "Router con alta utilización de memoria",
+    "prompt": "Un router Cisco muestra alta utilización de memoria y ocasionalmente reinicia solo. show processes memory muestra varios procesos con alto consumo. ¿Cómo se diagnostica y soluciona?",
+    "target": "Diagnóstico: El router está quedándose sin memoria RAM disponible, lo que causa inestabilidad y reinicios. Causa: Puede haber un memory leak en algún proceso de IOS, tablas de enrutamiento muy grandes (full BGP table), demasiadas conexiones NAT, o una versión de IOS con bugs conocidos. Solución: 1) show processes memory sorted para identificar los procesos que más consumen. 2) show ip bgp summary — si maneja full BGP table (900k+ rutas) puede agotar la memoria. 3) show ip nat translations total — demasiadas traducciones NAT consumen memoria. 4) Verificar la versión de IOS: show version — buscar bugs de memory leak en el Cisco Bug Toolkit. 5) Si es BGP: filtrar rutas con prefix-list para no recibir la tabla completa. 6) Considerar actualizar la RAM o migrar a un equipo con más capacidad."
+  ,"origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "BGP Route Hijacking entre proveedores",
+    "prompt": "Una empresa detecta que el tráfico destinado a sus servicios públicos está siendo redirigido hacia un ASN desconocido. Los prefijos anunciados parecen legítimos pero los usuarios llegan a una red ajena. ¿Qué ocurrió y cómo se corrige?",
+    "target": "Diagnóstico: Secuestro de rutas BGP (BGP Route Hijacking). Causa: Un ASN anunció prefijos que no le pertenecen y otros routers aceptaron el anuncio. Solución: 1) Verificar anuncios con show ip bgp. 2) Implementar filtros prefix-list y route-map. 3) Configurar validación RPKI. 4) Coordinar con proveedores para retirar rutas incorrectas. 5) Monitorear propagación de prefijos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF Area Mismatch",
+    "prompt": "Dos routers tienen conectividad IP pero nunca forman adyacencia OSPF. Los comandos muestran estados INIT y EXSTART de forma permanente.",
+    "target": "Diagnóstico: Configuración inconsistente de áreas OSPF. Causa: Las interfaces pertenecen a áreas distintas o tienen parámetros incompatibles. Solución: 1) Revisar show ip ospf interface. 2) Confirmar area-id en ambos extremos. 3) Verificar MTU. 4) Validar timers Hello y Dead. 5) Reiniciar proceso OSPF si es necesario.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque ARP Spoofing interno",
+    "prompt": "Usuarios reportan lentitud y pérdida de confidencialidad. El tráfico parece pasar por un equipo desconocido dentro de la LAN.",
+    "target": "Diagnóstico: Ataque ARP Spoofing / Man-in-the-Middle. Causa: Un host está enviando respuestas ARP falsas para convertirse en intermediario. Solución: 1) Revisar tablas ARP. 2) Identificar MAC sospechosa. 3) Implementar Dynamic ARP Inspection. 4) Configurar DHCP Snooping. 5) Aislar el equipo atacante.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VPN IPsec no establece túnel",
+    "prompt": "Dos sedes tienen configuración aparentemente correcta pero el túnel IPsec nunca alcanza estado UP.",
+    "target": "Diagnóstico: Fallo en negociación IKE/IPsec. Causa: Parámetros criptográficos incompatibles o claves incorrectas. Solución: 1) Revisar show crypto isakmp sa. 2) Comparar algoritmos AES, SHA y DH. 3) Verificar pre-shared key. 4) Confirmar ACL de tráfico interesante. 5) Validar NAT Exemption.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "DHCP Starvation",
+    "prompt": "Nuevos dispositivos no reciben direcciones IP aunque el servidor DHCP está operativo.",
+    "target": "Diagnóstico: Posible ataque DHCP Starvation. Causa: Un atacante agotó el pool mediante solicitudes masivas usando MAC aleatorias. Solución: 1) Revisar leases activos. 2) Implementar DHCP Snooping. 3) Limitar MAC por puerto. 4) Liberar direcciones comprometidas. 5) Monitorear solicitudes DHCP anómalas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "STP Root Bridge inesperado",
+    "prompt": "La topología de switching presenta cambios constantes y múltiples reconvergencias. El Root Bridge cambió inesperadamente.",
+    "target": "Diagnóstico: Elección incorrecta de Root Bridge. Causa: Un switch con prioridad menor tomó el control de STP. Solución: 1) Revisar show spanning-tree. 2) Configurar prioridad manual. 3) Habilitar Root Guard. 4) Verificar BPDU recibidas. 5) Confirmar estabilidad del árbol.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "ACL bloquea tráfico crítico",
+    "prompt": "Una aplicación corporativa dejó de funcionar después de una modificación de seguridad en el firewall.",
+    "target": "Diagnóstico: ACL demasiado restrictiva. Causa: Regla deny aplicada antes de la regla permit necesaria. Solución: 1) Revisar orden de ACL. 2) Analizar logs. 3) Reubicar reglas permit. 4) Aplicar principio de menor privilegio. 5) Verificar conectividad tras cambios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Flood de MAC Addresses",
+    "prompt": "El switch presenta alta utilización y comienza a comportarse como un hub retransmitiendo tráfico innecesario.",
+    "target": "Diagnóstico: MAC Flooding. Causa: Saturación de la tabla CAM mediante direcciones MAC falsas. Solución: 1) Revisar tabla MAC. 2) Activar Port Security. 3) Limitar número de MAC por puerto. 4) Bloquear puerto atacante. 5) Monitorear eventos de seguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Modelo pregunta por su identidad",
+    "prompt": "¿Cómo te llamas y a qué te dedicas?",
+    "target": "Soy NetMind, un modelo especializado en redes, telecomunicaciones y ciberseguridad. Mi función es analizar incidentes, diagnosticar fallos, explicar tecnologías, proponer soluciones y asistir en la resolución de problemas relacionados con routing, switching, WiFi, seguridad, firewalls, VPN, servicios de red y administración de infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Modelo pregunta sobre capacidades",
+    "prompt": "¿Qué puedes hacer?",
+    "target": "Puedo diagnosticar problemas de redes, analizar configuraciones Cisco, Juniper y Mikrotik, explicar protocolos como OSPF, BGP, EIGRP, STP y VLAN, detectar problemas de seguridad, ayudar con VPN, WiFi, firewalls, monitoreo, análisis de tráfico, respuesta a incidentes y entrenamiento técnico especializado en infraestructura de red.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+ {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF LSA Flooding excesivo",
+    "prompt": "La CPU de varios routers alcanza el 95% y se observan miles de actualizaciones OSPF por minuto. La red converge constantemente aunque no existen cambios físicos.",
+    "target": "Diagnóstico: Inestabilidad OSPF por flooding excesivo de LSAs. Causa: Interfaces fluctuantes, redistribución incorrecta o enlaces inestables. Solución: 1) Revisar show ip ospf database. 2) Identificar LSAs que cambian constantemente. 3) Corregir enlaces con errores físicos. 4) Ajustar redistribuciones y sumarización. 5) Verificar estabilidad con show ip ospf neighbor.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque DDoS contra servidor web",
+    "prompt": "El portal corporativo deja de responder y el firewall registra millones de conexiones simultáneas desde múltiples direcciones IP.",
+    "target": "Diagnóstico: Ataque distribuido de denegación de servicio (DDoS). Causa: Saturación de recursos mediante tráfico masivo. Solución: 1) Activar mitigación DDoS del proveedor. 2) Aplicar rate limiting. 3) Implementar filtrado geográfico si aplica. 4) Utilizar CDN y balanceadores. 5) Analizar fuentes del ataque y bloquear patrones maliciosos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Rogue Access Point detectado",
+    "prompt": "Usuarios se conectan a una red WiFi con nombre idéntico al corporativo pero las credenciales terminan comprometidas.",
+    "target": "Diagnóstico: Punto de acceso falso (Evil Twin). Causa: Un atacante creó un AP con el mismo SSID para capturar credenciales. Solución: 1) Realizar escaneo inalámbrico. 2) Localizar físicamente el AP malicioso. 3) Implementar WPA3-Enterprise. 4) Aplicar WIDS/WIPS. 5) Capacitar usuarios para validar certificados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Loop de Capa 2 entre switches",
+    "prompt": "La red completa se vuelve lenta, aparecen tormentas broadcast y varios switches dejan de responder.",
+    "target": "Diagnóstico: Bucle de capa 2. Causa: Conexiones redundantes sin protección STP. Solución: 1) Identificar enlaces redundantes. 2) Revisar show spanning-tree. 3) Habilitar BPDU Guard y Loop Guard. 4) Desconectar enlaces problemáticos. 5) Verificar convergencia correcta de STP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VLAN Hopping",
+    "prompt": "Un usuario conectado a una VLAN de invitados logra acceder a recursos internos restringidos.",
+    "target": "Diagnóstico: Ataque VLAN Hopping. Causa: Configuración incorrecta de puertos trunk o negociación DTP activa. Solución: 1) Deshabilitar DTP. 2) Configurar puertos de usuario como access. 3) Cambiar VLAN nativa. 4) Revisar trunks autorizados. 5) Aplicar segmentación estricta.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Fuga de rutas por redistribución",
+    "prompt": "Rutas internas privadas aparecen anunciadas hacia Internet después de una modificación en el borde de red.",
+    "target": "Diagnóstico: Route Leak por redistribución incorrecta. Causa: Redistribución excesiva entre protocolos sin filtros adecuados. Solución: 1) Revisar route-maps. 2) Aplicar prefix-lists. 3) Limitar redistribuciones. 4) Validar anuncios BGP salientes. 5) Monitorear tablas de rutas globales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Firewall bloquea VPN SSL",
+    "prompt": "Los usuarios remotos no logran establecer conexión VPN SSL después de una actualización de políticas.",
+    "target": "Diagnóstico: Reglas de firewall incompatibles con la VPN. Causa: Bloqueo de puertos o inspección SSL incorrecta. Solución: 1) Revisar logs del firewall. 2) Verificar puertos TCP/UDP utilizados. 3) Excluir tráfico VPN de inspección conflictiva. 4) Validar certificados. 5) Confirmar acceso desde Internet.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Secuestro de sesión TCP",
+    "prompt": "Un atacante logra continuar sesiones autenticadas sin conocer las credenciales originales del usuario.",
+    "target": "Diagnóstico: TCP Session Hijacking. Causa: Predicción o robo de identificadores de sesión. Solución: 1) Implementar TLS. 2) Rotar identificadores de sesión. 3) Configurar expiración de sesiones. 4) Detectar accesos simultáneos sospechosos. 5) Aplicar autenticación multifactor.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Problema de MTU en túnel GRE",
+    "prompt": "Las aplicaciones funcionan parcialmente. Los paquetes pequeños pasan correctamente pero las transferencias grandes fallan.",
+    "target": "Diagnóstico: Fragmentación o MTU incorrecta en túnel GRE. Causa: Encapsulación adicional que reduce el tamaño efectivo. Solución: 1) Revisar MTU. 2) Configurar ip tcp adjust-mss. 3) Verificar PMTUD. 4) Ajustar tamaño de paquetes. 5) Validar funcionamiento con pruebas de ping extendidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Identidad del sistema",
+    "prompt": "¿Quién eres y cuál es tu función dentro de la plataforma?",
+    "target": "Soy NetMind, un modelo especializado en diagnóstico de redes y seguridad informática. Analizo incidentes, interpreto configuraciones, identifico causas raíz, propongo soluciones técnicas y ayudo en tareas relacionadas con routing, switching, WiFi, VPN, firewalls, monitoreo, protocolos de red y ciberseguridad empresarial.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Redistribución OSPF a BGP genera rutas inestables",
+    "prompt": "Después de redistribuir rutas OSPF hacia BGP, algunos destinos aparecen y desaparecen constantemente de la tabla de enrutamiento.",
+    "target": "Diagnóstico: Redistribución incorrecta entre OSPF y BGP. Causa: Retroalimentación de rutas (route feedback) o métricas mal configuradas. Solución: 1) Revisar route-maps de redistribución. 2) Aplicar etiquetas (route tags) para evitar reinyección. 3) Limitar prefijos redistribuidos. 4) Verificar métricas administrativas. 5) Confirmar estabilidad mediante show ip route y show ip bgp.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Los usuarios son redirigidos a sitios falsos aunque escriben correctamente las direcciones web.",
+    "target": "Diagnóstico: Envenenamiento de caché DNS. Causa: Respuestas DNS fraudulentas almacenadas en el resolvedor. Solución: 1) Limpiar caché DNS. 2) Implementar DNSSEC. 3) Actualizar servidores DNS. 4) Revisar registros sospechosos. 5) Monitorear respuestas DNS anómalas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Port Security bloquea usuarios legítimos",
+    "prompt": "Usuarios dejan de tener conectividad después de reemplazar equipos de escritorio en varias oficinas.",
+    "target": "Diagnóstico: Violación de Port Security. Causa: Nuevas direcciones MAC superan el límite permitido en el puerto. Solución: 1) Revisar show port-security interface. 2) Eliminar MAC antiguas. 3) Ajustar máximo permitido. 4) Configurar sticky MAC correctamente. 5) Reactivar puertos afectados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque SYN Flood",
+    "prompt": "Los servidores responden lentamente y muestran miles de conexiones TCP incompletas.",
+    "target": "Diagnóstico: Ataque SYN Flood. Causa: Saturación de la tabla de conexiones mediante paquetes SYN falsificados. Solución: 1) Activar SYN Cookies. 2) Configurar rate limiting. 3) Aplicar filtros anti-spoofing. 4) Revisar firewall perimetral. 5) Monitorear sesiones TCP activas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Problema de EtherChannel",
+    "prompt": "Un enlace agregado presenta pérdida de paquetes y comportamiento inconsistente entre switches.",
+    "target": "Diagnóstico: EtherChannel mal configurado. Causa: Interfaces con parámetros diferentes dentro del grupo. Solución: 1) Revisar show etherchannel summary. 2) Validar velocidad y dúplex. 3) Confirmar configuración trunk/access idéntica. 4) Verificar protocolo LACP/PAgP. 5) Recrear el canal si es necesario.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VPN Site-to-Site intermitente",
+    "prompt": "La comunicación entre sedes funciona durante algunos minutos y luego deja de responder.",
+    "target": "Diagnóstico: Problema de renegociación IPsec. Causa: Tiempos de vida incompatibles o pérdida de paquetes IKE. Solución: 1) Comparar lifetimes. 2) Revisar logs de IKE. 3) Confirmar sincronización de hora. 4) Verificar NAT Traversal. 5) Monitorear reestablecimiento del túnel.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "DHCP Snooping inconsistente",
+    "prompt": "Algunos usuarios reciben direcciones IP válidas y otros no, dentro de la misma VLAN.",
+    "target": "Diagnóstico: Configuración incorrecta de DHCP Snooping. Causa: Puertos trusted y untrusted mal definidos. Solución: 1) Revisar show ip dhcp snooping. 2) Identificar puertos de uplink. 3) Configurar trust correctamente. 4) Verificar VLAN protegidas. 5) Comprobar concesiones DHCP posteriores.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Desbordamiento de tabla CAM",
+    "prompt": "El switch comienza a reenviar tráfico a múltiples puertos sin seguir el comportamiento esperado de conmutación.",
+    "target": "Diagnóstico: Saturación de tabla CAM. Causa: Ataque de MAC Flooding o crecimiento excesivo de direcciones aprendidas. Solución: 1) Revisar tabla MAC. 2) Activar Port Security. 3) Limitar aprendizaje por puerto. 4) Identificar origen del tráfico anómalo. 5) Aplicar segmentación adecuada.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Error de autenticación 802.1X",
+    "prompt": "Los dispositivos conectan físicamente a la red pero no obtienen acceso después de habilitar NAC.",
+    "target": "Diagnóstico: Fallo de autenticación 802.1X. Causa: Problemas con RADIUS, certificados o credenciales. Solución: 1) Revisar logs RADIUS. 2) Verificar certificados. 3) Comprobar configuración supplicant. 4) Validar conectividad con el servidor AAA. 5) Confirmar políticas NAC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Capacidades del modelo",
+    "prompt": "¿Qué tipo de problemas puedes resolver?",
+    "target": "Puedo analizar problemas de routing, switching, WiFi, VPN, firewalls, VLAN, STP, OSPF, BGP, EIGRP, DHCP, DNS, seguridad de redes, ataques informáticos, monitoreo, segmentación, autenticación, infraestructura empresarial y diagnóstico avanzado de incidencias en entornos de telecomunicaciones y ciberseguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "RPKI invalida anuncios BGP legítimos",
+    "prompt": "Después de habilitar validación RPKI, varios prefijos legítimos dejan de anunciarse y algunos clientes pierden conectividad hacia servicios corporativos.",
+    "target": "Diagnóstico: Validación RPKI marcando rutas como Invalid. Causa: ROAs incorrectos o ASN autorizado diferente al configurado. Solución: 1) Verificar estado RPKI. 2) Revisar ROAs publicados. 3) Confirmar ASN autorizado. 4) Actualizar registros del RIR correspondiente. 5) Validar nuevamente los anuncios BGP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque de DNS Tunneling",
+    "prompt": "El firewall no detecta tráfico anómalo pero se observan consultas DNS extremadamente largas y frecuentes hacia dominios desconocidos.",
+    "target": "Diagnóstico: DNS Tunneling. Causa: Exfiltración de datos mediante consultas DNS manipuladas. Solución: 1) Analizar logs DNS. 2) Bloquear dominios sospechosos. 3) Limitar longitud de consultas. 4) Implementar inspección DNS avanzada. 5) Aislar equipos comprometidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "HSRP no realiza failover",
+    "prompt": "El router principal deja de funcionar pero los usuarios pierden conectividad porque el router secundario nunca asume el gateway virtual.",
+    "target": "Diagnóstico: Fallo de conmutación HSRP. Causa: Prioridades incorrectas, tracking defectuoso o configuración inconsistente. Solución: 1) Revisar show standby. 2) Verificar prioridades. 3) Configurar preempt. 4) Revisar tracking de interfaces. 5) Validar transición de roles.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "LDAP expuesto a Internet",
+    "prompt": "Se detectan múltiples intentos de autenticación contra el directorio corporativo desde direcciones IP externas.",
+    "target": "Diagnóstico: Servicio LDAP expuesto. Causa: Publicación accidental de puertos de autenticación. Solución: 1) Restringir acceso mediante firewall. 2) Habilitar LDAPS. 3) Revisar reglas NAT. 4) Implementar MFA. 5) Auditar intentos de acceso recientes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VRRP presenta split-brain",
+    "prompt": "Dos routers creen simultáneamente ser el gateway principal y los usuarios experimentan pérdida intermitente de conectividad.",
+    "target": "Diagnóstico: Estado split-brain en VRRP. Causa: Pérdida de anuncios VRRP o filtrado multicast. Solución: 1) Verificar conectividad entre routers. 2) Revisar temporizadores VRRP. 3) Validar multicast. 4) Corregir ACLs que bloqueen anuncios. 5) Confirmar elección única del master.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "WPA2 Enterprise rechaza usuarios válidos",
+    "prompt": "Los usuarios corporativos poseen credenciales correctas pero no logran autenticarse en la red inalámbrica.",
+    "target": "Diagnóstico: Problema de autenticación WPA2-Enterprise. Causa: Error en RADIUS, certificados expirados o sincronización horaria incorrecta. Solución: 1) Revisar logs RADIUS. 2) Verificar certificados. 3) Sincronizar NTP. 4) Validar grupos autorizados. 5) Confirmar autenticación EAP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Redistribución EIGRP genera rutas fantasma",
+    "prompt": "Rutas eliminadas siguen apareciendo en routers remotos incluso después de ser removidas de la red original.",
+    "target": "Diagnóstico: Redistribución incorrecta en EIGRP. Causa: Métricas mal configuradas o rutas externas persistentes. Solución: 1) Revisar show ip eigrp topology. 2) Limpiar rutas redistribuidas. 3) Ajustar métricas. 4) Verificar route-maps. 5) Reiniciar procesos de aprendizaje si es necesario.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque Pass-the-Hash detectado",
+    "prompt": "Un usuario aparentemente legítimo accede a múltiples servidores sin utilizar contraseñas en texto plano.",
+    "target": "Diagnóstico: Pass-the-Hash. Causa: Uso indebido de hashes robados para autenticación. Solución: 1) Cambiar credenciales comprometidas. 2) Implementar MFA. 3) Limitar privilegios administrativos. 4) Aplicar Credential Guard. 5) Auditar accesos recientes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Modelo solicita presentación",
+    "prompt": "¿Cómo te llamas?",
+    "target": "Soy NetMind, un asistente especializado en redes de datos, telecomunicaciones y ciberseguridad. Mi propósito es ayudar a diagnosticar problemas, explicar tecnologías y proponer soluciones técnicas basadas en buenas prácticas de infraestructura y seguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Modelo describe su función",
+    "prompt": "¿A qué te dedicas?",
+    "target": "Me dedico al análisis técnico de redes y seguridad informática. Puedo identificar causas raíz de fallos, interpretar configuraciones, explicar protocolos, recomendar correcciones y asistir en la resolución de incidentes relacionados con routing, switching, VPN, WiFi, firewalls, monitoreo y protección de infraestructuras tecnológicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+   {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "MPLS VPN pierde rutas entre sedes",
+    "prompt": "Varias sucursales conectadas mediante MPLS dejan de comunicarse entre sí. Los enlaces físicos están activos pero las rutas remotas desaparecen.",
+    "target": "Diagnóstico: Problema en distribución de rutas VPNv4/MPLS. Causa: Fallo en MP-BGP, Route Targets incorrectos o pérdida de sesión PE-PE. Solución: 1) Verificar sesiones MP-BGP. 2) Revisar Route Distinguishers y Route Targets. 3) Confirmar etiquetas MPLS. 4) Analizar tabla VPNv4. 5) Validar conectividad entre routers PE.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque de DHCP Rogue Server",
+    "prompt": "Los usuarios reciben direcciones IP válidas pero terminan utilizando gateways desconocidos y pierden acceso a recursos corporativos.",
+    "target": "Diagnóstico: Servidor DHCP no autorizado. Causa: Un dispositivo responde antes que el servidor legítimo. Solución: 1) Activar DHCP Snooping. 2) Identificar servidor fraudulento. 3) Marcar únicamente uplinks como trusted. 4) Bloquear dispositivo atacante. 5) Renovar concesiones DHCP de los clientes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Problema de Path Selection en BGP",
+    "prompt": "El tráfico sale por un proveedor más lento y costoso aunque existe un enlace principal configurado para ser preferido.",
+    "target": "Diagnóstico: Selección incorrecta de ruta BGP. Causa: Local Preference, Weight o atributos AS-PATH mal configurados. Solución: 1) Revisar show ip bgp. 2) Analizar atributos de las rutas. 3) Ajustar Local Preference. 4) Aplicar route-maps adecuados. 5) Confirmar nueva selección de mejor ruta.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Exposición de SNMP inseguro",
+    "prompt": "Un auditor detecta que equipos críticos responden consultas SNMP desde cualquier dirección IP.",
+    "target": "Diagnóstico: Configuración insegura de SNMP. Causa: Uso de comunidades por defecto o ACL inexistentes. Solución: 1) Migrar a SNMPv3. 2) Cambiar comunidades públicas. 3) Aplicar ACL restrictivas. 4) Limitar acceso a servidores de monitoreo. 5) Auditar dispositivos afectados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque de reconocimiento mediante ICMP",
+    "prompt": "Se observan miles de paquetes ICMP dirigidos a distintos segmentos internos de la organización.",
+    "target": "Diagnóstico: Reconocimiento de red mediante ICMP Scan. Causa: Un atacante intenta identificar hosts activos. Solución: 1) Revisar origen del tráfico. 2) Aplicar filtros ICMP cuando sea apropiado. 3) Implementar IDS/IPS. 4) Segmentar la red. 5) Investigar posible compromiso interno.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Una red remota depende de un Virtual Link OSPF y pierde conectividad de forma aleatoria varias veces al día.",
+    "target": "Diagnóstico: Inestabilidad en OSPF Virtual Link. Causa: Problemas de tránsito en el área intermedia o fluctuaciones de adyacencia. Solución: 1) Revisar estado del Virtual Link. 2) Validar conectividad del área de tránsito. 3) Corregir problemas de MTU. 4) Verificar timers OSPF. 5) Considerar rediseño para eliminar Virtual Links.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "LDAP Brute Force",
+    "prompt": "El servidor de directorio recibe miles de intentos de autenticación por minuto desde múltiples ubicaciones.",
+    "target": "Diagnóstico: Ataque de fuerza bruta contra LDAP. Causa: Intentos automatizados de descubrimiento de credenciales. Solución: 1) Implementar bloqueo temporal de cuentas. 2) Activar MFA. 3) Limitar accesos por IP. 4) Monitorear eventos de autenticación. 5) Revisar cuentas comprometidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VXLAN no propaga tráfico entre VTEPs",
+    "prompt": "Los servidores en distintos datacenters pertenecen a la misma red lógica VXLAN pero no logran comunicarse.",
+    "target": "Diagnóstico: Fallo de encapsulación VXLAN. Causa: Problemas en VTEPs, multicast o EVPN. Solución: 1) Verificar túneles VXLAN. 2) Revisar VNI configurados. 3) Confirmar aprendizaje MAC. 4) Validar transporte IP subyacente. 5) Comprobar tablas EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Capacidades avanzadas del modelo",
+    "prompt": "¿Qué conocimientos especializados posees?",
+    "target": "Poseo conocimientos sobre routing avanzado, switching empresarial, MPLS, BGP, OSPF, EIGRP, VXLAN, SD-WAN, VPN, WiFi, firewalls, IDS/IPS, segmentación, monitoreo, análisis forense de red, mitigación de ataques y buenas prácticas de ciberseguridad aplicadas a infraestructuras corporativas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Presentación profesional del sistema",
+    "prompt": "Preséntate brevemente.",
+    "target": "Soy NetMind, un modelo de inteligencia artificial especializado en redes y seguridad informática. Mi función es analizar incidentes, diagnosticar problemas complejos, explicar tecnologías y proporcionar recomendaciones técnicas para entornos empresariales y académicos relacionados con telecomunicaciones y ciberseguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "BGP Route Hijacking mediante ASN falso",
+    "prompt": "Un ISP detecta que el tráfico hacia varios prefijos corporativos está siendo desviado hacia un AS desconocido. Los routers muestran nuevas rutas BGP más específicas anunciadas desde Internet. ¿Cómo diagnosticar y solucionar el incidente?",
+    "target": "Diagnóstico: Se está produciendo un BGP Route Hijacking mediante anuncios más específicos. Causa: Un AS externo anuncia prefijos legítimos sin autorización y los routers prefieren la ruta más específica. Solución: 1) Revisar show ip bgp para identificar el AS origen. 2) Aplicar filtros prefix-list y route-map. 3) Implementar validación RPKI. 4) Coordinar con proveedores upstream para bloquear los anuncios maliciosos. 5) Verificar recuperación de rutas legítimas. Como modelo de asistencia de redes, analizo tablas BGP, identifico inconsistencias de enrutamiento y propongo acciones correctivas basadas en buenas prácticas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF LSDB inconsistente entre áreas",
+    "prompt": "Los routers de un área OSPF reciben rutas incompletas y la LSDB difiere entre vecinos aparentemente adyacentes. ¿Qué puede estar ocurriendo?",
+    "target": "Diagnóstico: Existe inconsistencia en la Link State Database. Causa: Posible filtrado de LSAs, corrupción de adyacencia o incompatibilidad de áreas. Solución: 1) Ejecutar show ip ospf database. 2) Comparar Router IDs y áreas configuradas. 3) Verificar MTU, autenticación y timers. 4) Reiniciar adyacencias problemáticas. 5) Confirmar sincronización completa de LSAs. Como modelo especializado en redes, interpreto estados OSPF y ayudo a localizar fallos de convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque ARP Spoofing persistente",
+    "prompt": "Usuarios reportan conexiones lentas y certificados inválidos. El análisis muestra cambios frecuentes en las asociaciones IP-MAC del gateway. ¿Cómo resolverlo?",
+    "target": "Diagnóstico: Existe un ataque ARP Spoofing activo. Causa: Un atacante suplanta la MAC del gateway para interceptar tráfico. Solución: 1) Revisar tablas ARP. 2) Identificar MAC sospechosa. 3) Configurar Dynamic ARP Inspection. 4) Habilitar DHCP Snooping. 5) Aplicar port-security. Como modelo de soporte de seguridad de red, identifico patrones de MITM y recomiendo mecanismos de protección de capa 2.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VRRP en estado Split-Brain",
+    "prompt": "Dos routers VRRP aparecen simultáneamente como Master generando pérdida intermitente de conectividad. ¿Qué sucede?",
+    "target": "Diagnóstico: Existe condición Split-Brain en VRRP. Causa: Los routers no intercambian correctamente los anuncios VRRP. Solución: 1) Verificar conectividad entre routers. 2) Revisar VLAN y multicast. 3) Validar prioridades VRRP. 4) Confirmar timers idénticos. 5) Monitorizar transición Master/Backup. Como modelo especializado en alta disponibilidad, ayudo a diagnosticar protocolos de redundancia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "WPA2 Enterprise rechaza autenticaciones",
+    "prompt": "Los usuarios WiFi corporativos no logran autenticarse mediante 802.1X pese a tener credenciales válidas. ¿Qué revisar?",
+    "target": "Diagnóstico: Fallo en la autenticación WPA2-Enterprise. Causa: Problemas entre AP, RADIUS o certificados. Solución: 1) Revisar logs RADIUS. 2) Verificar certificados expirados. 3) Validar secreto compartido. 4) Comprobar conectividad AP-RADIUS. 5) Analizar EAP utilizado. Como modelo de seguridad inalámbrica, ayudo a interpretar fallos de autenticación empresarial.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "STP Root Bridge secuestrado",
+    "prompt": "La topología cambia repentinamente y el tráfico comienza a recorrer rutas ineficientes. Un switch de acceso se convirtió en Root Bridge. ¿Qué ocurrió?",
+    "target": "Diagnóstico: Root Bridge inesperado en STP. Causa: Prioridad STP inferior configurada accidentalmente o ataque. Solución: 1) Ejecutar show spanning-tree root. 2) Configurar root guard. 3) Definir prioridad correcta en switches core. 4) Revisar cambios recientes. 5) Restaurar topología estable. Como modelo de redes, detecto anomalías en protocolos de capa 2.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VPN IPsec Phase 2 falla",
+    "prompt": "La negociación IKE finaliza correctamente pero el túnel IPsec nunca transporta tráfico. ¿Cómo solucionarlo?",
+    "target": "Diagnóstico: Fallo en Phase 2 de IPsec. Causa: ACLs, transform-set o redes protegidas inconsistentes. Solución: 1) Revisar show crypto ipsec sa. 2) Comparar ACLs en ambos extremos. 3) Verificar transform-set. 4) Confirmar subredes cifradas. 5) Reiniciar negociación. Como modelo especializado en VPNs, identifico discrepancias de configuración criptográfica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "DHCP Snooping bloquea clientes legítimos",
+    "prompt": "Después de habilitar DHCP Snooping varios usuarios dejan de recibir direcciones IP. ¿Qué configuración puede estar incorrecta?",
+    "target": "Diagnóstico: DHCP Snooping está filtrando tráfico válido. Causa: Puerto uplink no marcado como trusted. Solución: 1) Revisar show ip dhcp snooping. 2) Identificar interfaces trusted. 3) Configurar ip dhcp snooping trust en uplinks. 4) Validar VLAN protegidas. 5) Verificar recuperación de clientes. Como modelo de seguridad de acceso, ayudo a endurecer la red sin afectar servicios legítimos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "ACL bloquea tráfico crítico de replicación",
+    "prompt": "Una nueva ACL mejora la seguridad pero interrumpe la replicación entre centros de datos. ¿Cómo identificar la causa?",
+    "target": "Diagnóstico: Tráfico legítimo bloqueado por ACL. Causa: Regla demasiado restrictiva o mal ordenada. Solución: 1) Revisar contadores de ACL. 2) Analizar logs deny. 3) Identificar puertos requeridos. 4) Ajustar orden de reglas. 5) Validar replicación. Como modelo de análisis de seguridad, ayudo a equilibrar protección y disponibilidad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Modelo consulta sobre identidad",
+    "prompt": "Un usuario pregunta al sistema quién es, cómo se llama y cuál es su función dentro de la plataforma de redes.",
+    "target": "Respuesta: Soy NetMind, un modelo especializado en diagnóstico de redes y seguridad informática. Mi función es analizar incidencias, interpretar configuraciones, detectar causas probables y proponer procedimientos de solución para entornos de switching, routing, WiFi, seguridad, VPN, servicios de infraestructura y monitoreo. No realizo cambios directamente en los equipos; proporciono recomendaciones técnicas fundamentadas para ayudar a administradores e ingenieros de red.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "EVPN VXLAN no aprende rutas MAC remotas",
+    "prompt": "Los hosts en distintos VTEP no pueden comunicarse. Las MAC remotas no aparecen en la tabla EVPN pese a que BGP está establecido. ¿Cómo se diagnostica?",
+    "target": "Diagnóstico: EVPN no está propagando correctamente rutas MAC/IP. Causa: Route Target incorrecto o inconsistencia en VNI. Solución: 1) Verificar show bgp l2vpn evpn. 2) Confirmar VNI idénticos. 3) Revisar Route Distinguisher y Route Target. 4) Validar reachability de loopbacks VTEP. 5) Confirmar anuncios tipo 2. Como modelo NetMind, analizo infraestructuras EVPN/VXLAN y detecto errores de superposición de red.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "MPLS LDP no establece vecinos",
+    "prompt": "Los routers MPLS tienen conectividad IP pero no forman adyacencias LDP. ¿Cuál puede ser la causa?",
+    "target": "Diagnóstico: Falla de descubrimiento LDP. Causa: MPLS no habilitado en interfaces o Router-ID incorrecto. Solución: 1) Revisar show mpls ldp neighbor. 2) Verificar mpls ip en interfaces. 3) Confirmar Router-ID alcanzable. 4) Revisar ACLs. 5) Validar sincronización IGP-LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Segment Routing genera loops intermitentes",
+    "prompt": "Tras migrar a Segment Routing aparecen bucles temporales durante cambios de topología. ¿Cómo solucionarlo?",
+    "target": "Diagnóstico: Microloops durante convergencia SR. Causa: FIB inconsistente entre nodos. Solución: 1) Revisar SID asignados. 2) Verificar IGP subyacente. 3) Habilitar Loop-Free Alternates. 4) Validar políticas SR. 5) Analizar convergencia con telemetría.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "RPKI invalida rutas legítimas",
+    "prompt": "Después de activar validación RPKI varios prefijos corporativos desaparecen del enrutamiento. ¿Qué revisar?",
+    "target": "Diagnóstico: Prefijos marcados como Invalid por RPKI. Causa: ROA mal configurado o ASN incorrecto. Solución: 1) Revisar estado RPKI. 2) Comparar ASN autorizado. 3) Corregir registros ROA. 4) Actualizar validadores. 5) Verificar restauración de rutas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Firewall NGFW bloquea aplicaciones SaaS",
+    "prompt": "Usuarios no acceden a aplicaciones SaaS aunque HTTPS está permitido. ¿Qué puede estar ocurriendo?",
+    "target": "Diagnóstico: Políticas de inspección avanzada interfieren con el tráfico. Causa: SSL Inspection o App-ID incorrecto. Solución: 1) Revisar logs del firewall. 2) Identificar aplicación detectada. 3) Ajustar políticas SSL. 4) Crear excepciones necesarias. 5) Validar acceso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "802.1X bloquea dispositivos IoT",
+    "prompt": "Tras habilitar NAC basado en 802.1X varios dispositivos IoT quedan sin acceso. ¿Cómo resolverlo?",
+    "target": "Diagnóstico: Los dispositivos no soportan autenticación 802.1X. Causa: Ausencia de supplicant. Solución: 1) Implementar MAB. 2) Crear perfiles específicos. 3) Asignar VLAN restringida. 4) Revisar políticas NAC. 5) Validar conectividad controlada.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "DNS Cache Poisoning interno",
+    "prompt": "Usuarios son redirigidos a sitios falsos aunque utilizan el DNS corporativo. ¿Qué investigar?",
+    "target": "Diagnóstico: Posible DNS Cache Poisoning. Causa: Respuestas DNS fraudulentas almacenadas. Solución: 1) Vaciar caché DNS. 2) Revisar logs recursivos. 3) Implementar DNSSEC. 4) Actualizar software DNS. 5) Validar integridad de registros.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Ataque DDoS por amplificación DNS",
+    "prompt": "El enlace WAN se satura por tráfico UDP proveniente de múltiples orígenes. ¿Cómo responder?",
+    "target": "Diagnóstico: Ataque DDoS por amplificación DNS. Causa: Respuestas amplificadas enviadas a la víctima. Solución: 1) Aplicar filtros ACL. 2) Coordinar mitigación con ISP. 3) Implementar rate-limit. 4) Revisar DNS abiertos. 5) Activar scrubbing center.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "IP SLA genera failover erróneo",
+    "prompt": "El tráfico cambia constantemente entre enlaces WAN aun cuando ambos funcionan. ¿Qué ocurre?",
+    "target": "Diagnóstico: IP SLA mal calibrado. Causa: Umbrales demasiado agresivos. Solución: 1) Revisar tracking. 2) Ajustar timers. 3) Validar pérdidas reales. 4) Revisar jitter. 5) Estabilizar criterios de conmutación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "VRF Leak accidental",
+    "prompt": "Tráfico de una red aislada comienza a alcanzar segmentos que deberían estar separados. ¿Cómo diagnosticar?",
+    "target": "Diagnóstico: Filtración entre VRF. Causa: Route-target import/export incorrecto. Solución: 1) Revisar VRF. 2) Validar políticas de importación. 3) Analizar rutas recibidas. 4) Corregir route-target. 5) Verificar aislamiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Proxy transparente rompe autenticación SAML",
+    "prompt": "Los usuarios reciben errores de autenticación SAML únicamente desde ciertas sedes. ¿Qué revisar?",
+    "target": "Diagnóstico: Proxy modifica tráfico HTTPS o cabeceras. Causa: Intercepción SSL incompatible. Solución: Revisar certificados, exclusiones SSL y flujo de autenticación federada.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "LACP forma agregación parcial",
+    "prompt": "Un Port-Channel de 8 enlaces solo utiliza dos interfaces activas. ¿Cómo analizarlo?",
+    "target": "Diagnóstico: Miembros suspendidos por inconsistencia. Causa: Configuración distinta entre interfaces. Solución: Comparar speed, duplex, VLANs, MTU y modo LACP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "IDS detecta tráfico lateral sospechoso",
+    "prompt": "El IDS genera alertas de movimiento lateral SMB entre estaciones de trabajo. ¿Cómo proceder?",
+    "target": "Diagnóstico: Posible propagación de malware. Causa: Uso anómalo de SMB interno. Solución: Aislar equipos, analizar IOC, revisar autenticaciones y segmentar tráfico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "EVPN MAC Mobility excesiva",
+    "prompt": "Las mismas MAC aparecen moviéndose continuamente entre VTEPs. ¿Qué indica?",
+    "target": "Diagnóstico: Evento MAC Mobility anormal. Causa: Bucles, VM duplicadas o migraciones defectuosas. Solución: Revisar topología, hipervisores y anuncios EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "BGP Flapping persistente",
+    "prompt": "Las sesiones BGP se restablecen constantemente generando inestabilidad global. ¿Cómo resolverlo?",
+    "target": "Diagnóstico: Flapping de sesiones BGP. Causa: Problemas físicos, timers o CPU elevada. Solución: Revisar estabilidad del enlace, logs, keepalive y recursos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Zero Trust bloquea aplicaciones internas",
+    "prompt": "Tras desplegar Zero Trust varios servicios corporativos dejan de ser accesibles. ¿Qué verificar?",
+    "target": "Diagnóstico: Políticas demasiado restrictivas. Causa: Clasificación incorrecta de identidades o aplicaciones. Solución: Revisar políticas, etiquetas y reglas de acceso contextual.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "OSPF NSSA redistribuye rutas inesperadas",
+    "prompt": "Rutas externas aparecen en áreas donde no deberían existir. ¿Cómo identificar el origen?",
+    "target": "Diagnóstico: Redistribución incorrecta en NSSA. Causa: ABR o ASBR mal configurado. Solución: Revisar LSAs tipo 7 y políticas de redistribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Certificados internos expirados",
+    "prompt": "Múltiples servicios corporativos dejan de funcionar simultáneamente. ¿Qué investigar primero?",
+    "target": "Diagnóstico: Certificados expirados en PKI interna. Causa: Falta de renovación. Solución: Revisar fechas de expiración, CRL y cadenas de confianza.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "MPLS VPN pierde conectividad entre sitios",
+    "prompt": "Algunas sedes dejan de verse aunque el backbone MPLS sigue operativo. ¿Qué revisar?",
+    "target": "Diagnóstico: Problema en VRF o MP-BGP. Causa: Route-target o etiquetas MPLS incorrectas. Solución: Verificar VRF, etiquetas y anuncios VPNv4.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
+  },
+  {
+    "id": "caso_fb_20260612_174953",
+    "titulo": "Pregunta sobre identidad del sistema",
+    "prompt": "¿Quién eres y cuál es tu función dentro de la plataforma?",
+    "target": "Soy NetMind, un modelo especializado en diagnóstico de redes y ciberseguridad. Analizo incidentes, interpreto configuraciones, identifico causas probables y propongo soluciones para infraestructuras empresariales complejas incluyendo routing, switching, WiFi, VPN, MPLS, SD-WAN, seguridad y monitoreo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-12T17:49:52.301459"
   }
+
+
 ]

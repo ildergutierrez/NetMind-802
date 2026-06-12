@@ -1,14 +1,15 @@
 """
 =======================================================
- api.py — NetMind-802 para HuggingFace Spaces
+ api.py — Punto de entrada principal de NetMind-802
 =======================================================
- Cambios vs versión local:
-   - Descarga netmind_vlm.pth desde HuggingFace Hub
-     al arrancar si no existe en /tmp/models/
-   - Rutas adaptadas al sistema de archivos de Spaces
-   - Sin torch-directml (Spaces usa GPU NVIDIA o CPU)
-   - POST /train deshabilitado (ZeroGPU no alcanza)
-   - Escucha en 0.0.0.0:7860 (puerto estándar de Spaces)
+ Flujo al ejecutar:
+   1. Verifica e instala dependencias (dependencias.py)
+   2. Levanta el servidor FastAPI en http://127.0.0.1:8000
+   3. Verifica si existe el modelo entrenado. Si no, entrena.
+   4. Carga el modelo UNA SOLA VEZ en memoria al iniciar.
+   5. Responde consultas de diagnóstico de red en tiempo real.
+   6. Aprende de los casos enviados (POST /feedback).
+   7. Puede enriquecer respuestas con búsqueda web (DuckDuckGo).
 =======================================================
 """
 
@@ -21,108 +22,71 @@ from datetime import datetime
 from contextlib import asynccontextmanager
 
 # -------------------------------------------------------
-# RUTAS EN HUGGINGFACE SPACES
-#   /app/        → código del repo (src/)
-#   /tmp/models/ → modelo descargado del Hub (efímero)
-#   /tmp/data/   → dataset + feedback (efímero por sesión)
+# CODIFICACIÓN UTF-8 EN WINDOWS
 # -------------------------------------------------------
-current_dir     = os.path.dirname(os.path.abspath(__file__))
-checkpoint_path = "/tmp/models/netmind_vlm.pth"
-tokenizer_path  = os.path.join(current_dir, "tokenizer_redes.json")
-dataset_path    = "/tmp/data/dataset_redes.json"
-corpus_path     = "/tmp/data/corpus_redes.txt"
-
-# Repo del Hub donde está subido el .pth
-#   → cámbialo si tu usuario o repo name es distinto
-HF_REPO_ID  = "ildergutierrez12/netmind-802"
-HF_FILENAME = "netmind_vlm.pth"
-
-os.makedirs("/tmp/models", exist_ok=True)
-os.makedirs("/tmp/data",   exist_ok=True)
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 # -------------------------------------------------------
-# IMPORTAR LIBRERÍAS DEL SERVIDOR
+# PASO 1: INSTALAR / VERIFICAR DEPENDENCIAS
+# -------------------------------------------------------
+from dependencias import configurar_entorno
+configurar_entorno()
+
+# -------------------------------------------------------
+# PASO 2: IMPORTAR LIBRERÍAS DEL SERVIDOR
 # -------------------------------------------------------
 import uvicorn
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 # -------------------------------------------------------
-# IMPORTAR MÓDULOS INTERNOS
+# PASO 3: IMPORTAR MÓDULOS INTERNOS DEL PROYECTO
 # -------------------------------------------------------
 from test_inference import cargar_modelo, diagnosticar
+from train import entrenar_modelo
 from web_search import construir_contexto_web
 
+# -------------------------------------------------------
+# RUTAS PRINCIPALES DEL PROYECTO
+# -------------------------------------------------------
+current_dir     = os.path.dirname(os.path.abspath(__file__))
+project_root    = os.path.dirname(current_dir)
+dataset_path    = os.path.join(project_root, "data",   "dataset_redes.json")
+corpus_path     = os.path.join(project_root, "data",   "corpus_redes.txt")
+checkpoint_path = os.path.join(project_root, "models", "netmind_vlm.pth")
+tokenizer_path  = os.path.join(current_dir,            "tokenizer_redes.json")
 
 # -------------------------------------------------------
-# DESCARGA DEL MODELO DESDE EL HUB
-# -------------------------------------------------------
-def descargar_modelo_si_falta():
-    """
-    Descarga netmind_vlm.pth desde HuggingFace Hub a /tmp/models/
-    solo si no existe ya (para no re-descargar en cada request).
-    """
-    if os.path.exists(checkpoint_path):
-        print(f"   Modelo ya en caché: {checkpoint_path}")
-        return
-
-    print(f"   Descargando modelo desde Hub: {HF_REPO_ID}/{HF_FILENAME} ...")
-    try:
-        from huggingface_hub import hf_hub_download
-        ruta = hf_hub_download(
-            repo_id=HF_REPO_ID,
-            filename=HF_FILENAME,
-            local_dir="/tmp/models",
-        )
-        print(f"   ✅ Modelo descargado en: {ruta}")
-    except Exception as e:
-        raise RuntimeError(
-            f"No se pudo descargar el modelo desde '{HF_REPO_ID}'.\n"
-            f"Verifica que el repo existe y el archivo es '{HF_FILENAME}'.\n"
-            f"Error: {e}"
-        )
-
-
-# -------------------------------------------------------
-# COPIAR DATASET DEL REPO A /tmp/data/ (si existe)
-# -------------------------------------------------------
-def inicializar_dataset():
-    """
-    Copia dataset_redes.json del repo a /tmp/data/ para que
-    POST /feedback pueda escribir sin tocar el repo de solo lectura.
-    """
-    repo_dataset = os.path.join(os.path.dirname(current_dir), "data", "dataset_redes.json")
-    if not os.path.exists(dataset_path) and os.path.exists(repo_dataset):
-        shutil.copy(repo_dataset, dataset_path)
-        print(f"   Dataset copiado a {dataset_path}")
-
-
-# -------------------------------------------------------
-# LIFESPAN — arranque del servidor
+# EVENTO DE INICIO: Entrenar si hace falta y cargar modelo
 # -------------------------------------------------------
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("\n" + "="*55)
-    print("   NetMind-802 — HuggingFace Spaces")
+    print("   NetMind-802 — IA de Redes IEEE 802")
     print("="*55)
-    print(f"   Hub repo     : {HF_REPO_ID}")
-    print(f"   Modelo .pth  : {checkpoint_path}")
+    print(f"   Dataset      : {dataset_path}")
     print(f"   Tokenizador  : {tokenizer_path}")
+    print(f"   Modelo .pth  : {checkpoint_path}")
     print("="*55)
 
-    # 1. Descargar .pth desde el Hub si hace falta
-    descargar_modelo_si_falta()
+    if not os.path.exists(checkpoint_path):
+        print("   Modelo no encontrado. Iniciando entrenamiento...")
+        entrenar_modelo()
+        print("   Entrenamiento completado. Modelo guardado.")
 
-    # 2. Preparar dataset en /tmp
-    inicializar_dataset()
-
-    # 3. Cargar modelo en memoria
-    #    En Spaces con ZeroGPU → CUDA disponible brevemente
-    #    Sin ZeroGPU            → CPU automáticamente
     print("   Cargando modelo en memoria...")
+    # cargar_modelo detecta automáticamente el mejor backend disponible:
+    #   → ONNX Runtime DirectML (GPU Intel Iris Xe)  si hay .onnx
+    #   → PyTorch + torch-directml                   como fallback
     app.state.model, app.state.tokenizer, app.state.backend = cargar_modelo(
         checkpoint_path, tokenizer_path
     )
+
     print(f"   Backend activo : {app.state.backend}")
     print("="*55 + "\n")
     yield
@@ -130,12 +94,12 @@ async def lifespan(app: FastAPI):
 
 
 # -------------------------------------------------------
-# APP FASTAPI
+# INSTANCIA PRINCIPAL DE FASTAPI
 # -------------------------------------------------------
 app = FastAPI(
     title="NetMind-802 API",
     description=(
-        "IA especializada en redes cableadas e inalámbricas (IEEE 802), "
+        "API REST de la IA especializada en redes cableadas e inalámbricas (IEEE 802), "
         "infraestructura de red, telemática y seguridad multiplataforma. "
         "Compatible con Cisco IOS, Windows PowerShell y Linux Bash."
     ),
@@ -143,6 +107,9 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+# -------------------------------------------------------
+# CORS — Acepta consultas desde cualquier origen
+# -------------------------------------------------------
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -162,12 +129,12 @@ def root():
         "proyecto"   : "NetMind-802",
         "descripcion": "IA especializada en redes IEEE 802, telemática y seguridad.",
         "version"    : "1.0.0",
-        "hub"        : f"https://huggingface.co/{HF_REPO_ID}",
         "endpoints"  : {
             "GET  /status"      : "Estado del servidor y del modelo",
             "POST /diagnose"    : "Diagnosticar un problema de red (texto + imagen opcional)",
-            "POST /diagnose-web": "Diagnosticar + búsqueda web (DuckDuckGo)",
-            "POST /feedback"    : "Enviar un caso correcto para futuros entrenamientos",
+            "POST /diagnose-web": "Diagnosticar + enriquecer con búsqueda web (DuckDuckGo)",
+            "POST /feedback"    : "Enviar un caso nuevo para que la IA aprenda de él",
+            "POST /train"       : "Re-entrenar el modelo con el dataset actualizado",
         }
     }
 
@@ -175,36 +142,39 @@ def root():
 @app.get("/status")
 def get_status():
     modelo_listo = os.path.exists(checkpoint_path)
-    backend      = getattr(app.state, "backend", "No cargado aún")
+    onnx_listo   = os.path.exists(os.path.splitext(checkpoint_path)[0] + ".onnx")
 
     total_casos = 0
     if os.path.exists(dataset_path):
         try:
             with open(dataset_path, "r", encoding="utf-8") as f:
-                total_casos = len(json.load(f))
+                data = json.load(f)
+                total_casos = len(data)
         except Exception:
             pass
 
+    backend = getattr(app.state, "backend", "No cargado aún")
+
     return {
-        "status"          : "online",
-        "backend"         : backend,
-        "modelo_pth"      : modelo_listo,
-        "hub_repo"        : HF_REPO_ID,
-        "casos_en_dataset": total_casos,
-        "mensaje"         : (
-            f"Servidor activo. Modelo cargado desde HuggingFace Hub."
+        "status"           : "online",
+        "backend"          : backend,
+        "modelo_pth"       : modelo_listo,
+        "modelo_onnx"      : onnx_listo,
+        "casos_en_dataset" : total_casos,
+        "mensaje"          : (
+            f"Servidor activo. Modelo listo con {total_casos} caso(s) de entrenamiento."
             if modelo_listo else
-            "Modelo no encontrado. Verifica que el .pth está en el Hub."
+            "Servidor activo. Usa POST /train para entrenar el modelo."
         )
     }
 
 
 @app.post("/diagnose")
 async def api_diagnose(
-    prompt: str        = Form(..., description="Descripción del problema de red, logs o comandos."),
+    prompt: str        = Form(..., description="Descripción del problema de red, logs o comandos a analizar."),
     image : UploadFile = File(None, description="Imagen opcional: topología, captura de Wireshark, etc.")
 ):
-    """Diagnóstico usando el modelo cargado desde HuggingFace Hub."""
+    """Diagnóstico local usando únicamente el modelo entrenado."""
     temp_img_path = None
     if image and image.filename:
         ext = os.path.splitext(image.filename)[1].lower()
@@ -243,10 +213,10 @@ async def api_diagnose(
 
 @app.post("/diagnose-web")
 async def api_diagnose_web(
-    prompt: str        = Form(..., description="Problema de red a diagnosticar y buscar en la web."),
-    image : UploadFile = File(None, description="Imagen opcional.")
+    prompt: str        = Form(..., description="Descripción del problema de red a diagnosticar y buscar en la web."),
+    image : UploadFile = File(None, description="Imagen opcional: topología o captura.")
 ):
-    """Diagnóstico híbrido: modelo + búsqueda web (DuckDuckGo)."""
+    """Diagnóstico híbrido: modelo local + búsqueda web (DuckDuckGo)."""
     temp_img_path = None
     if image and image.filename:
         ext = os.path.splitext(image.filename)[1].lower()
@@ -267,6 +237,7 @@ async def api_diagnose_web(
             image_path=temp_img_path,
         )
         contexto_web = construir_contexto_web(prompt)
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {e}")
     finally:
@@ -279,38 +250,26 @@ async def api_diagnose_web(
     return {
         "status"          : "success",
         "backend"         : app.state.backend,
-        "fuente"          : "modelo_hub + web",
+        "tiene_imagen"    : temp_img_path is not None,
+        "fuente"          : "modelo_local + web",
         "prompt"          : prompt,
         "respuesta_modelo": respuesta_modelo,
-        "contexto_web"    : contexto_web or "Sin resultados adicionales de la web."
+        "contexto_web"    : contexto_web if contexto_web else "Sin resultados adicionales de la web."
     }
-
-
-@app.get("/dataset")
-def get_dataset():
-    """Retorna todos los casos del dataset acumulado (para descargar desde Colab)."""
-    if not os.path.exists(dataset_path):
-        return []
-    try:
-        with open(dataset_path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al leer dataset: {e}")
 
 
 @app.post("/feedback")
 async def api_feedback(
-    prompt   : str = Form(..., description="El problema de red descrito."),
+    prompt   : str = Form(..., description="El prompt o problema de red que se describió."),
     respuesta: str = Form(..., description="La respuesta correcta (Diagnóstico + Causas + Solución)."),
-    titulo   : str = Form("Sin título", description="Título opcional del caso.")
+    titulo   : str = Form("Sin título", description="Título opcional del caso para identificarlo.")
 ):
-    """
-    Guarda un caso correcto en /tmp/data/dataset_redes.json.
-    Nota: en Spaces los datos de /tmp son efímeros (se pierden al reiniciar).
-    Para persistencia real, conecta un HuggingFace Dataset vía API.
-    """
+    """Guarda un caso correcto en el dataset para el próximo re-entrenamiento."""
     if not prompt.strip() or not respuesta.strip():
-        raise HTTPException(status_code=400, detail="Prompt y respuesta son obligatorios.")
+        raise HTTPException(
+            status_code=400,
+            detail="El prompt y la respuesta son obligatorios y no pueden estar vacíos."
+        )
 
     try:
         if os.path.exists(dataset_path):
@@ -323,39 +282,62 @@ async def api_feedback(
 
     nuevo_id   = f"caso_fb_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     nuevo_caso = {
-        "id"    : nuevo_id,
-        "titulo": titulo.strip(),
-        "prompt": prompt.strip(),
-        "target": respuesta.strip(),
-        "origen": "feedback_usuario",
-        "fecha" : datetime.now().isoformat()
+        "id"     : nuevo_id,
+        "titulo" : titulo.strip(),
+        "prompt" : prompt.strip(),
+        "target" : respuesta.strip(),
+        "origen" : "feedback_usuario",
+        "fecha"  : datetime.now().isoformat()
     }
     dataset.append(nuevo_caso)
 
     try:
         with open(dataset_path, "w", encoding="utf-8") as f:
             json.dump(dataset, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al guardar en dataset: {e}")
+
+    try:
         with open(corpus_path, "a", encoding="utf-8") as f:
             f.write(f"\n{prompt}\n{respuesta}\n")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error al guardar: {e}")
+    except Exception:
+        pass
 
     return {
         "status"     : "success",
-        "mensaje"    : f"Caso '{nuevo_id}' guardado en sesión actual.",
-        "advertencia": "Los datos en /tmp son efímeros en Spaces. Para persistirlos, descárgalos y vuelve a subir el dataset al Hub.",
+        "mensaje"    : f"Caso '{nuevo_id}' guardado. El modelo aprenderá en el próximo entrenamiento.",
         "id_caso"    : nuevo_id,
-        "total_casos": len(dataset)
+        "total_casos": len(dataset),
+        "sugerencia" : "Llama a POST /train para re-entrenar el modelo con el nuevo caso."
     }
 
 
+@app.post("/train")
+def api_train():
+    """
+    Re-entrena el modelo con el dataset actual y exporta un nuevo .onnx.
+    Reinicia el servidor para cargar los nuevos pesos en memoria.
+    """
+    try:
+        entrenar_modelo()
+        onnx_path = os.path.splitext(checkpoint_path)[0] + ".onnx"
+        return {
+            "status"    : "success",
+            "mensaje"   : "Modelo re-entrenado y exportado. Reinicia el servidor para cargar los nuevos pesos.",
+            "modelo_pth": checkpoint_path,
+            "modelo_onnx": onnx_path
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error durante el entrenamiento: {e}")
+
+
 # =======================================================
-# PUNTO DE ENTRADA — puerto 7860 (estándar de HF Spaces)
+# PUNTO DE ENTRADA
 # =======================================================
 if __name__ == "__main__":
     uvicorn.run(
         "api:app",
-        host="0.0.0.0",
-        port=7860,
+        host="127.0.0.1",
+        port=8000,
         reload=False
     )
