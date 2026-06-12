@@ -286,6 +286,18 @@ async def api_diagnose_web(
     }
 
 
+@app.get("/dataset")
+def get_dataset():
+    """Retorna todos los casos del dataset acumulado (para descargar desde Colab)."""
+    if not os.path.exists(dataset_path):
+        return []
+    try:
+        with open(dataset_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al leer dataset: {e}")
+
+
 @app.post("/feedback")
 async def api_feedback(
     prompt   : str = Form(..., description="El problema de red descrito."),
