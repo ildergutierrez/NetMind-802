@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+torch
+torchvision
+tokenizers
+Pillow
+numpy
+huggingface_hub
+requests
+beautifulsoup4

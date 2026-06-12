@@ -4,7 +4,7 @@
    API base: http://127.0.0.1:8000
    ================================================================ */
 
-const API = 'http://127.0.0.1:8000';
+const API = 'https://ildergutierrez12-netmind-802-api.hf.space';
 let newCasesCount = 0; // casos enviados en esta sesión
 
 // ─── TABS ────────────────────────────────────────────────────────

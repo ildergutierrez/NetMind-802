@@ -11,7 +11,7 @@
                                    casos_en_dataset, mensaje
    ================================================================ */
 
-const API = 'http://127.0.0.1:8000';
+const API = 'https://ildergutierrez12-netmind-802-api.hf.space';
 
 // ─── NAVIGATION ─────────────────────────────────────────────────
 const navItems    = document.querySelectorAll('.nav-item');
