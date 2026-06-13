@@ -150,15 +150,15 @@ class NetMindVLM(nn.Module):
 # Script de validación básico
 if __name__ == "__main__":
     print("🤖 Instanciando modelo NetMindVLM...")
-    modelo = NetMindVLM(vocab_size=2000, embed_dim=256)
+    modelo = NetMindVLM(vocab_size=8000, embed_dim=256)
     
     # Crear entradas de prueba (Batch size = 2, seq_len = 128)
     batch_size = 2
     seq_len = 128
     
     dummy_imgs = torch.randn(batch_size, 3, 224, 224)
-    dummy_inputs = torch.randint(0, 2000, (batch_size, seq_len))
-    dummy_targets = torch.randint(0, 2000, (batch_size, seq_len))
+    dummy_inputs = torch.randint(0, 8000, (batch_size, seq_len))
+    dummy_targets = torch.randint(0, 8000, (batch_size, seq_len))
     
     print("⏳ Realizando una pasada hacia adelante (forward pass) de prueba...")
     output = modelo(dummy_imgs, dummy_inputs, dummy_targets)

@@ -2,7 +2,6 @@ import os
 import sys
 import numpy as np
 
-# Configurar codificación UTF-8 en Windows para evitar errores de consola
 if sys.platform == "win32":
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -10,93 +9,53 @@ if sys.platform == "win32":
     except Exception:
         pass
 
+HF_REPO_ID      = "ildergutierrez12/netmind-802"
+HF_MODEL_FILE   = "netmind_vlm.pth"
+MAX_GEN_LEN     = 300
+TEMPERATURE     = 0.7
+TOP_K           = 50
+REPETITION_PEN  = 1.3
+TOKEN_CLS       = 2
+TOKEN_SEP       = 3
 
-# ---------------------------------------------------------------------------
-# Transformaciones de imagen (sin torchvision, solo numpy/PIL)
-# ---------------------------------------------------------------------------
 _IMG_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 _IMG_STD  = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 
-
-def _preprocesar_imagen(image_path: str) -> np.ndarray:
-    """
-    Carga una imagen, la redimensiona a 224×224, normaliza con ImageNet
-    y retorna un array float32 de shape (1, 3, 224, 224).
-    """
+def _preprocesar_imagen(image_path):
     from PIL import Image
-
     img = Image.open(image_path).convert("RGB").resize((224, 224))
-    arr = np.array(img, dtype=np.float32) / 255.0        # (224, 224, 3)  → [0, 1]
-    arr = (arr - _IMG_MEAN) / _IMG_STD                   # Normalización ImageNet
-    arr = arr.transpose(2, 0, 1)[np.newaxis]             # (1, 3, 224, 224)
-    return arr
+    arr = np.array(img, dtype=np.float32) / 255.0
+    arr = (arr - _IMG_MEAN) / _IMG_STD
+    return arr.transpose(2, 0, 1)[np.newaxis]
 
-
-def _imagen_padding() -> np.ndarray:
-    """Retorna un tensor de imagen en negro (sin imagen disponible)."""
+def _imagen_padding():
     return np.zeros((1, 3, 224, 224), dtype=np.float32)
 
 
-# ---------------------------------------------------------------------------
-# Carga del modelo: ONNX Runtime DirectML  (GPU Intel Iris Xe)
-# ---------------------------------------------------------------------------
-
 def cargar_modelo(checkpoint_path, tokenizer_path, device=None):
     """
-    Carga el tokenizador y el modelo para inferencia.
-
-    Estrategia de backends (en orden de prioridad):
-      1. ONNX Runtime con DirectMLExecutionProvider  → GPU Intel Iris Xe
-      2. ONNX Runtime con CPUExecutionProvider       → CPU (fallback)
-      3. PyTorch + torch-directml                    → fallback si no hay .onnx
-
-    Parámetros
-    ----------
-    checkpoint_path : str
-        Ruta al archivo .pth (PyTorch). Se deduce la ruta .onnx automáticamente.
-    tokenizer_path  : str
-        Ruta al archivo tokenizer_redes.json.
-    device          : ignorado — se selecciona automáticamente.
-
-    Retorna
-    -------
-    (session_o_model, tokenizer, backend_label)
+    Descarga netmind_vlm.pth desde HuggingFace Hub si no existe localmente,
+    luego carga el modelo PyTorch custom (NetMindVLM).
     """
     from tokenizers import Tokenizer
+
+    # ── Descargar .pth desde HuggingFace si no existe ──────────────────────
+    if not os.path.exists(checkpoint_path):
+        print(f"   Descargando modelo desde {HF_REPO_ID} ...")
+        try:
+            from huggingface_hub import hf_hub_download
+            import shutil
+            tmp = hf_hub_download(repo_id=HF_REPO_ID, filename=HF_MODEL_FILE)
+            os.makedirs(os.path.dirname(checkpoint_path), exist_ok=True)
+            shutil.copy2(tmp, checkpoint_path)
+            print(f"   ✔ Modelo descargado en: {checkpoint_path}")
+        except Exception as e:
+            raise RuntimeError(f"No se pudo descargar el modelo desde HuggingFace: {e}")
+    else:
+        print(f"   Modelo encontrado localmente: {checkpoint_path}")
+
     tokenizer = Tokenizer.from_file(tokenizer_path)
 
-    # Ruta al .onnx (mismo directorio que el .pth)
-    onnx_path = os.path.splitext(checkpoint_path)[0] + ".onnx"
-
-    # ── Intento 1: ONNX Runtime DirectML ────────────────────────────────────
-    if os.path.exists(onnx_path):
-        try:
-            import onnxruntime as ort
-
-            disponibles = ort.get_available_providers()
-
-            if "DmlExecutionProvider" in disponibles:
-                session = ort.InferenceSession(
-                    onnx_path,
-                    providers=["DmlExecutionProvider", "CPUExecutionProvider"]
-                )
-                backend = "ONNX Runtime — GPU Intel Iris Xe (DirectML)"
-            else:
-                session = ort.InferenceSession(
-                    onnx_path,
-                    providers=["CPUExecutionProvider"]
-                )
-                backend = "ONNX Runtime — CPU (DirectML no disponible)"
-
-            print(f"   Modelo cargado con {backend}.")
-            return session, tokenizer, backend
-
-        except ImportError:
-            print("   ⚠️  onnxruntime no instalado. Intentando PyTorch…")
-        except Exception as e:
-            print(f"   ⚠️  Error al cargar ONNX ({e}). Intentando PyTorch…")
-
-    # ── Intento 2 / Fallback: PyTorch + torch-directml ──────────────────────
     import torch
     from model_architecture import NetMindVLM
 
@@ -105,164 +64,83 @@ def cargar_modelo(checkpoint_path, tokenizer_path, device=None):
         pt_device = torch_directml.device()
         backend   = "PyTorch — GPU Intel Iris Xe (DirectML)"
     except ImportError:
-        pt_device = torch.device("cpu")
-        backend   = "PyTorch — CPU"
+        pt_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        backend   = f"PyTorch — {str(pt_device).upper()}"
 
     model = NetMindVLM(vocab_size=2000, embed_dim=256)
     model.load_state_dict(torch.load(checkpoint_path, map_location="cpu"))
     model = model.to(pt_device)
     model.eval()
-    print(f"   Modelo cargado con {backend}.")
+    print(f"   Backend activo: {backend}")
     return model, tokenizer, backend
 
 
-# ---------------------------------------------------------------------------
-# Inferencia autorregresiva
-# ---------------------------------------------------------------------------
+def _sample_token_torch(logits_1d, generated):
+    import torch
+    logits = logits_1d.float().clone()
+    for tok_id in set(generated):
+        logits[tok_id] = logits[tok_id] / REPETITION_PEN if logits[tok_id] > 0 else logits[tok_id] * REPETITION_PEN
+    logits = logits / max(TEMPERATURE, 1e-8)
+    if TOP_K > 0:
+        valores, _ = torch.topk(logits, TOP_K)
+        logits[logits < valores[-1]] = -float("inf")
+    probs = torch.softmax(logits, dim=-1)
+    return int(torch.multinomial(probs, num_samples=1).item())
+
 
 def diagnosticar(prompt_txt, model, tokenizer, image_path=None, device=None):
-    """
-    Genera una respuesta autorregresiva token a token.
-
-    Detecta automáticamente si `model` es una sesión ONNX Runtime
-    o un módulo PyTorch y aplica la lógica correspondiente.
-
-    Parámetros
-    ----------
-    prompt_txt  : str    — descripción del problema de red
-    model       : InferenceSession | NetMindVLM
-    tokenizer   : Tokenizer (HuggingFace tokenizers)
-    image_path  : str | None
-    device      : ignorado — se determina internamente
-    """
-    import onnxruntime as _ort_check  # noqa: F401 — sólo para ver si ORT está disponible
-
-    try:
-        import onnxruntime as ort
-        _es_onnx = isinstance(model, ort.InferenceSession)
-    except ImportError:
-        _es_onnx = False
-
-    if _es_onnx:
-        return _diagnosticar_onnx(prompt_txt, model, tokenizer, image_path)
-    else:
-        return _diagnosticar_pytorch(prompt_txt, model, tokenizer, image_path)
-
-
-def _diagnosticar_onnx(prompt_txt, session, tokenizer, image_path=None):
-    """Inferencia con ONNX Runtime (DirectML o CPU)."""
-    # 1. Imagen
-    if image_path and os.path.exists(image_path):
-        try:
-            image_np = _preprocesar_imagen(image_path)
-        except Exception as e:
-            print(f"   ⚠️  Error cargando imagen: {e}. Usando padding.")
-            image_np = _imagen_padding()
-    else:
-        image_np = _imagen_padding()
-
-    # 2. Tokenizar prompt
-    encoding  = tokenizer.encode(prompt_txt)
-    input_ids = np.array([encoding.ids], dtype=np.int64)
-
-    # 3. Generación autorregresiva — token [CLS]=2 como inicio
-    target_ids  = np.array([[2]], dtype=np.int64)
-    max_gen_len = 256
-
-    for _ in range(max_gen_len):
-        logits = session.run(
-            ["logits"],
-            {
-                "images"    : image_np,
-                "input_ids" : input_ids,
-                "target_ids": target_ids,
-            }
-        )[0]                                       # (1, tgt_len, vocab_size)
-
-        next_token_id = int(np.argmax(logits[0, -1, :]))
-
-        if next_token_id == 3:                     # [SEP] → fin de secuencia
-            break
-
-        target_ids = np.concatenate(
-            [target_ids, [[next_token_id]]], axis=1
-        )
-
-    generated_ids  = target_ids[0, 1:].tolist()   # Omitir [CLS]
-    return tokenizer.decode(generated_ids)
-
-
-def _diagnosticar_pytorch(prompt_txt, model, tokenizer, image_path=None):
-    """Inferencia con PyTorch + torch-directml."""
     import torch
-
-    # Determinar device desde el modelo
     try:
         pt_device = next(model.parameters()).device
     except StopIteration:
         pt_device = torch.device("cpu")
 
-    # 1. Imagen
     if image_path and os.path.exists(image_path):
         try:
             img_np = _preprocesar_imagen(image_path)
             image_tensor = torch.from_numpy(img_np).to(pt_device)
-        except Exception as e:
-            print(f"   ⚠️  Error cargando imagen: {e}. Usando padding.")
-            image_tensor = torch.zeros(1, 3, 224, 224).to(pt_device)
+        except Exception:
+            image_tensor = torch.zeros(1, 3, 224, 224, device=pt_device)
     else:
-        image_tensor = torch.zeros(1, 3, 224, 224).to(pt_device)
+        image_tensor = torch.zeros(1, 3, 224, 224, device=pt_device)
 
-    # 2. Tokenizar prompt
-    encoding = tokenizer.encode(prompt_txt)
-    input_ids = torch.tensor([encoding.ids], dtype=torch.long).to(pt_device)
+    encoding  = tokenizer.encode(prompt_txt)
+    input_ids = torch.tensor([encoding.ids], dtype=torch.long, device=pt_device)
 
-    # 3. Generación autorregresiva
-    target_ids  = torch.tensor([[2]], dtype=torch.long).to(pt_device)
-    max_gen_len = 256
+    target_ids = torch.tensor([[TOKEN_CLS]], dtype=torch.long, device=pt_device)
+    generated  = []
 
     with torch.no_grad():
-        for _ in range(max_gen_len):
-            outputs        = model(image_tensor, input_ids, target_ids)
-            next_token_id  = torch.argmax(outputs[0, -1, :]).item()
-
-            if next_token_id == 3:                 # [SEP]
+        for _ in range(MAX_GEN_LEN):
+            outputs   = model(image_tensor, input_ids, target_ids)
+            next_tok  = _sample_token_torch(outputs[0, -1, :], generated)
+            if next_tok == TOKEN_SEP:
                 break
+            if len(generated) >= 5 and all(t == next_tok for t in generated[-5:]):
+                break
+            target_ids = torch.cat(
+                [target_ids, torch.tensor([[next_tok]], dtype=torch.long, device=pt_device)], dim=1
+            )
+            generated.append(next_tok)
 
-            next_token_tensor = torch.tensor([[next_token_id]], dtype=torch.long).to(pt_device)
-            target_ids        = torch.cat([target_ids, next_token_tensor], dim=1)
+    import re
+    texto = tokenizer.decode(generated)
+    texto = texto.replace("Ġ", " ").replace("Ċ", "\n")
+    texto = re.sub(r" {2,}", " ", texto).strip()
+    return texto or "No se pudo generar respuesta."
 
-    generated_ids  = target_ids[0, 1:].tolist()
-    return tokenizer.decode(generated_ids)
 
-
-# ---------------------------------------------------------------------------
-# Punto de entrada para pruebas locales
-# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     current_dir     = os.path.dirname(os.path.abspath(__file__))
     project_root    = os.path.dirname(current_dir)
     tokenizer_path  = os.path.join(current_dir, "tokenizer_redes.json")
     checkpoint_path = os.path.join(project_root, "models", "netmind_vlm.pth")
 
-    if not os.path.exists(checkpoint_path):
-        print("❌ Error: Modelo no encontrado en models/netmind_vlm.pth")
-        print("   Ejecuta train.py primero para entrenar y exportar el modelo.")
-        sys.exit(1)
-
-    print("🔎 Cargando modelo para prueba de inferencia...")
+    print("🔎 Cargando modelo desde HuggingFace Hub...")
     model, tokenizer, backend = cargar_modelo(checkpoint_path, tokenizer_path)
-    print(f"   Backend activo: {backend}")
+    print(f"   Backend: {backend}\n")
 
-    prompt_test = (
-        "El puerto GigabitEthernet1/0/5 del switch Cisco de distribución se apagó repentinamente. "
-        "En la consola aparece la alerta de seguridad 'port-security violation'. "
-        "Un usuario intentó conectar una laptop de auditoría directamente en la toma de red. "
-        "¿Cómo se diagnostica, cuál es la causa y cómo se soluciona en Cisco IOS?"
-    )
-
-    print("\n⏳ Generando respuesta...\n")
-    respuesta = diagnosticar(prompt_test, model, tokenizer)
-    print("--- Respuesta del Modelo ---")
-    print(respuesta)
-    print("----------------------------")
+    prompt = "El puerto GigabitEthernet1/0/5 del switch Cisco se apagó. Aparece 'port-security violation'. ¿Cómo se soluciona?"
+    print(f"Prompt: {prompt}")
+    print("Respuesta:")
+    print(diagnosticar(prompt, model, tokenizer))

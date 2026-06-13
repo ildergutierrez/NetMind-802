@@ -11,7 +11,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Invocar directamente el servidor principal
-from api import app
+from api_main import app
 import uvicorn
 
 if __name__ == "__main__":

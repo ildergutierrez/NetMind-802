@@ -43,6 +43,7 @@ DEPENDENCIAS = [
 
     # --- Búsqueda Web (Para enriquecer respuestas con información de Internet) ---
     "httpx",
+    "huggingface_hub",
 
     #Directx
     "onnxruntime-directml",

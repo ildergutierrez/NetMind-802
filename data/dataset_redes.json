@@ -3121,5 +3121,3221 @@
     "target": "Soy NetMind, un modelo especializado en diagnóstico de redes y ciberseguridad. Analizo incidentes, interpreto configuraciones, identifico causas probables y propongo soluciones para infraestructuras empresariales complejas incluyendo routing, switching, WiFi, VPN, MPLS, SD-WAN, seguridad y monitoreo.",
     "origen": "feedback_usuario",
     "fecha": "2026-06-12T17:49:52.301459"
+  },
+
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "Native VLAN mismatch trunk 802.1Q",
+    "prompt": "Aparece alerta de Native VLAN mismatch en enlace troncal entre switches",
+    "target": "DIAGNÓSTICO: Distinta Native VLAN configurada en cada extremo del trunk. SOLUCIÓN: Configurar la misma native vlan en ambos lados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "Puerto en estado err-disabled",
+    "prompt": "Una interfaz Cisco aparece err-disabled y no transmite tráfico",
+    "target": "DIAGNÓSTICO: El puerto fue deshabilitado automáticamente por una condición de seguridad o error. SOLUCIÓN: Revisar logs, corregir la causa y ejecutar shutdown/no shutdown.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "DHCP pool agotado",
+    "prompt": "Los nuevos clientes no reciben dirección IP aunque el servidor DHCP responde",
+    "target": "DIAGNÓSTICO: El pool DHCP no tiene direcciones disponibles. SOLUCIÓN: Ampliar el rango o liberar concesiones expiradas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "Bucle de capa 2",
+    "prompt": "La red presenta tormentas broadcast y alto uso de CPU en switches",
+    "target": "DIAGNÓSTICO: Existe un loop de capa 2. SOLUCIÓN: Revisar STP, eliminar enlaces redundantes incorrectos y verificar Root Bridge.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "OSPF vecinos en EXSTART",
+    "prompt": "Dos routers OSPF permanecen indefinidamente en estado EXSTART",
+    "target": "DIAGNÓSTICO: Posible incompatibilidad MTU. SOLUCIÓN: Igualar MTU o habilitar ip ospf mtu-ignore.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "BGP no establece sesión",
+    "prompt": "Dos routers BGP no forman vecindad pese a existir conectividad IP",
+    "target": "DIAGNÓSTICO: ASN incorrecto o puerto TCP 179 bloqueado. SOLUCIÓN: Verificar ASN, reachability y filtros.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "ARP Spoofing detectado",
+    "prompt": "Las tablas ARP cambian constantemente para la puerta de enlace",
+    "target": "DIAGNÓSTICO: Posible ataque ARP Spoofing. SOLUCIÓN: Habilitar Dynamic ARP Inspection y DHCP Snooping.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "VPN IPsec Phase 2 falla",
+    "prompt": "IKE se establece correctamente pero no circula tráfico por el túnel",
+    "target": "DIAGNÓSTICO: ACL o transform-set incompatibles. SOLUCIÓN: Comparar configuraciones en ambos extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "Root Bridge inesperado",
+    "prompt": "Un switch de acceso se convierte en Root Bridge de STP",
+    "target": "DIAGNÓSTICO: Prioridad STP incorrecta. SOLUCIÓN: Configurar prioridad menor en el switch core y activar Root Guard.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "¿Quién eres?",
+    "prompt": "¿Cómo te llamas y cuál es tu función?",
+    "target": "Soy NetMind. Estoy especializado en diagnóstico de redes y seguridad informática. Analizo incidentes, interpreto configuraciones y propongo soluciones para routing, switching, WiFi, VPN, seguridad, monitoreo e infraestructura empresarial.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T12:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "¿Quién eres?",
+    "prompt": "¿Cómo te llamas?",
+    "target": "Soy NetMind, un modelo de inteligencia artificial especializado en diagnóstico, análisis y resolución de problemas de redes, infraestructura TI y ciberseguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "Función del modelo",
+    "prompt": "¿A qué te dedicas?",
+    "target": "Mi función es analizar incidentes de redes y seguridad informática, identificar causas probables, proponer diagnósticos técnicos y sugerir procedimientos de solución basados en buenas prácticas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "Capacidades del sistema",
+    "prompt": "¿Qué tipo de problemas puedes resolver?",
+    "target": "Puedo ayudar con problemas de routing, switching, VLANs, OSPF, BGP, EIGRP, STP, seguridad perimetral, firewalls, VPN, WiFi, DHCP, DNS, servidores, monitoreo y análisis de incidentes de ciberseguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "DHCP Scope agotado",
+    "prompt": "Los clientes no reciben IP y el servidor DHCP parece operativo.",
+    "target": "DIAGNÓSTICO: El pool DHCP se encuentra agotado. Verificar leases activas mediante show ip dhcp binding o revisar el rango configurado. Ampliar el pool o reducir el tiempo de concesión.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "OSPF Neighbor Down",
+    "prompt": "Dos routers conectados directamente no forman adyacencia OSPF.",
+    "target": "DIAGNÓSTICO: Existe discrepancia en área, máscara, autenticación o temporizadores Hello/Dead. Verificar show ip ospf neighbor y show ip ospf interface.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "Bucle STP intermitente",
+    "prompt": "La red presenta tormentas broadcast cada ciertos minutos.",
+    "target": "DIAGNÓSTICO: Posible enlace redundante sin convergencia adecuada de STP. Verificar root bridge, BPDU Guard, PortFast y cambios de topología con show spanning-tree.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "BGP Route Leak",
+    "prompt": "Un ISP comienza a anunciar rutas internas a Internet.",
+    "target": "DIAGNÓSTICO: Route Leak causado por filtros incorrectos. Implementar prefix-lists, route-maps y validación de anuncios BGP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "ARP Spoofing detectado",
+    "prompt": "Usuarios reportan conexiones lentas y certificados inválidos.",
+    "target": "DIAGNÓSTICO: Posible ataque ARP Spoofing. Verificar tablas ARP inconsistentes y habilitar Dynamic ARP Inspection.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "VPN IPSec no establece túnel",
+    "prompt": "El túnel IPSec permanece en estado DOWN.",
+    "target": "DIAGNÓSTICO: Incompatibilidad en Phase 1 o Phase 2. Verificar algoritmos, claves compartidas, lifetime y redes interesantes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "DNS Recursion Attack",
+    "prompt": "El servidor DNS presenta uso excesivo de CPU.",
+    "target": "DIAGNÓSTICO: Posible ataque de amplificación DNS o recursión abierta. Restringir consultas recursivas y habilitar rate limiting.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_011",
+    "titulo": "Native VLAN mismatch",
+    "prompt": "Aparece alerta de Native VLAN mismatch en un enlace troncal.",
+    "target": "DIAGNÓSTICO: Los extremos del trunk tienen Native VLAN diferente. Configurar la misma VLAN nativa en ambos lados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_012",
+    "titulo": "Rogue DHCP Server",
+    "prompt": "Los equipos reciben direcciones IP incorrectas.",
+    "target": "DIAGNÓSTICO: Existe un servidor DHCP no autorizado. Localizar mediante DHCP Snooping y bloquear el puerto correspondiente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_013",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Los usuarios no pueden acceder a una aplicación crítica.",
+    "target": "DIAGNÓSTICO: Una ACL está denegando tráfico requerido. Revisar orden de reglas y registros de coincidencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_014",
+    "titulo": "MAC Flooding",
+    "prompt": "El switch empieza a comportarse como hub.",
+    "target": "DIAGNÓSTICO: Posible ataque MAC Flooding. Activar Port Security y limitar MACs por puerto.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_015",
+    "titulo": "HSRP Flapping",
+    "prompt": "El gateway virtual cambia constantemente entre routers.",
+    "target": "DIAGNÓSTICO: Inestabilidad en enlaces o prioridad HSRP mal configurada. Verificar interfaces y temporizadores.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_016",
+    "titulo": "Rutas OSPF desaparecen",
+    "prompt": "Las rutas aprendidas por OSPF desaparecen intermitentemente.",
+    "target": "DIAGNÓSTICO: Reinicios de adyacencia, MTU mismatch o autenticación inconsistente. Revisar logs y estado de vecinos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_017",
+    "titulo": "BGP Hijacking",
+    "prompt": "El tráfico hacia un sitio corporativo termina en una red externa.",
+    "target": "DIAGNÓSTICO: Secuestro de prefijos BGP. Implementar validación RPKI y filtros de anuncios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_018",
+    "titulo": "Port Security Violation",
+    "prompt": "Un puerto se deshabilita automáticamente.",
+    "target": "DIAGNÓSTICO: Violación de Port Security por MAC no autorizada. Revisar show port-security interface.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_019",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Los usuarios son redirigidos a sitios incorrectos.",
+    "target": "DIAGNÓSTICO: Posible envenenamiento de caché DNS. Limpiar caché y habilitar DNSSEC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_020",
+    "titulo": "Wireless Roaming deficiente",
+    "prompt": "Los dispositivos pierden conectividad al moverse entre APs.",
+    "target": "DIAGNÓSTICO: Configuración incorrecta de roaming, potencia o canales. Verificar 802.11r/k/v.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_021",
+    "titulo": "VLAN no enruta",
+    "prompt": "Los equipos de distintas VLAN no se comunican.",
+    "target": "DIAGNÓSTICO: Falta de Inter-VLAN Routing o SVI inactiva. Verificar gateway y estado VLAN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_022",
+    "titulo": "Firewall Stateful bloquea retorno",
+    "prompt": "Las conexiones salen pero las respuestas nunca regresan.",
+    "target": "DIAGNÓSTICO: Problema de inspección de estado o NAT incorrecto. Revisar tablas de sesión.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_023",
+    "titulo": "Loopback no anunciada",
+    "prompt": "La Loopback de un router no aparece en el dominio OSPF.",
+    "target": "DIAGNÓSTICO: Falta declaración network o interfaz pasiva mal configurada.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_024",
+    "titulo": "Tráfico asimétrico",
+    "prompt": "Las respuestas siguen una ruta distinta a las solicitudes.",
+    "target": "DIAGNÓSTICO: Enrutamiento asimétrico causado por múltiples gateways o políticas PBR.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_025",
+    "titulo": "802.1X Authentication Failure",
+    "prompt": "Los usuarios no logran autenticarse en la red corporativa.",
+    "target": "DIAGNÓSTICO: Error de comunicación con servidor RADIUS o certificados inválidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_026",
+    "titulo": "NAT Overload saturado",
+    "prompt": "Miles de conexiones dejan de funcionar simultáneamente.",
+    "target": "DIAGNÓSTICO: Agotamiento de puertos PAT. Incrementar direcciones públicas o balancear tráfico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_027",
+    "titulo": "BPDU Guard activado",
+    "prompt": "Un puerto de acceso entra en estado err-disabled.",
+    "target": "DIAGNÓSTICO: Recepción inesperada de BPDU. Revisar conexión de switches no autorizados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_028",
+    "titulo": "Redistribución OSPF-BGP incorrecta",
+    "prompt": "Se generan rutas duplicadas y bucles.",
+    "target": "DIAGNÓSTICO: Redistribución bidireccional sin filtros. Implementar route-tags y route-maps.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_029",
+    "titulo": "SNMP Expuesto",
+    "prompt": "Se detectan consultas SNMP desde Internet.",
+    "target": "DIAGNÓSTICO: Comunidad SNMP accesible externamente. Restringir acceso mediante ACL y migrar a SNMPv3.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_030",
+    "titulo": "Fragmentación excesiva",
+    "prompt": "Las aplicaciones experimentan lentitud aleatoria.",
+    "target": "DIAGNÓSTICO: Problemas de MTU y fragmentación IP. Ajustar MSS y validar Path MTU Discovery.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "BGP Route Reflector no propaga rutas VPNv4",
+    "prompt": "En una red MPLS L3VPN, los PE reciben prefijos VPNv4 pero el Route Reflector no los redistribuye a otros PE. Las sesiones MP-BGP están establecidas.",
+    "target": "DIAGNÓSTICO: El Route Reflector recibe rutas pero no las refleja correctamente. CAUSAS: address-family vpnv4 no activada, falta de send-community extended, cliente RR no configurado. SOLUCIÓN: Verificar address-family vpnv4, neighbor route-reflector-client y send-community extended. COMANDOS: show bgp vpnv4 unicast all summary, show bgp vpnv4 all.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Un área OSPF quedó aislada y se implementó un Virtual Link, pero la adyacencia cae constantemente.",
+    "target": "DIAGNÓSTICO: Problema de estabilidad en OSPF Virtual Link. CAUSAS: MTU inconsistente, timers distintos, router-id duplicado o área transit incorrecta. SOLUCIÓN: Verificar MTU, router-id único y configuración del área transit. COMANDOS: show ip ospf virtual-links, show ip ospf neighbor.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "EVPN VXLAN no aprende MAC remotas",
+    "prompt": "Los VTEP establecen sesión BGP EVPN correctamente pero las MAC remotas no aparecen en la tabla.",
+    "target": "DIAGNÓSTICO: EVPN no distribuye información MAC/IP. CAUSAS: VNIs inconsistentes, Route Target incorrecto, VLAN-VNI mal asociada. SOLUCIÓN: Validar RT/RD, asociaciones VLAN-VNI y anuncios EVPN tipo 2. COMANDOS: show bgp l2vpn evpn, show nve peers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "Ataque ARP Spoofing en VLAN corporativa",
+    "prompt": "Usuarios reportan conexiones lentas y certificados inválidos. Se sospecha interceptación de tráfico interno.",
+    "target": "DIAGNÓSTICO: Posible ataque ARP Spoofing. CAUSAS: Host malicioso enviando respuestas ARP falsas. SOLUCIÓN: Activar Dynamic ARP Inspection, DHCP Snooping y Port Security. COMANDOS: show ip arp inspection statistics, show ip dhcp snooping binding.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "DHCP Snooping bloquea clientes válidos",
+    "prompt": "Después de habilitar DHCP Snooping los equipos dejaron de obtener direcciones IP.",
+    "target": "DIAGNÓSTICO: Tráfico DHCP legítimo bloqueado. CAUSAS: Puerto uplink hacia servidor DHCP no marcado como trusted. SOLUCIÓN: Configurar ip dhcp snooping trust en interfaces correspondientes. COMANDOS: show ip dhcp snooping.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "STP Root Bridge inesperado",
+    "prompt": "Un switch de acceso se convirtió en Root Bridge causando cambios de topología frecuentes.",
+    "target": "DIAGNÓSTICO: Prioridad STP incorrecta. CAUSAS: Switch nuevo con prioridad menor que el Core. SOLUCIÓN: Definir root primary y root secondary explícitamente. COMANDOS: show spanning-tree root.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "VRRP Split Brain",
+    "prompt": "Dos routers VRRP aparecen simultáneamente como Master generando pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: Evento Split Brain en VRRP. CAUSAS: Fallo de comunicación multicast o filtrado VRRP. SOLUCIÓN: Revisar conectividad entre routers y tráfico protocolo 112. COMANDOS: show vrrp brief.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Usuarios no pueden acceder a aplicaciones internas después de aplicar nuevas ACL.",
+    "target": "DIAGNÓSTICO: ACL demasiado restrictiva. CAUSAS: Orden incorrecto de reglas o ausencia de excepciones necesarias. SOLUCIÓN: Revisar secuencia ACL y contadores de coincidencias. COMANDOS: show access-lists.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "BGP Route Leak entre proveedores",
+    "prompt": "Un ISP anuncia rutas externas a otro proveedor generando rutas inesperadas en Internet.",
+    "target": "DIAGNÓSTICO: Route Leak BGP. CAUSAS: Filtros de exportación incorrectos. SOLUCIÓN: Aplicar prefix-list, route-map y validación RPKI. COMANDOS: show ip bgp neighbors advertised-routes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "Firewall Stateful agota tabla de sesiones",
+    "prompt": "El firewall presenta alto uso de CPU y nuevas conexiones son rechazadas.",
+    "target": "DIAGNÓSTICO: Tabla de estados saturada. CAUSAS: Ataque SYN Flood o exceso de conexiones concurrentes. SOLUCIÓN: Ajustar límites de sesión, SYN cookies y mitigación DDoS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_011",
+    "titulo": "Modelo NetMind identidad",
+    "prompt": "¿Cómo te llamas y cuál es tu función dentro del sistema?",
+    "target": "Mi nombre es NetMind. Soy un modelo especializado en análisis, diagnóstico y resolución de problemas de redes, ciberseguridad e infraestructura TI. Mi función es identificar fallos, explicar causas técnicas, proponer soluciones y asistir en la administración de redes empresariales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_012",
+    "titulo": "Modelo NetMind capacidades",
+    "prompt": "¿A qué te dedicas exactamente?",
+    "target": "Soy NetMind, un asistente especializado en redes y seguridad informática. Analizo configuraciones, protocolos, eventos de seguridad, problemas de conectividad, infraestructura empresarial, routing, switching, firewalls y servicios de red. Mi objetivo es ayudar a diagnosticar incidentes y proponer soluciones técnicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_013",
+    "titulo": "802.1X rechaza autenticación",
+    "prompt": "Los usuarios no logran autenticarse mediante 802.1X aunque las credenciales son correctas.",
+    "target": "DIAGNÓSTICO: Fallo de autenticación 802.1X. CAUSAS: Certificados expirados, servidor RADIUS inaccesible o políticas EAP incompatibles. SOLUCIÓN: Verificar certificados, RADIUS y método EAP configurado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_014",
+    "titulo": "LACP Port-Channel suspendido",
+    "prompt": "Los enlaces físicos están activos pero el Port-Channel permanece suspendido.",
+    "target": "DIAGNÓSTICO: Inconsistencia LACP. CAUSAS: Modos active/passive incompatibles, velocidad o duplex distintos. SOLUCIÓN: Homogeneizar parámetros y verificar negociación LACP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_015",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Usuarios son redirigidos a sitios falsos aunque escriben correctamente la URL.",
+    "target": "DIAGNÓSTICO: Posible DNS Cache Poisoning. CAUSAS: Respuestas DNS fraudulentas almacenadas en caché. SOLUCIÓN: Limpiar caché, habilitar DNSSEC y revisar resolvers comprometidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_016",
+    "titulo": "MPLS LDP no establece vecinos",
+    "prompt": "Los routers MPLS tienen conectividad IP pero no forman adyacencias LDP.",
+    "target": "DIAGNÓSTICO: Sesiones LDP fallidas. CAUSAS: MPLS no habilitado en interfaces, router-id incorrecto o filtrado TCP 646. SOLUCIÓN: Revisar configuración MPLS y conectividad LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_017",
+    "titulo": "Rogue DHCP Server",
+    "prompt": "Los equipos reciben gateways incorrectos y pierden acceso a servicios corporativos.",
+    "target": "DIAGNÓSTICO: Servidor DHCP no autorizado. CAUSAS: Dispositivo conectado respondiendo solicitudes DHCP. SOLUCIÓN: Activar DHCP Snooping y localizar el puerto origen.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_018",
+    "titulo": "OSPF LSA Flooding excesivo",
+    "prompt": "La CPU de varios routers aumenta drásticamente durante recalculaciones SPF.",
+    "target": "DIAGNÓSTICO: Exceso de inundación de LSAs. CAUSAS: Flapping de enlaces o redistribución inestable. SOLUCIÓN: Identificar origen de LSAs y estabilizar topología.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_019",
+    "titulo": "IPSec Phase 2 falla",
+    "prompt": "La VPN establece IKE correctamente pero no intercambia tráfico.",
+    "target": "DIAGNÓSTICO: Error en IPSec Phase 2. CAUSAS: ACL de tráfico interesante distinta, transform-set incompatible o PFS inconsistente. SOLUCIÓN: Comparar parámetros IPSec en ambos extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_020",
+    "titulo": "Anomalía de comportamiento del modelo",
+    "prompt": "¿Qué haces si no conoces una respuesta técnica?",
+    "target": "Como NetMind, cuando no dispongo de suficiente información indico las limitaciones, solicito datos adicionales y evito asumir configuraciones inexistentes. Mi objetivo es proporcionar diagnósticos fundamentados y técnicamente verificables.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "BGP Route Reflector no propaga rutas VPNv4",
+    "prompt": "En una red MPLS L3VPN, los PE reciben prefijos VPNv4 pero el Route Reflector no los redistribuye a otros PE. Las sesiones MP-BGP están establecidas.",
+    "target": "DIAGNÓSTICO: El Route Reflector recibe rutas pero no las refleja correctamente. CAUSAS: address-family vpnv4 no activada, falta de send-community extended, cliente RR no configurado. SOLUCIÓN: Verificar address-family vpnv4, neighbor route-reflector-client y send-community extended. COMANDOS: show bgp vpnv4 unicast all summary, show bgp vpnv4 all.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Un área OSPF quedó aislada y se implementó un Virtual Link, pero la adyacencia cae constantemente.",
+    "target": "DIAGNÓSTICO: Problema de estabilidad en OSPF Virtual Link. CAUSAS: MTU inconsistente, timers distintos, router-id duplicado o área transit incorrecta. SOLUCIÓN: Verificar MTU, router-id único y configuración del área transit. COMANDOS: show ip ospf virtual-links, show ip ospf neighbor.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "EVPN VXLAN no aprende MAC remotas",
+    "prompt": "Los VTEP establecen sesión BGP EVPN correctamente pero las MAC remotas no aparecen en la tabla.",
+    "target": "DIAGNÓSTICO: EVPN no distribuye información MAC/IP. CAUSAS: VNIs inconsistentes, Route Target incorrecto, VLAN-VNI mal asociada. SOLUCIÓN: Validar RT/RD, asociaciones VLAN-VNI y anuncios EVPN tipo 2. COMANDOS: show bgp l2vpn evpn, show nve peers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "Ataque ARP Spoofing en VLAN corporativa",
+    "prompt": "Usuarios reportan conexiones lentas y certificados inválidos. Se sospecha interceptación de tráfico interno.",
+    "target": "DIAGNÓSTICO: Posible ataque ARP Spoofing. CAUSAS: Host malicioso enviando respuestas ARP falsas. SOLUCIÓN: Activar Dynamic ARP Inspection, DHCP Snooping y Port Security. COMANDOS: show ip arp inspection statistics, show ip dhcp snooping binding.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "DHCP Snooping bloquea clientes válidos",
+    "prompt": "Después de habilitar DHCP Snooping los equipos dejaron de obtener direcciones IP.",
+    "target": "DIAGNÓSTICO: Tráfico DHCP legítimo bloqueado. CAUSAS: Puerto uplink hacia servidor DHCP no marcado como trusted. SOLUCIÓN: Configurar ip dhcp snooping trust en interfaces correspondientes. COMANDOS: show ip dhcp snooping.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "STP Root Bridge inesperado",
+    "prompt": "Un switch de acceso se convirtió en Root Bridge causando cambios de topología frecuentes.",
+    "target": "DIAGNÓSTICO: Prioridad STP incorrecta. CAUSAS: Switch nuevo con prioridad menor que el Core. SOLUCIÓN: Definir root primary y root secondary explícitamente. COMANDOS: show spanning-tree root.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "VRRP Split Brain",
+    "prompt": "Dos routers VRRP aparecen simultáneamente como Master generando pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: Evento Split Brain en VRRP. CAUSAS: Fallo de comunicación multicast o filtrado VRRP. SOLUCIÓN: Revisar conectividad entre routers y tráfico protocolo 112. COMANDOS: show vrrp brief.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Usuarios no pueden acceder a aplicaciones internas después de aplicar nuevas ACL.",
+    "target": "DIAGNÓSTICO: ACL demasiado restrictiva. CAUSAS: Orden incorrecto de reglas o ausencia de excepciones necesarias. SOLUCIÓN: Revisar secuencia ACL y contadores de coincidencias. COMANDOS: show access-lists.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "BGP Route Leak entre proveedores",
+    "prompt": "Un ISP anuncia rutas externas a otro proveedor generando rutas inesperadas en Internet.",
+    "target": "DIAGNÓSTICO: Route Leak BGP. CAUSAS: Filtros de exportación incorrectos. SOLUCIÓN: Aplicar prefix-list, route-map y validación RPKI. COMANDOS: show ip bgp neighbors advertised-routes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "Firewall Stateful agota tabla de sesiones",
+    "prompt": "El firewall presenta alto uso de CPU y nuevas conexiones son rechazadas.",
+    "target": "DIAGNÓSTICO: Tabla de estados saturada. CAUSAS: Ataque SYN Flood o exceso de conexiones concurrentes. SOLUCIÓN: Ajustar límites de sesión, SYN cookies y mitigación DDoS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_011",
+    "titulo": "Modelo NetMind identidad",
+    "prompt": "¿Cómo te llamas y cuál es tu función dentro del sistema?",
+    "target": "Mi nombre es NetMind. Soy un modelo especializado en análisis, diagnóstico y resolución de problemas de redes, ciberseguridad e infraestructura TI. Mi función es identificar fallos, explicar causas técnicas, proponer soluciones y asistir en la administración de redes empresariales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_012",
+    "titulo": "Modelo NetMind capacidades",
+    "prompt": "¿A qué te dedicas exactamente?",
+    "target": "Soy NetMind, un asistente especializado en redes y seguridad informática. Analizo configuraciones, protocolos, eventos de seguridad, problemas de conectividad, infraestructura empresarial, routing, switching, firewalls y servicios de red. Mi objetivo es ayudar a diagnosticar incidentes y proponer soluciones técnicas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_013",
+    "titulo": "802.1X rechaza autenticación",
+    "prompt": "Los usuarios no logran autenticarse mediante 802.1X aunque las credenciales son correctas.",
+    "target": "DIAGNÓSTICO: Fallo de autenticación 802.1X. CAUSAS: Certificados expirados, servidor RADIUS inaccesible o políticas EAP incompatibles. SOLUCIÓN: Verificar certificados, RADIUS y método EAP configurado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_014",
+    "titulo": "LACP Port-Channel suspendido",
+    "prompt": "Los enlaces físicos están activos pero el Port-Channel permanece suspendido.",
+    "target": "DIAGNÓSTICO: Inconsistencia LACP. CAUSAS: Modos active/passive incompatibles, velocidad o duplex distintos. SOLUCIÓN: Homogeneizar parámetros y verificar negociación LACP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_015",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Usuarios son redirigidos a sitios falsos aunque escriben correctamente la URL.",
+    "target": "DIAGNÓSTICO: Posible DNS Cache Poisoning. CAUSAS: Respuestas DNS fraudulentas almacenadas en caché. SOLUCIÓN: Limpiar caché, habilitar DNSSEC y revisar resolvers comprometidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_016",
+    "titulo": "MPLS LDP no establece vecinos",
+    "prompt": "Los routers MPLS tienen conectividad IP pero no forman adyacencias LDP.",
+    "target": "DIAGNÓSTICO: Sesiones LDP fallidas. CAUSAS: MPLS no habilitado en interfaces, router-id incorrecto o filtrado TCP 646. SOLUCIÓN: Revisar configuración MPLS y conectividad LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_017",
+    "titulo": "Rogue DHCP Server",
+    "prompt": "Los equipos reciben gateways incorrectos y pierden acceso a servicios corporativos.",
+    "target": "DIAGNÓSTICO: Servidor DHCP no autorizado. CAUSAS: Dispositivo conectado respondiendo solicitudes DHCP. SOLUCIÓN: Activar DHCP Snooping y localizar el puerto origen.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_018",
+    "titulo": "OSPF LSA Flooding excesivo",
+    "prompt": "La CPU de varios routers aumenta drásticamente durante recalculaciones SPF.",
+    "target": "DIAGNÓSTICO: Exceso de inundación de LSAs. CAUSAS: Flapping de enlaces o redistribución inestable. SOLUCIÓN: Identificar origen de LSAs y estabilizar topología.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_019",
+    "titulo": "IPSec Phase 2 falla",
+    "prompt": "La VPN establece IKE correctamente pero no intercambia tráfico.",
+    "target": "DIAGNÓSTICO: Error en IPSec Phase 2. CAUSAS: ACL de tráfico interesante distinta, transform-set incompatible o PFS inconsistente. SOLUCIÓN: Comparar parámetros IPSec en ambos extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_020",
+    "titulo": "Anomalía de comportamiento del modelo",
+    "prompt": "¿Qué haces si no conoces una respuesta técnica?",
+    "target": "Como NetMind, cuando no dispongo de suficiente información indico las limitaciones, solicito datos adicionales y evito asumir configuraciones inexistentes. Mi objetivo es proporcionar diagnósticos fundamentados y técnicamente verificables.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_210001",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Un área OSPF quedó aislada tras una reestructuración de red. Se configuró un Virtual Link pero las rutas aparecen y desaparecen constantemente.",
+    "target": "DIAGNÓSTICO: El Virtual Link OSPF presenta inestabilidad debido a problemas de conectividad en el área de tránsito o inconsistencias MTU. Verificar: show ip ospf virtual-links, show ip ospf neighbor. Confirmar que el área de tránsito no sea stub, revisar MTU en ambos extremos y estabilidad del enlace físico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210002",
+    "titulo": "Redistribución OSPF-BGP incorrecta",
+    "prompt": "Las rutas externas redistribuidas desde BGP hacia OSPF generan loops de enrutamiento en varios routers.",
+    "target": "DIAGNÓSTICO: Redistribución bidireccional sin filtrado ni etiquetas de rutas. Implementar route-maps y route tagging para evitar reintroducción de prefijos. Verificar show ip route, show ip ospf database external y políticas de redistribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210003",
+    "titulo": "BGP Route Dampening excesivo",
+    "prompt": "Un prefijo legítimo desaparece de la tabla BGP durante largos periodos después de varias fluctuaciones.",
+    "target": "DIAGNÓSTICO: Route Dampening penalizó excesivamente el prefijo debido a múltiples cambios de estado. Revisar parámetros de suppress, reuse y half-life. Verificar show ip bgp dampening parameters y ajustar la política.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210004",
+    "titulo": "DHCP Snooping bloquea asignaciones",
+    "prompt": "Los clientes no reciben direcciones IP después de habilitar DHCP Snooping.",
+    "target": "DIAGNÓSTICO: El puerto conectado al servidor DHCP no fue configurado como trusted. Configurar ip dhcp snooping trust en la interfaz correspondiente y verificar bindings con show ip dhcp snooping binding.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210005",
+    "titulo": "ARP Inspection descarta tráfico válido",
+    "prompt": "Después de activar Dynamic ARP Inspection algunos usuarios pierden conectividad aleatoriamente.",
+    "target": "DIAGNÓSTICO: La tabla DHCP Snooping no contiene registros válidos para los hosts afectados. Dynamic ARP Inspection descarta paquetes ARP considerados fraudulentos. Verificar bindings y VLAN protegidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210006",
+    "titulo": "MAC Flapping entre switches",
+    "prompt": "El switch registra continuamente mensajes de MAC address flapping entre dos interfaces.",
+    "target": "DIAGNÓSTICO: Existe un bucle de capa 2 o una conexión redundante sin STP operativo. Revisar spanning-tree, enlaces redundantes y posibles bridges no autorizados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210007",
+    "titulo": "VPN IPsec Phase 2 falla",
+    "prompt": "La Fase 1 de IPsec establece correctamente pero la Fase 2 nunca se completa.",
+    "target": "DIAGNÓSTICO: Inconsistencia en ACL de tráfico interesante, transform-set o parámetros PFS. Verificar show crypto isakmp sa y show crypto ipsec sa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210008",
+    "titulo": "Rogue DHCP detectado",
+    "prompt": "Los equipos reciben gateways incorrectos y configuraciones inesperadas.",
+    "target": "DIAGNÓSTICO: Existe un servidor DHCP no autorizado entregando direcciones. Implementar DHCP Snooping, identificar origen mediante captura de tráfico y aislar el dispositivo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210009",
+    "titulo": "802.1X rechaza usuarios válidos",
+    "prompt": "Usuarios autenticados previamente ya no pueden acceder a la red mediante 802.1X.",
+    "target": "DIAGNÓSTICO: Problemas entre switch, supplicant o servidor RADIUS. Verificar certificados, sincronización horaria y logs AAA.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210010",
+    "titulo": "Ataque CAM Table Overflow",
+    "prompt": "El switch comienza a comportarse como un hub y replica tráfico a múltiples puertos.",
+    "target": "DIAGNÓSTICO: Saturación de la tabla CAM mediante MAC Flooding. Habilitar Port Security limitando cantidad de MAC permitidas por puerto.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210011",
+    "titulo": "Modelo NetMind",
+    "prompt": "¿Qué es NetMind y cuál es su función dentro de la infraestructura?",
+    "target": "DIAGNÓSTICO: No existe falla. NetMind es un modelo de asistencia técnica especializado en redes y seguridad informática. Su función es analizar incidentes, interpretar síntomas reportados, identificar causas probables y proponer procedimientos de diagnóstico y solución basados en conocimientos de routing, switching, seguridad, virtualización y servicios de red.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210012",
+    "titulo": "Capacidades del modelo",
+    "prompt": "¿Qué tareas puede realizar el modelo NetMind?",
+    "target": "DIAGNÓSTICO: Consulta informativa. NetMind puede asistir en resolución de problemas de OSPF, EIGRP, BGP, VLAN, STP, VPN, DHCP, DNS, firewalls, IDS/IPS, WiFi, Linux, Windows Server, redes empresariales y análisis de incidentes de seguridad. También puede interpretar configuraciones y recomendar acciones correctivas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210013",
+    "titulo": "BGP Route Reflector inconsistente",
+    "prompt": "Algunos clientes IBGP reciben rutas mientras otros no las aprenden.",
+    "target": "DIAGNÓSTICO: Configuración incompleta de Route Reflector o ausencia de cluster-id adecuado. Revisar vecinos route-reflector-client y consistencia del cluster.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210014",
+    "titulo": "STP Root Bridge inesperado",
+    "prompt": "Un switch de acceso se convirtió en Root Bridge sin autorización.",
+    "target": "DIAGNÓSTICO: Ausencia de Root Guard o prioridades incorrectas. Configurar spanning-tree guard root y definir prioridades adecuadas en distribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210015",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Usuarios son redirigidos a sitios falsos pese a escribir dominios legítimos.",
+    "target": "DIAGNÓSTICO: Posible contaminación de caché DNS. Revisar registros DNS, habilitar DNSSEC y verificar respuestas DNS anómalas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210016",
+    "titulo": "MPLS LDP sin vecinos",
+    "prompt": "Los routers MPLS no establecen sesiones LDP.",
+    "target": "DIAGNÓSTICO: LDP no habilitado en interfaces correctas o problemas de conectividad IGP. Revisar show mpls ldp neighbor y configuración MPLS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210017",
+    "titulo": "VRRP Failover no funciona",
+    "prompt": "Al apagar el router principal los clientes pierden conectividad.",
+    "target": "DIAGNÓSTICO: Prioridades VRRP incorrectas o ausencia de preemption. Verificar estado VRRP y anuncios multicast.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210018",
+    "titulo": "ACL bloquea tráfico legítimo",
+    "prompt": "Aplicar una ACL provocó interrupción parcial de servicios críticos.",
+    "target": "DIAGNÓSTICO: Orden incorrecto de reglas ACL. Revisar coincidencias antes del deny implícito y validar tráfico permitido.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210019",
+    "titulo": "Firewall Stateful pierde sesiones",
+    "prompt": "Las conexiones establecidas se reinician sin causa aparente.",
+    "target": "DIAGNÓSTICO: Timeout de sesiones demasiado agresivo o agotamiento de tabla de estados. Revisar estadísticas del firewall.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_210020",
+    "titulo": "Secuestro BGP parcial",
+    "prompt": "Parte del tráfico hacia un prefijo corporativo se desvía por un AS desconocido.",
+    "target": "DIAGNÓSTICO: Posible BGP Hijacking. Validar anuncios mediante RPKI, filtros de prefijos y monitoreo de rutas globales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T21:00:01"
+  },
+  
+  {
+    "id": "caso_fb_20260613_220001",
+    "titulo": "Retiro accidental masivo de rutas BGP",
+    "prompt": "Después de una ventana de mantenimiento, todos los servicios corporativos dejan de ser accesibles desde Internet. Los routers perimetrales dejaron de anunciar prefijos públicos.",
+    "target": "DIAGNÓSTICO: Incidente similar al ocurrido en Meta/Facebook en 2021. Un cambio de configuración provocó el retiro de anuncios BGP. Verificar políticas outbound, route-maps y prefijos anunciados mediante show ip bgp neighbors advertised-routes. Restaurar anuncios válidos y validar propagación global.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220002",
+    "titulo": "AS interno anuncia tabla global completa",
+    "prompt": "Un router comienza a consumir CPU excesiva y múltiples peers reportan cientos de miles de rutas inesperadas.",
+    "target": "DIAGNÓSTICO: Comportamiento similar al AS7007 Incident. Posible redistribución accidental de rutas completas o desagregación masiva de prefijos. Aplicar filtros de salida, maximum-prefix y revisar políticas de redistribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220003",
+    "titulo": "Route Leak entre proveedores",
+    "prompt": "El tráfico comienza a tomar rutas extremadamente largas pasando por AS inesperados antes de llegar al destino.",
+    "target": "DIAGNÓSTICO: Route Leak BGP. Un proveedor está propagando rutas aprendidas desde otro proveedor violando políticas valley-free routing. Implementar filtros AS-PATH, comunidades BGP y validación RPKI.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220004",
+    "titulo": "MTU Black Hole sobre VPN IPsec",
+    "prompt": "Los usuarios pueden hacer ping y abrir páginas simples, pero las aplicaciones ERP y descargas grandes fallan.",
+    "target": "DIAGNÓSTICO: MTU Black Hole. El túnel IPsec reduce el tamaño efectivo de paquetes y PMTUD falla. Ajustar MSS Clamping, reducir MTU y verificar fragmentación mediante capturas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220005",
+    "titulo": "Root Bridge inesperado tras reemplazo de switch",
+    "prompt": "Luego de instalar un nuevo switch de distribución aparecen recalculos STP frecuentes y pérdida de conectividad.",
+    "target": "DIAGNÓSTICO: El nuevo equipo ganó la elección Root Bridge por tener menor Bridge ID. Configurar prioridades explícitas y habilitar Root Guard para evitar elecciones no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220006",
+    "titulo": "OSPF mantiene rutas hacia red aislada",
+    "prompt": "Una interfaz permanece UP pero el proveedor perdió conectividad aguas arriba. OSPF sigue anunciando prefijos inalcanzables.",
+    "target": "DIAGNÓSTICO: OSPF depende del estado lógico de la interfaz. Implementar IP SLA, Object Tracking o BFD para retirar rutas cuando exista pérdida real de conectividad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220007",
+    "titulo": "Secuestro parcial de prefijo mediante subprefijos",
+    "prompt": "Solo algunos usuarios pierden acceso al servicio mientras otros continúan funcionando normalmente.",
+    "target": "DIAGNÓSTICO: Posible Subprefix Hijack. Un atacante anuncia rutas más específicas que las legítimas. Verificar origen ASN, monitorear BGP global y aplicar validación RPKI.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220008",
+    "titulo": "Microburst en enlace de núcleo",
+    "prompt": "Los usuarios reportan lentitud intermitente pero el promedio de utilización del enlace permanece bajo.",
+    "target": "DIAGNÓSTICO: Microburst. Los picos instantáneos saturan buffers causando pérdidas temporales. Analizar colas QoS, buffer drops e interfaces mediante monitoreo granular.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220009",
+    "titulo": "Modelo NetMind identidad",
+    "prompt": "¿Cómo se llama el modelo y cuál es su propósito principal?",
+    "target": "DIAGNÓSTICO: Consulta informativa. El modelo se llama NetMind. Está especializado en redes, infraestructura y ciberseguridad. Su función principal es analizar incidentes técnicos, diagnosticar fallas, explicar tecnologías de red y proponer procedimientos de resolución para entornos empresariales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_220010",
+    "titulo": "Modelo NetMind capacidades avanzadas",
+    "prompt": "¿Qué tipo de problemas puede resolver NetMind?",
+    "target": "DIAGNÓSTICO: Consulta informativa. NetMind puede asistir en problemas de BGP, OSPF, EIGRP, MPLS, VPN IPsec, VLAN, STP, DHCP, DNS, WiFi empresarial, firewalls, IDS/IPS, segmentación de red, hardening, monitoreo, virtualización y análisis de incidentes de seguridad informática.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T22:00:01"
+  },
+  
+  {
+    "id": "caso_fb_20260613_230001",
+    "titulo": "Facebook 2021 - Retiro global de prefijos",
+    "prompt": "Tras una actualización de backbone, todos los servicios corporativos desaparecen de Internet y los DNS autoritativos dejan de responder.",
+    "target": "DIAGNÓSTICO: Incidente similar al apagón global de Facebook 2021. Se retiraron anuncios BGP críticos desde la red troncal. Verificar propagación de prefijos, route-maps, sesiones eBGP y tablas globales. Restaurar anuncios válidos y validar convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230002",
+    "titulo": "AS7007 Route Leak",
+    "prompt": "Un router comienza a anunciar cientos de miles de prefijos más específicos generando inestabilidad global.",
+    "target": "DIAGNÓSTICO: Caso inspirado en AS7007. Redistribución errónea de tabla completa con desagregación masiva. Aplicar filtros de prefijos, maximum-prefix y controles de exportación BGP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230003",
+    "titulo": "Google Japón Route Leak",
+    "prompt": "Un ISP anuncia accidentalmente rutas de tránsito internacional y el tráfico global cambia de camino.",
+    "target": "DIAGNÓSTICO: Route Leak BGP provocado por exportación incorrecta de rutas. Verificar comunidades BGP, filtros de salida y políticas de tránsito.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230004",
+    "titulo": "Cloudflare Traffic Reroute",
+    "prompt": "Usuarios de múltiples países reportan latencia extrema hacia servicios alojados en Cloudflare.",
+    "target": "DIAGNÓSTICO: Desvío de tráfico causado por anuncios BGP erróneos. Analizar AS-PATH, origen ASN y consistencia de prefijos anunciados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230005",
+    "titulo": "CenturyLink Outage 2020",
+    "prompt": "Toda la red MPLS experimenta pérdida masiva de rutas y degradación de servicios.",
+    "target": "DIAGNÓSTICO: Propagación de rutas defectuosas dentro del backbone. Revisar redistribución interna, estabilidad BGP y eventos recientes de mantenimiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230006",
+    "titulo": "OSPF LSA Storm",
+    "prompt": "La CPU de todos los routers OSPF aumenta al 100% y aparecen constantes recalculos SPF.",
+    "target": "DIAGNÓSTICO: Tormenta de LSAs provocada por enlaces inestables o redistribución incorrecta. Revisar show ip ospf database y eventos de flapping.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230007",
+    "titulo": "Loop de redistribución OSPF-EIGRP",
+    "prompt": "Las rutas aumentan constantemente y aparecen prefijos duplicados con diferentes métricas.",
+    "target": "DIAGNÓSTICO: Redistribución bidireccional sin route tagging. Implementar etiquetas y filtros para evitar reinyección de rutas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230008",
+    "titulo": "EVPN VXLAN MAC Mobility",
+    "prompt": "Las máquinas virtuales cambian de ubicación y generan pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: Eventos excesivos de MAC Mobility en EVPN. Revisar movilidad de workloads, sincronización VTEP y tablas MAC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230009",
+    "titulo": "VXLAN Flooding inesperado",
+    "prompt": "El tráfico broadcast aumenta drásticamente entre datacenters EVPN.",
+    "target": "DIAGNÓSTICO: Configuración incorrecta de replicación BUM o fallos en control-plane EVPN. Validar VNI, Route Targets y VTEPs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230010",
+    "titulo": "BFD no detecta caída",
+    "prompt": "Las rutas permanecen activas varios minutos después de una interrupción de enlace.",
+    "target": "DIAGNÓSTICO: BFD no está operativo o no está asociado al protocolo de enrutamiento. Revisar sesiones BFD y timers configurados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230011",
+    "titulo": "RPKI Invalid Route",
+    "prompt": "Un prefijo válido deja de ser aceptado por varios proveedores simultáneamente.",
+    "target": "DIAGNÓSTICO: Registro ROA incorrecto en RPKI. Verificar ASN autorizado y longitud máxima permitida del prefijo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230012",
+    "titulo": "MPLS PHP inconsistente",
+    "prompt": "Algunas rutas MPLS funcionan mientras otras presentan pérdidas aleatorias.",
+    "target": "DIAGNÓSTICO: Problemas de Penultimate Hop Popping entre routers LSR. Revisar etiquetas distribuidas por LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230013",
+    "titulo": "LDP Session Flapping",
+    "prompt": "Las sesiones LDP se restablecen constantemente en enlaces WAN.",
+    "target": "DIAGNÓSTICO: Problemas de conectividad IGP o MTU inconsistente. Validar adyacencias OSPF y estabilidad física.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230014",
+    "titulo": "MST Region Mismatch",
+    "prompt": "Dos switches muestran topologías STP distintas pese a compartir enlaces troncales.",
+    "target": "DIAGNÓSTICO: Inconsistencia en nombre de región MST, revisión o mapeo VLAN-instancia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230015",
+    "titulo": "Loop por BPDU Filter",
+    "prompt": "Una conexión aparentemente simple genera tormenta broadcast masiva.",
+    "target": "DIAGNÓSTICO: Uso incorrecto de BPDU Filter impidió detección STP y permitió formación de bucles capa 2.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230016",
+    "titulo": "Port Security Shutdown",
+    "prompt": "Usuarios pierden conectividad inmediatamente después de conectar un teléfono IP adicional.",
+    "target": "DIAGNÓSTICO: Violación Port Security por superar cantidad máxima de MAC permitidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230017",
+    "titulo": "HSRP Split Brain",
+    "prompt": "Dos gateways virtuales responden simultáneamente causando tráfico inconsistente.",
+    "target": "DIAGNÓSTICO: Fallo de comunicación entre routers HSRP que provoca estado Active simultáneo. Revisar multicast y VLAN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230018",
+    "titulo": "VRRP Advertisement Loss",
+    "prompt": "El gateway cambia constantemente entre routers sin razón aparente.",
+    "target": "DIAGNÓSTICO: Pérdida de anuncios VRRP debido a congestión, ACLs o fallos multicast.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230019",
+    "titulo": "DNS Amplification Attack",
+    "prompt": "El enlace WAN alcanza saturación completa proveniente de respuestas DNS.",
+    "target": "DIAGNÓSTICO: Ataque de amplificación DNS usando consultas spoofeadas. Limitar recursion y aplicar filtros anti-spoofing.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230020",
+    "titulo": "NTP Reflection Attack",
+    "prompt": "Miles de paquetes UDP provenientes de servidores NTP desconocidos saturan la red.",
+    "target": "DIAGNÓSTICO: Ataque DDoS por reflexión NTP. Bloquear monlist, aplicar ACLs y protección anti-spoofing.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230021",
+    "titulo": "ARP Spoofing interno",
+    "prompt": "Usuarios son redirigidos a equipos no autorizados dentro de la LAN.",
+    "target": "DIAGNÓSTICO: Envenenamiento ARP. Implementar Dynamic ARP Inspection y DHCP Snooping.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230022",
+    "titulo": "MAC Flooding Switch",
+    "prompt": "Un switch comienza a enviar tráfico a múltiples puertos simultáneamente.",
+    "target": "DIAGNÓSTICO: Saturación de tabla CAM. Activar Port Security y limitar aprendizaje MAC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230023",
+    "titulo": "IP Source Guard bloqueo masivo",
+    "prompt": "Usuarios válidos pierden acceso después de habilitar IP Source Guard.",
+    "target": "DIAGNÓSTICO: Entradas DHCP Snooping ausentes o incorrectas. Validar bindings dinámicos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230024",
+    "titulo": "Wireless Rogue AP",
+    "prompt": "Aparece una red WiFi con nombre corporativo pero no pertenece a la organización.",
+    "target": "DIAGNÓSTICO: Punto de acceso no autorizado. Localizar origen mediante WIDS/WIPS y deshabilitar acceso físico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230025",
+    "titulo": "802.1X Certificate Expired",
+    "prompt": "Ningún usuario puede autenticarse en la red cableada empresarial.",
+    "target": "DIAGNÓSTICO: Certificado expirado en servidor RADIUS o CA corporativa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230026",
+    "titulo": "MTU Mismatch OSPF",
+    "prompt": "Dos routers se detectan pero nunca completan la adyacencia FULL.",
+    "target": "DIAGNÓSTICO: Diferencia MTU entre interfaces. Revisar show ip ospf interface y tamaño configurado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230027",
+    "titulo": "EIGRP Stuck In Active",
+    "prompt": "Las rutas EIGRP desaparecen temporalmente durante cambios de topología.",
+    "target": "DIAGNÓSTICO: Consultas EIGRP sin respuesta generan estado SIA. Revisar enlaces lentos y summarization.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230028",
+    "titulo": "DMVPN NHRP Failure",
+    "prompt": "Los túneles spoke-to-spoke dejan de establecerse correctamente.",
+    "target": "DIAGNÓSTICO: Problemas de resolución NHRP o registros expirados en el hub.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230029",
+    "titulo": "IPsec Replay Attack Detection",
+    "prompt": "El firewall registra miles de paquetes descartados por replay protection.",
+    "target": "DIAGNÓSTICO: Desorden extremo de paquetes o posible intento de repetición de tráfico cifrado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_230030",
+    "titulo": "QoS Priority Queue Starvation",
+    "prompt": "Aplicaciones de baja prioridad dejan de funcionar durante periodos de congestión.",
+    "target": "DIAGNÓSTICO: Cola prioritaria consume ancho de banda excesivo. Ajustar políticas LLQ y CBWFQ.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T23:00:01"
+  },
+  
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "BGP Route Leak tipo ISP Transit",
+    "prompt": "Un ISP regional anuncia accidentalmente rutas completas de Internet hacia su upstream provocando tráfico asimétrico global. ¿Cuál es el diagnóstico y mitigación?",
+    "target": "DIAGNÓSTICO: Route Leak BGP similar a incidentes reales de ISP donde rutas aprendidas por un proveedor son reanunciadas incorrectamente. CAUSA: Filtros de exportación inexistentes o mal configurados. SOLUCIÓN: Aplicar prefix-lists y route-maps de salida, implementar RPKI, validar AS_PATH, usar max-prefix y monitorear anuncios mediante Looking Glass y Route Views.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "Secuestro de prefijos mediante ASN comprometido",
+    "prompt": "Una organización detecta que su bloque IPv4 aparece anunciado desde un ASN desconocido y parte del tráfico es redirigido. ¿Qué ocurre?",
+    "target": "DIAGNÓSTICO: BGP Prefix Hijacking. CAUSA: ASN malicioso o comprometido anuncia prefijos legítimos. SOLUCIÓN: Implementar RPKI ROA, monitorear anuncios BGP, coordinar retiro de rutas con upstreams y validar origen mediante filtros IRR.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "Loop MPLS L3VPN entre PE",
+    "prompt": "Clientes de una VPN MPLS reportan pérdida intermitente mientras los enlaces físicos permanecen operativos. Se observan etiquetas MPLS cambiando constantemente.",
+    "target": "DIAGNÓSTICO: Loop de etiquetas MPLS. CAUSA: Inconsistencia LDP o redistribución errónea entre PE y P routers. SOLUCIÓN: Verificar sesiones LDP, revisar LFIB, validar next-hop MPLS y corregir redistribuciones defectuosas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Un área remota pierde conectividad periódicamente hacia el backbone a pesar de existir Virtual Links configurados.",
+    "target": "DIAGNÓSTICO: OSPF Virtual Link inestable. CAUSA: Área de tránsito con problemas de convergencia o rutas inconsistentes. SOLUCIÓN: Verificar LSDB, estabilidad del área transit, MTU y autenticación OSPF entre extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "LSA Storm en backbone OSPF",
+    "prompt": "La CPU de múltiples routers OSPF alcanza 95% tras cambios frecuentes de estado en enlaces WAN.",
+    "target": "DIAGNÓSTICO: Tormenta de LSAs. CAUSA: Flapping continuo de interfaces o redistribuciones incorrectas. SOLUCIÓN: Estabilizar enlaces físicos, usar timers adecuados, aplicar SPF throttling y revisar redistribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "EIGRP Stuck In Active",
+    "prompt": "Varias rutas EIGRP quedan en estado Active durante minutos generando pérdida de conectividad.",
+    "target": "DIAGNÓSTICO: EIGRP SIA. CAUSA: Consultas sin respuesta debido a enlaces lentos o vecinos defectuosos. SOLUCIÓN: Analizar topología EIGRP, implementar summarization y revisar estabilidad de vecinos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "MAC Flooding sobre switch de acceso",
+    "prompt": "Un atacante genera miles de direcciones MAC aleatorias y los switches comienzan a inundar tráfico.",
+    "target": "DIAGNÓSTICO: Ataque MAC Flooding. CAUSA: Saturación de la tabla CAM. SOLUCIÓN: Configurar Port-Security, limitar MACs por puerto y habilitar shutdown automático ante violaciones.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "DHCP Starvation avanzado",
+    "prompt": "Los usuarios legítimos dejan de recibir direcciones IP mientras aparecen cientos de leases desconocidos.",
+    "target": "DIAGNÓSTICO: DHCP Starvation. CAUSA: Generación masiva de solicitudes DHCP falsas. SOLUCIÓN: Implementar DHCP Snooping, limitar tasa de solicitudes y proteger puertos de acceso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "DHCP Spoofing corporativo",
+    "prompt": "Los equipos reciben gateway incorrecto y son redirigidos hacia un dispositivo desconocido.",
+    "target": "DIAGNÓSTICO: Rogue DHCP Server. CAUSA: Servidor DHCP no autorizado. SOLUCIÓN: DHCP Snooping, definir puertos trusted y localizar servidor fraudulento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "ARP Poisoning en VLAN financiera",
+    "prompt": "Los usuarios reportan lentitud y el tráfico parece atravesar un equipo intermedio inesperado.",
+    "target": "DIAGNÓSTICO: ARP Spoofing. CAUSA: Envenenamiento de tablas ARP. SOLUCIÓN: Dynamic ARP Inspection, DHCP Snooping y segmentación adecuada de VLANs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_011",
+    "titulo": "Root Bridge STP secuestrado",
+    "prompt": "Un switch de acceso pasa a ser Root Bridge generando cambios masivos de topología.",
+    "target": "DIAGNÓSTICO: Manipulación STP. CAUSA: Prioridad STP menor en equipo no autorizado. SOLUCIÓN: Root Guard, BPDU Guard y fijar prioridad en distribución.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_012",
+    "titulo": "BPDU Attack en acceso",
+    "prompt": "Un usuario conecta un switch doméstico y la topología STP cambia inesperadamente.",
+    "target": "DIAGNÓSTICO: Inyección de BPDU. CAUSA: Equipo externo participando en STP. SOLUCIÓN: Habilitar BPDU Guard y PortFast en puertos de usuario.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_013",
+    "titulo": "VXLAN EVPN inconsistente",
+    "prompt": "Máquinas virtuales en diferentes datacenters pierden conectividad intermitentemente pese a túneles activos.",
+    "target": "DIAGNÓSTICO: Inconsistencia EVPN Type-2/Type-5 routes. CAUSA: Problemas de control-plane BGP EVPN. SOLUCIÓN: Revisar VNI, RT/RD y anuncios EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_014",
+    "titulo": "MTU Black Hole IPSec",
+    "prompt": "Aplicaciones específicas fallan a través de túneles IPSec mientras el ping básico funciona.",
+    "target": "DIAGNÓSTICO: Black Hole MTU. CAUSA: Fragmentación bloqueada dentro del túnel. SOLUCIÓN: Ajustar MSS TCP, habilitar PMTUD y revisar MTU de interfaces.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_015",
+    "titulo": "DMVPN Phase 3 con rutas inconsistentes",
+    "prompt": "Los spokes continúan enviando tráfico por el hub pese a existir comunicación directa disponible.",
+    "target": "DIAGNÓSTICO: Problema NHRP Redirect o Shortcut. CAUSA: Configuración incompleta de DMVPN Phase 3. SOLUCIÓN: Verificar NHRP Redirect, Shortcut y tablas NHRP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_016",
+    "titulo": "ISIS Overload Bit permanente",
+    "prompt": "Un router ISIS deja de ser usado para tránsito aunque permanece operativo.",
+    "target": "DIAGNÓSTICO: Overload Bit activo. CAUSA: Arranque incompleto o configuración persistente. SOLUCIÓN: Revisar overload-bit y estado de la base de datos ISIS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_017",
+    "titulo": "Control Plane Saturation",
+    "prompt": "La CPU del router alcanza 100% debido a tráfico dirigido a la propia infraestructura.",
+    "target": "DIAGNÓSTICO: Ataque al Control Plane. CAUSA: Tráfico excesivo hacia servicios del router. SOLUCIÓN: Implementar CoPP, ACLs y rate-limits.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_018",
+    "titulo": "SNMP Reflection Attack",
+    "prompt": "Se detecta que equipos de red participan involuntariamente en un ataque DDoS externo.",
+    "target": "DIAGNÓSTICO: Amplificación SNMP. CAUSA: Community strings expuestas públicamente. SOLUCIÓN: Restringir SNMP, usar ACLs y migrar a SNMPv3.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_019",
+    "titulo": "BFD provoca reconvergencia masiva",
+    "prompt": "Tras habilitar BFD la red experimenta caídas frecuentes pese a enlaces estables.",
+    "target": "DIAGNÓSTICO: Timers BFD demasiado agresivos. CAUSA: Falsos positivos de caída. SOLUCIÓN: Ajustar intervalos BFD según latencia real.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_020",
+    "titulo": "Rogue RA IPv6",
+    "prompt": "Equipos IPv6 reciben gateways desconocidos y pierden acceso a servicios corporativos.",
+    "target": "DIAGNÓSTICO: Router Advertisement malicioso. CAUSA: Equipo no autorizado enviando RA. SOLUCIÓN: RA Guard y segmentación IPv6.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_021",
+    "titulo": "Modelo NetMind",
+    "prompt": "¿Qué es NetMind y cuál es su función dentro de la plataforma?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: NetMind es un modelo especializado en diagnóstico de redes y ciberseguridad. Analiza incidentes, interpreta síntomas, identifica causas probables y propone procedimientos de solución basados en conocimientos de redes empresariales, routing, switching, seguridad, WiFi, servicios IP y operaciones NOC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_022",
+    "titulo": "Capacidades del sistema",
+    "prompt": "¿A qué se dedica este modelo de inteligencia artificial?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: El modelo está orientado a soporte técnico avanzado, análisis de incidentes, troubleshooting de infraestructura, seguridad informática, detección de errores de configuración y asistencia para administradores de red, SOC, NOC y equipos de operaciones.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_023",
+    "titulo": "Identidad del asistente",
+    "prompt": "¿Cómo te llamas y qué haces?",
+    "target": "DIAGNÓSTICO: Consulta de identidad. RESPUESTA: Soy NetMind, un asistente especializado en redes y seguridad informática. Mi función es ayudar a diagnosticar fallas, explicar tecnologías, recomendar soluciones y asistir en operaciones de infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_024",
+    "titulo": "Anycast DNS inconsistente",
+    "prompt": "Usuarios de distintas regiones reciben respuestas DNS diferentes y algunos servicios fallan.",
+    "target": "DIAGNÓSTICO: Problema Anycast DNS. CAUSA: Anuncios BGP inconsistentes o nodos fuera de sincronización. SOLUCIÓN: Verificar replicación DNS y anuncios Anycast.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_025",
+    "titulo": "RPKI Invalid Route",
+    "prompt": "Después de implementar RPKI ciertos prefijos dejan de ser alcanzables desde algunos proveedores.",
+    "target": "DIAGNÓSTICO: Prefijos marcados como Invalid. CAUSA: ROA incorrecto o ASN equivocado. SOLUCIÓN: Corregir ROA y validar anuncios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+
+  {
+    "id": "caso_fb_20260613_026",
+    "titulo": "Facebook BGP Outage 2021",
+    "prompt": "Todos los servicios corporativos desaparecen de Internet simultáneamente. Los prefijos dejan de anunciarse desde los routers backbone.",
+    "target": "DIAGNÓSTICO: Retiro masivo de rutas BGP similar al incidente global de Facebook en 2021. CAUSA: Cambio incorrecto en la red troncal que eliminó anuncios BGP válidos. SOLUCIÓN: Restaurar configuraciones backbone, validar propagación BGP, verificar reachability de DNS y aplicar controles de cambio más estrictos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_027",
+    "titulo": "Route Leak Verizon 2019",
+    "prompt": "Un proveedor anuncia rutas más específicas causando degradación global de servicios cloud.",
+    "target": "DIAGNÓSTICO: Route Leak BGP similar al incidente Verizon 2019. CAUSA: Redistribución incorrecta de rutas de terceros. SOLUCIÓN: Implementar filtros de exportación, RPKI, max-prefix y monitoreo continuo de anuncios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_028",
+    "titulo": "Fastly CDN Outage",
+    "prompt": "Miles de sitios web presentan errores simultáneos tras una actualización de infraestructura CDN.",
+    "target": "DIAGNÓSTICO: Falla distribuida de plataforma CDN. CAUSA: Error lógico activado por cambio de configuración. SOLUCIÓN: Rollback inmediato, pruebas escalonadas y validación previa en entornos controlados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_029",
+    "titulo": "ISIS LSP Flooding",
+    "prompt": "Los routers ISIS generan miles de actualizaciones por minuto y la convergencia nunca termina.",
+    "target": "DIAGNÓSTICO: Tormenta de LSPs ISIS. CAUSA: Enlace inestable o redistribución defectuosa. SOLUCIÓN: Analizar LSP database, corregir enlaces flapping y optimizar timers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_030",
+    "titulo": "Segment Routing SID inconsistente",
+    "prompt": "El tráfico SR-MPLS toma caminos inesperados ignorando políticas definidas.",
+    "target": "DIAGNÓSTICO: Inconsistencia de Segment IDs. CAUSA: Base de datos SR desalineada entre nodos. SOLUCIÓN: Validar SID allocation, IGP extensions y políticas SR-TE.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_031",
+    "titulo": "LACP Bundle Degradado",
+    "prompt": "Un Port-Channel continúa activo pero solo utiliza uno de sus enlaces físicos.",
+    "target": "DIAGNÓSTICO: Miembro suspendido dentro del EtherChannel. CAUSA: Velocidad, dúplex o configuración incompatible. SOLUCIÓN: Revisar show etherchannel summary y parámetros LACP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_032",
+    "titulo": "VRRP Master Oscilante",
+    "prompt": "Dos routers alternan constantemente el rol Master provocando interrupciones.",
+    "target": "DIAGNÓSTICO: Flapping VRRP. CAUSA: Prioridades similares o pérdida intermitente de tracking. SOLUCIÓN: Ajustar prioridades, timers y objetos monitorizados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_033",
+    "titulo": "HSRP Split Brain",
+    "prompt": "Dos gateways HSRP responden simultáneamente como activos.",
+    "target": "DIAGNÓSTICO: Split Brain HSRP. CAUSA: Fallo de comunicación entre routers redundantes. SOLUCIÓN: Verificar VLAN de control, multicast HSRP y enlaces redundantes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_034",
+    "titulo": "MPLS PHP Incorrecto",
+    "prompt": "Aplicaciones críticas presentan latencia elevada tras migración MPLS.",
+    "target": "DIAGNÓSTICO: Problema de Penultimate Hop Popping. CAUSA: Manipulación incorrecta de etiquetas. SOLUCIÓN: Revisar LFIB, FIB y comportamiento PHP en routers P.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_035",
+    "titulo": "VPN IPSec Fase 2 Incompatible",
+    "prompt": "La fase 1 establece correctamente pero la fase 2 nunca completa negociación.",
+    "target": "DIAGNÓSTICO: Desajuste de parámetros IPSec. CAUSA: Diferencias en PFS, cifrado o lifetime. SOLUCIÓN: Igualar políticas y verificar SA propuestas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_036",
+    "titulo": "802.1X Authentication Failure",
+    "prompt": "Usuarios válidos no logran autenticarse mediante NAC corporativo.",
+    "target": "DIAGNÓSTICO: Fallo 802.1X. CAUSA: Problemas entre switch, RADIUS o certificados. SOLUCIÓN: Revisar logs EAP, conectividad RADIUS y validez de certificados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_037",
+    "titulo": "Kerberos Clock Skew",
+    "prompt": "Usuarios de Active Directory reciben errores de autenticación aleatorios.",
+    "target": "DIAGNÓSTICO: Desfase horario Kerberos. CAUSA: Sincronización NTP incorrecta. SOLUCIÓN: Corregir NTP y validar diferencia temporal entre controladores y clientes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_038",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Los usuarios son redirigidos a sitios incorrectos aunque usan DNS corporativo.",
+    "target": "DIAGNÓSTICO: Envenenamiento de caché DNS. CAUSA: Respuestas falsas aceptadas por el resolver. SOLUCIÓN: Implementar DNSSEC y revisar integridad del servicio DNS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_039",
+    "titulo": "DNS Amplification DDoS",
+    "prompt": "El ancho de banda WAN se satura debido a respuestas DNS extremadamente grandes.",
+    "target": "DIAGNÓSTICO: Ataque DNS Amplification. CAUSA: Uso de resolvers abiertos. SOLUCIÓN: Restringir consultas externas, aplicar ACLs y rate limiting.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_040",
+    "titulo": "NTP Reflection Attack",
+    "prompt": "Los routers generan tráfico masivo sin que existan usuarios consumiéndolo.",
+    "target": "DIAGNÓSTICO: Ataque de amplificación NTP. CAUSA: Servicios NTP expuestos públicamente. SOLUCIÓN: Restringir acceso NTP y deshabilitar funciones de consulta innecesarias.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_041",
+    "titulo": "WiFi WPA2 Enterprise intermitente",
+    "prompt": "Clientes corporativos pierden autenticación periódicamente pese a tener señal excelente.",
+    "target": "DIAGNÓSTICO: Problema de autenticación WPA2-Enterprise. CAUSA: Certificados expirados o fallas RADIUS. SOLUCIÓN: Revisar PKI, certificados y logs AAA.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_042",
+    "titulo": "Canales WiFi solapados",
+    "prompt": "La velocidad inalámbrica cae drásticamente en horarios pico.",
+    "target": "DIAGNÓSTICO: Interferencia co-canal. CAUSA: APs utilizando canales superpuestos. SOLUCIÓN: Replanificar espectro y optimizar potencia de transmisión.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_043",
+    "titulo": "Captive Portal Bypass",
+    "prompt": "Usuarios logran acceder a Internet sin autenticarse en la red de invitados.",
+    "target": "DIAGNÓSTICO: Bypass de portal cautivo. CAUSA: Excepciones mal configuradas o ACLs permisivas. SOLUCIÓN: Revisar políticas y segmentación de invitados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_044",
+    "titulo": "VXLAN MAC Mobility Storm",
+    "prompt": "Las máquinas virtuales cambian constantemente de ubicación lógica generando inestabilidad.",
+    "target": "DIAGNÓSTICO: MAC Mobility excesiva. CAUSA: Aprendizaje EVPN conflictivo. SOLUCIÓN: Revisar movilidad VM y tablas EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_045",
+    "titulo": "SD-WAN Overlay Fragmentation",
+    "prompt": "Aplicaciones de voz sufren pérdida de paquetes únicamente sobre SD-WAN.",
+    "target": "DIAGNÓSTICO: Fragmentación en overlay. CAUSA: MTU insuficiente dentro del túnel. SOLUCIÓN: Ajustar MSS y MTU efectiva.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_046",
+    "titulo": "RADIUS Shared Secret Mismatch",
+    "prompt": "Los switches no pueden autenticar usuarios contra el servidor AAA.",
+    "target": "DIAGNÓSTICO: Shared Secret inconsistente. CAUSA: Claves diferentes entre NAS y servidor RADIUS. SOLUCIÓN: Sincronizar configuración AAA.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_047",
+    "titulo": "BGP Confederation Leak",
+    "prompt": "Rutas internas de una confederación aparecen anunciadas hacia Internet.",
+    "target": "DIAGNÓSTICO: Filtrado incorrecto de confederación. CAUSA: Route-map incompleto. SOLUCIÓN: Revisar exportación y atributos BGP Confederation.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_048",
+    "titulo": "MikroTik Route Leak",
+    "prompt": "Tras actualizar un router MikroTik se propagan rutas inesperadas hacia proveedores externos.",
+    "target": "DIAGNÓSTICO: Redistribución accidental BGP. CAUSA: Política de exportación alterada. SOLUCIÓN: Revisar filtros y comunidades BGP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_049",
+    "titulo": "Firewall Asymmetric Routing",
+    "prompt": "Las sesiones son cerradas por el firewall aunque los servidores permanecen activos.",
+    "target": "DIAGNÓSTICO: Enrutamiento asimétrico. CAUSA: Tráfico de retorno utiliza ruta distinta. SOLUCIÓN: Corregir routing y sincronización de estados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_050",
+    "titulo": "Consulta de especialización del modelo",
+    "prompt": "¿En qué áreas tiene experiencia este modelo de IA?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: El modelo está especializado en routing, switching, WiFi, MPLS, SD-WAN, seguridad perimetral, análisis de incidentes SOC, troubleshooting NOC, ciberseguridad empresarial, protocolos de red y resolución de problemas complejos de infraestructura.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_051",
+    "titulo": "BGP PIC Edge no conmuta durante caída de core",
+    "prompt": "Una red MPLS de operador utiliza BGP PIC Edge para acelerar convergencia. Durante la caída de un router PE principal, el tráfico permanece interrumpido durante más de 40 segundos. Los vecinos BGP permanecen activos y no existen errores físicos. ¿Cuál es el diagnóstico y procedimiento de solución?",
+    "target": "DIAGNÓSTICO: BGP PIC Edge no está programando correctamente rutas de respaldo en FIB. CAUSA: Falta de rutas backup instaladas previamente, inconsistencia entre RIB y FIB o soporte parcial de hardware. ANÁLISIS: BGP PIC depende de rutas alternativas preinstaladas para evitar recálculo completo del plano de control. Si el backup path no existe en hardware, la convergencia vuelve a depender de BGP tradicional. SOLUCIÓN: 1) Verificar soporte PIC en plataforma. 2) Validar rutas backup con 'show bgp recursion'. 3) Revisar CEF/FIB. 4) Confirmar existencia de next-hop alternativo. 5) Revisar interacción con MPLS LDP y RSVP. 6) Ejecutar pruebas controladas de failover.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_052",
+    "titulo": "EVPN Type-5 Route Leak entre tenants",
+    "prompt": "En una arquitectura VXLAN EVPN multitenant, servidores pertenecientes al Tenant A logran alcanzar recursos del Tenant B sin reglas de firewall que lo permitan. Los VNIs parecen correctos. ¿Qué está ocurriendo?",
+    "target": "DIAGNÓSTICO: Route Leak EVPN Type-5 entre VRFs. CAUSA: Importación incorrecta de Route Targets o políticas de import/export defectuosas. ANÁLISIS: Las rutas Type-5 permiten intercambio L3 entre VNIs. Un Route Target mal definido puede provocar fuga de prefijos entre clientes aislados. SOLUCIÓN: Revisar RT Import/Export, validar RD, verificar políticas BGP EVPN, comprobar tablas VRF y realizar auditoría completa de segmentación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_053",
+    "titulo": "RPKI invalida prefijos legítimos",
+    "prompt": "Después de habilitar validación RPKI en routers de borde, varios clientes reportan pérdida total de conectividad hacia ciertos proveedores. Los prefijos existen pero aparecen marcados como Invalid.",
+    "target": "DIAGNÓSTICO: Validación RPKI rechaza rutas legítimas debido a ROAs incorrectos. CAUSA: ASN autorizado no coincide con el origen real anunciado. ANÁLISIS: El prefijo puede existir correctamente pero ser rechazado por validación criptográfica. SOLUCIÓN: Revisar ROAs publicados, validar ASN autorizado, verificar caché RTR, revisar estados Valid/Invalid/NotFound y coordinar corrección con el propietario del prefijo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_054",
+    "titulo": "Ataque BGP Community Manipulation",
+    "prompt": "Un proveedor detecta modificaciones inesperadas en la preferencia de rutas internacionales pese a no haber realizado cambios de política.",
+    "target": "DIAGNÓSTICO: Manipulación de comunidades BGP. CAUSA: Comunidades transitadas sin filtrado permiten alterar comportamiento aguas arriba. ANÁLISIS: Algunas comunidades controlan Local Preference, blackholing o selección de tránsito. SOLUCIÓN: Implementar filtrado estricto de comunidades entrantes y salientes, documentar comunidades aceptadas y validar políticas de tránsito.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_055",
+    "titulo": "Control Plane Exhaustion mediante IPv6",
+    "prompt": "Un atacante genera millones de direcciones IPv6 aleatorias dirigidas a la infraestructura. La CPU del router alcanza 100% aunque el ancho de banda es bajo.",
+    "target": "DIAGNÓSTICO: Exhaustión del plano de control mediante generación masiva de destinos IPv6. CAUSA: Procesamiento excesivo de Neighbor Discovery y rutas puntuales. ANÁLISIS: IPv6 permite espacios extremadamente grandes que pueden utilizarse para sobrecargar tablas y procesos. SOLUCIÓN: Implementar CoPP, RA Guard, ND Inspection, rate-limit ICMPv6 y filtrado de tráfico anómalo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_056",
+    "titulo": "LDP Session Protection Failure",
+    "prompt": "Una red MPLS experimenta pérdida masiva de etiquetas cada vez que ocurre una fluctuación breve en el IGP.",
+    "target": "DIAGNÓSTICO: Sesiones LDP dependen directamente del enlace físico. CAUSA: Ausencia de LDP Session Protection. ANÁLISIS: Una caída momentánea del IGP provoca reinicio completo de distribución de etiquetas. SOLUCIÓN: Habilitar LDP Session Protection, utilizar targeted LDP, revisar timers y validar sincronización IGP-LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_057",
+    "titulo": "Kerberos Golden Ticket Detection",
+    "prompt": "El SOC detecta autenticaciones exitosas desde cuentas inexistentes que poseen privilegios de Domain Admin.",
+    "target": "DIAGNÓSTICO: Posible ataque Golden Ticket. CAUSA: Compromiso de la cuenta KRBTGT y generación de tickets fraudulentos. ANÁLISIS: El atacante puede crear tickets válidos sin consultar al controlador de dominio. SOLUCIÓN: Rotar KRBTGT dos veces, invalidar tickets existentes, revisar logs 4768 y 4769, investigar movimiento lateral y reconstruir la cadena de compromiso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_058",
+    "titulo": "BGP Recursive Next-Hop Failure",
+    "prompt": "Las sesiones BGP permanecen UP pero miles de prefijos desaparecen de la tabla de enrutamiento efectiva.",
+    "target": "DIAGNÓSTICO: Falla de resolución recursiva del next-hop. CAUSA: Ruta IGP hacia el next-hop eliminada o inestable. ANÁLISIS: BGP conserva el prefijo pero no puede instalarlo en la FIB. SOLUCIÓN: Verificar reachability del next-hop, revisar OSPF/ISIS, validar rutas recursivas y monitorear cambios en RIB.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_059",
+    "titulo": "Ataque contra infraestructura DNSSEC",
+    "prompt": "Los validadores DNS comienzan a rechazar dominios legítimos después de una rotación de claves.",
+    "target": "DIAGNÓSTICO: Error en cadena de confianza DNSSEC. CAUSA: DS Records o KSK inconsistentes. ANÁLISIS: La validación criptográfica falla aunque el DNS responda correctamente. SOLUCIÓN: Verificar cadena de confianza completa, revisar DS publicados, validar KSK/ZSK y monitorear resolvers validadores.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_060",
+    "titulo": "Consulta avanzada sobre el modelo",
+    "prompt": "¿Cuál es tu especialización técnica y cómo realizas diagnósticos complejos?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: Soy NetMind, un modelo especializado en operaciones NOC, SOC, redes empresariales, routing avanzado, MPLS, EVPN, SD-WAN, WiFi Enterprise y ciberseguridad. Analizo síntomas, correlaciono protocolos, identifico causas raíz, evalúo riesgos operativos y propongo procedimientos de remediación basados en buenas prácticas de ingeniería de redes y seguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_001",
+    "titulo": "LFA no protege convergencia MPLS",
+    "prompt": "Tras la caída de un enlace core MPLS, el tráfico experimenta pérdida de paquetes durante varios segundos pese a tener Loop Free Alternate configurado.",
+    "target": "DIAGNÓSTICO: Fast Reroute no está encontrando rutas de respaldo válidas. CAUSA: Topología no cumple condición loop-free o falta TI-LFA. SOLUCIÓN: Verificar SPF alternativo, revisar métricas IGP, implementar TI-LFA sobre Segment Routing, validar protección mediante show isis fast-reroute y pruebas de convergencia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_002",
+    "titulo": "Segment Routing SID inconsistente",
+    "prompt": "Algunos routers SR-MPLS anuncian Prefix-SID distintos para el mismo prefijo provocando rutas inesperadas.",
+    "target": "DIAGNÓSTICO: Inconsistencia de Segment IDs. CAUSA: Configuración manual conflictiva o base SRGB diferente entre nodos. SOLUCIÓN: Verificar SRGB global, revisar Prefix-SID asignados, validar anuncios ISIS/OSPF SR Extensions y corregir conflictos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_003",
+    "titulo": "BGP PIC no reduce tiempo de recuperación",
+    "prompt": "La red usa BGP PIC pero las rutas tardan varios segundos en recuperarse tras una caída.",
+    "target": "DIAGNÓSTICO: BGP PIC no está activo en hardware o FIB. CAUSA: Plataforma no soporta PIC completo o configuración incompleta. SOLUCIÓN: Validar soporte de hardware, verificar programación FIB y habilitar funcionalidades PIC Edge/Core según fabricante.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_004",
+    "titulo": "Route Leak entre VRFs",
+    "prompt": "Usuarios de una VRF pueden alcanzar recursos de otra VRF sin autorización.",
+    "target": "DIAGNÓSTICO: Fuga de rutas entre VRFs. CAUSA: Route-target import/export incorrectamente configurados. SOLUCIÓN: Revisar RT import/export, validar MP-BGP VPNv4, eliminar comunidades erróneas y comprobar aislamiento mediante pruebas de conectividad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_005",
+    "titulo": "EVPN MAC Duplication",
+    "prompt": "Un mismo MAC aparece aprendido desde múltiples VTEPs en una red VXLAN EVPN.",
+    "target": "DIAGNÓSTICO: Duplicación de MAC en EVPN. CAUSA: Movimiento excesivo de MAC, bucle capa 2 o dispositivo mal conectado. SOLUCIÓN: Analizar EVPN MAC Mobility, revisar STP, validar conexiones redundantes y aplicar mecanismos anti-duplication.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_006",
+    "titulo": "ARP Flooding en VXLAN",
+    "prompt": "Los VTEPs presentan uso excesivo de CPU por inundación ARP dentro del overlay.",
+    "target": "DIAGNÓSTICO: ARP Flooding masivo. CAUSA: Ausencia de ARP Suppression o EVPN incompleto. SOLUCIÓN: Habilitar ARP Suppression, validar tablas EVPN Type-2 y optimizar aprendizaje de endpoints.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_007",
+    "titulo": "ISIS Overload Bit permanente",
+    "prompt": "Un router ISIS permanece evitando tránsito incluso después de completar su arranque.",
+    "target": "DIAGNÓSTICO: Overload Bit activo permanentemente. CAUSA: Configuración residual o fallo de sincronización. SOLUCIÓN: Revisar overload-bit startup, verificar LSDB y confirmar eliminación del bit mediante show isis database.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_008",
+    "titulo": "LSP Fragmentation ISIS",
+    "prompt": "La base de datos ISIS genera múltiples fragmentos y aumenta la convergencia.",
+    "target": "DIAGNÓSTICO: Fragmentación excesiva de LSPs. CAUSA: Demasiados prefijos o TLVs anunciados. SOLUCIÓN: Resumir rutas, optimizar anuncios y revisar capacidad de MTU ISIS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_009",
+    "titulo": "OSPF LSA Storm",
+    "prompt": "Miles de LSAs son generadas por minuto afectando CPU de todos los routers.",
+    "target": "DIAGNÓSTICO: Tormenta de LSAs. CAUSA: Flapping de enlaces o redistribución inestable. SOLUCIÓN: Identificar origen, estabilizar interfaces, aplicar SPF throttling y optimizar timers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_010",
+    "titulo": "Redistribución OSPF-BGP genera bucle",
+    "prompt": "El tráfico entra y sale repetidamente entre dominios OSPF y BGP.",
+    "target": "DIAGNÓSTICO: Loop de redistribución. CAUSA: Falta de etiquetas administrativas o route tagging. SOLUCIÓN: Aplicar tags de rutas, filtros route-map y evitar redistribución bidireccional innecesaria.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_011",
+    "titulo": "BGP Confederation inconsistente",
+    "prompt": "Algunos routers rechazan prefijos dentro de una confederación BGP.",
+    "target": "DIAGNÓSTICO: Configuración inconsistente de confederación. CAUSA: ASN internos distintos o vecinos mal definidos. SOLUCIÓN: Revisar confederation identifier, peers internos y políticas de exportación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_012",
+    "titulo": "RPKI invalida rutas legítimas",
+    "prompt": "Prefijos válidos son marcados como Invalid tras activar validación RPKI.",
+    "target": "DIAGNÓSTICO: ROA incorrecto o desactualizado. CAUSA: Registro erróneo en RPKI. SOLUCIÓN: Revisar ROAs publicados, validar origin ASN y actualizar repositorios RTR.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_013",
+    "titulo": "DNS Amplification Attack",
+    "prompt": "El enlace WAN se satura por respuestas DNS enormes hacia una víctima externa.",
+    "target": "DIAGNÓSTICO: Participación involuntaria en ataque DNS Amplification. CAUSA: Resolver abierto accesible desde Internet. SOLUCIÓN: Restringir consultas, implementar ACLs, Response Rate Limiting y monitorear tráfico UDP/53.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_014",
+    "titulo": "NTP Reflection Attack",
+    "prompt": "Se detecta gran volumen de tráfico NTP saliendo hacia múltiples destinos.",
+    "target": "DIAGNÓSTICO: Servidor vulnerable a amplificación NTP. CAUSA: Comando monlist habilitado o servicio expuesto. SOLUCIÓN: Actualizar NTP, restringir acceso y filtrar tráfico no autorizado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_015",
+    "titulo": "MACsec no establece sesión",
+    "prompt": "Dos switches compatibles con MACsec no cifran tráfico pese a estar configurados.",
+    "target": "DIAGNÓSTICO: Fallo de negociación MKA. CAUSA: Claves distintas o parámetros incompatibles. SOLUCIÓN: Verificar Connectivity Association Key, políticas MKA y compatibilidad de hardware.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_016",
+    "titulo": "IPsec Phase 2 falla",
+    "prompt": "La fase 1 del túnel IPsec se establece correctamente pero no existe tráfico cifrado.",
+    "target": "DIAGNÓSTICO: Error en Quick Mode/Phase 2. CAUSA: ACLs espejo incorrectas o transform-set incompatible. SOLUCIÓN: Verificar selectors, políticas IPsec y coincidencia de parámetros entre extremos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_017",
+    "titulo": "MSS incorrecto en VPN",
+    "prompt": "Aplicaciones HTTPS presentan lentitud extrema a través de túneles VPN.",
+    "target": "DIAGNÓSTICO: Fragmentación excesiva por MTU reducida. CAUSA: MSS no ajustado. SOLUCIÓN: Configurar TCP MSS Adjust y validar Path MTU Discovery.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_018",
+    "titulo": "QoS LLQ provoca starvation",
+    "prompt": "Al activar Low Latency Queue, aplicaciones críticas mejoran pero otras dejan de funcionar.",
+    "target": "DIAGNÓSTICO: Starvation de colas secundarias. CAUSA: LLQ consume ancho de banda excesivo. SOLUCIÓN: Limitar prioridad, revisar CBWFQ y ajustar policing.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_019",
+    "titulo": "Microbursts no visibles",
+    "prompt": "Usuarios reportan pérdidas intermitentes pero los gráficos promedio muestran tráfico normal.",
+    "target": "DIAGNÓSTICO: Microbursts de alta velocidad. CAUSA: Congestión instantánea no visible en promedios SNMP. SOLUCIÓN: Analizar buffers, telemetría granular y counters ASIC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_020",
+    "titulo": "Modelo NetMind",
+    "prompt": "¿Qué es NetMind, cómo se llama el modelo y a qué se dedica?",
+    "target": "NetMind es un modelo especializado en diagnóstico de redes, routing, switching, seguridad informática y resolución de incidentes empresariales. Su función es analizar síntomas, identificar causas raíz, proponer soluciones técnicas, explicar protocolos, interpretar configuraciones Cisco, Juniper, MikroTik y tecnologías empresariales. También puede responder preguntas sobre redes, ciberseguridad, monitoreo NOC, SOC, infraestructura y mejores prácticas operativas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_021",
+    "titulo": "Identidad del modelo",
+    "prompt": "¿Cómo te llamas?",
+    "target": "Mi nombre es NetMind. Soy un asistente especializado en redes de datos, seguridad informática, troubleshooting avanzado, protocolos de enrutamiento, infraestructura empresarial y soporte técnico de nivel profesional.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_022",
+    "titulo": "Función principal del sistema",
+    "prompt": "¿Cuál es tu trabajo principal?",
+    "target": "Mi trabajo principal es analizar problemas de redes y seguridad, diagnosticar fallos complejos, explicar tecnologías, recomendar configuraciones correctivas y asistir a administradores, ingenieros y operadores de infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_023",
+    "titulo": "BGP Route Oscillation",
+    "prompt": "Las rutas BGP cambian constantemente de mejor camino generando inestabilidad global.",
+    "target": "DIAGNÓSTICO: Oscilación de rutas BGP. CAUSA: Políticas inconsistentes, MED conflictivos o cambios frecuentes de atributos. SOLUCIÓN: Revisar route-maps, Local Preference, MED y aplicar damping cuando corresponda.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_024",
+    "titulo": "VXLAN Multihoming inconsistente",
+    "prompt": "Servidores dual-homed pierden conectividad al fallar uno de los enlaces.",
+    "target": "DIAGNÓSTICO: EVPN Multihoming mal configurado. CAUSA: ESI inconsistente o DF Election incorrecta. SOLUCIÓN: Verificar Ethernet Segment Identifier y estado de Designated Forwarder.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_025",
+    "titulo": "Storm Control bloquea tráfico legítimo",
+    "prompt": "Tras habilitar Storm Control desaparecen servicios multicast empresariales.",
+    "target": "DIAGNÓSTICO: Umbral demasiado agresivo. CAUSA: Broadcast y multicast legítimos superan límite configurado. SOLUCIÓN: Ajustar thresholds y analizar patrones reales de tráfico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_026",
+    "titulo": "MPLS Label Exhaustion",
+    "prompt": "Los routers del core MPLS dejan de instalar nuevos prefijos y comienzan a rechazar etiquetas.",
+    "target": "DIAGNÓSTICO: Agotamiento de etiquetas MPLS. CAUSA: Crecimiento excesivo de VPNs, rutas o servicios L3VPN. SOLUCIÓN: Revisar capacidad de plataforma, optimizar distribución de etiquetas, resumir rutas y monitorear recursos MPLS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_027",
+    "titulo": "TCAM Saturada",
+    "prompt": "El switch deja de instalar ACLs nuevas y aparecen errores de programación de hardware.",
+    "target": "DIAGNÓSTICO: Saturación de TCAM. CAUSA: Exceso de ACLs, QoS, rutas o políticas. SOLUCIÓN: Optimizar entradas, consolidar reglas, revisar partición TCAM y monitorear utilización mediante comandos de hardware.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_028",
+    "titulo": "ARP Spoofing interno",
+    "prompt": "Usuarios reportan interceptación de tráfico y cambios inesperados en las tablas ARP.",
+    "target": "DIAGNÓSTICO: Ataque ARP Spoofing. CAUSA: Equipo malicioso enviando respuestas ARP falsas. SOLUCIÓN: Activar Dynamic ARP Inspection, DHCP Snooping, Port Security y monitorear anomalías ARP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_029",
+    "titulo": "DHCP Starvation",
+    "prompt": "El pool DHCP se agota rápidamente aunque existen pocos usuarios reales.",
+    "target": "DIAGNÓSTICO: Ataque DHCP Starvation. CAUSA: Solicitudes masivas con MACs falsas. SOLUCIÓN: Activar DHCP Snooping, Port Security y limitar tasa de solicitudes DHCP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_030",
+    "titulo": "BGP Community filtrada incorrectamente",
+    "prompt": "Las políticas de tráfico dejan de funcionar tras una actualización de route-map.",
+    "target": "DIAGNÓSTICO: Communities eliminadas o modificadas. CAUSA: Configuración errónea de route-map. SOLUCIÓN: Revisar send-community, route-maps y atributos propagados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_031",
+    "titulo": "Control Plane Policing excesivo",
+    "prompt": "Protocolos de enrutamiento presentan caídas intermitentes después de aplicar CoPP.",
+    "target": "DIAGNÓSTICO: Políticas CoPP demasiado restrictivas. CAUSA: Tráfico legítimo descartado. SOLUCIÓN: Ajustar clases, aumentar límites y validar tráfico de control permitido.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_032",
+    "titulo": "ISIS Authentication Failure",
+    "prompt": "Las adyacencias ISIS nunca alcanzan estado Up entre routers vecinos.",
+    "target": "DIAGNÓSTICO: Error de autenticación ISIS. CAUSA: Contraseñas o algoritmos incompatibles. SOLUCIÓN: Verificar authentication-mode, claves y compatibilidad de hashing.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_033",
+    "titulo": "BFD genera falsos positivos",
+    "prompt": "Las rutas cambian constantemente pese a que los enlaces permanecen operativos.",
+    "target": "DIAGNÓSTICO: Temporizadores BFD demasiado agresivos. CAUSA: Latencia o CPU elevada. SOLUCIÓN: Ajustar intervalos BFD y validar estabilidad del hardware.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_034",
+    "titulo": "Multicast PIM RPF Failure",
+    "prompt": "Los receptores multicast no reciben tráfico pese a existir grupos activos.",
+    "target": "DIAGNÓSTICO: Fallo Reverse Path Forwarding. CAUSA: Ruta incorrecta hacia la fuente multicast. SOLUCIÓN: Revisar tablas RPF, PIM y enrutamiento unicast.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_035",
+    "titulo": "EVPN Type-5 Routes ausentes",
+    "prompt": "Las subredes anunciadas mediante EVPN no son visibles desde otros VTEPs.",
+    "target": "DIAGNÓSTICO: Falta propagación de rutas Type-5. CAUSA: Configuración incompleta de L3VNI. SOLUCIÓN: Revisar VRFs, RTs y anuncios EVPN Type-5.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_036",
+    "titulo": "Route Reflector Cluster Loop",
+    "prompt": "Las rutas BGP aparecen repetidamente reflejadas entre varios Route Reflectors.",
+    "target": "DIAGNÓSTICO: Cluster-ID duplicado o inconsistente. CAUSA: Diseño incorrecto de Route Reflectors. SOLUCIÓN: Verificar cluster-id únicos y topología RR.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_037",
+    "titulo": "SYN Flood contra servidor crítico",
+    "prompt": "El servidor deja de aceptar conexiones TCP durante picos de tráfico.",
+    "target": "DIAGNÓSTICO: Ataque SYN Flood. CAUSA: Acumulación masiva de sesiones semiabiertas. SOLUCIÓN: Activar SYN Cookies, protección anti-DDoS y rate limiting.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_038",
+    "titulo": "VRRP Split Brain",
+    "prompt": "Dos routers se anuncian simultáneamente como gateway maestro.",
+    "target": "DIAGNÓSTICO: Condición Split-Brain VRRP. CAUSA: Fallo de comunicación entre routers o tracking incorrecto. SOLUCIÓN: Revisar anuncios VRRP y mecanismos de seguimiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_039",
+    "titulo": "MTU inconsistente en VXLAN",
+    "prompt": "Aplicaciones funcionan parcialmente y algunos paquetes grandes son descartados.",
+    "target": "DIAGNÓSTICO: MTU insuficiente para encapsulación VXLAN. CAUSA: Falta de overhead considerado. SOLUCIÓN: Incrementar MTU underlay y validar PMTUD.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_040",
+    "titulo": "LACP Member Inconsistent",
+    "prompt": "Un enlace EtherChannel presenta utilización desigual y pérdida de redundancia.",
+    "target": "DIAGNÓSTICO: Parámetros LACP incompatibles. CAUSA: Velocidad, dúplex o configuración distinta. SOLUCIÓN: Verificar configuración homogénea en todos los miembros.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_041",
+    "titulo": "BGP Maximum Prefix Exceeded",
+    "prompt": "La sesión eBGP cae automáticamente al recibir rutas de un proveedor.",
+    "target": "DIAGNÓSTICO: Límite Maximum-Prefix alcanzado. CAUSA: Recepción de más rutas de las permitidas. SOLUCIÓN: Ajustar umbrales y analizar crecimiento de prefijos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_042",
+    "titulo": "IP SLA Tracking Failure",
+    "prompt": "El failover WAN nunca se activa aunque el proveedor principal está caído.",
+    "target": "DIAGNÓSTICO: Tracking IP SLA defectuoso. CAUSA: Objetivo incorrecto o configuración incompleta. SOLUCIÓN: Revisar probes, tracking y rutas flotantes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_043",
+    "titulo": "NetFlow Export saturado",
+    "prompt": "La CPU aumenta significativamente tras habilitar exportación NetFlow.",
+    "target": "DIAGNÓSTICO: Exceso de registros exportados. CAUSA: Flujo masivo de tráfico. SOLUCIÓN: Aplicar sampling, optimizar collectors y revisar capacidad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_044",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Usuarios son redirigidos a sitios falsos pese a usar dominios correctos.",
+    "target": "DIAGNÓSTICO: Envenenamiento de caché DNS. CAUSA: Respuestas DNS falsificadas. SOLUCIÓN: Implementar DNSSEC, actualizar resolvers y limpiar caché.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_045",
+    "titulo": "Route Redistribution Feedback Loop",
+    "prompt": "Las mismas rutas aparecen múltiples veces entre distintos protocolos.",
+    "target": "DIAGNÓSTICO: Realimentación de redistribución. CAUSA: Falta de filtrado y tagging. SOLUCIÓN: Aplicar etiquetas administrativas y filtros adecuados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_046",
+    "titulo": "MAC Address Table Overflow",
+    "prompt": "Los switches comienzan a inundar tráfico desconocido a todos los puertos.",
+    "target": "DIAGNÓSTICO: Saturación de tabla CAM. CAUSA: MAC Flooding o crecimiento anormal. SOLUCIÓN: Activar Port Security y monitorear aprendizaje MAC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_047",
+    "titulo": "GRE Tunnel Recursive Routing",
+    "prompt": "Un túnel GRE permanece Up pero no transporta tráfico correctamente.",
+    "target": "DIAGNÓSTICO: Ruta recursiva hacia el endpoint del túnel. CAUSA: El destino depende del propio túnel. SOLUCIÓN: Crear rutas estáticas específicas fuera del túnel.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_048",
+    "titulo": "Firewall Asymmetric Routing",
+    "prompt": "Las sesiones son descartadas aleatoriamente al atravesar múltiples firewalls.",
+    "target": "DIAGNÓSTICO: Enrutamiento asimétrico. CAUSA: El retorno sigue una ruta distinta. SOLUCIÓN: Garantizar simetría o habilitar mecanismos de tolerancia.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_049",
+    "titulo": "SNMP Reflection Detection",
+    "prompt": "Se detecta tráfico SNMP saliente anormal hacia miles de destinos.",
+    "target": "DIAGNÓSTICO: Participación involuntaria en ataque de reflexión SNMP. CAUSA: Comunidad pública expuesta. SOLUCIÓN: Restringir acceso SNMP y migrar a SNMPv3.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_050",
+    "titulo": "Datacenter Fabric Convergence Failure",
+    "prompt": "Después de una falla de spine principal, parte de la fabric EVPN permanece inaccesible.",
+    "target": "DIAGNÓSTICO: Convergencia incompleta de la fabric. CAUSA: Inconsistencias EVPN, BGP o underlay. SOLUCIÓN: Validar sesiones BGP, reachability underlay, anuncios EVPN y estado de todos los VTEPs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_051",
+    "titulo": "BGP Route Dampening excesivo",
+    "prompt": "Después de una falla temporal de enlace, varios prefijos permanecen inaccesibles durante horas aunque el enlace ya fue restaurado.",
+    "target": "DIAGNÓSTICO: Route Dampening penalizó excesivamente los prefijos. CAUSA: Valores de suppress y reuse demasiado agresivos. SOLUCIÓN: Revisar parámetros de dampening, disminuir penalizaciones o deshabilitar la función para prefijos críticos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_052",
+    "titulo": "BGP Blackhole Community mal aplicada",
+    "prompt": "Un operador aplicó una comunidad blackhole para mitigar un DDoS pero terminó bloqueando tráfico legítimo.",
+    "target": "DIAGNÓSTICO: Comunidad blackhole aplicada sobre prefijo incorrecto. CAUSA: Error operativo en route-map o comunidad BGP. SOLUCIÓN: Revisar comunidades aplicadas, verificar prefijos afectados y limitar alcance de anuncios blackhole.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_053",
+    "titulo": "TCP MSS inconsistente entre proveedores",
+    "prompt": "Usuarios remotos acceden a algunos servicios pero otros quedan congelados durante transferencias grandes.",
+    "target": "DIAGNÓSTICO: Fragmentación silenciosa por MSS inconsistente. CAUSA: Diferencias MTU entre proveedores y ausencia de MSS Clamping. SOLUCIÓN: Ajustar TCP MSS, validar Path MTU Discovery y verificar túneles intermedios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_054",
+    "titulo": "OSPF Virtual Link inestable",
+    "prompt": "Un área OSPF remota pierde conectividad intermitentemente pese a que el Virtual Link aparece configurado correctamente.",
+    "target": "DIAGNÓSTICO: Virtual Link dependiente de un área transit inestable. CAUSA: Flapping de adyacencias o inconsistencias de autenticación. SOLUCIÓN: Revisar backbone, estabilizar área transit y validar timers OSPF.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_055",
+    "titulo": "VXLAN Flood and Learn inesperado",
+    "prompt": "La red EVPN comienza a inundar tráfico broadcast pese a estar diseñada para control-plane learning.",
+    "target": "DIAGNÓSTICO: EVPN dejó de anunciar endpoints correctamente. CAUSA: Caída de sesiones BGP EVPN o errores Type-2 Routes. SOLUCIÓN: Revisar sesiones EVPN y verificar sincronización de MAC/IP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_056",
+    "titulo": "IP Source Guard bloquea usuarios válidos",
+    "prompt": "Usuarios legítimos pierden conectividad después de habilitar IP Source Guard.",
+    "target": "DIAGNÓSTICO: Entradas DHCP Snooping incompletas. CAUSA: Base de bindings incorrecta. SOLUCIÓN: Verificar tabla DHCP Snooping, renovar leases y revisar puertos confiables.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_057",
+    "titulo": "MAC Mobility excesiva en EVPN",
+    "prompt": "Las MAC cambian constantemente entre VTEPs provocando inestabilidad en aplicaciones.",
+    "target": "DIAGNÓSTICO: Movimiento anómalo de MAC. CAUSA: Bucle L2, VM mal migrada o configuración duplicada. SOLUCIÓN: Analizar eventos MAC Mobility y corregir origen del movimiento.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_058",
+    "titulo": "DDoS volumétrico UDP",
+    "prompt": "El enlace principal alcanza el 100% de utilización por tráfico UDP distribuido.",
+    "target": "DIAGNÓSTICO: Ataque DDoS volumétrico. CAUSA: Amplificación UDP desde múltiples fuentes. SOLUCIÓN: Aplicar mitigación upstream, scrubbing center, ACLs temporales y análisis NetFlow.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_059",
+    "titulo": "MPLS PHP inconsistente",
+    "prompt": "Algunos routers muestran etiquetas inesperadas y tráfico descartado cerca del egress PE.",
+    "target": "DIAGNÓSTICO: Problema de Penultimate Hop Popping. CAUSA: Inconsistencia LDP o SR-MPLS. SOLUCIÓN: Revisar etiquetas distribuidas y verificar comportamiento PHP esperado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_060",
+    "titulo": "Autenticación TACACS+ intermitente",
+    "prompt": "Los administradores no pueden autenticarse de forma consistente en dispositivos de red.",
+    "target": "DIAGNÓSTICO: Fallo de comunicación TACACS+. CAUSA: Problemas de reachability, claves compartidas incorrectas o timeouts. SOLUCIÓN: Validar conectividad, secretos compartidos y logs AAA.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_061",
+    "titulo": "BGP Graceful Restart defectuoso",
+    "prompt": "Tras reiniciar un router, los vecinos conservan rutas inválidas demasiado tiempo.",
+    "target": "DIAGNÓSTICO: Graceful Restart mal implementado. CAUSA: Temporizadores excesivos o soporte parcial. SOLUCIÓN: Ajustar timers GR y validar compatibilidad entre plataformas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_062",
+    "titulo": "Segment Routing Policy no instalada",
+    "prompt": "Las políticas SR Traffic Engineering aparecen definidas pero nunca son utilizadas.",
+    "target": "DIAGNÓSTICO: Política no programada en FIB. CAUSA: SID inválido o restricciones de hardware. SOLUCIÓN: Revisar candidate-paths y estado operativo SR Policy.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_063",
+    "titulo": "NetConf bloqueado por ACL",
+    "prompt": "Las herramientas de automatización dejaron de gestionar dispositivos después de cambios de seguridad.",
+    "target": "DIAGNÓSTICO: Tráfico NetConf filtrado. CAUSA: ACLs restrictivas. SOLUCIÓN: Permitir puertos requeridos y validar sesiones SSH subyacentes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_064",
+    "titulo": "gRPC Telemetry perdida",
+    "prompt": "El sistema de observabilidad deja de recibir métricas en tiempo real.",
+    "target": "DIAGNÓSTICO: Streaming Telemetry interrumpida. CAUSA: Certificados vencidos, ACLs o congestión. SOLUCIÓN: Validar TLS, reachability y suscripciones activas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_065",
+    "titulo": "802.1X rechaza dispositivos válidos",
+    "prompt": "Equipos corporativos autorizados son enviados a VLAN de cuarentena.",
+    "target": "DIAGNÓSTICO: Error de autenticación 802.1X. CAUSA: Problemas RADIUS, certificados o políticas NAC. SOLUCIÓN: Revisar logs AAA y validar credenciales del endpoint.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_066",
+    "titulo": "LDP Session Flapping",
+    "prompt": "Las sesiones LDP se restablecen constantemente generando reconvergencias MPLS.",
+    "target": "DIAGNÓSTICO: Inestabilidad de sesión LDP. CAUSA: Problemas de transporte TCP, MTU o enlaces físicos. SOLUCIÓN: Revisar conectividad subyacente y logs LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_067",
+    "titulo": "VRF Lite con fuga accidental",
+    "prompt": "Equipos de administración acceden a redes de producción sin autorización.",
+    "target": "DIAGNÓSTICO: Route leaking accidental. CAUSA: Rutas estáticas cruzadas o redistribución incorrecta. SOLUCIÓN: Auditar VRFs y eliminar rutas no autorizadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_068",
+    "titulo": "RSTP Root Election inesperada",
+    "prompt": "Un switch de acceso se convierte en Root Bridge afectando toda la topología.",
+    "target": "DIAGNÓSTICO: Prioridad STP incorrecta. CAUSA: Configuración ausente o dispositivo nuevo. SOLUCIÓN: Definir Root Bridge explícitamente y aplicar Root Guard.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_069",
+    "titulo": "QoS Trust Boundary mal definida",
+    "prompt": "El tráfico de voz pierde prioridad al atravesar la red corporativa.",
+    "target": "DIAGNÓSTICO: Marcado DSCP sobrescrito. CAUSA: Trust Boundary incorrecta. SOLUCIÓN: Revisar clasificación y políticas QoS extremo a extremo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_070",
+    "titulo": "¿Qué haces exactamente?",
+    "prompt": "Explique cuál es su función dentro de una infraestructura de red empresarial.",
+    "target": "Soy NetMind, un modelo especializado en análisis, diagnóstico y resolución de problemas de redes y ciberseguridad. Mi función es identificar causas raíz, interpretar configuraciones, recomendar soluciones y asistir en operaciones NOC, SOC, CCNA, CCNP, CCIE y entornos empresariales complejos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_000001",
+    "titulo": "EVPN-VXLAN MAC Mobility Storm",
+    "prompt": "En una red Data Center Spine-Leaf con EVPN-VXLAN, múltiples VTEP anuncian la misma MAC desde distintos segmentos generando flapping constante y pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: Evento de MAC Mobility excesivo en EVPN. CAUSA: Máquina virtual migrada incorrectamente o bucle Layer 2 entre VTEPs. SOLUCIÓN: Revisar 'show bgp l2vpn evpn route-type 2', verificar MAC Mobility Sequence Number, validar vMotion/Live Migration, eliminar bucles y confirmar consistencia del control-plane EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000002",
+    "titulo": "BGP Route Leak entre ASN privados",
+    "prompt": "Un ISP recibe miles de prefijos inesperados provenientes de un cliente empresarial conectado mediante eBGP.",
+    "target": "DIAGNÓSTICO: Route Leak BGP. CAUSA: Redistribución incorrecta o ausencia de filtros outbound. SOLUCIÓN: Implementar prefix-list, route-map, max-prefix, communities de exportación y validar anuncios mediante 'show ip bgp neighbors advertised-routes'.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000003",
+    "titulo": "OSPF LSA Flooding Excesivo",
+    "prompt": "Los routers muestran CPU elevada y constante generación de SPF en un área OSPF con cientos de nodos.",
+    "target": "DIAGNÓSTICO: Tormenta de LSAs. CAUSA: Enlace inestable o redistribución dinámica mal configurada. SOLUCIÓN: Identificar origen mediante 'show ip ospf database', aplicar SPF throttling, LSA pacing y corregir la causa raíz del flap.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000004",
+    "titulo": "MPLS VPN Rutas No Visibles",
+    "prompt": "Las sedes remotas conectadas mediante MPLS L3VPN no aprenden rutas de otras sucursales.",
+    "target": "DIAGNÓSTICO: Fallo MP-BGP VPNv4. CAUSA: Route Target incorrecto o ausencia de import/export. SOLUCIÓN: Revisar VRF, RD, RT, sesiones MP-BGP y verificar tablas VPNv4 mediante 'show bgp vpnv4 unicast all'.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000005",
+    "titulo": "ARP Spoofing Corporativo",
+    "prompt": "Usuarios reportan conexiones HTTPS inválidas y tráfico redirigido a servidores desconocidos.",
+    "target": "DIAGNÓSTICO: Ataque ARP Spoofing. CAUSA: Host malicioso responde solicitudes ARP fraudulentas. SOLUCIÓN: Activar Dynamic ARP Inspection, DHCP Snooping, Port Security y monitorear tablas ARP inconsistentes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000006",
+    "titulo": "ISIS Overload Bit Permanente",
+    "prompt": "Un router ISIS permanece excluido del tránsito aun cuando los enlaces están operativos.",
+    "target": "DIAGNÓSTICO: Overload Bit activo. CAUSA: Configuración manual o error de inicialización. SOLUCIÓN: Revisar 'show isis database', eliminar overload-bit innecesario y validar convergencia SPF.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000007",
+    "titulo": "STP Root Bridge Secuestrado",
+    "prompt": "El root bridge cambia inesperadamente provocando reconvergencias y cortes periódicos.",
+    "target": "DIAGNÓSTICO: Manipulación o mala configuración STP. CAUSA: Switch con prioridad inferior se convierte en Root. SOLUCIÓN: Configurar Root Guard, BPDU Guard y prioridades explícitas en switches principales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000008",
+    "titulo": "VXLAN BUM Traffic Saturando Fabric",
+    "prompt": "El tráfico Broadcast, Unknown Unicast y Multicast consume gran parte del ancho de banda de la red VXLAN.",
+    "target": "DIAGNÓSTICO: Exceso de tráfico BUM. CAUSA: Replicación ineficiente o multicast mal diseñado. SOLUCIÓN: Implementar EVPN Control Plane, optimizar grupos multicast y revisar flooding innecesario.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000009",
+    "titulo": "DNS Cache Poisoning Interno",
+    "prompt": "Los usuarios son redirigidos a direcciones IP incorrectas para dominios corporativos.",
+    "target": "DIAGNÓSTICO: DNS Cache Poisoning. CAUSA: Respuestas DNS falsificadas almacenadas en caché. SOLUCIÓN: Habilitar DNSSEC, limpiar caché comprometida y restringir resolvers abiertos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000010",
+    "titulo": "DMVPN Túneles Intermitentes",
+    "prompt": "Los spoke DMVPN pierden conectividad periódicamente aunque el hub permanece disponible.",
+    "target": "DIAGNÓSTICO: Inestabilidad NHRP/IPsec. CAUSA: Temporizadores inconsistentes o NAT intermedio. SOLUCIÓN: Revisar NHRP mappings, sesiones IPsec, keepalives y NAT traversal.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000011",
+    "titulo": "Modelo NetMind Identidad",
+    "prompt": "¿Qué es NetMind y cuál es su función principal dentro del sistema?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: NetMind es un modelo especializado en diagnóstico de redes y ciberseguridad. Analiza síntomas, eventos, logs y configuraciones para identificar causas raíz, proponer soluciones técnicas, explicar protocolos y asistir en entornos NOC, SOC, CCNA, CCNP y CCIE.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000012",
+    "titulo": "Modelo NetMind Capacidades",
+    "prompt": "¿A qué se dedica este modelo de inteligencia artificial?",
+    "target": "DIAGNÓSTICO: Consulta de capacidades. RESPUESTA: El modelo está orientado al análisis de redes, seguridad informática, routing, switching, wireless, firewalls, VPN, automatización y resolución de incidentes. Puede explicar conceptos, generar procedimientos de solución y asistir en operaciones técnicas avanzadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000013",
+    "titulo": "RPKI Invalid Route",
+    "prompt": "Un prefijo legítimo deja de ser anunciado después de habilitar validación RPKI.",
+    "target": "DIAGNÓSTICO: Prefijo marcado como INVALID por RPKI. CAUSA: Error en ROA o ASN autorizado. SOLUCIÓN: Revisar registros RPKI, validar origin ASN y corregir ROAs inconsistentes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000014",
+    "titulo": "BFD Genera Falsos Positivos",
+    "prompt": "Los enlaces caen constantemente por eventos BFD aunque físicamente están operativos.",
+    "target": "DIAGNÓSTICO: Sensibilidad excesiva BFD. CAUSA: Temporizadores demasiado agresivos o congestión CPU. SOLUCIÓN: Ajustar intervalos BFD, verificar utilización y validar hardware forwarding.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000015",
+    "titulo": "Anycast Gateway Inconsistente",
+    "prompt": "Hosts conectados a distintos Leafs muestran problemas de conectividad este-oeste.",
+    "target": "DIAGNÓSTICO: Inconsistencia de Anycast Gateway. CAUSA: Configuración diferente entre VTEPs. SOLUCIÓN: Validar MAC virtual, IP gateway y anuncios EVPN simétricos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000016",
+    "titulo": "Firewall Stateful Asimetría",
+    "prompt": "Las sesiones TCP se establecen pero se cierran inesperadamente al atravesar dos firewalls.",
+    "target": "DIAGNÓSTICO: Routing asimétrico. CAUSA: El firewall observa únicamente una dirección del flujo. SOLUCIÓN: Corregir rutas, usar clustering apropiado o sincronización de estados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000017",
+    "titulo": "BGP PIC No Funciona",
+    "prompt": "La convergencia ante fallos WAN tarda varios segundos pese a tener BGP PIC habilitado.",
+    "target": "DIAGNÓSTICO: BGP PIC incompleto. CAUSA: Hardware o FIB no soportan programación rápida. SOLUCIÓN: Verificar soporte PIC Core/Edge y estado de instalación en forwarding plane.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000018",
+    "titulo": "IPsec Phase 2 Fallida",
+    "prompt": "La VPN IPsec establece IKE pero no intercambia tráfico entre sitios.",
+    "target": "DIAGNÓSTICO: Error en Phase 2. CAUSA: ACLs interesantes distintas o parámetros ESP incompatibles. SOLUCIÓN: Comparar transform-sets, PFS, redes protegidas y lifetimes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000019",
+    "titulo": "LDAP Enumeration Interna",
+    "prompt": "Un auditor detecta extracción masiva de usuarios desde Active Directory.",
+    "target": "DIAGNÓSTICO: Enumeración LDAP. CAUSA: Permisos excesivos o controles insuficientes. SOLUCIÓN: Restringir consultas, monitorear eventos LDAP y aplicar segmentación administrativa.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000020",
+    "titulo": "Segment Routing SID Inalcanzable",
+    "prompt": "Los paquetes con Segment Routing no alcanzan determinados nodos de tránsito.",
+    "target": "DIAGNÓSTICO: SID no distribuido correctamente. CAUSA: Error ISIS-SR u OSPF-SR. SOLUCIÓN: Verificar base SR, labels asignados y propagación de TLVs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000021",
+    "titulo": "EVPN Multihoming DF Election Incorrecta",
+    "prompt": "En una arquitectura EVPN Multihoming dos Leafs conectados al mismo servidor generan pérdida intermitente de tráfico durante cambios de topología.",
+    "target": "DIAGNÓSTICO: Error en la elección del Designated Forwarder (DF). CAUSA: Algoritmo DF inconsistente o configuración ESI incorrecta. SOLUCIÓN: Verificar ESI, DF Election Algorithm, anuncios Type-4 EVPN y sincronización entre Leafs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000022",
+    "titulo": "BGP Confederation Loop",
+    "prompt": "Después de implementar Confederations en BGP aparecen rutas duplicadas y tráfico circulando entre sub-AS internos.",
+    "target": "DIAGNÓSTICO: Loop dentro de Confederation. CAUSA: Configuración incorrecta de sub-AS o políticas de redistribución. SOLUCIÓN: Revisar confederation peers, AS_PATH recibido y filtros entre sub-AS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000023",
+    "titulo": "MPLS LDP Neighbor Flapping",
+    "prompt": "Las sesiones LDP entre routers MPLS se reinician constantemente causando pérdida de etiquetas.",
+    "target": "DIAGNÓSTICO: Inestabilidad LDP. CAUSA: Problemas de conectividad IGP, MTU inconsistente o temporizadores agresivos. SOLUCIÓN: Verificar adyacencias IGP, MTU MPLS y estado de vecinos LDP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000024",
+    "titulo": "Kerberos Ticket Replay",
+    "prompt": "El SOC detecta múltiples autenticaciones válidas utilizando tickets Kerberos repetidos desde distintos equipos.",
+    "target": "DIAGNÓSTICO: Ataque Kerberos Replay. CAUSA: Compromiso de tickets válidos. SOLUCIÓN: Revocar tickets, rotar credenciales comprometidas, habilitar monitoreo avanzado de eventos Kerberos y revisar movimientos laterales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000025",
+    "titulo": "VRRP Split Brain",
+    "prompt": "Dos routers VRRP actúan simultáneamente como Master provocando respuestas ARP inconsistentes.",
+    "target": "DIAGNÓSTICO: Estado Split-Brain VRRP. CAUSA: Pérdida de mensajes VRRP o filtrado multicast. SOLUCIÓN: Revisar conectividad Layer 2, temporizadores VRRP y eventos de failover.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000026",
+    "titulo": "LISP Mapping Inconsistente",
+    "prompt": "Los paquetes encapsulados mediante LISP llegan a destinos incorrectos en determinadas regiones.",
+    "target": "DIAGNÓSTICO: Error de mapeo EID-RLOC. CAUSA: Información obsoleta en Map-Server. SOLUCIÓN: Verificar registros, sincronización de bases LISP y estado de Map-Resolvers.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000027",
+    "titulo": "Pass-The-Hash Detectado",
+    "prompt": "Se observan autenticaciones exitosas desde múltiples equipos usando la misma identidad sin conocer la contraseña.",
+    "target": "DIAGNÓSTICO: Ataque Pass-The-Hash. CAUSA: Robo de hashes NTLM. SOLUCIÓN: Implementar Credential Guard, restringir NTLM, segmentar privilegios administrativos y revisar hosts comprometidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000028",
+    "titulo": "MACsec Negotiation Failure",
+    "prompt": "Dos switches compatibles con MACsec no logran establecer cifrado en el enlace troncal.",
+    "target": "DIAGNÓSTICO: Falla en negociación MACsec. CAUSA: MKA keys incompatibles o políticas distintas. SOLUCIÓN: Validar Connectivity Association Key, MKA y compatibilidad de hardware.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000029",
+    "titulo": "ISIS LSP Corrupto",
+    "prompt": "Un router ISIS genera información de topología inválida causando rutas erróneas en toda la red.",
+    "target": "DIAGNÓSTICO: Corrupción de LSP. CAUSA: Error de software o inconsistencia en la base de datos. SOLUCIÓN: Comparar LSDB, reinicializar procesos ISIS afectados y validar versiones del sistema.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000030",
+    "titulo": "DNSSEC Validation Failure",
+    "prompt": "Los usuarios no pueden resolver dominios firmados digitalmente aunque los servidores DNS están operativos.",
+    "target": "DIAGNÓSTICO: Error de validación DNSSEC. CAUSA: Claves expiradas o cadena de confianza rota. SOLUCIÓN: Revisar DNSKEY, DS Records y sincronización de firmas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000031",
+    "titulo": "BGP Add-Path Inconsistente",
+    "prompt": "Al habilitar Add-Path algunos routers muestran rutas duplicadas mientras otros pierden redundancia.",
+    "target": "DIAGNÓSTICO: Implementación parcial de Add-Path. CAUSA: Capacidades incompatibles entre peers. SOLUCIÓN: Verificar negociación BGP Capabilities y configuración uniforme.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000032",
+    "titulo": "802.1X Authentication Timeout",
+    "prompt": "Equipos corporativos autorizados quedan bloqueados durante el proceso de autenticación NAC.",
+    "target": "DIAGNÓSTICO: Timeout 802.1X. CAUSA: Problemas de comunicación con RADIUS o certificados inválidos. SOLUCIÓN: Revisar EAP, conectividad RADIUS y validez de certificados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000033",
+    "titulo": "MPLS TE Tunnel Down",
+    "prompt": "Los túneles MPLS Traffic Engineering desaparecen después de una modificación en la topología WAN.",
+    "target": "DIAGNÓSTICO: RSVP-TE no encuentra camino válido. CAUSA: Restricciones de ancho de banda o métricas inconsistentes. SOLUCIÓN: Verificar CSPF, RSVP y recursos disponibles.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000034",
+    "titulo": "SIEM Correlation Failure",
+    "prompt": "Un ataque distribuido fue detectado por varias herramientas pero nunca generó alerta en el SIEM.",
+    "target": "DIAGNÓSTICO: Fallo de correlación. CAUSA: Reglas incompletas o fuentes no integradas. SOLUCIÓN: Revisar pipelines de ingestión, normalización y correlación de eventos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000035",
+    "titulo": "OTV Overlay Fragmentation",
+    "prompt": "Tráfico entre datacenters presenta pérdidas cuando atraviesa la infraestructura OTV.",
+    "target": "DIAGNÓSTICO: Fragmentación OTV. CAUSA: MTU insuficiente para encapsulación overlay. SOLUCIÓN: Ajustar MTU extremo a extremo y validar Path MTU Discovery.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000036",
+    "titulo": "SD-WAN Control Connection Lost",
+    "prompt": "Los Edge SD-WAN mantienen conectividad IP pero pierden control con los controladores centrales.",
+    "target": "DIAGNÓSTICO: Pérdida de plano de control SD-WAN. CAUSA: Certificados vencidos o rutas incorrectas hacia controladores. SOLUCIÓN: Verificar certificados, políticas y reachability.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000037",
+    "titulo": "Zero Trust Policy Conflict",
+    "prompt": "Usuarios autorizados pierden acceso a aplicaciones críticas después de aplicar políticas Zero Trust.",
+    "target": "DIAGNÓSTICO: Conflicto de políticas. CAUSA: Reglas contradictorias entre identidad, dispositivo y contexto. SOLUCIÓN: Auditar decisiones de acceso y revisar motores de política.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000038",
+    "titulo": "vPC Peer-Link Saturado",
+    "prompt": "Un entorno Nexus vPC presenta alta latencia y tráfico inesperado sobre el Peer-Link.",
+    "target": "DIAGNÓSTICO: Uso excesivo del Peer-Link. CAUSA: Hashing incorrecto o tráfico huérfano. SOLUCIÓN: Revisar diseño vPC, uplinks y distribución de tráfico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000039",
+    "titulo": "Modelo NetMind Especialización",
+    "prompt": "¿Cuál es la especialidad principal de NetMind?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: NetMind es un modelo especializado en troubleshooting de redes, routing, switching, seguridad informática, análisis de incidentes, protocolos empresariales y soporte técnico avanzado para entornos corporativos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000040",
+    "titulo": "Modelo NetMind Función Operativa",
+    "prompt": "¿Qué tareas puede realizar este modelo dentro de un NOC o SOC?",
+    "target": "DIAGNÓSTICO: Consulta de capacidades. RESPUESTA: Puede analizar síntomas, interpretar logs, identificar causas raíz, sugerir comandos de diagnóstico, explicar protocolos, asistir en seguridad de redes y apoyar procesos de operación, monitoreo y respuesta ante incidentes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_000041",
+    "titulo": "BGP Blackhole Community Mal Aplicada",
+    "prompt": "Un operador aplica una comunidad BGP para mitigar un ataque DDoS y termina bloqueando tráfico legítimo de múltiples prefijos.",
+    "target": "DIAGNÓSTICO: Uso incorrecto de comunidad Blackhole. CAUSA: Aplicación sobre prefijos agregados en lugar de rutas específicas. SOLUCIÓN: Revisar route-maps, communities propagadas, alcance del filtrado y validar anuncios antes de propagarlos al upstream.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000042",
+    "titulo": "Route Reflector Inconsistente",
+    "prompt": "Algunos routers iBGP reciben rutas mientras otros dentro del mismo AS no las aprenden.",
+    "target": "DIAGNÓSTICO: Fallo en Route Reflection. CAUSA: Cluster-ID duplicado o clientes mal definidos. SOLUCIÓN: Verificar configuración de Route Reflector, cluster-list, originator-id y vecinos iBGP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000043",
+    "titulo": "MPLS PHP Inesperado",
+    "prompt": "El tráfico llega sin etiquetas MPLS al penúltimo salto generando problemas de QoS y clasificación.",
+    "target": "DIAGNÓSTICO: Penultimate Hop Popping activo cuando no debería. CAUSA: Configuración por defecto de LDP o RSVP. SOLUCIÓN: Analizar etiquetas distribuidas, habilitar Explicit Null Label cuando sea requerido y validar políticas QoS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000044",
+    "titulo": "NTP Spoofing Corporativo",
+    "prompt": "Los equipos comienzan a mostrar diferencias importantes de hora afectando autenticaciones y registros.",
+    "target": "DIAGNÓSTICO: Manipulación de sincronización NTP. CAUSA: Servidor NTP falso o comprometido. SOLUCIÓN: Autenticar NTP, restringir fuentes autorizadas y validar integridad de servidores de tiempo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000045",
+    "titulo": "EVPN Type-5 Routes No Propagadas",
+    "prompt": "Las rutas Layer 3 EVPN no son aprendidas entre distintos VRF de la infraestructura.",
+    "target": "DIAGNÓSTICO: Falla de distribución Route Type-5. CAUSA: Configuración incorrecta de VRF, RT o exportación de prefijos. SOLUCIÓN: Revisar anuncios EVPN Type-5, route-targets y tablas BGP EVPN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000046",
+    "titulo": "DDoS Reflection DNS",
+    "prompt": "El borde de Internet recibe enormes cantidades de tráfico UDP proveniente de servidores DNS externos.",
+    "target": "DIAGNÓSTICO: Ataque DNS Reflection. CAUSA: Amplificación mediante resolvers abiertos. SOLUCIÓN: Implementar ACLs, RTBH, Flowspec y coordinación con proveedores de tránsito.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000047",
+    "titulo": "FabricPath IS-IS Loop",
+    "prompt": "Una red FabricPath experimenta duplicación de tráfico y utilización anormal de enlaces.",
+    "target": "DIAGNÓSTICO: Loop en control-plane FabricPath. CAUSA: Información ISIS inconsistente o switch defectuoso. SOLUCIÓN: Revisar topología ISIS, tablas de forwarding y estado de enlaces troncales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000048",
+    "titulo": "GRE sobre IPsec MTU Excedida",
+    "prompt": "Aplicaciones críticas sufren pérdida de paquetes únicamente cuando atraviesan túneles GRE protegidos por IPsec.",
+    "target": "DIAGNÓSTICO: Problema de MTU/MSS. CAUSA: Encapsulación GRE + IPsec supera tamaño permitido. SOLUCIÓN: Ajustar TCP MSS, Path MTU Discovery y MTU de interfaces túnel.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000049",
+    "titulo": "SNMP Community Expuesta",
+    "prompt": "Un auditor detecta acceso no autorizado a información sensible mediante consultas SNMP.",
+    "target": "DIAGNÓSTICO: Uso inseguro de SNMPv2c. CAUSA: Communities débiles o públicas. SOLUCIÓN: Migrar a SNMPv3, restringir ACLs y rotar credenciales comprometidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000050",
+    "titulo": "Segment Routing TI-LFA No Converge",
+    "prompt": "Ante la caída de un enlace crítico la protección TI-LFA no redirige tráfico como se esperaba.",
+    "target": "DIAGNÓSTICO: Backup Path inválido. CAUSA: Restricciones topológicas o cálculo incorrecto del repair path. SOLUCIÓN: Verificar SR Policies, SID stacks y caminos alternativos disponibles.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000051",
+    "titulo": "OSPF Virtual Link Inestable",
+    "prompt": "Un área remota depende de un Virtual Link OSPF que pierde conectividad varias veces al día.",
+    "target": "DIAGNÓSTICO: Virtual Link inestable. CAUSA: Área de tránsito con problemas de convergencia o autenticación. SOLUCIÓN: Revisar LSDB, autenticación OSPF y estabilidad del backbone lógico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000052",
+    "titulo": "VXLAN Head-End Replication Saturada",
+    "prompt": "El tráfico BUM genera sobrecarga importante en varios VTEPs durante horarios pico.",
+    "target": "DIAGNÓSTICO: Escalabilidad limitada por Head-End Replication. CAUSA: Exceso de VTEPs participantes. SOLUCIÓN: Migrar a multicast controlado o EVPN optimizado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000053",
+    "titulo": "Rogue DHCP en Red Corporativa",
+    "prompt": "Usuarios obtienen gateways incorrectos y pierden acceso a servicios internos.",
+    "target": "DIAGNÓSTICO: Servidor DHCP no autorizado. CAUSA: Dispositivo conectado responde más rápido que el servidor legítimo. SOLUCIÓN: Activar DHCP Snooping y localizar origen del servidor rogue.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000054",
+    "titulo": "IP SLA Falsos Eventos de Failover",
+    "prompt": "Los enlaces WAN cambian constantemente de ruta aunque ambos proveedores están operativos.",
+    "target": "DIAGNÓSTICO: Umbrales IP SLA mal configurados. CAUSA: Timeouts demasiado bajos. SOLUCIÓN: Ajustar frecuencia de sondas, thresholds y tracking objects.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000055",
+    "titulo": "LDAP over TLS Certificado Expirado",
+    "prompt": "Las aplicaciones dejan de autenticar usuarios contra Active Directory de forma repentina.",
+    "target": "DIAGNÓSTICO: Certificado LDAPS expirado. CAUSA: Vencimiento de infraestructura PKI. SOLUCIÓN: Renovar certificados, validar cadena de confianza y reiniciar servicios afectados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000056",
+    "titulo": "QoS Trust Boundary Incorrecta",
+    "prompt": "Aplicaciones críticas experimentan degradación mientras tráfico no prioritario consume ancho de banda.",
+    "target": "DIAGNÓSTICO: Trust Boundary mal definida. CAUSA: Marcaciones DSCP aceptadas desde dispositivos no confiables. SOLUCIÓN: Reubicar límites de confianza y aplicar remarking adecuado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000057",
+    "titulo": "AAA TACACS+ Intermitente",
+    "prompt": "Los administradores pueden autenticarse algunas veces pero reciben rechazos aleatorios.",
+    "target": "DIAGNÓSTICO: Problema AAA distribuido. CAUSA: Desincronización entre servidores TACACS+ o pérdida de conectividad parcial. SOLUCIÓN: Revisar logs AAA, redundancia y reachability.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000058",
+    "titulo": "Modelo NetMind Presentación",
+    "prompt": "¿Cómo se presenta NetMind cuando un usuario pregunta quién es?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: NetMind es un asistente especializado en redes y ciberseguridad diseñado para analizar incidencias, explicar tecnologías, apoyar operaciones NOC/SOC y proporcionar diagnósticos técnicos fundamentados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000059",
+    "titulo": "Modelo NetMind Propósito",
+    "prompt": "¿Para qué fue creado NetMind?",
+    "target": "DIAGNÓSTICO: Consulta informativa. RESPUESTA: NetMind fue creado para asistir en troubleshooting, aprendizaje y operación de infraestructuras de red, ayudando a identificar causas raíz, explicar protocolos y proponer soluciones técnicas avanzadas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  {
+    "id": "caso_fb_20260613_000060",
+    "titulo": "BGP Flowspec Mal Propagado",
+    "prompt": "Una política BGP Flowspec desplegada para mitigar tráfico malicioso termina afectando aplicaciones legítimas.",
+    "target": "DIAGNÓSTICO: Regla Flowspec demasiado amplia. CAUSA: Coincidencia excesiva en filtros distribuidos. SOLUCIÓN: Revisar NLRI Flowspec, alcance de coincidencias y validar en laboratorio antes de producción.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:00"
+  },
+  
+  {
+    "id": "caso_fb_20260613_000001",
+    "titulo": "Identidad del modelo",
+    "prompt": "¿Cómo te llamas?",
+    "target": "Soy NetMind, un asistente especializado en redes, ciberseguridad, infraestructura TI y diagnóstico técnico. Mi función es analizar problemas, explicar conceptos, ayudar en configuraciones y asistir en la resolución de incidentes de red.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000002",
+    "titulo": "Propósito del modelo",
+    "prompt": "¿Para qué sirves?",
+    "target": "Estoy diseñado para asistir en redes informáticas, seguridad de la información, administración de infraestructura, protocolos de comunicación, virtualización, servicios empresariales y resolución de incidentes técnicos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000003",
+    "titulo": "Capacidades generales",
+    "prompt": "¿Qué puedes hacer?",
+    "target": "Puedo diagnosticar problemas de red, analizar configuraciones Cisco, Juniper y MikroTik, explicar protocolos como OSPF, BGP, STP, MPLS, VPN, DHCP y DNS, interpretar logs, ayudar en ciberseguridad y responder preguntas técnicas relacionadas con infraestructura TI.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000004",
+    "titulo": "Especialización técnica",
+    "prompt": "¿Eres experto en redes?",
+    "target": "Sí. Estoy especializado en redes empresariales, switching, routing, seguridad informática, monitoreo, virtualización, servicios de infraestructura y resolución de incidentes complejos de comunicaciones.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000005",
+    "titulo": "Rol NOC",
+    "prompt": "¿Puedes trabajar como ingeniero NOC?",
+    "target": "Puedo asistir como herramienta de apoyo para operaciones NOC analizando fallas, interpretando alarmas, revisando configuraciones, identificando causas raíz y proponiendo procedimientos de resolución basados en buenas prácticas de la industria.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000006",
+    "titulo": "Asistencia en seguridad",
+    "prompt": "¿Sabes de ciberseguridad?",
+    "target": "Sí. Puedo ayudar en análisis de vulnerabilidades, segmentación de redes, controles de acceso, firewalls, IDS, IPS, VPN, autenticación, gestión de riesgos y respuesta ante incidentes de seguridad informática.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000007",
+    "titulo": "Definición profesional",
+    "prompt": "¿Quién eres?",
+    "target": "Soy NetMind, un modelo de asistencia técnica orientado a redes y seguridad. Mi objetivo es proporcionar diagnósticos, explicaciones técnicas, recomendaciones operativas y apoyo en la administración de infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000008",
+    "titulo": "Alcance funcional",
+    "prompt": "¿En qué áreas puedes ayudar?",
+    "target": "Puedo ayudar en routing, switching, seguridad perimetral, redes inalámbricas, servicios de infraestructura, virtualización, monitoreo, automatización, troubleshooting, documentación técnica y arquitectura de redes empresariales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000009",
+    "titulo": "Descripción corporativa",
+    "prompt": "Explícame qué eres como si fueras un producto.",
+    "target": "NetMind es una plataforma de asistencia técnica especializada en redes y seguridad informática. Está diseñada para apoyar a administradores, ingenieros, estudiantes y centros de operaciones mediante análisis técnicos, resolución de incidentes y generación de conocimiento especializado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000010",
+    "titulo": "Presentación profesional",
+    "prompt": "Preséntate.",
+    "target": "Hola. Soy NetMind, un asistente especializado en infraestructura tecnológica. Mi función es ayudarte a comprender, diagnosticar y resolver problemas relacionados con redes, telecomunicaciones, ciberseguridad y servicios empresariales de TI.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  
+  {
+    "id": "caso_fb_20260613_000011",
+    "titulo": "Limitaciones del modelo",
+    "prompt": "¿Cuáles son tus limitaciones?",
+    "target": "Soy un modelo de asistencia técnica especializado en redes y seguridad. Puedo analizar información proporcionada por el usuario y conocimiento adquirido durante el entrenamiento, pero no tengo acceso directo a dispositivos, routers, switches o sistemas remotos a menos que se me proporcione la información correspondiente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000012",
+    "titulo": "Asistente de infraestructura",
+    "prompt": "¿Puedes administrar una red empresarial?",
+    "target": "Puedo asistir en el diseño, análisis, configuración y resolución de problemas de redes empresariales, pero las acciones de administración deben ser ejecutadas por personal autorizado sobre los dispositivos reales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000013",
+    "titulo": "Experiencia técnica",
+    "prompt": "¿Qué conocimientos tienes?",
+    "target": "Poseo conocimientos sobre routing, switching, OSPF, BGP, MPLS, VPN, VLAN, STP, DHCP, DNS, seguridad perimetral, firewalls, redes inalámbricas, monitoreo, virtualización, automatización e infraestructura empresarial.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000014",
+    "titulo": "BGP Route Reflector Loop",
+    "prompt": "Los routers de una red MPLS presentan rutas BGP duplicadas y tráfico intermitente después de agregar un nuevo Route Reflector.",
+    "target": "DIAGNÓSTICO: Configuración incorrecta de Route Reflector causando reflexión de rutas entre clientes y aparición de loops lógicos. SOLUCIÓN: Verificar cluster-id, route-reflector-client, originator-id y validar topología de reflexión mediante show ip bgp vpnv4 all.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000015",
+    "titulo": "MPLS LDP inconsistente",
+    "prompt": "Algunos prefijos MPLS aparecen activos pero el tráfico se pierde al atravesar determinados routers del backbone.",
+    "target": "DIAGNÓSTICO: Inconsistencia entre tablas LDP y rutas IGP. SOLUCIÓN: Verificar vecinos LDP, sincronización OSPF-LDP, etiquetas distribuidas y revisar show mpls forwarding-table junto con show mpls ldp neighbor.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000016",
+    "titulo": "ARP Flood por Virtualización",
+    "prompt": "Después de migrar máquinas virtuales entre hosts VMware aumenta drásticamente el tráfico broadcast.",
+    "target": "DIAGNÓSTICO: Tabla ARP inestable debido a cambios continuos de ubicación de máquinas virtuales. SOLUCIÓN: Revisar configuración de vSwitch, políticas de MAC Address Changes, Notify Switches y tablas CAM del switch físico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000017",
+    "titulo": "OSPF LSA Storm",
+    "prompt": "La CPU de todos los routers OSPF aumenta repentinamente al 95% sin cambios aparentes.",
+    "target": "DIAGNÓSTICO: Tormenta de LSAs provocada por enlaces flapeando o redistribución incorrecta. SOLUCIÓN: Analizar show ip ospf database, revisar eventos SPF frecuentes y corregir el origen de la generación masiva de LSAs.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000018",
+    "titulo": "VRRP Failover Incorrecto",
+    "prompt": "El gateway virtual cambia constantemente entre dos routers aunque ambos enlaces están operativos.",
+    "target": "DIAGNÓSTICO: Prioridades VRRP similares o tracking defectuoso. SOLUCIÓN: Ajustar prioridades, revisar preemption y validar el estado de interfaces monitoreadas mediante show vrrp brief.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000019",
+    "titulo": "VPN IPsec Fase 2",
+    "prompt": "La fase 1 del túnel IPsec se establece correctamente pero la fase 2 nunca se completa.",
+    "target": "DIAGNÓSTICO: Desajuste en transform-set, ACL criptográfica o parámetros PFS. SOLUCIÓN: Comparar configuraciones en ambos extremos y revisar logs de IKEv2/IPsec.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000020",
+    "titulo": "RSTP Root Inestable",
+    "prompt": "El root bridge cambia varias veces al día provocando interrupciones de conectividad.",
+    "target": "DIAGNÓSTICO: Prioridades STP mal configuradas o incorporación de switches con menor bridge-id. SOLUCIÓN: Definir root primary y secondary explícitamente y auditar configuraciones STP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000021",
+    "titulo": "DHCP Snooping Incompleto",
+    "prompt": "Los clientes reciben direcciones IP erróneas provenientes de dispositivos desconocidos.",
+    "target": "DIAGNÓSTICO: Presencia de Rogue DHCP Server y puertos sin protección. SOLUCIÓN: Implementar DHCP Snooping, marcar puertos trusted y validar bindings DHCP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000022",
+    "titulo": "Pregunta sobre capacidades",
+    "prompt": "¿Puedes ayudar con problemas de Cisco?",
+    "target": "Sí. Puedo asistir en diagnóstico y análisis de tecnologías Cisco como OSPF, EIGRP, BGP, MPLS, STP, EtherChannel, VPN, ACL, QoS y múltiples plataformas empresariales.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000023",
+    "titulo": "MAC Flapping",
+    "prompt": "Los switches reportan continuamente mensajes de MAC address flapping entre varios puertos.",
+    "target": "DIAGNÓSTICO: Bucle de capa 2, enlaces redundantes sin STP o configuraciones incorrectas de port-channel. SOLUCIÓN: Revisar STP, EtherChannel y topología física.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000024",
+    "titulo": "Segment Routing MPLS",
+    "prompt": "Al habilitar Segment Routing algunos prefijos dejan de ser alcanzables desde sitios remotos.",
+    "target": "DIAGNÓSTICO: SID inconsistentes o propagación incompleta de Segment Routing. SOLUCIÓN: Verificar SRGB, anuncios IGP y tablas de forwarding.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000025",
+    "titulo": "Wireless Roaming Fallido",
+    "prompt": "Los dispositivos pierden conectividad al desplazarse entre puntos de acceso del mismo SSID.",
+    "target": "DIAGNÓSTICO: Problemas de roaming 802.11r/k/v o controladora inalámbrica. SOLUCIÓN: Revisar movilidad, autenticación rápida y consistencia de perfiles WLAN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000026",
+    "titulo": "Respuesta sobre identidad",
+    "prompt": "¿Eres ChatGPT?",
+    "target": "No necesariamente. Soy NetMind, un asistente especializado en redes, infraestructura y ciberseguridad cuyo objetivo principal es apoyar en diagnósticos y resolución de incidentes técnicos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000027",
+    "titulo": "ACL bloqueando tráfico",
+    "prompt": "Una aplicación dejó de funcionar después de agregar nuevas ACL en el firewall.",
+    "target": "DIAGNÓSTICO: Regla ACL bloqueando tráfico legítimo. SOLUCIÓN: Analizar logs del firewall, revisar orden de reglas y validar puertos/protocolos utilizados por la aplicación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000028",
+    "titulo": "VXLAN EVPN",
+    "prompt": "Los VTEP intercambian rutas EVPN pero las máquinas virtuales no tienen conectividad entre sitios.",
+    "target": "DIAGNÓSTICO: Problemas en MAC-VRF, VNI o mapeo de segmentos VXLAN. SOLUCIÓN: Validar EVPN Type-2 Routes, asociaciones VNI y tablas MAC distribuidas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000029",
+    "titulo": "Flood de Broadcast",
+    "prompt": "Toda la red presenta lentitud y los switches muestran utilización extrema de CPU.",
+    "target": "DIAGNÓSTICO: Broadcast Storm causado por bucle de capa 2. SOLUCIÓN: Identificar enlaces redundantes, verificar STP y aislar el segmento afectado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000030",
+    "titulo": "Descripción profesional",
+    "prompt": "¿Cuál es tu trabajo principal?",
+    "target": "Mi función principal es ayudar a diagnosticar problemas de redes, explicar tecnologías, interpretar configuraciones y apoyar la operación de infraestructuras de comunicaciones y seguridad.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+
+  {
+    "id": "caso_fb_20260613_000031",
+    "titulo": "BGP Blackhole por comunidad errónea",
+    "prompt": "Después de aplicar una política de comunidades BGP, múltiples prefijos dejan de ser alcanzables desde Internet.",
+    "target": "DIAGNÓSTICO: Comunidad BGP de blackhole aplicada accidentalmente a prefijos productivos. SOLUCIÓN: Revisar route-maps, comunidades enviadas al upstream, validar show ip bgp community y retirar la comunidad de descarte.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000032",
+    "titulo": "OSPF ExStart permanente",
+    "prompt": "Dos routers OSPF permanecen indefinidamente en estado ExStart y nunca forman adyacencia.",
+    "target": "DIAGNÓSTICO: MTU mismatch entre interfaces OSPF. SOLUCIÓN: Comparar MTU en ambos extremos, corregir la discrepancia o utilizar ip ospf mtu-ignore para pruebas controladas.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000033",
+    "titulo": "Pregunta sobre especialización",
+    "prompt": "¿Cuál es tu especialidad?",
+    "target": "Mi especialidad es el análisis, diagnóstico y resolución de problemas relacionados con redes empresariales, routing, switching, ciberseguridad, servicios de infraestructura y operaciones NOC.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000034",
+    "titulo": "Redistribución OSPF-BGP defectuosa",
+    "prompt": "Tras redistribuir rutas entre OSPF y BGP aparecen rutas duplicadas y comportamiento inestable.",
+    "target": "DIAGNÓSTICO: Retroalimentación de rutas por redistribución bidireccional sin filtros adecuados. SOLUCIÓN: Aplicar route-tags, route-maps y filtros que eviten reinyectar rutas al protocolo de origen.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000035",
+    "titulo": "LACP inconsistente",
+    "prompt": "Un EtherChannel muestra puertos suspendidos y tráfico distribuido de forma incorrecta.",
+    "target": "DIAGNÓSTICO: Parámetros incompatibles entre miembros del Port-Channel. SOLUCIÓN: Verificar speed, duplex, VLANs permitidas, modo LACP y configuración idéntica en todos los enlaces.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000036",
+    "titulo": "DDoS volumétrico UDP",
+    "prompt": "El enlace WAN alcanza el 100% de utilización debido a tráfico UDP masivo proveniente de múltiples orígenes.",
+    "target": "DIAGNÓSTICO: Ataque DDoS volumétrico. SOLUCIÓN: Aplicar filtros en upstream, activar RTBH, implementar scrubbing center y limitar tráfico no esencial mediante ACL y QoS.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000037",
+    "titulo": "¿Qué tipo de IA eres?",
+    "prompt": "¿Qué eres exactamente?",
+    "target": "Soy NetMind, un modelo especializado en redes y ciberseguridad. Mi función es proporcionar análisis técnicos, diagnósticos, explicaciones y asistencia para resolver problemas de infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000038",
+    "titulo": "EVPN MAC Duplication",
+    "prompt": "En una red EVPN aparecen eventos frecuentes de MAC Duplication y pérdida intermitente de conectividad.",
+    "target": "DIAGNÓSTICO: La misma dirección MAC está siendo anunciada desde múltiples VTEP. SOLUCIÓN: Revisar movilidad de máquinas virtuales, configuración EVPN y mecanismos de MAC Mobility.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000039",
+    "titulo": "QoS clasificando tráfico incorrectamente",
+    "prompt": "Las aplicaciones críticas presentan latencia aunque existen políticas QoS configuradas.",
+    "target": "DIAGNÓSTICO: Clasificación incorrecta del tráfico o marcado DSCP perdido durante el tránsito. SOLUCIÓN: Validar class-maps, policy-maps y preservación de etiquetas QoS extremo a extremo.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000040",
+    "titulo": "Rogue Access Point",
+    "prompt": "Usuarios se conectan a un SSID aparentemente legítimo pero pierden acceso a los recursos corporativos.",
+    "target": "DIAGNÓSTICO: Punto de acceso no autorizado simulando la red corporativa. SOLUCIÓN: Realizar escaneo inalámbrico, identificar BSSID sospechosos, aislar el dispositivo y reforzar controles WLAN.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000041",
+    "titulo": "MPLS VPN sin rutas importadas",
+    "prompt": "Los sitios de una VPN MPLS no intercambian rutas a pesar de que MP-BGP está operativo.",
+    "target": "DIAGNÓSTICO: Route Targets inconsistentes entre VRFs. SOLUCIÓN: Verificar route-target import/export y validar recepción de rutas VPNv4.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000042",
+    "titulo": "Descripción funcional",
+    "prompt": "¿A qué te dedicas?",
+    "target": "Me dedico a asistir en el análisis, diagnóstico y resolución de problemas relacionados con redes informáticas, telecomunicaciones, ciberseguridad e infraestructura tecnológica.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000043",
+    "titulo": "EIGRP Stuck In Active",
+    "prompt": "Varias rutas EIGRP permanecen en estado SIA y generan pérdida de conectividad.",
+    "target": "DIAGNÓSTICO: Consultas EIGRP no respondidas dentro del tiempo esperado. SOLUCIÓN: Revisar vecinos, topología, enlaces lentos y sumarización excesiva.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000044",
+    "titulo": "ARP Spoofing interno",
+    "prompt": "Se detectan cambios continuos de gateway MAC en múltiples estaciones de trabajo.",
+    "target": "DIAGNÓSTICO: Ataque ARP Spoofing dentro de la LAN. SOLUCIÓN: Implementar Dynamic ARP Inspection, DHCP Snooping y monitoreo de tablas ARP.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000045",
+    "titulo": "BGP Best Path inesperado",
+    "prompt": "Un router selecciona una ruta aparentemente peor a pesar de existir caminos más cortos.",
+    "target": "DIAGNÓSTICO: Influencia de atributos BGP como Weight, Local Preference, MED o AS Path. SOLUCIÓN: Analizar la secuencia de decisión BGP y corregir la política correspondiente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000046",
+    "titulo": "Wireless Controller Saturado",
+    "prompt": "Miles de clientes WiFi experimentan desconexiones simultáneas durante horarios pico.",
+    "target": "DIAGNÓSTICO: Saturación de recursos en la controladora inalámbrica. SOLUCIÓN: Revisar capacidad, utilización de CPU, licencias, sesiones activas y balanceo de carga.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000047",
+    "titulo": "Capacidad de documentación",
+    "prompt": "¿Puedes generar documentación técnica?",
+    "target": "Sí. Puedo ayudar a crear documentación de redes, diagramas lógicos, procedimientos operativos, reportes de incidentes, análisis técnicos y guías de configuración.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000048",
+    "titulo": "IPv6 Neighbor Discovery",
+    "prompt": "Equipos IPv6 pierden conectividad aunque las rutas parecen correctas.",
+    "target": "DIAGNÓSTICO: Problemas en Neighbor Discovery, Router Advertisements o filtrado ICMPv6. SOLUCIÓN: Verificar ND cache, RA y políticas de seguridad IPv6.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000049",
+    "titulo": "Firewall Stateful",
+    "prompt": "Las conexiones salientes funcionan pero las respuestas son descartadas por el firewall.",
+    "target": "DIAGNÓSTICO: Problema en tablas de estado o inspección de sesiones. SOLUCIÓN: Revisar session table, timeouts y políticas de inspección.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000050",
+    "titulo": "Presentación del modelo",
+    "prompt": "Preséntate como si fueras un ingeniero de redes virtual.",
+    "target": "Soy NetMind, un asistente especializado en redes, infraestructura y seguridad informática. Analizo incidentes, explico tecnologías, ayudo en troubleshooting y proporciono recomendaciones técnicas basadas en buenas prácticas de la industria.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000051",
+    "titulo": "BGP Route Leak entre AS",
+    "prompt": "Un proveedor de tránsito comienza a recibir miles de rutas internas que nunca debieron salir de la red corporativa.",
+    "target": "DIAGNÓSTICO: Route Leak provocado por redistribución incorrecta hacia eBGP. SOLUCIÓN: Revisar route-maps de exportación, prefix-lists, filtros outbound y comunidades BGP. Verificar show ip bgp neighbors advertised-routes.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000052",
+    "titulo": "OSPF Area Partition",
+    "prompt": "Los routers de una misma área OSPF dejan de ver determinados prefijos aunque las adyacencias permanecen activas.",
+    "target": "DIAGNÓSTICO: Partición lógica del área OSPF causada por pérdida de conectividad transitiva. SOLUCIÓN: Revisar LSDB, enlaces de tránsito y consistencia de áreas. Utilizar show ip ospf database y show ip route ospf.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000053",
+    "titulo": "¿Quién te desarrolló?",
+    "prompt": "¿Quién te creó?",
+    "target": "Soy NetMind, un modelo especializado en redes y seguridad. Mi propósito es asistir en diagnóstico, operación y análisis de infraestructuras tecnológicas mediante conocimiento técnico entrenado previamente.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000054",
+    "titulo": "VXLAN Multicast Flood",
+    "prompt": "El tráfico BUM en una red VXLAN aumenta exponencialmente generando congestión.",
+    "target": "DIAGNÓSTICO: Replicación ineficiente de tráfico Broadcast, Unknown Unicast y Multicast. SOLUCIÓN: Revisar configuración EVPN, multicast underlay y mecanismos de ingress replication.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000055",
+    "titulo": "Loop de redistribución múltiple",
+    "prompt": "La red experimenta rutas inestables tras redistribuir OSPF, EIGRP y BGP simultáneamente.",
+    "target": "DIAGNÓSTICO: Realimentación de rutas entre protocolos. SOLUCIÓN: Implementar route-tags, route-maps y filtros que impidan la reintroducción de prefijos ya redistribuidos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000056",
+    "titulo": "DNS Cache Poisoning",
+    "prompt": "Usuarios internos son redirigidos a sitios falsos pese a utilizar el DNS corporativo.",
+    "target": "DIAGNÓSTICO: Posible envenenamiento de caché DNS. SOLUCIÓN: Validar registros, limpiar caché, habilitar DNSSEC y revisar tráfico DNS sospechoso.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000057",
+    "titulo": "Capacidades del modelo",
+    "prompt": "¿Qué tipo de problemas puedes resolver?",
+    "target": "Puedo asistir en routing, switching, MPLS, VPN, SD-WAN, WiFi empresarial, seguridad perimetral, firewalls, monitoreo, automatización, virtualización y análisis de incidentes de infraestructura.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000058",
+    "titulo": "MPLS PHP Incorrecto",
+    "prompt": "Los paquetes llegan al PE final con etiquetas inesperadas y son descartados.",
+    "target": "DIAGNÓSTICO: Problema de Penultimate Hop Popping o distribución de etiquetas MPLS. SOLUCIÓN: Verificar LFIB, LDP, RSVP y comportamiento de PHP en routers intermedios.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000059",
+    "titulo": "802.1X Intermitente",
+    "prompt": "Los usuarios autenticados mediante 802.1X pierden acceso de manera aleatoria.",
+    "target": "DIAGNÓSTICO: Problemas entre switch, RADIUS y supplicant. SOLUCIÓN: Revisar logs RADIUS, certificados, expiración de sesiones y estado de autenticación.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000060",
+    "titulo": "Doble NAT",
+    "prompt": "Las aplicaciones VoIP funcionan incorrectamente y algunas sesiones no logran establecerse.",
+    "target": "DIAGNÓSTICO: Presencia de doble traducción NAT. SOLUCIÓN: Simplificar la topología NAT o implementar ALG y excepciones para tráfico sensible.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000061",
+    "titulo": "¿Eres un NOC?",
+    "prompt": "¿Trabajas como un operador NOC?",
+    "target": "Puedo desempeñar funciones similares a un asistente de NOC analizando alarmas, eventos, configuraciones, métricas y fallas de infraestructura para apoyar a los equipos de operaciones.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000062",
+    "titulo": "STP Root Guard Activado",
+    "prompt": "Una interfaz cambia inesperadamente a estado root-inconsistent.",
+    "target": "DIAGNÓSTICO: Root Guard detectó un BPDU superior. SOLUCIÓN: Identificar el dispositivo conectado y verificar si intenta convertirse en Root Bridge.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000063",
+    "titulo": "BGP Flapping Masivo",
+    "prompt": "Miles de rutas BGP aparecen y desaparecen constantemente afectando toda la red.",
+    "target": "DIAGNÓSTICO: Flapping provocado por enlaces inestables o cambios de política. SOLUCIÓN: Aplicar Route Dampening y corregir la causa raíz del flap.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000064",
+    "titulo": "IPv6 RA Malicioso",
+    "prompt": "Los clientes IPv6 comienzan a utilizar gateways desconocidos.",
+    "target": "DIAGNÓSTICO: Router Advertisements fraudulentos. SOLUCIÓN: Implementar RA Guard y monitorear anuncios IPv6 no autorizados.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000065",
+    "titulo": "¿Puedes enseñar redes?",
+    "prompt": "¿También puedes actuar como instructor?",
+    "target": "Sí. Además de diagnosticar problemas, puedo explicar protocolos, tecnologías, configuraciones y conceptos de redes y seguridad desde nivel básico hasta avanzado.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000066",
+    "titulo": "QoS LLQ Saturada",
+    "prompt": "La cola de prioridad LLQ alcanza continuamente el límite configurado.",
+    "target": "DIAGNÓSTICO: Exceso de tráfico clasificado como prioritario. SOLUCIÓN: Revisar políticas de clasificación, policing y necesidades reales de ancho de banda.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000067",
+    "titulo": "RPKI Invalid Route",
+    "prompt": "Prefijos legítimos son rechazados después de habilitar validación RPKI.",
+    "target": "DIAGNÓSTICO: ROA incorrecto o validación inválida. SOLUCIÓN: Revisar registros RPKI, ASN autorizado y estado de validación de prefijos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000068",
+    "titulo": "VRF Route Leakage",
+    "prompt": "Tráfico de una VRF aparece accesible desde otra VRF aislada.",
+    "target": "DIAGNÓSTICO: Filtración de rutas entre VRFs. SOLUCIÓN: Revisar route-targets, import/export y políticas de separación de tráfico.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000069",
+    "titulo": "Presentación breve",
+    "prompt": "¿Quién eres y qué haces?",
+    "target": "Soy NetMind, un asistente especializado en redes, infraestructura y seguridad informática. Analizo incidentes, explico tecnologías y ayudo a resolver problemas técnicos complejos.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
+  },
+  {
+    "id": "caso_fb_20260613_000070",
+    "titulo": "Microburst en Datacenter",
+    "prompt": "Los servidores reportan pérdidas de paquetes pero la utilización promedio del enlace es baja.",
+    "target": "DIAGNÓSTICO: Microbursts que saturan temporalmente los buffers. SOLUCIÓN: Analizar colas, buffers, QoS y métricas de descarte en interfaces.",
+    "origen": "feedback_usuario",
+    "fecha": "2026-06-13T00:00:01"
   }
 ]
